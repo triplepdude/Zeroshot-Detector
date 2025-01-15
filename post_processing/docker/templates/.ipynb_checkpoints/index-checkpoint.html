@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Feedback</title>
+    <style>
+        /* Basic reset and layout styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        /* Container for the layout */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            width: 90%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left column styling (feedback form) */
+        .feedback-form {
+            width: 35%;
+            padding: 20px;
+            background-color: #f7f9fc;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        /* Form header */
+        .feedback-form h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Display labels */
+        .feedback-form p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        /* Button-style options */
+        .option-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .option-button {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .option-button.selected {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Submit button styling */
+        .feedback-form button[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .feedback-form button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Right column styling (frame display) */
+        .frame-display {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Styling for frame image */
+        .frame-display img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Frame title */
+        .frame-display h2 {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        // JavaScript to handle button-style selection and form submission
+        function selectOption(groupName, value) {
+            document.getElementById(groupName).value = value;
+
+            // Deselect all buttons in the group
+            let buttons = document.querySelectorAll('.' + groupName + ' .option-button');
+            buttons.forEach(button => button.classList.remove('selected'));
+
+            // Select the clicked button
+            document.getElementById(groupName + '-' + value).classList.add('selected');
+        }
+
+        // AJAX function to submit feedback without reloading the page
+function submitFeedback(event) {
+    event.preventDefault();  // Prevent default form submission
+    console.log("Submit button clicked");
+
+    const formData = new FormData(document.getElementById('feedbackForm'));
+
+    fetch('/feedback', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        console.log("Response received", response);
+        if (response.ok) {
+            return response.json();  // Expect JSON with updated data
+        } else {
+            throw new Error('Failed to submit feedback');
+        }
+    })
+    .then(data => {
+        console.log("Data received", data);
+        // Update the image, labels, and category without refreshing the page
+        document.getElementById('frame').src = '/image?' + new Date().getTime();
+        document.getElementById('generated_label').innerText = data.generated_label;
+        document.getElementById('predicted_category').innerText = data.predicted_category;
+    })
+    .catch(error => console.error('Error:', error));
+}
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Column: Feedback Form -->
+        <div class="feedback-form">
+            <h2>Provide Feedback</h2>
+            <form id="feedbackForm" onsubmit="submitFeedback(event)">
+                <!-- Hidden inputs for video name and frame count -->
+                <input type="hidden" name="video_name" value="{{ video_name }}">
+                <input type="hidden" name="frame_count" value="{{ frame_count }}">
+                <input type="hidden" name="generated_label" value="{{ generated_label }}">
+                <input type="hidden" name="predicted_category" value="{{ predicted_category }}">
+                <input type="hidden" id="label_feedback" name="label_feedback">
+                <input type="hidden" id="category_feedback" name="category_feedback">
+
+                <p><strong>Generated Label:</strong> <span id="generated_label">{{ generated_label }}</span></p>
+                <p><strong>Predicted Category:</strong> <span id="predicted_category">{{ predicted_category }}</span></p>
+
+                <label>Is this label correct? (y/n)</label>
+                <div class="option-buttons label_feedback">
+                    <button type="button" id="label_feedback-y" class="option-button" onclick="selectOption('label_feedback', 'y')">Yes</button>
+                    <button type="button" id="label_feedback-n" class="option-button" onclick="selectOption('label_feedback', 'n')">No</button>
+                </div>
+
+                <label>Is this category correct? (y/n)</label>
+                <div class="option-buttons category_feedback">
+                    <button type="button" id="category_feedback-y" class="option-button" onclick="selectOption('category_feedback', 'y')">Yes</button>
+                    <button type="button" id="category_feedback-n" class="option-button" onclick="selectOption('category_feedback', 'n')">No</button>
+                </div>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+
+        <!-- Right Column: Frame Display -->
+        <div class="frame-display">
+            <h2>Current Frame</h2>
+            <img id="frame" src="/image" alt="Current Frame">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mismatch Reviewer</title>
+</head>
+<body>
+    <h1>CS388 Research Project</h1>
+    <p><b> Hello, thank you for helping me out by filling out this short form. Every response helps, but it is critical that responses are valid, so please <u>pay attention</u>.</b></p>
+    <p>Below is the text with mismatched categories. Please select the correct category:</p>
+    <p><strong>Instructions:</strong></p>
+    <ul>
+        <li>Review the text carefully.</li>
+        <li>Compare the original label and predicted category for context.</li>
+        <li>Select the correct category from the dropdown menu.</li>
+        <li>Be aware that you are helping me to see what type of information is posted the most on tiktok.</li>
+    </ul>
+<form method="POST">
+    <p><strong>Text:</strong> {{ text }}</p>
+    <input type="hidden" name="text" value="{{ text }}">
+    <p><strong>Original Label:</strong> {{ label }}</p>
+    <p><strong>Predicted Category:</strong> {{ predicted_category }}</p>
+    <label for="category">Correct Category:</label>
+    <select name="category" required>
+        <option value="">Select a category</option>
+        <option value="ground_vehicles">Ground Vehicles</option>
+        <option value="maritime">Maritime</option>
+        <option value="weapons">Weapons</option>
+        <option value="aircraft">Aircraft</option>
+        <option value="nonmilitary">Nonmilitary</option>
+    </select>
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
