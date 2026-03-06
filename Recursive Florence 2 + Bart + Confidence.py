@@ -22,10 +22,10 @@ logging.basicConfig(  #so i know what happens when stuff doesnt work
     level=logging.INFO,
     format='%(asctime)s %(levelname)s:%(message)s'
 )
-MINIO_ENDPOINT = "whisper3:9000"
+MINIO_ENDPOINT = #INPUT STRING HERE.
 MINIO_SECURE = False #making it wasy to change buckets, currently 1 bucket per script
 BUCKET_NAMES = [
-    'dfp-vm-mil-equip-sep2024',
+    #LIST BUCKET NAMES HERE.
 ]
 OUTPUT_DIRS = {
     'weapons': 'weapons',
