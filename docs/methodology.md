@@ -55,6 +55,14 @@ For a video with decoded frames $f_0, f_1, \dots$:
 was checked against the Hugging Face `zero-shot-classification` pipeline: the
 maximum absolute score difference is 2.3 × 10⁻⁶.
 
+Florence-2 can run through Microsoft's `trust_remote_code` implementation (as in
+the study; it needs eager attention and `use_cache=False` with current
+`transformers`) or through the native `transformers` implementation
+(`florence-community/*` checkpoints). In smoke tests on a short video, the two
+produced token-identical `<OD>` output, location tokens included: 3 frames with
+the base checkpoints and 1 frame with the large checkpoints. This is a spot
+check, not a proof of equivalence.
+
 ## 3. Data
 
 See the data card, [`data/README.md`](../data/README.md). In brief:

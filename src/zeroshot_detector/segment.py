@@ -10,10 +10,17 @@ This module re-segments them so that the effect of the missing separator can
 be measured (see the ``segmented`` relabelling in the analysis). The
 vocabulary is the Open Images V7 boxable class list (which Florence-2's
 detection labels largely follow) plus every archived string that occurs on its
-own and cannot itself be split into known labels. Segmentation uses as *few*
-parts as possible, so that genuine compound class names (``"wheelchair"``,
+own and cannot itself be split into known labels, plus labels mined from
+recurring unknown pieces (see :func:`build_vocabulary`). Segmentation uses as
+*few* parts as possible, so that genuine compound class names (``"wheelchair"``,
 ``"sunglasses"``) are not split. Strings that cannot be fully covered are left
 unsplit.
+
+The procedure is heuristic. Known artefacts: a rare label whose prefix is
+itself a class name can be split there (``"fishing rod"`` → ``"fish"`` +
+``"ing rod"``, ``"antenna"`` → ``"ant"`` + ``"enna"``). On the archive this
+affects 0.09% of frames; labels seen in fewer than ``min_support`` strings
+(e.g. ``"baseball cap"``, 9 strings) are not recovered.
 """
 
 from __future__ import annotations
@@ -103,9 +110,10 @@ def _shortest_residual(text: str, vocab: set[str], longest: int, min_len: int) -
         for j in range(i + min_len, len(text) + 1):
             if bwd[j]:
                 piece = text[i:j]
-                if piece != text and piece.strip() == piece and (best is None or len(piece) < len(best)):
-                    best = piece
-                break  # longer j only gives longer pieces from this i
+                if piece != text and piece.strip() == piece:
+                    if best is None or len(piece) < len(best):
+                        best = piece
+                    break  # longer j only gives longer pieces from this i
     return best
 
 
@@ -120,42 +128,41 @@ def build_vocabulary(
 
     ``base`` defaults to the Open Images classes plus :data:`SUPPLEMENTARY_LABELS`.
 
-    1. Archived strings are visited from shortest to longest. A string that
-       cannot be split into two or more items of the current vocabulary is
-       taken to be a single label and added (so ``"car tire"``, seen on its
-       own, is known before ``"car tiretruck"`` is visited).
-    2. *Residual mining* for labels that never occur alone: for each string
-       that is still unsplittable, the shortest unknown piece whose removal
-       leaves a segmentable remainder is collected; pieces found in at least
-       ``min_support`` distinct strings are added and step 1 is repeated.
+    1. *Residual mining* against trusted labels only (``base`` plus labels
+       mined so far): for every string that cannot be split into trusted
+       labels, take the shortest unknown piece whose removal leaves a
+       segmentable remainder. Pieces found in at least ``min_support`` distinct
+       strings become labels (e.g. ``"car tire"``, ``"tank top"``,
+       ``"baseball cap"``). Repeat until nothing new is found.
+    2. Archived strings are visited from shortest to longest; a string that
+       still cannot be split into two or more known items is taken to be a
+       single label (rare labels seen on their own).
     """
     from collections import Counter
 
     texts = sorted(set(texts), key=lambda t: (len(t), t))
-    base_vocab = frozenset(base) if base is not None else default_base_vocabulary()
-    mined: set[str] = set()
+    trusted = set(frozenset(base) if base is not None else default_base_vocabulary())
     for _ in range(max_rounds):
-        vocab = set(base_vocab) | mined
-        unsplit = []
-        for text in texts:
-            if text in vocab:
-                continue
-            longest = max(len(v) for v in vocab)
-            parts = segment(text, vocab, longest)
-            if parts is None or len(parts) < 2:
-                vocab.add(text)
-                unsplit.append(text)
-        longest = max(len(v) for v in vocab)
+        longest = max(len(v) for v in trusted)
         support: Counter[str] = Counter()
-        for text in unsplit:
-            others = vocab - {text}
-            piece = _shortest_residual(text, others, longest, min_len)
-            if piece is not None and piece not in others:
+        for text in texts:
+            if text in trusted or _reachable(text, trusted, longest)[0][len(text)]:
+                continue
+            piece = _shortest_residual(text, trusted, longest, min_len)
+            if piece is not None:
                 support[piece] += 1
-        new = {piece for piece, n in support.items() if n >= min_support} - mined
+        new = {piece for piece, n in support.items() if n >= min_support} - trusted
         if not new:
             break
-        mined |= new
+        trusted |= new
+    vocab = set(trusted)
+    longest = max(len(v) for v in vocab)
+    for text in texts:
+        if text in vocab:
+            continue
+        parts = segment(text, vocab, max(longest, len(text)))
+        if parts is None or len(parts) < 2:
+            vocab.add(text)
     return frozenset(vocab)
 
 

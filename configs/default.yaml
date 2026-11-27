@@ -18,8 +18,11 @@ sampling:
   max_samples_per_video: null
 
 detector:
-  model: microsoft/Florence-2-large
-  revision: null              # pin a commit hash for exact reproducibility
+  # Native transformers implementation (no trust_remote_code). In smoke tests (base: 3 frames,
+  # large: 1 frame) native and remote code gave token-identical <OD> output; native is faster.
+  model: florence-community/Florence-2-large
+  revision: 4271c66b88cdbc05735372ec13b2360108de5317
+  backend: auto               # auto | remote | native
   task: "<OD>"
   num_beams: 3
   max_new_tokens: 1024

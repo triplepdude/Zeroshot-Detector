@@ -14,7 +14,10 @@ sampling:
   dedup_l1_threshold: 5000
 
 detector:
-  model: microsoft/Florence-2-large
+  model: microsoft/Florence-2-large   # remote code, as in the study (needs trust_remote_code)
+  revision: null              # the revision the study used is unknown (study ran ~Jan 2025;
+                              # the model repository was last changed 2025-08-04). Pin one for new runs.
+  backend: remote
   task: "<OD>"
   num_beams: 3
   max_new_tokens: 1024

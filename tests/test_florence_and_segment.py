@@ -63,4 +63,15 @@ class TestSegment:
         seg = segment_all(texts, vocab)
         assert seg["human beardhuman faceman"] == ("human beard", "human face", "man")
         assert seg["glasseshuman beardhuman faceman"] == ("glasses", "human beard", "human face", "man")
-        assert build_vocabulary(texts, base=base, min_support=4) >= {"human beardhuman faceman"}
+        # below the support threshold the compound stays a single unknown item
+        assert build_vocabulary(texts, base=base, min_support=5) >= {"human beardhuman faceman"}
+
+    def test_mined_label_inside_longer_standalone_string(self):
+        # "tank top" never occurs alone, but "persontank top" does; mining must still find it
+        base = {"person", "tank", "woman", "man", "television", "chair"}
+        texts = ["persontank top"] + [
+            f"{x}persontank top{y}" for x, y in [("chair", ""), ("", "television"), ("", "woman")]
+        ]
+        vocab = build_vocabulary(texts, base=base, min_support=3)
+        assert "tank top" in vocab
+        assert segment_all(texts, vocab)["persontank top"] == ("person", "tank top")
