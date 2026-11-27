@@ -356,3 +356,18 @@ def test_headline_rows_without_intervals():
     }
     rows = {r[0].split(":")[0]: r for r in _headline_rows(s)}
     assert rows["C1"][3] == rows["P1"][3] == rows["P2"][3] == "– (no interval)"
+
+
+def test_metrics_report_system_class_shares():
+    import numpy as np
+
+    from zeroshot_detector.experiments.design import metrics
+
+    cm = np.zeros((len(LABELS), len(LABELS)))
+    nm = LABELS.index(NONMILITARY)
+    cm[nm, nm] = 6
+    cm[nm, 0] = 2  # reference nonmilitary, system says the first military class
+    cm[0, 0] = 2
+    m = metrics(cm)
+    assert m["share_" + LABELS[0]] == 0.4 and m["prevalence_" + LABELS[0]] == 0.2
+    assert abs(sum(m[f"share_{lab}"] for lab in LABELS) - 1) < 1e-12

@@ -70,13 +70,15 @@ Florence-2 object string. The experiments therefore build a documented
 **reference label for strings** on a probability sample, which supports
 design-weighted estimates for any classifier that reads the string. The plan
 (with its analyses and predictions) and the codebook were committed before the
-sample was drawn
+sample was drawn. They were written after the system labels, the earlier
+disagreement tables and the archived human labels had been inspected, as the
+plan states
 ([`docs/experiments/PLAN.md`](docs/experiments/PLAN.md),
 [`CODEBOOK.md`](docs/experiments/CODEBOOK.md)); every departure from them is
 logged in [`DEVIATIONS.md`](docs/experiments/DEVIATIONS.md). Full results:
 [`results/experiments/REPORT.md`](results/experiments/REPORT.md).
 
-* **Sample.** 1,108 strings carrying 84% of the population's frames: the 500
+* **Sample.** 1,108 strings carrying 85% of the population's frames: the 500
   most frequent strings; a census of the 167 rarer strings that both systems
   called non-military although their objects include a weapon or a watercraft;
   and 441 strings from a stratified random sample of the remaining frames
@@ -87,14 +89,16 @@ logged in [`DEVIATIONS.md`](docs/experiments/DEVIATIONS.md). Full results:
   passes for the 23 heaviest strings, test–retest items, single-item calls and
   synthetic strings with known answers.
 * **Construct.** Each vehicle category gets a 0–3 military score. Four
-  pre-registered readings: *equipment* (any vehicle or weapon), *type*,
+  pre-registered readings: *equipment* (any weapon or vehicle category at any
+  score; the generic `vehicle` alone does not count), *type* (score ≥ 1),
   *lenient* (primary: at least plausibly military, score ≥ 2) and *strict*
   (score 3: inherently military objects such as tanks, or dual-use vehicles
   with a military cue). Weapons count under every reading.
 * **Outcome.** *TLR agreement*: design-weighted agreement with this text-level
   reference. It is agreement with a codebook reading of the object list, **not
-  accuracy against the video**, and the annotators' own error rate against
-  human judgement is not estimated.
+  accuracy against the video**. The annotators' own error rate against human
+  judgement is not estimated, and their errors may be correlated with those of
+  the original LLM labeller, which would favour the LLM labels.
 
 Findings:
 
@@ -102,8 +106,9 @@ Findings:
    1,027,433 frames, the codebook rules give a military share of 45.4%
    (equipment), 21.1% (lenient) or 6.4% (strict). The pipeline agrees with the
    lenient labels on 95.5% of frames and the LLM on 98.8%; under strict the
-   ranking flips (88.1% vs 84.2%). Both predictions made before annotation (P1,
-   P2) were confirmed.
+   ranking flips (88.1% vs 84.2%). Both predictions made before annotation were
+   confirmed: the panel reproduces these rule-based values (P1), including the
+   flip (P2).
 2. **The panel applies the codebook almost mechanically.** Configurations agree
    on 99.9% of strings (Fleiss' κ 0.999); test–retest, single-item and synthetic
    checks agree 100%. The panel departs from the deterministic rule reference
@@ -113,13 +118,13 @@ Findings:
 3. **C1 (confirmatory): the LLM labels agree more with the lenient reference
    than the pipeline**: 98.8% vs 95.5%, a difference of 3.3 pp (95% interval
    3.1 to 3.4). Post-hoc exact analyses show that this rests on one codebook
-   decision. 2.9 pp of the difference come from strings
-   containing `truck` (2.9% of frames), which the archive's auto-correction maps
+   decision. 2.9 pp of the difference come from ground-vehicle strings with a
+   `truck` and no `tank` (2.9% of frames), which the archive's auto-correction maps
    to military and the codebook scores as plausibly military (tier T2). If trucks
    are instead treated as everyday civilian vehicles (tier T1), the pipeline is
    ahead by 2.5 pp; treating every dual-use label (trucks, boats, aircraft) this
    way reproduces the strict reading. Smaller contributions: the pipeline misses
-   most boats (maritime recall 43%) and `handgun`, and the LLM labels call the
+   most boats (maritime recall 41% over the population) and `handgun`, and the LLM labels call the
    bare string `weapon` (0.3% of frames) non-military.
 4. **C2 (confirmatory): a stronger zero-shot model does not help.** The
    pre-registered DeBERTa-v3 NLI set-up ("military …" verbalizers, separated
@@ -137,16 +142,25 @@ Findings:
    close to a deterministic function of the codebook, and zero-shot NLI is the
    weak link.
 5. **RQ5 (exploratory): no evidence of a change around 24 Feb 2022 or
-   7 Oct 2023.** Within batch 12, the only batch spanning the first date, the
-   military share rises from 5% to 27%. However, steps that large occur in
-   27–31% of placebo months, and neither date passes the
+   7 Oct 2023.** Within batch 12, the only collection batch spanning the first
+   date (it covers Sep 2021 – Jul 2022), the share of videos the pipeline labels
+   military rises from 5% to 27% (LLM labels: 9% to 32%). The batch-adjusted
+   step (a GLM with batch fixed effects and a month trend) is matched or
+   exceeded in 27–31% of placebo months, and neither date passes the
    pre-registered placebo criterion.
-6. **Independent verification.** The headline numbers of both analyses were
-   re-derived by separate agents from the raw files, without the project's
-   analysis code. All eleven claims reproduced (one only after correcting the
-   wording of the claim itself). The independent re-implementation of the
-   codebook found one bug in the rule reference (the toy rule, 30 frames), which
-   was fixed and logged; no reported number changed.
+6. **Independent verification.** Separate agents re-derived the headline
+   numbers from the raw files without the project's analysis code, in two
+   rounds. The first covered the re-analysis (dataset, κ, keyword rule,
+   auto-correction, video aggregation, reproduction, human labels) and RQ1, the
+   panel, C1/P2 and the batch-12 shares: all eleven claims reproduced (one only
+   after correcting the wording of the claim itself). The second covered C2,
+   the full RQ4 grid, nested selection and the logistic regression, confirmed
+   that `zsd experiments report` reproduces `summary.json` byte for byte, and
+   checked the report against every item of the plan. The re-implementation of
+   the codebook found one bug in the rule reference (the toy rule; 30 frames
+   under the equipment reading, 11 under lenient), and the completeness check
+   found reporting gaps; both were fixed and logged, and no reported number
+   changed at the precision shown.
 
 ```bash
 zsd experiments report                              # results/experiments/ from data/reference/ and the stored grid scores (~2 min)

@@ -157,6 +157,7 @@ def metrics(cm: np.ndarray) -> dict:
         out[f"precision_{lab}"] = float(prec)
         out[f"recall_{lab}"] = float(rec)
         out[f"prevalence_{lab}"] = float(sup / n)
+        out[f"share_{lab}"] = float(pred / n)
         if sup:
             f1s.append(f1)
     out["macro_f1"] = float(np.mean(f1s)) if f1s else float("nan")

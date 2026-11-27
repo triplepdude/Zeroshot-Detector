@@ -167,6 +167,48 @@
         "human=llm": 1.0,
         "human=pipeline": 0.896551724137931,
         "neither": 0.0
+      },
+      "preregistered_outside_sample": {
+        "strings": 150,
+        "agree_equipment": 0.8066666666666666,
+        "by_side_equipment": {
+          "human=llm": 0.7692307692307693,
+          "human=pipeline": 0.8840579710144928,
+          "neither": 0.0
+        },
+        "agree_lenient": 0.9266666666666666,
+        "by_side_lenient": {
+          "human=llm": 1.0,
+          "human=pipeline": 0.8840579710144928,
+          "neither": 0.0
+        },
+        "agree_strict": 0.9266666666666666,
+        "by_side_strict": {
+          "human=llm": 1.0,
+          "human=pipeline": 0.8840579710144928,
+          "neither": 0.0
+        }
+      },
+      "in_sample": {
+        "strings": 61,
+        "agree_equipment": 0.7868852459016393,
+        "by_side_equipment": {
+          "human=llm": 0.775,
+          "human=pipeline": 0.9444444444444444,
+          "neither": 0.0
+        },
+        "agree_lenient": 0.9344262295081968,
+        "by_side_lenient": {
+          "human=llm": 1.0,
+          "human=pipeline": 0.9444444444444444,
+          "neither": 0.0
+        },
+        "agree_strict": 0.9344262295081968,
+        "by_side_strict": {
+          "human=llm": 1.0,
+          "human=pipeline": 0.9444444444444444,
+          "neither": 0.0
+        }
       }
     }
   },
@@ -231,6 +273,12 @@
               "ci_high": 0.016915176788494534,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01704247381581083,
+              "ci_low": 0.017042473815810828,
+              "ci_high": 0.017042473815810835,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9980142883311962,
               "ci_low": 0.9923319289247116,
@@ -247,6 +295,12 @@
               "estimate": 0.10852749846786452,
               "ci_low": 0.10765090278392862,
               "ci_high": 0.1093303156183097,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10626483673387961,
+              "ci_low": 0.1062648367338796,
+              "ci_high": 0.10626483673387963,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -267,6 +321,12 @@
               "ci_high": 0.010970447708025731,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.006306980601168149,
+              "ci_low": 0.006306980601168149,
+              "ci_high": 0.00630698060116815,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9794250143336882,
@@ -285,6 +345,12 @@
               "ci_high": 0.3205731651114975,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497652,
+              "ci_low": 0.04753205318497652,
+              "ci_high": 0.047532053184976525,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.6581000587080045,
               "ci_low": 0.6553996244895564,
@@ -301,6 +367,12 @@
               "estimate": 0.546160114576813,
               "ci_low": 0.5438322296117267,
               "ci_high": 0.5487364372745785,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8228536556641649,
+              "ci_low": 0.8228536556641648,
+              "ci_high": 0.822853655664165,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -365,6 +437,12 @@
               "ci_high": 0.016915176788494583,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.007896378644641554,
+              "ci_low": 0.007896378644641551,
+              "ci_high": 0.007896378644641558,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9935083446098331,
               "ci_low": 0.9873333333333334,
@@ -381,6 +459,12 @@
               "estimate": 0.10852749846786473,
               "ci_low": 0.1076509027839288,
               "ci_high": 0.10933031561830989,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.1078902468579463,
+              "ci_low": 0.10789024685794626,
+              "ci_high": 0.10789024685794635,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -401,6 +485,12 @@
               "ci_high": 0.010970447708025742,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.010735493214642717,
+              "ci_low": 0.010735493214642714,
+              "ci_high": 0.010735493214642722,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9820119942420924,
               "ci_low": 0.970775680813829,
@@ -419,6 +509,12 @@
               "ci_high": 0.32057316511149764,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.0773062574396579,
+              "ci_low": 0.07730625743965788,
+              "ci_high": 0.07730625743965795,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.6846020275146385,
               "ci_low": 0.6818169296616703,
@@ -435,6 +531,12 @@
               "estimate": 0.5461601145768127,
               "ci_low": 0.5438322296117265,
               "ci_high": 0.5487364372745782,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7961716238431115,
+              "ci_low": 0.7961716238431114,
+              "ci_high": 0.7961716238431117,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -499,6 +601,12 @@
               "ci_high": 0.016915176788494555,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.014281158317217107,
+              "ci_low": 0.013593967522294229,
+              "ci_high": 0.014927016327747558,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9994064791000704,
               "ci_low": 0.9982097528388961,
@@ -515,6 +623,12 @@
               "estimate": 0.10852749846786461,
               "ci_low": 0.10765090278392865,
               "ci_high": 0.10933031561830973,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10511592158969674,
+              "ci_low": 0.10402916783868163,
+              "ci_high": 0.10619767744790523,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -535,6 +649,12 @@
               "ci_high": 0.010970447708025723,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009113002989002686,
+              "ci_low": 0.008798659701735618,
+              "ci_high": 0.009430266174696222,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9794250143336882,
@@ -553,6 +673,12 @@
               "ci_high": 0.32057316511149786,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497655,
+              "ci_low": 0.04753205318497653,
+              "ci_high": 0.047532053184976567,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.6599974032207526,
               "ci_low": 0.6571471602487204,
@@ -569,6 +695,12 @@
               "estimate": 0.5461601145768126,
               "ci_low": 0.5438322296117265,
               "ci_high": 0.548736437274578,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8239578639191069,
+              "ci_low": 0.8226727363244122,
+              "ci_high": 0.8253480316153621,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -633,6 +765,12 @@
               "ci_high": 0.016915176788494562,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.021356283086099048,
+              "ci_low": 0.01842572703037571,
+              "ci_high": 0.02622176985425489,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9968885911222648,
               "ci_low": 0.9968474473139455,
@@ -649,6 +787,12 @@
               "estimate": 0.10852749846786458,
               "ci_low": 0.10765090278392868,
               "ci_high": 0.10933031561830978,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.0857116717099803,
+              "ci_low": 0.0845930529452206,
+              "ci_high": 0.0867988358689409,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -669,6 +813,12 @@
               "ci_high": 0.010970447708025728,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.08147681324881201,
+              "ci_low": 0.08026986127075926,
+              "ci_high": 0.0829757550695114,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.8594534351531941,
               "ci_low": 0.8149337024432683,
@@ -687,6 +837,12 @@
               "ci_high": 0.32057316511149625,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.15554353260342307,
+              "ci_low": 0.14792285178206224,
+              "ci_high": 0.164306501818934,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.6767752082485272,
               "ci_low": 0.6704007365601958,
@@ -703,6 +859,12 @@
               "estimate": 0.5461601145768142,
               "ci_low": 0.543832229611728,
               "ci_high": 0.5487364372745797,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.6559116993516856,
+              "ci_low": 0.6464936787037862,
+              "ci_high": 0.6647249782143136,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -767,6 +929,12 @@
               "ci_high": 0.01691517678849456,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01627606536549504,
+              "ci_low": 0.01561265389892415,
+              "ci_high": 0.01691517678849456,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 1.0,
               "ci_low": 0.9962851891799114,
@@ -783,6 +951,12 @@
               "estimate": 0.10852749846786479,
               "ci_low": 0.10765090278392885,
               "ci_high": 0.10933031561830991,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10852749846786479,
+              "ci_low": 0.10773949006893913,
+              "ci_high": 0.10936611276193556,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -803,6 +977,12 @@
               "ci_high": 0.010970447708025731,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.01075456988436229,
+              "ci_low": 0.010541611959125318,
+              "ci_high": 0.010930931749320881,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -816,6 +996,12 @@
               "nan_replicates": 0
             },
             "prevalence_ground_vehicles": {
+              "estimate": 0.3182239377166217,
+              "ci_low": 0.31574789548321075,
+              "ci_high": 0.3205731651114982,
+              "nan_replicates": 0
+            },
+            "share_ground_vehicles": {
               "estimate": 0.3182239377166217,
               "ci_low": 0.31574789548321075,
               "ci_high": 0.3205731651114982,
@@ -837,6 +1023,12 @@
               "estimate": 0.5461601145768121,
               "ci_low": 0.543832229611726,
               "ci_high": 0.5487364372745775,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.5462179285656562,
+              "ci_low": 0.5439251448350708,
+              "ci_high": 0.5487370620111786,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -983,6 +1175,12 @@
               "ci_high": 0.016973799426986128,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01704247381581083,
+              "ci_low": 0.017042473815810828,
+              "ci_high": 0.017042473815810835,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9980142883311962,
               "ci_low": 0.9942260487268731,
@@ -999,6 +1197,12 @@
               "estimate": 0.10852749846786452,
               "ci_low": 0.10772543481342996,
               "ci_high": 0.10936370060140187,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10626483673387961,
+              "ci_low": 0.1062648367338796,
+              "ci_high": 0.10626483673387963,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -1019,6 +1223,12 @@
               "ci_high": 0.010970447708025731,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.006306980601168149,
+              "ci_low": 0.006306980601168149,
+              "ci_high": 0.00630698060116815,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9759958500559696,
@@ -1037,6 +1247,12 @@
               "ci_high": 0.3205895840653369,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497652,
+              "ci_low": 0.04753205318497652,
+              "ci_high": 0.047532053184976525,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.6581000587080045,
               "ci_low": 0.6553700095237855,
@@ -1053,6 +1269,12 @@
               "estimate": 0.546160114576813,
               "ci_low": 0.5438208985808958,
               "ci_high": 0.5487108350374171,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8228536556641649,
+              "ci_low": 0.8228536556641648,
+              "ci_high": 0.822853655664165,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -1117,6 +1339,12 @@
               "ci_high": 0.016973799426986177,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.007896378644641554,
+              "ci_low": 0.007896378644641551,
+              "ci_high": 0.007896378644641558,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9935083446098331,
               "ci_low": 0.9880423996391521,
@@ -1133,6 +1361,12 @@
               "estimate": 0.10852749846786473,
               "ci_low": 0.10772543481343018,
               "ci_high": 0.10936370060140213,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.1078902468579463,
+              "ci_low": 0.10789024685794626,
+              "ci_high": 0.10789024685794635,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -1153,6 +1387,12 @@
               "ci_high": 0.010970447708025742,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.010735493214642717,
+              "ci_low": 0.010735493214642714,
+              "ci_high": 0.010735493214642722,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9820119942420924,
               "ci_low": 0.9705182746421243,
@@ -1171,6 +1411,12 @@
               "ci_high": 0.32058958406533694,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.0773062574396579,
+              "ci_low": 0.07730625743965788,
+              "ci_high": 0.07730625743965795,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.6846020275146385,
               "ci_low": 0.6816624043057165,
@@ -1187,6 +1433,12 @@
               "estimate": 0.5461601145768127,
               "ci_low": 0.5438208985808952,
               "ci_high": 0.548710835037417,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7961716238431115,
+              "ci_low": 0.7961716238431114,
+              "ci_high": 0.7961716238431117,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -1251,6 +1503,12 @@
               "ci_high": 0.01697379942698615,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.014281158317217107,
+              "ci_low": 0.013627328172899508,
+              "ci_high": 0.01493522367557461,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9994064791000704,
               "ci_low": 0.9982068257790314,
@@ -1267,6 +1525,12 @@
               "estimate": 0.10852749846786461,
               "ci_low": 0.10772543481343004,
               "ci_high": 0.10936370060140199,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10511592158969674,
+              "ci_low": 0.10405205578693062,
+              "ci_high": 0.10616685629784806,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -1287,6 +1551,12 @@
               "ci_high": 0.010970447708025723,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009113002989002686,
+              "ci_low": 0.008795659506102418,
+              "ci_high": 0.0094376064749072,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9759958500559696,
@@ -1305,6 +1575,12 @@
               "ci_high": 0.32058958406533716,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497655,
+              "ci_low": 0.04753205318497653,
+              "ci_high": 0.047532053184976567,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.6599974032207526,
               "ci_low": 0.6569824364057906,
@@ -1321,6 +1597,12 @@
               "estimate": 0.5461601145768126,
               "ci_low": 0.5438208985808951,
               "ci_high": 0.5487108350374168,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8239578639191069,
+              "ci_low": 0.8226126423815467,
+              "ci_high": 0.8252491111342537,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -1385,6 +1667,12 @@
               "ci_high": 0.016973799426986156,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.021356283086099048,
+              "ci_low": 0.01848811552675454,
+              "ci_high": 0.026576333931263636,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9968885911222648,
               "ci_low": 0.9968476354949682,
@@ -1401,6 +1689,12 @@
               "estimate": 0.10852749846786458,
               "ci_low": 0.10772543481343003,
               "ci_high": 0.1093637006014019,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.0857116717099803,
+              "ci_low": 0.08459810274733257,
+              "ci_high": 0.08680209074460349,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -1421,6 +1715,12 @@
               "ci_high": 0.010970447708025726,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.08147681324881201,
+              "ci_low": 0.0802519401913961,
+              "ci_high": 0.08305410993547346,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.8594534351531941,
               "ci_low": 0.8150373010597037,
@@ -1439,6 +1739,12 @@
               "ci_high": 0.32058958406533566,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.15554353260342307,
+              "ci_low": 0.1477628314125263,
+              "ci_high": 0.16462313418490487,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.6767752082485272,
               "ci_low": 0.6704912821407067,
@@ -1455,6 +1761,12 @@
               "estimate": 0.5461601145768142,
               "ci_low": 0.5438208985808969,
               "ci_high": 0.5487108350374184,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.6559116993516856,
+              "ci_low": 0.6456855165170546,
+              "ci_high": 0.6644474854645839,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -1519,6 +1831,12 @@
               "ci_high": 0.016973799426986156,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01627606536549504,
+              "ci_low": 0.015630134357503923,
+              "ci_high": 0.016973799426986156,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -1532,6 +1850,12 @@
               "nan_replicates": 0
             },
             "prevalence_aircraft": {
+              "estimate": 0.10852749846786479,
+              "ci_low": 0.10772543481343021,
+              "ci_high": 0.10936370060140219,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
               "estimate": 0.10852749846786479,
               "ci_low": 0.10772543481343021,
               "ci_high": 0.10936370060140219,
@@ -1555,6 +1879,12 @@
               "ci_high": 0.010970447708025731,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.01075456988436229,
+              "ci_low": 0.010541611959125317,
+              "ci_high": 0.010930931749320883,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -1568,6 +1898,12 @@
               "nan_replicates": 0
             },
             "prevalence_ground_vehicles": {
+              "estimate": 0.3182239377166217,
+              "ci_low": 0.31568511381439796,
+              "ci_high": 0.32058958406533744,
+              "nan_replicates": 0
+            },
+            "share_ground_vehicles": {
               "estimate": 0.3182239377166217,
               "ci_low": 0.31568511381439796,
               "ci_high": 0.32058958406533744,
@@ -1589,6 +1925,12 @@
               "estimate": 0.5461601145768121,
               "ci_low": 0.5438208985808948,
               "ci_high": 0.5487108350374164,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.5462179285656562,
+              "ci_low": 0.5438787983417551,
+              "ci_high": 0.5487982557824513,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -1737,6 +2079,12 @@
               "ci_high": 0.016915176788494548,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.017042473815810838,
+              "ci_low": 0.017042473815810835,
+              "ci_high": 0.01704247381581084,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9980142883311962,
               "ci_low": 0.9923319289247116,
@@ -1753,6 +2101,12 @@
               "estimate": 0.10852749846786457,
               "ci_low": 0.10765090278392868,
               "ci_high": 0.10933031561830975,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10626483673387965,
+              "ci_low": 0.10626483673387964,
+              "ci_high": 0.10626483673387968,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -1773,6 +2127,12 @@
               "ci_high": 0.010477958173428347,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.006306980601168153,
+              "ci_low": 0.006306980601168153,
+              "ci_high": 0.006306980601168154,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9794250143336882,
@@ -1791,6 +2151,12 @@
               "ci_high": 0.0772930530101071,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497654,
+              "ci_low": 0.04753205318497654,
+              "ci_high": 0.04753205318497655,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.951821229587731,
               "ci_low": 0.9515179508895111,
@@ -1807,6 +2173,12 @@
               "estimate": 0.7883556072918296,
               "ci_low": 0.7874810944687713,
               "ci_high": 0.7894631069211648,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8228536556641648,
+              "ci_low": 0.8228536556641648,
+              "ci_high": 0.8228536556641649,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -1871,6 +2243,12 @@
               "ci_high": 0.016915176788494586,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.007896378644641558,
+              "ci_low": 0.007896378644641554,
+              "ci_high": 0.00789637864464156,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9935083446098331,
               "ci_low": 0.9873333333333334,
@@ -1887,6 +2265,12 @@
               "estimate": 0.10852749846786479,
               "ci_low": 0.10765090278392885,
               "ci_high": 0.10933031561830997,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10789024685794635,
+              "ci_low": 0.10789024685794629,
+              "ci_high": 0.10789024685794638,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -1907,6 +2291,12 @@
               "ci_high": 0.010477958173428356,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.010735493214642722,
+              "ci_low": 0.010735493214642717,
+              "ci_high": 0.010735493214642724,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9820119942420924,
               "ci_low": 0.970775680813829,
@@ -1925,6 +2315,12 @@
               "ci_high": 0.07729305301010711,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.07730625743965794,
+              "ci_low": 0.0773062574396579,
+              "ci_high": 0.07730625743965798,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9888021339514164,
               "ci_low": 0.9880825039862855,
@@ -1941,6 +2337,12 @@
               "estimate": 0.7883556072918294,
               "ci_low": 0.787481094468771,
               "ci_high": 0.7894631069211644,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7961716238431115,
+              "ci_low": 0.7961716238431114,
+              "ci_high": 0.7961716238431116,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -2005,6 +2407,12 @@
               "ci_high": 0.01691517678849457,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01428115831721712,
+              "ci_low": 0.013593967522294241,
+              "ci_high": 0.01492701632774757,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9994064791000704,
               "ci_low": 0.9982097528388961,
@@ -2021,6 +2429,12 @@
               "estimate": 0.1085274984678647,
               "ci_low": 0.10765090278392876,
               "ci_high": 0.10933031561830987,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10511592158969683,
+              "ci_low": 0.10402916783868171,
+              "ci_high": 0.10619767744790534,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -2041,6 +2455,12 @@
               "ci_high": 0.010477958173428344,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009113002989002694,
+              "ci_low": 0.008798659701735627,
+              "ci_high": 0.009430266174696231,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9794250143336882,
@@ -2059,6 +2479,12 @@
               "ci_high": 0.07729305301010717,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.047532053184976594,
+              "ci_low": 0.04753205318497658,
+              "ci_high": 0.047532053184976615,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9537500031992162,
               "ci_low": 0.9524053501398292,
@@ -2075,6 +2501,12 @@
               "estimate": 0.7883556072918295,
               "ci_low": 0.7874810944687712,
               "ci_high": 0.7894631069211645,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8239578639191067,
+              "ci_low": 0.8226727363244121,
+              "ci_high": 0.8253480316153621,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -2139,6 +2571,12 @@
               "ci_high": 0.016915176788494586,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.021356283086099086,
+              "ci_low": 0.01842572703037574,
+              "ci_high": 0.02622176985425494,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9968885911222648,
               "ci_low": 0.9968474473139455,
@@ -2155,6 +2593,12 @@
               "estimate": 0.10852749846786477,
               "ci_low": 0.10765090278392886,
               "ci_high": 0.10933031561830993,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.08571167170998047,
+              "ci_low": 0.08459305294522075,
+              "ci_high": 0.08679883586894106,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -2175,6 +2619,12 @@
               "ci_high": 0.010477958173428356,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.08147681324881215,
+              "ci_low": 0.08026986127075941,
+              "ci_high": 0.08297575506951153,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.4023676574978078,
               "ci_low": 0.3799623094483462,
@@ -2193,6 +2643,12 @@
               "ci_high": 0.07729305301010717,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.1555435326034236,
+              "ci_low": 0.14792285178206263,
+              "ci_high": 0.16430650181893444,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9376182403663303,
               "ci_low": 0.9351642646074732,
@@ -2209,6 +2665,12 @@
               "estimate": 0.7883556072918294,
               "ci_low": 0.787481094468771,
               "ci_high": 0.7894631069211645,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.6559116993516847,
+              "ci_low": 0.6464936787037852,
+              "ci_high": 0.664724978214313,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -2273,6 +2735,12 @@
               "ci_high": 0.016915176788494576,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01627606536549506,
+              "ci_low": 0.015612653898924168,
+              "ci_high": 0.016915176788494576,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 1.0,
               "ci_low": 0.9962851891799114,
@@ -2289,6 +2757,12 @@
               "estimate": 0.10852749846786493,
               "ci_low": 0.10765090278392898,
               "ci_high": 0.1093303156183101,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10852749846786493,
+              "ci_low": 0.10773949006893928,
+              "ci_high": 0.1093661127619357,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -2309,6 +2783,12 @@
               "ci_high": 0.010477958173428354,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.010262080349764913,
+              "ci_low": 0.010049122424527941,
+              "ci_high": 0.010438442214723506,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -2322,6 +2802,12 @@
               "nan_replicates": 0
             },
             "prevalence_ground_vehicles": {
+              "estimate": 0.07652093453620175,
+              "ci_low": 0.07562799715407237,
+              "ci_high": 0.0772930530101071,
+              "nan_replicates": 0
+            },
+            "share_ground_vehicles": {
               "estimate": 0.07652093453620175,
               "ci_low": 0.07562799715407237,
               "ci_high": 0.0772930530101071,
@@ -2343,6 +2829,12 @@
               "estimate": 0.7883556072918293,
               "ci_low": 0.787481094468771,
               "ci_high": 0.7894631069211644,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7884134212806734,
+              "ci_low": 0.7874901364208983,
+              "ci_high": 0.789391154946356,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -2489,6 +2981,12 @@
               "ci_high": 0.01697379942698614,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.017042473815810838,
+              "ci_low": 0.017042473815810835,
+              "ci_high": 0.01704247381581084,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9980142883311962,
               "ci_low": 0.9942260487268731,
@@ -2505,6 +3003,12 @@
               "estimate": 0.10852749846786457,
               "ci_low": 0.10772543481343003,
               "ci_high": 0.10936370060140192,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10626483673387965,
+              "ci_low": 0.10626483673387965,
+              "ci_high": 0.10626483673387968,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -2525,6 +3029,12 @@
               "ci_high": 0.010477958173428347,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.006306980601168153,
+              "ci_low": 0.006306980601168153,
+              "ci_high": 0.006306980601168154,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9759958500559696,
@@ -2543,6 +3053,12 @@
               "ci_high": 0.07726943427616856,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497654,
+              "ci_low": 0.04753205318497654,
+              "ci_high": 0.04753205318497655,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.951821229587731,
               "ci_low": 0.9515179508895111,
@@ -2559,6 +3075,12 @@
               "estimate": 0.7883556072918296,
               "ci_low": 0.787484605646629,
               "ci_high": 0.7892652846138545,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8228536556641648,
+              "ci_low": 0.8228536556641648,
+              "ci_high": 0.8228536556641649,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -2623,6 +3145,12 @@
               "ci_high": 0.016973799426986177,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.007896378644641558,
+              "ci_low": 0.007896378644641553,
+              "ci_high": 0.00789637864464156,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9935083446098331,
               "ci_low": 0.9880423996391521,
@@ -2639,6 +3167,12 @@
               "estimate": 0.10852749846786479,
               "ci_low": 0.10772543481343022,
               "ci_high": 0.10936370060140214,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10789024685794635,
+              "ci_low": 0.10789024685794629,
+              "ci_high": 0.10789024685794638,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -2659,6 +3193,12 @@
               "ci_high": 0.010477958173428354,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.010735493214642722,
+              "ci_low": 0.010735493214642717,
+              "ci_high": 0.010735493214642724,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9820119942420924,
               "ci_low": 0.9705182746421243,
@@ -2677,6 +3217,12 @@
               "ci_high": 0.07726943427616857,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.07730625743965794,
+              "ci_low": 0.0773062574396579,
+              "ci_high": 0.07730625743965797,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9888021339514164,
               "ci_low": 0.9879385779932592,
@@ -2693,6 +3239,12 @@
               "estimate": 0.7883556072918294,
               "ci_low": 0.7874846056466288,
               "ci_high": 0.7892652846138543,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7961716238431115,
+              "ci_low": 0.7961716238431114,
+              "ci_high": 0.7961716238431116,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -2757,6 +3309,12 @@
               "ci_high": 0.016973799426986163,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01428115831721712,
+              "ci_low": 0.01362732817289952,
+              "ci_high": 0.014935223675574627,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9994064791000704,
               "ci_low": 0.9982068257790314,
@@ -2773,6 +3331,12 @@
               "estimate": 0.1085274984678647,
               "ci_low": 0.10772543481343014,
               "ci_high": 0.10936370060140208,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10511592158969683,
+              "ci_low": 0.10405205578693072,
+              "ci_high": 0.10616685629784815,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -2793,6 +3357,12 @@
               "ci_high": 0.010477958173428342,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009113002989002694,
+              "ci_low": 0.008795659506102426,
+              "ci_high": 0.009437606474907207,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9759958500559696,
@@ -2811,6 +3381,12 @@
               "ci_high": 0.07726943427616864,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.047532053184976594,
+              "ci_low": 0.04753205318497658,
+              "ci_high": 0.047532053184976615,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9537500031992162,
               "ci_low": 0.9524245905760471,
@@ -2827,6 +3403,12 @@
               "estimate": 0.7883556072918295,
               "ci_low": 0.7874846056466289,
               "ci_high": 0.7892652846138544,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8239578639191067,
+              "ci_low": 0.8226126423815466,
+              "ci_high": 0.8252491111342536,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -2891,6 +3473,12 @@
               "ci_high": 0.016973799426986187,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.021356283086099086,
+              "ci_low": 0.018488115526754577,
+              "ci_high": 0.026576333931263685,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9968885911222648,
               "ci_low": 0.9968476354949682,
@@ -2907,6 +3495,12 @@
               "estimate": 0.10852749846786477,
               "ci_low": 0.10772543481343021,
               "ci_high": 0.10936370060140213,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.08571167170998047,
+              "ci_low": 0.08459810274733272,
+              "ci_high": 0.08680209074460365,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -2927,6 +3521,12 @@
               "ci_high": 0.010477958173428354,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.08147681324881215,
+              "ci_low": 0.08025194019139628,
+              "ci_high": 0.08305410993547362,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.4023676574978078,
               "ci_low": 0.3795166940465599,
@@ -2945,6 +3545,12 @@
               "ci_high": 0.07726943427616864,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.1555435326034236,
+              "ci_low": 0.14776283141252677,
+              "ci_high": 0.16462313418490546,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9376182403663303,
               "ci_low": 0.9352667073656845,
@@ -2961,6 +3567,12 @@
               "estimate": 0.7883556072918294,
               "ci_low": 0.7874846056466288,
               "ci_high": 0.7892652846138543,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.6559116993516847,
+              "ci_low": 0.6456855165170537,
+              "ci_high": 0.6644474854645829,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -3025,6 +3637,12 @@
               "ci_high": 0.016973799426986173,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01627606536549506,
+              "ci_low": 0.015630134357503947,
+              "ci_high": 0.016973799426986173,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -3038,6 +3656,12 @@
               "nan_replicates": 0
             },
             "prevalence_aircraft": {
+              "estimate": 0.10852749846786493,
+              "ci_low": 0.10772543481343035,
+              "ci_high": 0.1093637006014023,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
               "estimate": 0.10852749846786493,
               "ci_low": 0.10772543481343035,
               "ci_high": 0.1093637006014023,
@@ -3061,6 +3685,12 @@
               "ci_high": 0.010477958173428354,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.010262080349764913,
+              "ci_low": 0.010049122424527938,
+              "ci_high": 0.010438442214723506,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -3074,6 +3704,12 @@
               "nan_replicates": 0
             },
             "prevalence_ground_vehicles": {
+              "estimate": 0.07652093453620175,
+              "ci_low": 0.0756267253760911,
+              "ci_high": 0.07726943427616854,
+              "nan_replicates": 0
+            },
+            "share_ground_vehicles": {
               "estimate": 0.07652093453620175,
               "ci_low": 0.0756267253760911,
               "ci_high": 0.07726943427616854,
@@ -3095,6 +3731,12 @@
               "estimate": 0.7883556072918293,
               "ci_low": 0.7874846056466288,
               "ci_high": 0.7892652846138541,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7884134212806734,
+              "ci_low": 0.7875144315979723,
+              "ci_high": 0.7893401937969023,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -3243,6 +3885,12 @@
               "ci_high": 0.016915176788494548,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01704247381581084,
+              "ci_low": 0.017042473815810835,
+              "ci_high": 0.01704247381581084,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9980142883311962,
               "ci_low": 0.9923319289247116,
@@ -3259,6 +3907,12 @@
               "estimate": 0.10845440367725538,
               "ci_low": 0.1075813426925813,
               "ci_high": 0.10926195025206853,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10626483673387968,
+              "ci_low": 0.10626483673387965,
+              "ci_high": 0.10626483673387968,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -3279,6 +3933,12 @@
               "ci_high": 0.010052426776247217,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.006306980601168156,
+              "ci_low": 0.006306980601168154,
+              "ci_high": 0.006306980601168157,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9794250143336882,
@@ -3297,6 +3957,12 @@
               "ci_high": 0.0772930530101071,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497655,
+              "ci_low": 0.04753205318497654,
+              "ci_high": 0.04753205318497655,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9520411184722828,
               "ci_low": 0.951691508157022,
@@ -3313,6 +3979,12 @@
               "estimate": 0.7890097618693058,
               "ci_low": 0.7880760197177494,
               "ci_high": 0.7901498832527277,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8228536556641648,
+              "ci_low": 0.8228536556641647,
+              "ci_high": 0.8228536556641649,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -3377,6 +4049,12 @@
               "ci_high": 0.016915176788494586,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.007896378644641558,
+              "ci_low": 0.007896378644641554,
+              "ci_high": 0.00789637864464156,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.992830852503383,
               "ci_low": 0.9866558412268832,
@@ -3393,6 +4071,12 @@
               "estimate": 0.10845440367725556,
               "ci_low": 0.10758134269258143,
               "ci_high": 0.10926195025206872,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10789024685794633,
+              "ci_low": 0.10789024685794629,
+              "ci_high": 0.10789024685794638,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -3413,6 +4097,12 @@
               "ci_high": 0.010052426776247228,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.010735493214642724,
+              "ci_low": 0.010735493214642719,
+              "ci_high": 0.010735493214642728,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9820119942420924,
               "ci_low": 0.970775680813829,
@@ -3431,6 +4121,12 @@
               "ci_high": 0.07729305301010711,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.07730625743965794,
+              "ci_low": 0.0773062574396579,
+              "ci_high": 0.07730625743965798,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9888021339514164,
               "ci_low": 0.9880825039862855,
@@ -3447,6 +4143,12 @@
               "estimate": 0.7890097618693055,
               "ci_low": 0.7880760197177492,
               "ci_high": 0.7901498832527275,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7961716238431115,
+              "ci_low": 0.7961716238431114,
+              "ci_high": 0.7961716238431116,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -3511,6 +4213,12 @@
               "ci_high": 0.01691517678849457,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01428115831721712,
+              "ci_low": 0.013593967522294241,
+              "ci_high": 0.01492701632774757,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9993138861359628,
               "ci_low": 0.9981166562626557,
@@ -3527,6 +4235,12 @@
               "estimate": 0.10845440367725549,
               "ci_low": 0.10758134269258139,
               "ci_high": 0.10926195025206865,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10511592158969683,
+              "ci_low": 0.10402916783868173,
+              "ci_high": 0.10619767744790534,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -3547,6 +4261,12 @@
               "ci_high": 0.010052426776247219,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009113002989002698,
+              "ci_low": 0.008798659701735628,
+              "ci_high": 0.009430266174696235,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9794250143336882,
@@ -3565,6 +4285,12 @@
               "ci_high": 0.07729305301010717,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.047532053184976594,
+              "ci_low": 0.04753205318497658,
+              "ci_high": 0.047532053184976615,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9539228199408232,
               "ci_low": 0.9525841547658569,
@@ -3581,6 +4307,12 @@
               "estimate": 0.7890097618693055,
               "ci_low": 0.7880760197177493,
               "ci_high": 0.7901498832527274,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8239578639191067,
+              "ci_low": 0.822672736324412,
+              "ci_high": 0.8253480316153621,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -3645,6 +4377,12 @@
               "ci_high": 0.016915176788494586,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.021356283086099083,
+              "ci_low": 0.01842572703037574,
+              "ci_high": 0.026221769854254933,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9960357925576008,
               "ci_low": 0.9945518986560159,
@@ -3661,6 +4399,12 @@
               "estimate": 0.10845440367725553,
               "ci_low": 0.10758134269258142,
               "ci_high": 0.1092619502520687,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.08571167170998044,
+              "ci_low": 0.08459305294522074,
+              "ci_high": 0.08679883586894106,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -3681,6 +4425,12 @@
               "ci_high": 0.010052426776247228,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.08147681324881213,
+              "ci_low": 0.0802698612707594,
+              "ci_high": 0.08297575506951152,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.4023676574978078,
               "ci_low": 0.3799623094483462,
@@ -3699,6 +4449,12 @@
               "ci_high": 0.07729305301010715,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.15554353260342357,
+              "ci_low": 0.1479228517820626,
+              "ci_high": 0.16430650181893441,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9384438756289689,
               "ci_low": 0.9359726158341998,
@@ -3715,6 +4471,12 @@
               "estimate": 0.7890097618693055,
               "ci_low": 0.7880760197177493,
               "ci_high": 0.7901498832527274,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.6559116993516848,
+              "ci_low": 0.6464936787037853,
+              "ci_high": 0.664724978214313,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -3779,6 +4541,12 @@
               "ci_high": 0.016915176788494576,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.016276065365495057,
+              "ci_low": 0.015612653898924167,
+              "ci_high": 0.016915176788494576,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 1.0,
               "ci_low": 0.9962821151564167,
@@ -3795,6 +4563,12 @@
               "estimate": 0.10845440367725569,
               "ci_low": 0.10758134269258156,
               "ci_high": 0.10926195025206886,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10845440367725569,
+              "ci_low": 0.10764937713700115,
+              "ci_high": 0.10928432965134197,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -3815,6 +4589,12 @@
               "ci_high": 0.010052426776247226,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009681020562898032,
+              "ci_low": 0.009328296832980849,
+              "ci_high": 0.010009679463283754,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -3828,6 +4608,12 @@
               "nan_replicates": 0
             },
             "prevalence_ground_vehicles": {
+              "estimate": 0.07652093453620175,
+              "ci_low": 0.07562799715407237,
+              "ci_high": 0.0772930530101071,
+              "nan_replicates": 0
+            },
+            "share_ground_vehicles": {
               "estimate": 0.07652093453620175,
               "ci_low": 0.07562799715407237,
               "ci_high": 0.0772930530101071,
@@ -3849,6 +4635,12 @@
               "estimate": 0.7890097618693055,
               "ci_low": 0.7880760197177491,
               "ci_high": 0.7901498832527273,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7890675758581495,
+              "ci_low": 0.7880687183495172,
+              "ci_high": 0.7900814846320874,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -3995,6 +4787,12 @@
               "ci_high": 0.01697379942698614,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01704247381581084,
+              "ci_low": 0.017042473815810838,
+              "ci_high": 0.01704247381581084,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9980142883311962,
               "ci_low": 0.9942260487268731,
@@ -4011,6 +4809,12 @@
               "estimate": 0.10845440367725538,
               "ci_low": 0.1076521267080191,
               "ci_high": 0.10931332262055062,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10626483673387968,
+              "ci_low": 0.10626483673387965,
+              "ci_high": 0.10626483673387968,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -4031,6 +4835,12 @@
               "ci_high": 0.010067420454667122,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.006306980601168156,
+              "ci_low": 0.006306980601168154,
+              "ci_high": 0.006306980601168157,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9759958500559696,
@@ -4049,6 +4859,12 @@
               "ci_high": 0.07726943427616857,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497655,
+              "ci_low": 0.04753205318497654,
+              "ci_high": 0.04753205318497656,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9520411184722828,
               "ci_low": 0.9516770420943105,
@@ -4065,6 +4881,12 @@
               "estimate": 0.7890097618693058,
               "ci_low": 0.7880697573467076,
               "ci_high": 0.7899879026986023,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8228536556641648,
+              "ci_low": 0.8228536556641647,
+              "ci_high": 0.8228536556641649,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -4129,6 +4951,12 @@
               "ci_high": 0.01697379942698618,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.007896378644641558,
+              "ci_low": 0.007896378644641553,
+              "ci_high": 0.00789637864464156,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.992830852503383,
               "ci_low": 0.9873649075327019,
@@ -4145,6 +4973,12 @@
               "estimate": 0.10845440367725556,
               "ci_low": 0.10765212670801926,
               "ci_high": 0.10931332262055084,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10789024685794633,
+              "ci_low": 0.10789024685794629,
+              "ci_high": 0.10789024685794638,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -4165,6 +4999,12 @@
               "ci_high": 0.010067420454667131,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.010735493214642724,
+              "ci_low": 0.010735493214642719,
+              "ci_high": 0.010735493214642728,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9820119942420924,
               "ci_low": 0.9705182746421243,
@@ -4183,6 +5023,12 @@
               "ci_high": 0.07726943427616857,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.07730625743965794,
+              "ci_low": 0.0773062574396579,
+              "ci_high": 0.07730625743965798,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9888021339514164,
               "ci_low": 0.9879385779932592,
@@ -4199,6 +5045,12 @@
               "estimate": 0.7890097618693055,
               "ci_low": 0.7880697573467074,
               "ci_high": 0.7899879026986021,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7961716238431115,
+              "ci_low": 0.7961716238431114,
+              "ci_high": 0.7961716238431116,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -4263,6 +5115,12 @@
               "ci_high": 0.016973799426986163,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.01428115831721712,
+              "ci_low": 0.013627328172899522,
+              "ci_high": 0.014935223675574627,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9993138861359628,
               "ci_low": 0.9981135769895895,
@@ -4279,6 +5137,12 @@
               "estimate": 0.10845440367725549,
               "ci_low": 0.10765212670801921,
               "ci_high": 0.10931332262055074,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10511592158969683,
+              "ci_low": 0.10405205578693073,
+              "ci_high": 0.10616685629784817,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -4299,6 +5163,12 @@
               "ci_high": 0.010067420454667122,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009113002989002698,
+              "ci_low": 0.008795659506102432,
+              "ci_high": 0.00943760647490721,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9759958500559696,
@@ -4317,6 +5187,12 @@
               "ci_high": 0.07726943427616864,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.047532053184976594,
+              "ci_low": 0.04753205318497658,
+              "ci_high": 0.047532053184976615,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9539228199408232,
               "ci_low": 0.95258977856325,
@@ -4333,6 +5209,12 @@
               "estimate": 0.7890097618693055,
               "ci_low": 0.7880697573467075,
               "ci_high": 0.7899879026986021,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8239578639191067,
+              "ci_low": 0.8226126423815466,
+              "ci_high": 0.8252491111342536,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -4397,6 +5279,12 @@
               "ci_high": 0.016973799426986184,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.021356283086099083,
+              "ci_low": 0.018488115526754577,
+              "ci_high": 0.026576333931263685,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.9960357925576008,
               "ci_low": 0.9945341392263085,
@@ -4413,6 +5301,12 @@
               "estimate": 0.10845440367725553,
               "ci_low": 0.10765212670801928,
               "ci_high": 0.10931332262055077,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.08571167170998044,
+              "ci_low": 0.08459810274733272,
+              "ci_high": 0.08680209074460365,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -4433,6 +5327,12 @@
               "ci_high": 0.010067420454667133,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.08147681324881213,
+              "ci_low": 0.08025194019139627,
+              "ci_high": 0.0830541099354736,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.4023676574978078,
               "ci_low": 0.3795166940465599,
@@ -4451,6 +5351,12 @@
               "ci_high": 0.07726943427616863,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.15554353260342357,
+              "ci_low": 0.14776283141252675,
+              "ci_high": 0.16462313418490546,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9384438756289689,
               "ci_low": 0.936021100699863,
@@ -4467,6 +5373,12 @@
               "estimate": 0.7890097618693055,
               "ci_low": 0.7880697573467074,
               "ci_high": 0.7899879026986022,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.6559116993516848,
+              "ci_low": 0.6456855165170539,
+              "ci_high": 0.664447485464583,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -4531,6 +5443,12 @@
               "ci_high": 0.016973799426986173,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.016276065365495057,
+              "ci_low": 0.015630134357503944,
+              "ci_high": 0.016973799426986173,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -4544,6 +5462,12 @@
               "nan_replicates": 0
             },
             "prevalence_aircraft": {
+              "estimate": 0.10845440367725569,
+              "ci_low": 0.1076521267080194,
+              "ci_high": 0.10931332262055095,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
               "estimate": 0.10845440367725569,
               "ci_low": 0.1076521267080194,
               "ci_high": 0.10931332262055095,
@@ -4567,6 +5491,12 @@
               "ci_high": 0.01006742045466713,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009681020562898032,
+              "ci_low": 0.009349514761546508,
+              "ci_high": 0.010012526364249558,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -4580,6 +5510,12 @@
               "nan_replicates": 0
             },
             "prevalence_ground_vehicles": {
+              "estimate": 0.07652093453620175,
+              "ci_low": 0.07562672537609108,
+              "ci_high": 0.07726943427616854,
+              "nan_replicates": 0
+            },
+            "share_ground_vehicles": {
               "estimate": 0.07652093453620175,
               "ci_low": 0.07562672537609108,
               "ci_high": 0.07726943427616854,
@@ -4601,6 +5537,12 @@
               "estimate": 0.7890097618693055,
               "ci_low": 0.7880697573467073,
               "ci_high": 0.789987902698602,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7890675758581495,
+              "ci_low": 0.7881387699570997,
+              "ci_high": 0.7900526052144837,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -4749,6 +5691,12 @@
               "ci_high": 0.016915176788494586,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.017042473815810883,
+              "ci_low": 0.017042473815810876,
+              "ci_high": 0.017042473815810883,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.00011906942663491459,
               "ci_low": 0.00011906942663491459,
@@ -4765,6 +5713,12 @@
               "estimate": 1.654609108331155e-05,
               "ci_low": 1.654609108331155e-05,
               "ci_high": 1.654609108331155e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10626483673387992,
+              "ci_low": 0.10626483673387992,
+              "ci_high": 0.10626483673387992,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -4785,6 +5739,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.0063069806011681545,
+              "ci_low": 0.006306980601168154,
+              "ci_high": 0.0063069806011681545,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9794250143336882,
@@ -4803,6 +5763,12 @@
               "ci_high": 0.0481217753371754,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.047532053184976664,
+              "ci_low": 0.04753205318497666,
+              "ci_high": 0.047532053184976664,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9967159395981754,
               "ci_low": 0.9964126608999554,
@@ -4819,6 +5785,12 @@
               "estimate": 0.9360502988191605,
               "ci_low": 0.9352479107315674,
               "ci_high": 0.9369149740177704,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8228536556641645,
+              "ci_low": 0.8228536556641644,
+              "ci_high": 0.8228536556641645,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -4883,6 +5855,12 @@
               "ci_high": 0.016915176788494583,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.007896378644641556,
+              "ci_low": 0.007896378644641553,
+              "ci_high": 0.00789637864464156,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 3.608479927830393e-05,
               "ci_low": 3.608479927830393e-05,
@@ -4899,6 +5877,12 @@
               "estimate": 1.6546091083311538e-05,
               "ci_low": 1.6546091083311534e-05,
               "ci_high": 1.6546091083311544e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10789024685794636,
+              "ci_low": 0.10789024685794632,
+              "ci_high": 0.10789024685794639,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -4919,6 +5903,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.01073549321464272,
+              "ci_low": 0.010735493214642719,
+              "ci_high": 0.010735493214642724,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.6086418975914988,
               "ci_low": 0.6023165925944575,
@@ -4937,6 +5927,12 @@
               "ci_high": 0.04812177533717536,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.07730625743965802,
+              "ci_low": 0.07730625743965801,
+              "ci_high": 0.07730625743965805,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9888155811704704,
               "ci_low": 0.9880959512053394,
@@ -4953,6 +5949,12 @@
               "estimate": 0.9360502988191605,
               "ci_low": 0.9352479107315675,
               "ci_high": 0.9369149740177705,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7961716238431112,
+              "ci_low": 0.7961716238431112,
+              "ci_high": 0.7961716238431114,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -5017,6 +6019,12 @@
               "ci_high": 0.016915176788494593,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.014281158317217144,
+              "ci_low": 0.013593967522294264,
+              "ci_high": 0.014927016327747598,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 2.7777889232271556e-05,
               "ci_low": 2.7494936770767864e-05,
@@ -5033,6 +6041,12 @@
               "estimate": 1.6546091083311558e-05,
               "ci_low": 1.6546091083311548e-05,
               "ci_high": 1.6546091083311568e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.105115921589697,
+              "ci_low": 0.10402916783868188,
+              "ci_high": 0.1061976774479055,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -5053,6 +6067,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009113002989002706,
+              "ci_low": 0.008798659701735639,
+              "ci_high": 0.009430266174696241,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9794250143336882,
@@ -5071,6 +6091,12 @@
               "ci_high": 0.048121775337175425,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497668,
+              "ci_low": 0.04753205318497665,
+              "ci_high": 0.047532053184976705,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9963864015392463,
               "ci_low": 0.9959127529249824,
@@ -5087,6 +6113,12 @@
               "estimate": 0.9360502988191605,
               "ci_low": 0.9352479107315673,
               "ci_high": 0.9369149740177702,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8239578639191064,
+              "ci_low": 0.8226727363244117,
+              "ci_high": 0.8253480316153617,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -5151,6 +6183,12 @@
               "ci_high": 0.016915176788494583,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.021356283086099073,
+              "ci_low": 0.018425727030375733,
+              "ci_high": 0.026221769854254937,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.0,
               "ci_low": 0.0,
@@ -5167,6 +6205,12 @@
               "estimate": 1.654609108331154e-05,
               "ci_low": 1.6546091083311534e-05,
               "ci_high": 1.654609108331155e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.08571167170998042,
+              "ci_low": 0.08459305294522072,
+              "ci_high": 0.08679883586894105,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -5187,6 +6231,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.08147681324881217,
+              "ci_low": 0.08026986127075943,
+              "ci_high": 0.08297575506951159,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.3024493531846851,
               "ci_low": 0.28584993921897806,
@@ -5205,6 +6255,12 @@
               "ci_high": 0.04812177533717538,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.15554353260342374,
+              "ci_low": 0.14792285178206277,
+              "ci_high": 0.1643065018189346,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -5221,6 +6277,12 @@
               "estimate": 0.9360502988191605,
               "ci_low": 0.9352479107315674,
               "ci_high": 0.9369149740177702,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.6559116993516845,
+              "ci_low": 0.6464936787037852,
+              "ci_high": 0.6647249782143126,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -5285,6 +6347,12 @@
               "ci_high": 0.016915176788494614,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.016276065365495095,
+              "ci_low": 0.015612653898924203,
+              "ci_high": 0.016915176788494614,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -5298,6 +6366,12 @@
               "nan_replicates": 0
             },
             "prevalence_aircraft": {
+              "estimate": 1.6546091083311575e-05,
+              "ci_low": 1.6546091083311568e-05,
+              "ci_high": 1.654609108331158e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
               "estimate": 1.6546091083311575e-05,
               "ci_low": 1.6546091083311568e-05,
               "ci_high": 1.654609108331158e-05,
@@ -5321,6 +6395,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -5339,6 +6419,12 @@
               "ci_high": 0.048121775337175474,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.0476570897242612,
+              "ci_low": 0.047095203937061444,
+              "ci_high": 0.048121775337175474,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -5352,6 +6438,12 @@
               "nan_replicates": 0
             },
             "prevalence_nonmilitary": {
+              "estimate": 0.9360502988191604,
+              "ci_low": 0.9352479107315673,
+              "ci_high": 0.9369149740177701,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
               "estimate": 0.9360502988191604,
               "ci_low": 0.9352479107315673,
               "ci_high": 0.9369149740177701,
@@ -5501,6 +6593,12 @@
               "ci_high": 0.016973799426986177,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.017042473815810883,
+              "ci_low": 0.017042473815810876,
+              "ci_high": 0.017042473815810883,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.00011906942663491459,
               "ci_low": 0.00011906942663491459,
@@ -5517,6 +6615,12 @@
               "estimate": 1.654609108331155e-05,
               "ci_low": 1.654609108331155e-05,
               "ci_high": 1.654609108331155e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10626483673387992,
+              "ci_low": 0.10626483673387992,
+              "ci_high": 0.10626483673387992,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -5537,6 +6641,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.0063069806011681545,
+              "ci_low": 0.006306980601168154,
+              "ci_high": 0.0063069806011681545,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9759958500559696,
@@ -5555,6 +6665,12 @@
               "ci_high": 0.04812238283826468,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.047532053184976664,
+              "ci_low": 0.04753205318497666,
+              "ci_high": 0.047532053184976664,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9967159395981754,
               "ci_low": 0.996429417718305,
@@ -5571,6 +6687,12 @@
               "estimate": 0.9360502988191605,
               "ci_low": 0.9352454766717958,
               "ci_high": 0.9368932442958972,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8228536556641645,
+              "ci_low": 0.8228536556641644,
+              "ci_high": 0.8228536556641645,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -5635,6 +6757,12 @@
               "ci_high": 0.016973799426986177,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.007896378644641556,
+              "ci_low": 0.007896378644641553,
+              "ci_high": 0.007896378644641558,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 3.608479927830393e-05,
               "ci_low": 3.608479927830393e-05,
@@ -5651,6 +6779,12 @@
               "estimate": 1.6546091083311538e-05,
               "ci_low": 1.6546091083311534e-05,
               "ci_high": 1.6546091083311544e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.10789024685794636,
+              "ci_low": 0.10789024685794632,
+              "ci_high": 0.10789024685794639,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -5671,6 +6805,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.01073549321464272,
+              "ci_low": 0.010735493214642719,
+              "ci_high": 0.010735493214642724,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.6086418975914988,
               "ci_low": 0.6002081575954438,
@@ -5689,6 +6829,12 @@
               "ci_high": 0.04812238283826464,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.07730625743965802,
+              "ci_low": 0.07730625743965801,
+              "ci_high": 0.07730625743965805,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9888155811704704,
               "ci_low": 0.9879520252123132,
@@ -5705,6 +6851,12 @@
               "estimate": 0.9360502988191605,
               "ci_low": 0.935245476671796,
               "ci_high": 0.9368932442958973,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.7961716238431112,
+              "ci_low": 0.7961716238431112,
+              "ci_high": 0.7961716238431114,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -5769,6 +6921,12 @@
               "ci_high": 0.016973799426986194,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.014281158317217144,
+              "ci_low": 0.013627328172899543,
+              "ci_high": 0.014935223675574648,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 2.7777889232271556e-05,
               "ci_low": 2.75029187870173e-05,
@@ -5785,6 +6943,12 @@
               "estimate": 1.6546091083311558e-05,
               "ci_low": 1.6546091083311548e-05,
               "ci_high": 1.6546091083311568e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.105115921589697,
+              "ci_low": 0.10405205578693089,
+              "ci_high": 0.10616685629784837,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -5805,6 +6969,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.009113002989002706,
+              "ci_low": 0.008795659506102437,
+              "ci_high": 0.009437606474907219,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.9897125071668441,
               "ci_low": 0.9759958500559696,
@@ -5823,6 +6993,12 @@
               "ci_high": 0.04812238283826472,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.04753205318497668,
+              "ci_low": 0.04753205318497665,
+              "ci_high": 0.047532053184976705,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 0.9963864015392463,
               "ci_low": 0.9958921069256079,
@@ -5839,6 +7015,12 @@
               "estimate": 0.9360502988191605,
               "ci_low": 0.9352454766717958,
               "ci_high": 0.936893244295897,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.8239578639191064,
+              "ci_low": 0.8226126423815463,
+              "ci_high": 0.8252491111342534,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -5903,6 +7085,12 @@
               "ci_high": 0.01697379942698618,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.021356283086099073,
+              "ci_low": 0.01848811552675457,
+              "ci_high": 0.026576333931263674,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 0.0,
               "ci_low": 0.0,
@@ -5919,6 +7107,12 @@
               "estimate": 1.654609108331154e-05,
               "ci_low": 1.6546091083311534e-05,
               "ci_high": 1.654609108331155e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
+              "estimate": 0.08571167170998042,
+              "ci_low": 0.08459810274733266,
+              "ci_high": 0.08680209074460365,
               "nan_replicates": 0
             },
             "precision_maritime": {
@@ -5939,6 +7133,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.08147681324881217,
+              "ci_low": 0.08025194019139631,
+              "ci_high": 0.08305410993547369,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 0.3024493531846851,
               "ci_low": 0.2855467599401162,
@@ -5957,6 +7157,12 @@
               "ci_high": 0.04812238283826468,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.15554353260342374,
+              "ci_low": 0.14776283141252694,
+              "ci_high": 0.16462313418490562,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -5973,6 +7179,12 @@
               "estimate": 0.9360502988191605,
               "ci_low": 0.9352454766717958,
               "ci_high": 0.9368932442958973,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
+              "estimate": 0.6559116993516845,
+              "ci_low": 0.6456855165170537,
+              "ci_high": 0.6644474854645828,
               "nan_replicates": 0
             },
             "macro_f1": {
@@ -6037,6 +7249,12 @@
               "ci_high": 0.016973799426986208,
               "nan_replicates": 0
             },
+            "share_weapons": {
+              "estimate": 0.016276065365495095,
+              "ci_low": 0.015630134357503978,
+              "ci_high": 0.016973799426986208,
+              "nan_replicates": 0
+            },
             "precision_aircraft": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -6050,6 +7268,12 @@
               "nan_replicates": 0
             },
             "prevalence_aircraft": {
+              "estimate": 1.6546091083311575e-05,
+              "ci_low": 1.6546091083311568e-05,
+              "ci_high": 1.654609108331158e-05,
+              "nan_replicates": 0
+            },
+            "share_aircraft": {
               "estimate": 1.6546091083311575e-05,
               "ci_low": 1.6546091083311568e-05,
               "ci_high": 1.654609108331158e-05,
@@ -6073,6 +7297,12 @@
               "ci_high": 0.0,
               "nan_replicates": 0
             },
+            "share_maritime": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "nan_replicates": 0
+            },
             "precision_ground_vehicles": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -6091,6 +7321,12 @@
               "ci_high": 0.048122382838264754,
               "nan_replicates": 0
             },
+            "share_ground_vehicles": {
+              "estimate": 0.0476570897242612,
+              "ci_low": 0.047053708936089775,
+              "ci_high": 0.048122382838264754,
+              "nan_replicates": 0
+            },
             "precision_nonmilitary": {
               "estimate": 1.0,
               "ci_low": 1.0,
@@ -6104,6 +7340,12 @@
               "nan_replicates": 0
             },
             "prevalence_nonmilitary": {
+              "estimate": 0.9360502988191604,
+              "ci_low": 0.9352454766717957,
+              "ci_high": 0.936893244295897,
+              "nan_replicates": 0
+            },
+            "share_nonmilitary": {
               "estimate": 0.9360502988191604,
               "ci_low": 0.9352454766717957,
               "ci_high": 0.936893244295897,
@@ -6256,6 +7498,12 @@
             "ci_high": 0.017580383992597717,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.01704247381581084,
+            "ci_low": 0.017042473815810838,
+            "ci_high": 0.01704247381581084,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9978952189045612,
             "ci_low": 0.9941069793002382,
@@ -6272,6 +7520,12 @@
             "estimate": 0.10843785758617208,
             "ci_low": 0.10757584192837898,
             "ci_high": 0.1093008100447103,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10626483673387968,
+            "ci_low": 0.10626483673387965,
+            "ci_high": 0.10626483673387968,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -6292,6 +7546,12 @@
             "ci_high": 0.010052042322954402,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.006306980601168156,
+            "ci_low": 0.006306980601168154,
+            "ci_high": 0.006306980601168157,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9897125071668441,
             "ci_low": 0.9794250143336882,
@@ -6310,6 +7570,12 @@
             "ci_high": 0.07663111203682711,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.04753205318497655,
+            "ci_low": 0.04753205318497654,
+            "ci_high": 0.04753205318497655,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9520411184722828,
             "ci_low": 0.9516778661354952,
@@ -6326,6 +7592,12 @@
             "estimate": 0.7890097618693058,
             "ci_low": 0.7880801392077795,
             "ci_high": 0.7899815308313695,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.8228536556641648,
+            "ci_low": 0.8228536556641647,
+            "ci_high": 0.8228536556641649,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -6390,6 +7662,12 @@
             "ci_high": 0.017580383992597752,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.007896378644641556,
+            "ci_low": 0.007896378644641553,
+            "ci_high": 0.007896378644641558,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9927947677041047,
             "ci_low": 0.9867505638249888,
@@ -6406,6 +7684,12 @@
             "estimate": 0.10843785758617225,
             "ci_low": 0.10757584192837913,
             "ci_high": 0.1093008100447105,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10789024685794633,
+            "ci_low": 0.10789024685794629,
+            "ci_high": 0.10789024685794638,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -6426,6 +7710,12 @@
             "ci_high": 0.01005204232295441,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.010735493214642724,
+            "ci_low": 0.010735493214642719,
+            "ci_high": 0.010735493214642728,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9818986826477983,
             "ci_low": 0.970662369219535,
@@ -6444,6 +7734,12 @@
             "ci_high": 0.07663111203682711,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.07730625743965794,
+            "ci_low": 0.0773062574396579,
+            "ci_high": 0.07730625743965798,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9888021339514164,
             "ci_low": 0.9880069428399467,
@@ -6460,6 +7756,12 @@
             "estimate": 0.7890097618693055,
             "ci_low": 0.7880801392077792,
             "ci_high": 0.7899815308313692,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.7961716238431115,
+            "ci_low": 0.7961716238431114,
+            "ci_high": 0.7961716238431116,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -6533,6 +7835,12 @@
             "ci_high": 0.016967921509237087,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.017042473815810845,
+            "ci_low": 0.017042473815810838,
+            "ci_high": 0.01704247381581085,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.26592049825975445,
             "ci_low": 0.26213225865543127,
@@ -6549,6 +7857,12 @@
             "estimate": 0.03065857660142639,
             "ci_low": 0.0297965609436333,
             "ci_high": 0.03152152905996464,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10626483673387949,
+            "ci_low": 0.10626483673387947,
+            "ci_high": 0.10626483673387951,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -6569,6 +7883,12 @@
             "ci_high": 0.007295658208369803,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.0063069806011681485,
+            "ci_low": 0.006306980601168147,
+            "ci_high": 0.006306980601168151,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9897125071668441,
             "ci_low": 0.9794250143336882,
@@ -6587,6 +7907,12 @@
             "ci_high": 0.07693063683957986,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.04753205318497656,
+            "ci_low": 0.04753205318497655,
+            "ci_high": 0.047532053184976567,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9524420992784316,
             "ci_low": 0.952078846941644,
@@ -6603,6 +7929,12 @@
             "estimate": 0.8698919215819101,
             "ci_low": 0.8689622989203838,
             "ci_high": 0.8708636905439738,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.8228536556641649,
+            "ci_low": 0.8228536556641649,
+            "ci_high": 0.822853655664165,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -6667,6 +7999,12 @@
             "ci_high": 0.01696792150923712,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.00789637864464156,
+            "ci_low": 0.007896378644641554,
+            "ci_high": 0.007896378644641561,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.27176635092467255,
             "ci_low": 0.26572214704555663,
@@ -6683,6 +8021,12 @@
             "estimate": 0.03065857660142641,
             "ci_low": 0.029796560943633314,
             "ci_high": 0.03152152905996465,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10789024685794615,
+            "ci_low": 0.1078902468579461,
+            "ci_high": 0.1078902468579462,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -6703,6 +8047,12 @@
             "ci_high": 0.007295658208369807,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.010735493214642726,
+            "ci_low": 0.01073549321464272,
+            "ci_high": 0.010735493214642731,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9777439241903468,
             "ci_low": 0.9665076107620835,
@@ -6721,6 +8071,12 @@
             "ci_high": 0.07693063683957989,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.07730625743965795,
+            "ci_low": 0.07730625743965792,
+            "ci_high": 0.077306257439658,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9888021339514164,
             "ci_low": 0.9880069428399467,
@@ -6737,6 +8093,12 @@
             "estimate": 0.8698919215819101,
             "ci_low": 0.8689622989203837,
             "ci_high": 0.8708636905439737,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.7961716238431117,
+            "ci_low": 0.7961716238431116,
+            "ci_high": 0.7961716238431117,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -6810,6 +8172,12 @@
             "ci_high": 0.01696792150923708,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.01704247381581084,
+            "ci_low": 0.017042473815810838,
+            "ci_high": 0.01704247381581084,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9980142883311962,
             "ci_low": 0.9942260487268731,
@@ -6826,6 +8194,12 @@
             "estimate": 0.10845440367725538,
             "ci_low": 0.10759238801946229,
             "ci_high": 0.10931735613579362,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10626483673387968,
+            "ci_low": 0.10626483673387965,
+            "ci_high": 0.10626483673387968,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -6846,6 +8220,12 @@
             "ci_high": 0.010052042322954402,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.006306980601168156,
+            "ci_low": 0.006306980601168154,
+            "ci_high": 0.006306980601168157,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9897125071668441,
             "ci_low": 0.9794250143336882,
@@ -6864,6 +8244,12 @@
             "ci_high": 0.07726058536177059,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.04753205318497655,
+            "ci_low": 0.04753205318497654,
+            "ci_high": 0.04753205318497655,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9520411184722828,
             "ci_low": 0.9516778661354952,
@@ -6880,6 +8266,12 @@
             "estimate": 0.7890097618693058,
             "ci_low": 0.7880801392077795,
             "ci_high": 0.7899815308313695,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.8228536556641648,
+            "ci_low": 0.8228536556641647,
+            "ci_high": 0.8228536556641649,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -6944,6 +8336,12 @@
             "ci_high": 0.01696792150923712,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.007896378644641558,
+            "ci_low": 0.007896378644641553,
+            "ci_high": 0.00789637864464156,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.992830852503383,
             "ci_low": 0.9867866486242671,
@@ -6960,6 +8358,12 @@
             "estimate": 0.10845440367725556,
             "ci_low": 0.10759238801946243,
             "ci_high": 0.10931735613579381,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10789024685794633,
+            "ci_low": 0.10789024685794629,
+            "ci_high": 0.10789024685794638,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -6980,6 +8384,12 @@
             "ci_high": 0.01005204232295441,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.010735493214642724,
+            "ci_low": 0.010735493214642719,
+            "ci_high": 0.010735493214642728,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9820119942420924,
             "ci_low": 0.970775680813829,
@@ -6998,6 +8408,12 @@
             "ci_high": 0.07726058536177062,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.07730625743965794,
+            "ci_low": 0.0773062574396579,
+            "ci_high": 0.07730625743965798,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9888021339514164,
             "ci_low": 0.9880069428399467,
@@ -7014,6 +8430,12 @@
             "estimate": 0.7890097618693055,
             "ci_low": 0.7880801392077792,
             "ci_high": 0.7899815308313692,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.7961716238431115,
+            "ci_low": 0.7961716238431114,
+            "ci_high": 0.7961716238431116,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -7087,6 +8509,12 @@
             "ci_high": 0.01696792150923708,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.01704247381581084,
+            "ci_low": 0.017042473815810838,
+            "ci_high": 0.01704247381581084,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9980142883311962,
             "ci_low": 0.9942260487268731,
@@ -7103,6 +8531,12 @@
             "estimate": 0.10845440367725538,
             "ci_low": 0.10759238801946229,
             "ci_high": 0.10931735613579362,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10626483673387968,
+            "ci_low": 0.10626483673387965,
+            "ci_high": 0.10626483673387968,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -7123,6 +8557,12 @@
             "ci_high": 0.010052042322954402,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.006306980601168156,
+            "ci_low": 0.006306980601168154,
+            "ci_high": 0.006306980601168157,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9897125071668441,
             "ci_low": 0.9794250143336882,
@@ -7141,6 +8581,12 @@
             "ci_high": 0.07726058536177059,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.04753205318497655,
+            "ci_low": 0.04753205318497654,
+            "ci_high": 0.04753205318497655,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9520411184722828,
             "ci_low": 0.9516778661354952,
@@ -7157,6 +8603,12 @@
             "estimate": 0.7890097618693058,
             "ci_low": 0.7880801392077795,
             "ci_high": 0.7899815308313695,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.8228536556641648,
+            "ci_low": 0.8228536556641647,
+            "ci_high": 0.8228536556641649,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -7221,6 +8673,12 @@
             "ci_high": 0.01696792150923712,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.007896378644641558,
+            "ci_low": 0.007896378644641553,
+            "ci_high": 0.00789637864464156,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.992830852503383,
             "ci_low": 0.9867866486242671,
@@ -7237,6 +8695,12 @@
             "estimate": 0.10845440367725556,
             "ci_low": 0.10759238801946243,
             "ci_high": 0.10931735613579381,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10789024685794633,
+            "ci_low": 0.10789024685794629,
+            "ci_high": 0.10789024685794638,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -7257,6 +8721,12 @@
             "ci_high": 0.01005204232295441,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.010735493214642724,
+            "ci_low": 0.010735493214642719,
+            "ci_high": 0.010735493214642728,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9820119942420924,
             "ci_low": 0.970775680813829,
@@ -7275,6 +8745,12 @@
             "ci_high": 0.07726058536177062,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.07730625743965794,
+            "ci_low": 0.0773062574396579,
+            "ci_high": 0.07730625743965798,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9888021339514164,
             "ci_low": 0.9880069428399467,
@@ -7291,6 +8767,12 @@
             "estimate": 0.7890097618693055,
             "ci_low": 0.7880801392077792,
             "ci_high": 0.7899815308313692,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.7961716238431115,
+            "ci_low": 0.7961716238431114,
+            "ci_high": 0.7961716238431116,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -7364,6 +8846,12 @@
             "ci_high": 0.016801038568694054,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.01693703243842345,
+            "ci_low": 0.016937032438423448,
+            "ci_high": 0.016937032438423455,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9999071215481723,
             "ci_low": 0.9999071215481723,
@@ -7380,6 +8868,12 @@
             "estimate": 0.10747081262181815,
             "ci_low": 0.10690684130956989,
             "ci_high": 0.10826853013205415,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.1054655479121996,
+            "ci_low": 0.10546554791219959,
+            "ci_high": 0.10546554791219961,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -7400,6 +8894,12 @@
             "ci_high": 0.010015679129957919,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.0063331349259505235,
+            "ci_low": 0.006333134925950521,
+            "ci_high": 0.006333134925950524,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 1.0,
             "ci_low": 1.0,
@@ -7418,6 +8918,12 @@
             "ci_high": 0.07696498774969511,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.04680095971510575,
+            "ci_low": 0.04680095971510574,
+            "ci_high": 0.046800959715105755,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9524672699789735,
             "ci_low": 0.9522946385546881,
@@ -7434,6 +8940,12 @@
             "estimate": 0.7902206236874774,
             "ci_low": 0.7895371524558703,
             "ci_high": 0.7909423666632757,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.8244633250083206,
+            "ci_low": 0.8244633250083205,
+            "ci_high": 0.8244633250083206,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -7498,6 +9010,12 @@
             "ci_high": 0.016801038568694096,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.007750703678483987,
+            "ci_low": 0.007750703678483984,
+            "ci_high": 0.00775070367848399,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9975379300565889,
             "ci_low": 0.9951771419732284,
@@ -7514,6 +9032,12 @@
             "estimate": 0.10747081262181833,
             "ci_low": 0.10690684130957005,
             "ci_high": 0.10826853013205433,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10638651864199268,
+            "ci_low": 0.10638651864199264,
+            "ci_high": 0.10638651864199271,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -7534,6 +9058,12 @@
             "ci_high": 0.01001567912995793,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.010724871651091794,
+            "ci_low": 0.010724871651091789,
+            "ci_high": 0.010724871651091797,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9881797193076778,
             "ci_low": 0.9789285100576596,
@@ -7552,6 +9082,12 @@
             "ci_high": 0.07696498774969517,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.07676532328069269,
+            "ci_low": 0.07676532328069266,
+            "ci_high": 0.07676532328069272,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9889646598002862,
             "ci_low": 0.9880979560871346,
@@ -7568,6 +9104,12 @@
             "estimate": 0.790220623687477,
             "ci_low": 0.7895371524558701,
             "ci_high": 0.7909423666632752,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.7983725827477389,
+            "ci_low": 0.7983725827477388,
+            "ci_high": 0.7983725827477389,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -7641,6 +9183,12 @@
             "ci_high": 0.016976301785093958,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.017045904787085824,
+            "ci_low": 0.017042473815810838,
+            "ci_high": 0.017052770875620325,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9980105200177658,
             "ci_low": 0.9941761276906318,
@@ -7657,6 +9205,12 @@
             "estimate": 0.10827491874071507,
             "ci_low": 0.10731596738950039,
             "ci_high": 0.10927213820758448,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10608491099623452,
+            "ci_low": 0.10572484209874342,
+            "ci_high": 0.10626483673387968,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -7677,6 +9231,12 @@
             "ci_high": 0.010054232366422411,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.006308250315266494,
+            "ci_low": 0.0063069806011681545,
+            "ci_high": 0.006310791277785258,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9897125071668441,
             "ci_low": 0.9794250143336882,
@@ -7695,6 +9255,12 @@
             "ci_high": 0.07727638232891103,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.047541622283388034,
+            "ci_low": 0.04753205318497654,
+            "ci_high": 0.0475607720435063,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9520411184722828,
             "ci_low": 0.9516778661354952,
@@ -7711,6 +9277,12 @@
             "estimate": 0.789168604409298,
             "ci_low": 0.7882011154660853,
             "ci_high": 0.7901792138526645,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.8230193116180251,
+            "ci_low": 0.8228536556641647,
+            "ci_high": 0.8233508237043448,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -7775,6 +9347,12 @@
             "ci_high": 0.016976301785094,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.007897968334530417,
+            "ci_low": 0.007896378644641554,
+            "ci_high": 0.007901149635288865,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9928174528574735,
             "ci_low": 0.9867227621946103,
@@ -7791,6 +9369,12 @@
             "estimate": 0.10827491874071525,
             "ci_low": 0.10731596738950057,
             "ci_high": 0.10927213820758468,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10771064834600245,
+            "ci_low": 0.10735123429533328,
+            "ci_high": 0.10789024685794636,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -7811,6 +9395,12 @@
             "ci_high": 0.01005423236642242,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.01073765447181937,
+            "ci_low": 0.01073549321464272,
+            "ci_high": 0.010741979597835105,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9820119942420924,
             "ci_low": 0.970775680813829,
@@ -7829,6 +9419,12 @@
             "ci_high": 0.07727638232891106,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.07732182064670866,
+            "ci_low": 0.07730625743965791,
+            "ci_high": 0.07735296586738426,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9888021339514164,
             "ci_low": 0.9880069428399467,
@@ -7845,6 +9441,12 @@
             "estimate": 0.7891686044092978,
             "ci_low": 0.7882011154660851,
             "ci_high": 0.7901792138526642,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.7963319082009391,
+            "ci_low": 0.7961716238431114,
+            "ci_high": 0.7966526706041586,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -7918,6 +9520,12 @@
             "ci_high": 0.016976301785093958,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.017045904787085824,
+            "ci_low": 0.017042473815810838,
+            "ci_high": 0.017052770875620325,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9980105200177658,
             "ci_low": 0.9941761276906318,
@@ -7934,6 +9542,12 @@
             "estimate": 0.10827491874071507,
             "ci_low": 0.10731596738950039,
             "ci_high": 0.10927213820758448,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10608491099623452,
+            "ci_low": 0.10572484209874342,
+            "ci_high": 0.10626483673387968,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -7954,6 +9568,12 @@
             "ci_high": 0.010054232366422411,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.006308250315266494,
+            "ci_low": 0.0063069806011681545,
+            "ci_high": 0.006310791277785258,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9897125071668441,
             "ci_low": 0.9794250143336882,
@@ -7972,6 +9592,12 @@
             "ci_high": 0.07727638232891103,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.047541622283388034,
+            "ci_low": 0.04753205318497654,
+            "ci_high": 0.0475607720435063,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9520411184722828,
             "ci_low": 0.9516778661354952,
@@ -7988,6 +9614,12 @@
             "estimate": 0.789168604409298,
             "ci_low": 0.7882011154660853,
             "ci_high": 0.7901792138526645,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.8230193116180251,
+            "ci_low": 0.8228536556641647,
+            "ci_high": 0.8233508237043448,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -8052,6 +9684,12 @@
             "ci_high": 0.016976301785094,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.007897968334530417,
+            "ci_low": 0.007896378644641554,
+            "ci_high": 0.007901149635288865,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9928174528574735,
             "ci_low": 0.9867227621946103,
@@ -8068,6 +9706,12 @@
             "estimate": 0.10827491874071525,
             "ci_low": 0.10731596738950057,
             "ci_high": 0.10927213820758468,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10771064834600245,
+            "ci_low": 0.10735123429533328,
+            "ci_high": 0.10789024685794636,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -8088,6 +9732,12 @@
             "ci_high": 0.01005423236642242,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.01073765447181937,
+            "ci_low": 0.01073549321464272,
+            "ci_high": 0.010741979597835105,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9820119942420924,
             "ci_low": 0.970775680813829,
@@ -8106,6 +9756,12 @@
             "ci_high": 0.07727638232891106,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.07732182064670866,
+            "ci_low": 0.07730625743965791,
+            "ci_high": 0.07735296586738426,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9888021339514164,
             "ci_low": 0.9880069428399467,
@@ -8122,6 +9778,12 @@
             "estimate": 0.7891686044092978,
             "ci_low": 0.7882011154660851,
             "ci_high": 0.7901792138526642,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.7963319082009391,
+            "ci_low": 0.7961716238431114,
+            "ci_high": 0.7966526706041586,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -8195,6 +9857,12 @@
             "ci_high": 0.01696792150923708,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.01704247381581084,
+            "ci_low": 0.017042473815810838,
+            "ci_high": 0.01704247381581084,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.9980142883311962,
             "ci_low": 0.9942260487268731,
@@ -8211,6 +9879,12 @@
             "estimate": 0.10845440367725538,
             "ci_low": 0.10759238801946229,
             "ci_high": 0.10931735613579362,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10626483673387968,
+            "ci_low": 0.10626483673387965,
+            "ci_high": 0.10626483673387968,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -8231,6 +9905,12 @@
             "ci_high": 0.010052042322954402,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.006306980601168156,
+            "ci_low": 0.006306980601168154,
+            "ci_high": 0.006306980601168157,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9897125071668441,
             "ci_low": 0.9794250143336882,
@@ -8249,6 +9929,12 @@
             "ci_high": 0.07726058536177059,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.04753205318497655,
+            "ci_low": 0.04753205318497654,
+            "ci_high": 0.04753205318497655,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9520411184722828,
             "ci_low": 0.9516778661354952,
@@ -8265,6 +9951,12 @@
             "estimate": 0.7890097618693058,
             "ci_low": 0.7880801392077795,
             "ci_high": 0.7899815308313695,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.8228536556641648,
+            "ci_low": 0.8228536556641647,
+            "ci_high": 0.8228536556641649,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -8329,6 +10021,12 @@
             "ci_high": 0.01696792150923712,
             "nan_replicates": 0
           },
+          "share_weapons": {
+            "estimate": 0.007896378644641558,
+            "ci_low": 0.007896378644641553,
+            "ci_high": 0.00789637864464156,
+            "nan_replicates": 0
+          },
           "precision_aircraft": {
             "estimate": 0.992830852503383,
             "ci_low": 0.9867866486242671,
@@ -8345,6 +10043,12 @@
             "estimate": 0.10845440367725556,
             "ci_low": 0.10759238801946243,
             "ci_high": 0.10931735613579381,
+            "nan_replicates": 0
+          },
+          "share_aircraft": {
+            "estimate": 0.10789024685794633,
+            "ci_low": 0.10789024685794629,
+            "ci_high": 0.10789024685794638,
             "nan_replicates": 0
           },
           "precision_maritime": {
@@ -8365,6 +10069,12 @@
             "ci_high": 0.01005204232295441,
             "nan_replicates": 0
           },
+          "share_maritime": {
+            "estimate": 0.010735493214642724,
+            "ci_low": 0.010735493214642719,
+            "ci_high": 0.010735493214642728,
+            "nan_replicates": 0
+          },
           "precision_ground_vehicles": {
             "estimate": 0.9820119942420924,
             "ci_low": 0.970775680813829,
@@ -8383,6 +10093,12 @@
             "ci_high": 0.07726058536177062,
             "nan_replicates": 0
           },
+          "share_ground_vehicles": {
+            "estimate": 0.07730625743965794,
+            "ci_low": 0.0773062574396579,
+            "ci_high": 0.07730625743965798,
+            "nan_replicates": 0
+          },
           "precision_nonmilitary": {
             "estimate": 0.9888021339514164,
             "ci_low": 0.9880069428399467,
@@ -8399,6 +10115,12 @@
             "estimate": 0.7890097618693055,
             "ci_low": 0.7880801392077792,
             "ci_high": 0.7899815308313692,
+            "nan_replicates": 0
+          },
+          "share_nonmilitary": {
+            "estimate": 0.7961716238431115,
+            "ci_low": 0.7961716238431114,
+            "ci_high": 0.7961716238431116,
             "nan_replicates": 0
           },
           "macro_f1": {
@@ -8447,7 +10169,8 @@
       "lenient": "aircraft",
       "vote_share": 1.0,
       "delta_pipeline": -0.061731519232884335,
-      "delta_llm": -0.061731519232884335
+      "delta_llm": -0.061731519232884335,
+      "delta_deberta_military_separated": -0.061731519232884335
     },
     {
       "text": "person",
@@ -8455,7 +10178,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.04772476648112334,
-      "delta_llm": -0.04772476648112334
+      "delta_llm": -0.04772476648112334,
+      "delta_deberta_military_separated": -0.04772476648112345
     },
     {
       "text": "vehicle",
@@ -8463,7 +10187,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.04714078679583,
-      "delta_llm": -0.04714078679583
+      "delta_llm": -0.04714078679583,
+      "delta_deberta_military_separated": 0.0
     },
     {
       "text": "human faceman",
@@ -8471,7 +10196,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.04111898294098004,
-      "delta_llm": -0.04111898294098015
+      "delta_llm": -0.04111898294098015,
+      "delta_deberta_military_separated": -0.04111898294098015
     },
     {
       "text": "land vehicle",
@@ -8479,7 +10205,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.037603425235514076,
-      "delta_llm": -0.03760342523551419
+      "delta_llm": -0.03760342523551419,
+      "delta_deberta_military_separated": -0.03760342523551419
     },
     {
       "text": "carwheel",
@@ -8487,7 +10214,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.02922331675155454,
-      "delta_llm": -0.02922331675155465
+      "delta_llm": -0.02922331675155465,
+      "delta_deberta_military_separated": -1.1102230246251565e-16
     },
     {
       "text": "tank",
@@ -8495,7 +10223,8 @@
       "lenient": "ground_vehicles",
       "vote_share": 1.0,
       "delta_pipeline": -0.026751136083812743,
-      "delta_llm": -0.026751136083812743
+      "delta_llm": -0.026751136083812743,
+      "delta_deberta_military_separated": -0.026751136083812743
     },
     {
       "text": "human faceperson",
@@ -8503,7 +10232,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.02397041948234091,
-      "delta_llm": -0.02397041948234091
+      "delta_llm": -0.02397041948234091,
+      "delta_deberta_military_separated": -0.02397041948234091
     },
     {
       "text": "car",
@@ -8511,7 +10241,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.023544114312076703,
-      "delta_llm": -0.023544114312076814
+      "delta_llm": -0.023544114312076814,
+      "delta_deberta_military_separated": -0.023544114312076814
     },
     {
       "text": "poster",
@@ -8519,7 +10250,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.022718756356862158,
-      "delta_llm": -0.022718756356862158
+      "delta_llm": -0.022718756356862158,
+      "delta_deberta_military_separated": 0.0
     },
     {
       "text": "land vehiclewheel",
@@ -8527,7 +10259,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.019184705961361903,
-      "delta_llm": -0.019184705961362014
+      "delta_llm": -0.019184705961362014,
+      "delta_deberta_military_separated": -0.019184705961362014
     },
     {
       "text": "airplane",
@@ -8535,7 +10268,8 @@
       "lenient": "aircraft",
       "vote_share": 1.0,
       "delta_pipeline": -0.016064307842944436,
-      "delta_llm": -0.016064307842944547
+      "delta_llm": -0.016064307842944547,
+      "delta_deberta_military_separated": 0.016064307842944547
     },
     {
       "text": "human facewoman",
@@ -8543,7 +10277,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.011855760910930435,
-      "delta_llm": -0.011855760910930435
+      "delta_llm": -0.011855760910930435,
+      "delta_deberta_military_separated": -0.011855760910930435
     },
     {
       "text": "footwearperson",
@@ -8551,7 +10286,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.01101580346358344,
-      "delta_llm": -0.011015803463583551
+      "delta_llm": -0.011015803463583551,
+      "delta_deberta_military_separated": -0.011015803463583551
     },
     {
       "text": "television",
@@ -8559,7 +10295,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.0102605230706041,
-      "delta_llm": -0.0102605230706041
+      "delta_llm": -0.0102605230706041,
+      "delta_deberta_military_separated": -0.0102605230706041
     },
     {
       "text": "carcar tire",
@@ -8567,7 +10304,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.00974175445016845,
-      "delta_llm": -0.00974175445016856
+      "delta_llm": -0.00974175445016856,
+      "delta_deberta_military_separated": -0.00974175445016856
     },
     {
       "text": "tankwheel",
@@ -8575,15 +10313,17 @@
       "lenient": "ground_vehicles",
       "vote_share": 1.0,
       "delta_pipeline": -0.007983975597435466,
-      "delta_llm": -0.007983975597435689
+      "delta_llm": -0.007983975597435689,
+      "delta_deberta_military_separated": -0.007983975597435577
     },
     {
       "text": "No object detected.",
       "frame_share": 0.007141098251662152,
       "lenient": "nonmilitary",
-      "vote_share": 1.0,
+      "vote_share": null,
       "delta_pipeline": -0.0071410982516620924,
-      "delta_llm": -0.0071410982516620924
+      "delta_llm": -0.0071410982516620924,
+      "delta_deberta_military_separated": -0.0071410982516620924
     },
     {
       "text": "human facemanwoman",
@@ -8591,7 +10331,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.006953251452892717,
-      "delta_llm": -0.006953251452892828
+      "delta_llm": -0.006953251452892828,
+      "delta_deberta_military_separated": -0.006953251452892828
     },
     {
       "text": "car tiretruck",
@@ -8599,7 +10340,8 @@
       "lenient": "ground_vehicles",
       "vote_share": 1.0,
       "delta_pipeline": 0.0069289189660056705,
-      "delta_llm": -0.0069289189660056705
+      "delta_llm": -0.0069289189660056705,
+      "delta_deberta_military_separated": 0.0069289189660055595
     },
     {
       "text": "mobile phone",
@@ -8607,7 +10349,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.006110374107119343,
-      "delta_llm": -0.006110374107119343
+      "delta_llm": -0.006110374107119343,
+      "delta_deberta_military_separated": -0.006110374107119343
     },
     {
       "text": "carvehicle registration platewheel",
@@ -8615,7 +10358,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.005874835634051001,
-      "delta_llm": -0.005874835634051112
+      "delta_llm": -0.005874835634051112,
+      "delta_deberta_military_separated": -0.005874835634051112
     },
     {
       "text": "carcar tirewheel",
@@ -8623,7 +10367,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.005835903655031505,
-      "delta_llm": -0.005835903655031505
+      "delta_llm": -0.005835903655031505,
+      "delta_deberta_military_separated": -0.005835903655031505
     },
     {
       "text": "helicopterperson",
@@ -8631,7 +10376,8 @@
       "lenient": "aircraft",
       "vote_share": 1.0,
       "delta_pipeline": -0.005054344176213865,
-      "delta_llm": -0.005054344176213865
+      "delta_llm": -0.005054344176213865,
+      "delta_deberta_military_separated": -0.005054344176213865
     },
     {
       "text": "glasseshuman faceman",
@@ -8639,7 +10385,8 @@
       "lenient": "nonmilitary",
       "vote_share": 1.0,
       "delta_pipeline": -0.004977453517650221,
-      "delta_llm": -0.004977453517650332
+      "delta_llm": -0.004977453517650332,
+      "delta_deberta_military_separated": -0.004977453517650332
     }
   ],
   "rq4_grid_lenient": [
@@ -18304,18 +20051,23 @@
       "precision_weapons": 0.9492551357760576,
       "recall_weapons": 0.8968459785878163,
       "prevalence_weapons": 0.016276065365495043,
+      "share_weapons": 0.015377450403091979,
       "precision_aircraft": 0.994564319655261,
       "recall_aircraft": 0.987017816026796,
       "prevalence_aircraft": 0.10845440367725558,
+      "share_aircraft": 0.10763147897072968,
       "precision_maritime": 0.5703760180705294,
       "recall_maritime": 0.7999800119928043,
       "prevalence_maritime": 0.009738834551742065,
+      "share_maritime": 0.013659187509063857,
       "precision_ground_vehicles": 0.9875479299892687,
       "recall_ground_vehicles": 0.6671861830133415,
       "prevalence_ground_vehicles": 0.07652093453620182,
+      "share_ground_vehicles": 0.051697450506910644,
       "precision_nonmilitary": 0.9625942359195746,
       "recall_nonmilitary": 0.9901964009335664,
       "prevalence_nonmilitary": 0.7890097618693056,
+      "share_nonmilitary": 0.8116344326102038,
       "macro_f1": 0.870316395686004,
       "binary_agreement": 0.9619050585293639,
       "binary_kappa": 0.8809046327650126,
@@ -18359,18 +20111,23 @@
       "precision_weapons": 0.9933024672832977,
       "recall_weapons": 0.9566454112905316,
       "prevalence_weapons": 0.016276065365495054,
+      "share_weapons": 0.015675409815855,
       "precision_aircraft": 0.9984991152726672,
       "recall_aircraft": 0.9998342750836179,
       "prevalence_aircraft": 0.10845440367725567,
+      "share_aircraft": 0.10859942529910352,
       "precision_maritime": 1.0,
       "recall_maritime": 0.9927643413951629,
       "prevalence_maritime": 0.009738834551742074,
+      "share_maritime": 0.009668367669716677,
       "precision_ground_vehicles": 0.9975891602383279,
       "recall_ground_vehicles": 0.9943932936601483,
       "prevalence_ground_vehicles": 0.07652093453620178,
+      "share_ground_vehicles": 0.07627579284164196,
       "precision_nonmilitary": 0.9988072337600004,
       "recall_nonmilitary": 0.9997835494275409,
       "prevalence_nonmilitary": 0.7890097618693055,
+      "share_nonmilitary": 0.7897810043736829,
       "macro_f1": 0.9930896962917976,
       "binary_agreement": 0.9988871942663577,
       "binary_kappa": 0.9966532251176755,
@@ -18385,18 +20142,23 @@
     "precision_weapons": 0.9749804599119667,
     "recall_weapons": 0.4724314648668364,
     "prevalence_weapons": 0.016276065365495068,
+    "share_weapons": 0.007886645649886668,
     "precision_aircraft": 0.992834259220019,
     "recall_aircraft": 0.9881393010656352,
     "prevalence_aircraft": 0.10845440367725558,
+    "share_aircraft": 0.10794153974030461,
     "precision_maritime": 0.9067143743838767,
     "recall_maritime": 0.9927643413951629,
     "prevalence_maritime": 0.009738834551742076,
+    "share_maritime": 0.010663079733666349,
     "precision_ground_vehicles": 0.9823545883485959,
     "recall_ground_vehicles": 0.9920902364279888,
     "prevalence_ground_vehicles": 0.07652093453620179,
+    "share_ground_vehicles": 0.07727929704418689,
     "precision_nonmilitary": 0.988730337314888,
     "recall_nonmilitary": 0.9977775164435,
     "prevalence_nonmilitary": 0.7890097618693055,
+    "share_nonmilitary": 0.7962294378319555,
     "macro_f1": 0.9110330676894863,
     "binary_agreement": 0.989273201594005,
     "binary_kappa": 0.9673732977360829,
@@ -18410,18 +20172,23 @@
       "precision_weapons": null,
       "recall_weapons": 0.0,
       "prevalence_weapons": 0.016276065365495057,
+      "share_weapons": 0.0,
       "precision_aircraft": null,
       "recall_aircraft": 0.0,
       "prevalence_aircraft": 0.10845440367725569,
+      "share_aircraft": 0.0,
       "precision_maritime": null,
       "recall_maritime": 0.0,
       "prevalence_maritime": 0.009738834551742074,
+      "share_maritime": 0.0,
       "precision_ground_vehicles": null,
       "recall_ground_vehicles": 0.0,
       "prevalence_ground_vehicles": 0.07652093453620175,
+      "share_ground_vehicles": 0.0,
       "precision_nonmilitary": 0.7890097618693055,
       "recall_nonmilitary": 1.0,
       "prevalence_nonmilitary": 0.7890097618693055,
+      "share_nonmilitary": 1.0,
       "macro_f1": 0.1764126230468151,
       "binary_agreement": 0.7890097618693055,
       "binary_kappa": 0.0,
@@ -18434,18 +20201,23 @@
       "precision_weapons": 1.0,
       "recall_weapons": 1.0,
       "prevalence_weapons": 0.016276065365495057,
+      "share_weapons": 0.016276065365495057,
       "precision_aircraft": 1.0,
       "recall_aircraft": 1.0,
       "prevalence_aircraft": 0.10845440367725569,
+      "share_aircraft": 0.10845440367725569,
       "precision_maritime": 1.0,
       "recall_maritime": 0.9940635618628824,
       "prevalence_maritime": 0.009738834551742074,
+      "share_maritime": 0.009681020562898032,
       "precision_ground_vehicles": 1.0,
       "recall_ground_vehicles": 1.0,
       "prevalence_ground_vehicles": 0.07652093453620175,
+      "share_ground_vehicles": 0.07652093453620175,
       "precision_nonmilitary": 0.9999267312577365,
       "recall_nonmilitary": 1.0,
       "prevalence_nonmilitary": 0.7890097618693055,
+      "share_nonmilitary": 0.7890675758581495,
       "macro_f1": 0.9993972617329836,
       "binary_agreement": 0.9999421860111559,
       "binary_kappa": 0.9998263392021806,
@@ -18458,18 +20230,23 @@
       "precision_weapons": 1.0,
       "recall_weapons": 1.0,
       "prevalence_weapons": 0.016276065365495057,
+      "share_weapons": 0.016276065365495057,
       "precision_aircraft": 1.0,
       "recall_aircraft": 1.0,
       "prevalence_aircraft": 0.10845440367725569,
+      "share_aircraft": 0.10845440367725569,
       "precision_maritime": 1.0,
       "recall_maritime": 1.0,
       "prevalence_maritime": 0.009738834551742074,
+      "share_maritime": 0.009738834551742074,
       "precision_ground_vehicles": 1.0,
       "recall_ground_vehicles": 1.0,
       "prevalence_ground_vehicles": 0.07652093453620175,
+      "share_ground_vehicles": 0.07652093453620175,
       "precision_nonmilitary": 1.0,
       "recall_nonmilitary": 1.0,
       "prevalence_nonmilitary": 0.7890097618693055,
+      "share_nonmilitary": 0.7890097618693055,
       "macro_f1": 1.0,
       "binary_agreement": 1.0,
       "binary_kappa": 1.0,
@@ -20407,6 +22184,13 @@
     "No human audit of the reference was possible. As stated in the plan, the panel's own error rate is therefore not estimated.",
     "Added after seeing the results (post hoc, not pre-registered): an exact decomposition of the LLM \u2212 pipeline agreement difference by object group under the rule reference (REPORT \u00a72). It shows that 2.9 of the 3.3 pp lenient difference comes from strings containing `truck`. Also post hoc: a codebook sensitivity table that moves each group of dual-use labels from tier T2 to T1 and recomputes the exact rule reference (REPORT \u00a72).",
     "The independent re-derivation of the headline claims (a re-implementation of the codebook written without the project code) found an error in the rule reference: the toy rule counted equipment items before applying the parent and conditional rules, so `land vehicle` + `tank` + `toy` counted as two items and the toy rule did not fire. After the fix the two implementations agree on every string under every reading. The fix changes the rule label of 14 strings (30 frames) under the equipment reading, 6 strings (11 frames) under lenient and 3 (7 frames) under strict; none of them is in the annotated sample, and no reported number changes at the precision shown. The report recomputes the rule labels with the corrected code; `data/reference/strings.csv.gz` keeps the labels committed before annotation, so that its checksum stays valid.",
-    "The codebook's score 3 anchor (\"or the armament rule applies\") does not say which vehicle categories it covers when a weapon is listed with two vehicle types and no person. The implementation gives score 3 to every vehicle category present. This affects the score of a non-primary category in 4 strings (5 frames) and no reading label."
+    "The codebook's score 3 anchor (\"or the armament rule applies\") does not say which vehicle categories it covers when a weapon is listed with two vehicle types and no person. The implementation gives score 3 to every vehicle category present. This affects the score of a non-primary category in 4 strings (5 frames) and no reading label.",
+    "Check (iii), consistency with the archived human labels: the report pools the 150 pre-registered human-labelled strings outside the sample with the 61 human-labelled sample strings (211 strings) and also reports the pre-registered 150 separately.",
+    "Check (i), test-retest: 111 items per configuration were re-presented, of which 23 (21%), not half, are heavy strings, because only 23 heavy strings are annotated and each was used once.",
+    "Sensitivity analyses (a)\u2013(d) use 500 bootstrap replicates (sampling only) and are computed for the pipeline and the LLM labels only. In (d), leaving out configuration A or B leaves `dollhelicopterhuman face` tied under lenient; it is excluded from those two rows without a tie-break pass.",
+    "PLAN \u00a76 promised SHA-256 sums for the raw annotator answers; they were not recorded when the files were archived. They were recorded afterwards in `data/reference/raw/SHA256SUMS` (each file was committed once and has not changed since). The codebook and `instruction.md` point to `data/reference/raw/MANIFEST.json`; the manifest is `data/reference/MANIFEST.json`. Both files are frozen and were not edited.",
+    "RQ5: the placebo distribution excludes the two event months (45 of the 47 months from 2020-06 to 2024-04). Two placebo months give degenerate GLM steps (separation); they are kept, as the plan specifies, and the report also gives the 95th percentile without them.",
+    "PLAN \u00a77's per-category median scores and \u22652-pass category sets are computed during adjudication but no outcome uses them; each reading's reference label is the majority of per-pass reading labels, as pre-registered.",
+    "The final independent verification found reporting gaps in the first rendering of the report, which were fixed: the influence table showed 15 of the 25 pre-registered strings and lacked the change in C2; the RQ3 class shares of each system, the sampling-only intervals of the contrasts and two pre-registered limitations (correlated annotator errors; no video-level agreement) were missing. No estimate changed."
   ]
 }

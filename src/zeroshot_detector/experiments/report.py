@@ -165,10 +165,24 @@ def position_effect(passes: pd.DataFrame, reference: pd.DataFrame) -> dict:
 
 
 def human_consistency(items: pd.DataFrame, reference: pd.DataFrame, frames: pd.DataFrame) -> dict:
+    """Agreement of the reference with the archived human labels.
+
+    Pooled over every annotated human-labelled string, and separately for the
+    pre-registered check (iii) (``kind == human_consistency``: human-labelled
+    strings outside the sample) and for the human-labelled sample strings.
+    """
     h = frames[frames["human_label"].notna()].drop_duplicates("florence_text")
     h = h.assign(item_id=h["florence_text"].map(item_id))
     m = h.merge(reference, on="item_id")
-    out = {"strings": len(m)}
+    out = _human_agreement(m)
+    prereg = set(items.loc[items["kind"] == "human_consistency", "item_id"])
+    out["preregistered_outside_sample"] = _human_agreement(m[m["item_id"].isin(prereg)])
+    out["in_sample"] = _human_agreement(m[~m["item_id"].isin(prereg)])
+    return out
+
+
+def _human_agreement(m: pd.DataFrame) -> dict:
+    out: dict = {"strings": len(m)}
     for x in ("equipment", "lenient", "strict"):
         ok = m[x] == m["human_label"]
         out[f"agree_{x}"] = float(ok.mean()) if len(m) else float("nan")
@@ -223,7 +237,8 @@ def influence_table(
 ) -> list[dict]:
     w = records.groupby("text")["weight"].sum().sort_values(ascending=False)
     total = records["weight"].sum()
-    agree = dict(zip(reference["item_id"].map(text_of), reference["lenient_agreement"], strict=True))
+    voted = reference[reference["n_votes"] > 0]
+    agree = dict(zip(voted["item_id"].map(text_of), voted["lenient_agreement"], strict=True))
     base = {s: record_metrics(records, ref, lab)["agreement"] for s, lab in systems.items()}
     rows = []
     for t in w.index[:HEAVY_N]:
@@ -387,7 +402,11 @@ def run(
         )
     out["sensitivity_lenient"] = sens
     out["influence_lenient"] = influence_table(
-        records, lenient, reference, {k: sys_labels[k] for k in ("pipeline", "llm")}, text_of
+        records,
+        lenient,
+        reference,
+        {k: sys_labels[k] for k in ("pipeline", "llm", "deberta_military_separated") if k in sys_labels},
+        text_of,
     )
 
     # RQ4

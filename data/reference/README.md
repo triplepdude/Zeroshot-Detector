@@ -13,6 +13,7 @@ seed 20251128.
 | `batches.json` | Per configuration (`A`, `B`, `C`; `D`/`E` = extra passes for the 23 heaviest strings; `A1` = single-item calls): batches of up to 25 items, in the order and with the object order that were shown. |
 | `instruction.md` | The exact instruction text (header + codebook v2). The prompt for a batch is this text + `"\n## Items\n\n"` + the batch's items as JSON (indent 1) + `"\n"` (`experiments.materials.prompt_for`). |
 | `raw/workflow_*.json` | Raw outputs of the annotation runs: per batch, the configuration, attempts, validation problems, whether the single-item fallback was used, and every answer as returned. |
+| `raw/SHA256SUMS` | SHA-256 of the raw answer files, recorded after archiving (see DEVIATIONS). |
 | `raw/tool_audit.json` | Tool calls found in the annotator transcripts. Only the structured-answer tool is allowed. |
 | `MANIFEST.json` | Design parameters, counts and SHA-256 of the materials and the codebook. |
 

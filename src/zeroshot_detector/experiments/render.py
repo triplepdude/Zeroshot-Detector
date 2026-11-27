@@ -220,7 +220,12 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
     w(
         "**Terminology.** *TLR agreement* = design-weighted agreement with the text-level reference produced by language-model "
         "annotators applying the authors' codebook. It is not accuracy against what is in the video. Intervals: 95%, stratified "
-        "bootstrap that also resamples annotator passes (annotation-aware), unless marked *sampling only*."
+        "bootstrap that also resamples annotator passes (annotation-aware), unless marked *sampling only*"
+        + (
+            f" ({s['rq2']['lenient']['total']['n_boot']:,} replicates, seed {s['rq2']['lenient']['total']['seed']})."
+            if s.get("rq2", {}).get("lenient", {}).get("total", {}).get("n_boot")
+            else "."
+        )
     )
     w("\n## Pre-registered results\n")
     w(table(["Item", "Pre-registered as", "Result", "Outcome"], _headline_rows(s)))
@@ -253,9 +258,10 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
             [
                 "Reading",
                 "κ (strings)",
-                "κ (frame-weighted)",
+                "κ (design-weighted)",
                 "unanimous",
                 "κ (excl. decision-table strings)",
+                "κ (excl., design-weighted)",
                 "unanimous (excl.)",
             ],
             [
@@ -265,6 +271,7 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
                     num(sc[r].get("fleiss_kappa_weighted"), 4),
                     pct(sc[r]["unanimous_share"], 2),
                     num(sx[r]["fleiss_kappa"], 4),
+                    num(sx[r].get("fleiss_kappa_weighted"), 4),
                     pct(sx[r]["unanimous_share"], 2),
                 ]
                 for r in READING_ORDER
@@ -291,11 +298,21 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
         + "."
     )
     hc = ch["human_consistency"]
+    pre, ins = hc.get("preregistered_outside_sample"), hc.get("in_sample")
+    split = (
+        f" Pre-registered check (iii), the {pre['strings']} human-labelled strings outside the sample: equipment "
+        f"{pct(pre['agree_equipment'])}, lenient {pct(pre['agree_lenient'])}, strict {pct(pre['agree_strict'])}; "
+        f"the {ins['strings']} human-labelled sample strings: equipment {pct(ins['agree_equipment'])}, lenient "
+        f"{pct(ins['agree_lenient'])}, strict {pct(ins['agree_strict'])}."
+        if pre and ins
+        else ""
+    )
     w(
-        f"\n**Consistency with the archived human labels** (unblinded, selective; {hc['strings']} strings): equipment reading "
-        f"{pct(hc['agree_equipment'])}, lenient {pct(hc['agree_lenient'])}, strict {pct(hc['agree_strict'])}. By which system the "
-        "human had sided with (lenient): " + ", ".join(f"{k} {pct(v)}" for k, v in hc["by_side_lenient"].items()) + ". "
-        "This is consistency, not validation."
+        f"\n**Consistency with the archived human labels** (unblinded, selective; all {hc['strings']} annotated human-labelled "
+        f"strings): equipment reading {pct(hc['agree_equipment'])}, lenient {pct(hc['agree_lenient'])}, strict "
+        f"{pct(hc['agree_strict'])}.{split} By which system the human had sided with (lenient, all): "
+        + ", ".join(f"{k} {pct(v)}" for k, v in hc["by_side_lenient"].items())
+        + ". This is consistency, not validation."
     )
 
     w("\n## 2. RQ1: what 'military' means\n")
@@ -411,13 +428,30 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
         w(
             "\nReference prevalence (TLR, design-weighted): "
             + ", ".join(f"{lab} {ci(ref_prev[f'prevalence_{lab}'])}" for lab in LABELS)
-            + ".\n"
+            + "."
         )
+        shares = [
+            f"{SYSTEM_NAMES.get(k, k).split(' (')[0].split(',')[0]}: "
+            + ", ".join(f"{lab} {pct(v[f'share_{lab}']['estimate'])}" for lab in LABELS)
+            for k, v in tot["systems"].items()
+            if f"share_{LABELS[0]}" in v and k != "rule_reference"
+        ]
+        if shares and reading == "lenient":
+            w(
+                "Class shares of each system (RQ3, design-weighted; the same under every reading): "
+                + "; ".join(shares)
+                + "."
+            )
+        w("")
         if tot["contrasts"]:
             w(
                 table(
-                    ["Contrast (paired)", "Difference"],
-                    [[k, signed_pp(v)] for k, v in tot["contrasts"].items() if k.endswith("agreement")],
+                    ["Contrast (paired)", "Difference", "(sampling only)"],
+                    [
+                        [k, signed_pp(v), signed_pp(smp["contrasts"].get(k))]
+                        for k, v in tot["contrasts"].items()
+                        if k.endswith("agreement")
+                    ],
                 )
             )
         if "unresolved_bounds" in s["rq2"][reading]:
@@ -430,7 +464,7 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
                 )
                 + "."
             )
-    w("\nPer-class precision / recall under the lenient reading:\n")
+    w("\nPer-class precision / recall under the lenient reading (the other readings are in `summary.json`):\n")
     lt = s["rq2"]["lenient"]["total"]["systems"]
     rows = []
     for k in ("pipeline", "llm", "corrected_pipeline", "deberta_military_separated"):
@@ -446,30 +480,60 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
                 )
     w(table(["System", "Class", "Precision", "Recall"], rows))
 
-    w("\n### Sensitivity (lenient reading; point estimate and sampling-only interval)\n")
-    rows = []
-    for name, res in s["sensitivity_lenient"].items():
-        rows.append([name] + [ci(res["systems"][k]["agreement"]) for k in ("pipeline", "llm")])
-    w(table(["Analysis", "Pipeline", "LLM"], rows))
-    w("\n### Influence of the heaviest strings (lenient)\n")
+    sens = s["sensitivity_lenient"]
+    nb = sorted({res.get("n_boot") for res in sens.values() if res.get("n_boot")})
     w(
-        "Each string's lenient label is flipped (military ↔ non-military) and the outcomes recomputed. Both systems agree "
-        "with the reference on most heavy strings, so a flip moves both agreements but rarely the LLM − pipeline contrast.\n"
+        "\n### Sensitivity (lenient reading; point estimate and sampling-only interval"
+        + (f", {', '.join(f'{n:,}' for n in nb)} replicates" if nb else "")
+        + ")\n"
+    )
+    rows = []
+    for name, res in sens.items():
+        rows.append(
+            [name]
+            + [ci(res["systems"][k]["agreement"]) for k in ("pipeline", "llm")]
+            + [res.get("n_unresolved_records", 0)]
+        )
+    w(table(["Analysis", "Pipeline", "LLM", "Unresolved records (excluded)"], rows))
+    if any(res.get("n_unresolved_records") for res in sens.values()):
+        w(
+            "\nUnresolved records arise when leaving out a configuration leaves an item tied; they are excluded from that "
+            "row (no tie-break pass is run for a sensitivity analysis)."
+        )
+    infl = s["influence_lenient"]
+    has_c2 = bool(infl) and "delta_deberta_military_separated" in infl[0]
+
+    def movers(key: str) -> str:
+        m = [r for r in infl if abs(r[key] - r["delta_pipeline"]) >= 0.005]
+        return ", ".join(f"`{r['text']}` ({100 * (r[key] - r['delta_pipeline']):+.1f} pp)" for r in m) or "none"
+
+    w(f"\n### Influence of the {len(infl)} heaviest strings (lenient)\n")
+    w(
+        "Each string's lenient label is flipped (military ↔ non-military) and the outcomes recomputed. Strings whose flip "
+        f"moves C1 (LLM − pipeline) by at least 0.5 pp: {movers('delta_llm')}."
+        + (
+            f" Strings whose flip moves C2 (DeBERTa − pipeline) by at least 0.5 pp: {movers('delta_deberta_military_separated')}."
+            if has_c2
+            else ""
+        )
+        + "\n"
     )
     w(
         table(
-            ["String", "Frame share", "Reference", "Vote share", "Δ pipeline", "Δ LLM", "Δ (LLM − pipeline)"],
+            ["String", "Frame share", "Reference", "Vote share", "Δ pipeline", "Δ LLM", "Δ C1"]
+            + (["Δ C2"] if has_c2 else []),
             [
                 [
                     f"`{r['text']}`",
                     pct(r["frame_share"]),
                     r["lenient"],
-                    pct(r["vote_share"]),
+                    pct(r["vote_share"]) if r.get("vote_share") is not None else "n/a (not annotated)",
                     f"{100 * r['delta_pipeline']:+.1f} pp",
                     f"{100 * r['delta_llm']:+.1f} pp",
                     f"{100 * (r['delta_llm'] - r['delta_pipeline']):+.1f} pp",
                 ]
-                for r in s["influence_lenient"][:15]
+                + ([f"{100 * (r['delta_deberta_military_separated'] - r['delta_pipeline']):+.1f} pp"] if has_c2 else [])
+                for r in infl
             ],
         )
     )
@@ -565,9 +629,36 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
         )
     )
     w(fig("rq5", "Monthly military share"))
+    import numpy as np
+
+    ev_months = {e[:7] for e in s["rq5"].get("events", {})}
+    notes = []
+    for col, dct in rq5.items():
+        steps = {m: v for m, v in dct["placebo_steps"].items() if v is not None and m not in ev_months}
+        degenerate = {m: v for m, v in steps.items() if abs(v) > 5}
+        if degenerate:
+            q_rest = float(np.quantile([abs(v) for m, v in steps.items() if m not in degenerate], 0.95))
+            exceed = [
+                ev
+                for ev, e in dct["events"].items()
+                if e["glm_step_logodds"] is not None and abs(e["glm_step_logodds"]) > q_rest
+            ]
+            notes.append(
+                f"{col.replace('_label', '')} labels: {len(steps)} placebo months, of which "
+                + ", ".join(f"{m} ({v:.1f})" for m, v in sorted(degenerate.items()))
+                + f" give degenerate steps (separation); the 95th percentile is {dct['placebo_abs_step_95th']:.2f} with them "
+                f"and {q_rest:.2f} without them, "
+                + (
+                    f"which the step at {', '.join(exceed)} would exceed"
+                    if exceed
+                    else "and no event step exceeds either"
+                )
+            )
     w(
-        "\nA change is reported only if the step exceeds the 95th percentile of placebo steps (all months 2020-06 to 2024-04) and has the "
-        "same sign within and between batches (pre-registered)."
+        f"\nA change is reported only if the step exceeds the 95th percentile of the absolute placebo steps (every month from "
+        f"2020-06 to 2024-04 except the event months; window ±{s['rq5'].get('window_months', 18)} months, event month excluded) "
+        "and has the same sign within and between batches (pre-registered). Straddling batch `none` = videos without a batch "
+        "prefix." + (" " + "; ".join(notes) + "." if notes else "")
     )
     if s.get("deviations"):
         w("\n## Deviations from the plan\n")
@@ -577,6 +668,9 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
     w(
         "* The reference is produced by language models applying the authors' codebook; its error rate against human judgement is not estimated.\n"
         "* It is text-level: detector errors, toys, video games and museum pieces are invisible unless the object list says so.\n"
+        "* The annotators' errors may be correlated with each other and with the original OpenAI labeller, which would bias "
+        "RQ2, including C1, towards the LLM.\n"
+        "* Video-level agreement is not estimated.\n"
         "* Intervals cover sampling and annotation uncertainty for this archive only."
     )
     return "\n".join(L) + "\n"
