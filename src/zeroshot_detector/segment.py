@@ -166,15 +166,41 @@ def build_vocabulary(
     return frozenset(vocab)
 
 
-def segment_all(texts: Iterable[str], vocabulary: frozenset[str] | None = None) -> dict[str, tuple[str, ...]]:
-    """Segment unique ``texts``; unsplittable strings map to a 1-tuple of themselves."""
+def _expand(part: str, vocab: frozenset[str], protected: frozenset[str], longest: int) -> tuple[str, ...]:
+    """Split a data-derived item that is itself a concatenation of other known items."""
+    if part in protected:
+        return (part,)
+    sub = segment(part, vocab - {part}, longest)
+    if sub is None or len(sub) < 2:
+        return (part,)
+    return tuple(p for s in sub for p in _expand(s, vocab, protected, longest))
+
+
+def segment_all(
+    texts: Iterable[str],
+    vocabulary: frozenset[str] | None = None,
+    protected: Iterable[str] | None = None,
+) -> dict[str, tuple[str, ...]]:
+    """Segment unique ``texts``; unsplittable strings map to a 1-tuple of themselves.
+
+    Items of the vocabulary that are not ``protected`` (default: the Open
+    Images classes and curated labels) but can be split into other known items
+    are expanded, so that a compound such as ``"airplanecar tire"`` — which
+    can enter the vocabulary through residual mining when neither part is
+    known yet — yields ``("airplane", "car tire")``. Genuine compound class
+    names (``"wheelchair"``) are protected.
+    """
     texts = list(dict.fromkeys(texts))
     vocab = vocabulary if vocabulary is not None else build_vocabulary(texts)
+    protected = frozenset(protected) if protected is not None else default_base_vocabulary()
     longest = max(len(v) for v in vocab)
     out = {}
     for text in texts:
+        if text in protected:
+            out[text] = (text,)
+            continue
         parts = segment(text, vocab - {text}, longest)
         if parts is None or len(parts) < 2:
             parts = (text,)
-        out[text] = parts
+        out[text] = tuple(p for part in parts for p in _expand(part, vocab, protected, longest))
     return out
