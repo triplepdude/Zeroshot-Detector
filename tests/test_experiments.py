@@ -339,3 +339,20 @@ def test_codebook_sensitivity_moves_trucks_and_restores_the_table():
     assert abs(out["codebook v2"]["llm_minus_pipeline"] - 10 / 15) < 1e-12
     assert abs(out["trucks as T1"]["llm_minus_pipeline"] + 10 / 15) < 1e-12
     assert abs(out["trucks as T1"]["frames_changed"] - 10 / 15) < 1e-12
+
+
+def test_headline_rows_without_intervals():
+    from zeroshot_detector.experiments.render import _headline_rows
+
+    def c(est):
+        return {"estimate": est, "ci_low": None, "ci_high": None}
+
+    s = {
+        "rq2": {
+            "lenient": {"total": {"contrasts": {"llm - pipeline: agreement": c(0.03)}}},
+            "strict": {"total": {"contrasts": {"llm - pipeline: agreement": c(-0.04)}}},
+        },
+        "rq1_panel_vs_rule": {"lenient": c(0.999)},
+    }
+    rows = {r[0].split(":")[0]: r for r in _headline_rows(s)}
+    assert rows["C1"][3] == rows["P1"][3] == rows["P2"][3] == "– (no interval)"

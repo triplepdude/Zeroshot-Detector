@@ -396,6 +396,10 @@ def run(
         base = record_metrics(records, lenient, sys_labels["pipeline"])["agreement"]
         grid["diff_vs_pipeline"] = grid["agreement"] - base
         out["rq4_grid_lenient"] = grid.to_dict("records")
+        out["rq4_configs"] = {
+            "scored": sorted(c.name for c in grid_scores),
+            "missing": sorted(c.name for c in all_configs() if c not in grid_scores),
+        }
         out["rq4_nested_selection"] = {
             k: v for k, v in nested_selection(records, lenient, grid_scores, seg).items() if k != "labels"
         }

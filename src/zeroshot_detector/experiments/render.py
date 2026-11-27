@@ -20,7 +20,9 @@ SYSTEM_NAMES = {
 def ci(d: dict | None, fmt=pct) -> str:
     if not d or d.get("estimate") is None:
         return "–"
-    return f"{fmt(d['estimate'])} ({fmt(d.get('ci_low'))}–{fmt(d.get('ci_high'))})"
+    if d.get("ci_low") is None or d.get("ci_high") is None:
+        return fmt(d["estimate"])
+    return f"{fmt(d['estimate'])} ({fmt(d['ci_low'])}–{fmt(d['ci_high'])})"
 
 
 def signed_pp(d: dict | None) -> str:
@@ -30,7 +32,9 @@ def signed_pp(d: dict | None) -> str:
     def f(x):
         return "–" if x is None else f"{100 * x:+.1f}"
 
-    return f"{f(d['estimate'])} pp ({f(d.get('ci_low'))} to {f(d.get('ci_high'))})"
+    if d.get("ci_low") is None or d.get("ci_high") is None:
+        return f"{f(d['estimate'])} pp"
+    return f"{f(d['estimate'])} pp ({f(d['ci_low'])} to {f(d['ci_high'])})"
 
 
 def _contrast(s: dict, reading: str, key: str) -> dict | None:
@@ -40,9 +44,12 @@ def _contrast(s: dict, reading: str, key: str) -> dict | None:
 def _headline_rows(s: dict) -> list[list[str]]:
     """Confirmatory contrasts C1, C2 and predictions P1, P2 (PLAN v2 §4, §7)."""
 
+    def has_ci(d: dict | None) -> bool:
+        return bool(d) and d.get("ci_low") is not None and d.get("ci_high") is not None
+
     def excludes_zero(d: dict | None) -> str:
-        if not d or d.get("ci_low") is None:
-            return "–"
+        if not has_ci(d):
+            return "– (no interval)"
         if d["ci_low"] > 0:
             return "positive; interval excludes 0"
         if d["ci_high"] < 0:
@@ -65,26 +72,37 @@ def _headline_rows(s: dict) -> list[list[str]]:
     )
     pr = s.get("rq1_panel_vs_rule", {}).get("lenient")
     if pr and pr.get("estimate") is not None:
-        dep = {"estimate": 1 - pr["estimate"], "ci_low": 1 - pr["ci_high"], "ci_high": 1 - pr["ci_low"]}
+        dep = {
+            "estimate": 1 - pr["estimate"],
+            "ci_low": 1 - pr["ci_high"] if has_ci(pr) else None,
+            "ci_high": 1 - pr["ci_low"] if has_ci(pr) else None,
+        }
+        if not has_ci(pr):
+            outcome = "– (no interval)"
+        elif dep["ci_high"] < 0.05:
+            outcome = "confirmed"
+        else:
+            outcome = "not confirmed" if dep["estimate"] >= 0.05 else "inconclusive"
         rows.append(
             [
                 "P1: panel departs from the rule reference on < 5% of frames (lenient)",
                 "prediction",
                 f"{ci(dep, lambda x: pct(x, 2))} of frames",
-                "confirmed"
-                if dep["ci_high"] < 0.05
-                else ("not confirmed" if dep["estimate"] >= 0.05 else "inconclusive"),
+                outcome,
             ]
         )
     strict = _contrast(s, "strict", "llm")
     if c1 and strict:
-        ok = c1["ci_low"] > 0 and strict["ci_high"] < 0
+        if has_ci(c1) and has_ci(strict):
+            outcome = "confirmed" if c1["ci_low"] > 0 and strict["ci_high"] < 0 else "not confirmed"
+        else:
+            outcome = "– (no interval)"
         rows.append(
             [
                 "P2: LLM ahead of the pipeline under lenient, behind it under strict",
                 "prediction",
                 f"lenient {signed_pp(c1)}; strict {signed_pp(strict)}",
-                "confirmed" if ok else "not confirmed",
+                outcome,
             ]
         )
     return rows
@@ -311,8 +329,9 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
         rd = [r for r in ("lenient", "strict") if r in cg["readings"]]
         w(
             "**Where the LLM − pipeline difference comes from** (*post hoc*, added after seeing the results; exact, rule "
-            "reference over the population). Strings are grouped by their equipment-reading category; contributions add up "
-            "to the total difference in agreement.\n"
+            "reference over the population). Strings are grouped by their equipment-reading category; "
+            "'no equipment category' includes strings whose only vehicle label is the generic `vehicle`, toys, and "
+            "`rocket`/`knife` that do not meet their condition. Contributions add up to the total difference in agreement.\n"
         )
         groups = sorted(cg["frame_share"], key=lambda g: -abs(cg["readings"][rd[0]]["by_group"][g]))
         w(
@@ -320,7 +339,7 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
                 ["Object group", "Frame share", *[f"{r} (pp)" for r in rd]],
                 [
                     [
-                        "no vehicle or weapon" if g == "nonmilitary" else g,
+                        "no equipment category" if g == "nonmilitary" else g,
                         pct(cg["frame_share"][g]),
                         *[f"{100 * cg['readings'][r]['by_group'][g]:+.2f}" for r in rd],
                     ]
@@ -456,6 +475,12 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
     w("\n## 4. RQ4: better string classifiers? (lenient reading)\n")
     if "rq4_grid_lenient" in s:
         grid = sorted(s["rq4_grid_lenient"], key=lambda r: -(r["agreement"] or 0))
+        rc = s.get("rq4_configs", {})
+        if rc.get("missing"):
+            w(
+                f"**Incomplete grid:** {len(rc['scored'])} of {len(rc['scored']) + len(rc['missing'])} configurations scored; "
+                f"missing: {', '.join(rc['missing'])}.\n"
+            )
         w(
             "Top 15 of the exploratory grid (all configurations are in `summary.json`), as differences from the original pipeline:\n"
         )
