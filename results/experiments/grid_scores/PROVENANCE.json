@@ -1,0 +1,128 @@
+{
+ "note": "Zero-shot scores of the 1,108 reference strings (one file per configuration; score_<label> = softmax over the five label hypotheses). bart-example-ids-glued is taken from results/relabel/legacy_bart-large-mnli.csv.gz (same model revision and input; see DEVIATIONS).",
+ "models": {
+  "bart": "facebook/bart-large-mnli",
+  "deberta": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli"
+ },
+ "templates": {
+  "example": "This example is {}.",
+  "image": "This image shows {}."
+ },
+ "configs": {
+  "bart-example-ids-glued": {
+   "model": "facebook/bart-large-mnli",
+   "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce (legacy relabel)",
+   "template": "This example is {}.",
+   "verbalizer": "ids",
+   "input": "glued"
+  },
+  "bart-example-ids-separated": {
+   "model": "facebook/bart-large-mnli",
+   "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+   "template": "This example is {}.",
+   "verbalizer": "ids",
+   "input": "separated"
+  },
+  "bart-example-military-glued": {
+   "model": "facebook/bart-large-mnli",
+   "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+   "template": "This example is {}.",
+   "verbalizer": "military",
+   "input": "glued"
+  },
+  "bart-example-military-separated": {
+   "model": "facebook/bart-large-mnli",
+   "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+   "template": "This example is {}.",
+   "verbalizer": "military",
+   "input": "separated"
+  },
+  "bart-image-ids-glued": {
+   "model": "facebook/bart-large-mnli",
+   "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+   "template": "This image shows {}.",
+   "verbalizer": "ids",
+   "input": "glued"
+  },
+  "bart-image-ids-separated": {
+   "model": "facebook/bart-large-mnli",
+   "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+   "template": "This image shows {}.",
+   "verbalizer": "ids",
+   "input": "separated"
+  },
+  "bart-image-military-glued": {
+   "model": "facebook/bart-large-mnli",
+   "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+   "template": "This image shows {}.",
+   "verbalizer": "military",
+   "input": "glued"
+  },
+  "bart-image-military-separated": {
+   "model": "facebook/bart-large-mnli",
+   "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+   "template": "This image shows {}.",
+   "verbalizer": "military",
+   "input": "separated"
+  },
+  "deberta-example-ids-glued": {
+   "model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+   "revision": "b3546ea6b0346eb6f8d5d68b13c7dc6d0376b3d7",
+   "template": "This example is {}.",
+   "verbalizer": "ids",
+   "input": "glued"
+  },
+  "deberta-example-ids-separated": {
+   "model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+   "revision": "b3546ea6b0346eb6f8d5d68b13c7dc6d0376b3d7",
+   "template": "This example is {}.",
+   "verbalizer": "ids",
+   "input": "separated"
+  },
+  "deberta-example-military-glued": {
+   "model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+   "revision": "b3546ea6b0346eb6f8d5d68b13c7dc6d0376b3d7",
+   "template": "This example is {}.",
+   "verbalizer": "military",
+   "input": "glued"
+  },
+  "deberta-example-military-separated": {
+   "model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+   "revision": "b3546ea6b0346eb6f8d5d68b13c7dc6d0376b3d7",
+   "template": "This example is {}.",
+   "verbalizer": "military",
+   "input": "separated"
+  },
+  "deberta-image-ids-glued": {
+   "model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+   "revision": "b3546ea6b0346eb6f8d5d68b13c7dc6d0376b3d7",
+   "template": "This image shows {}.",
+   "verbalizer": "ids",
+   "input": "glued"
+  },
+  "deberta-image-ids-separated": {
+   "model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+   "revision": "b3546ea6b0346eb6f8d5d68b13c7dc6d0376b3d7",
+   "template": "This image shows {}.",
+   "verbalizer": "ids",
+   "input": "separated"
+  },
+  "deberta-image-military-glued": {
+   "model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+   "revision": "b3546ea6b0346eb6f8d5d68b13c7dc6d0376b3d7",
+   "template": "This image shows {}.",
+   "verbalizer": "military",
+   "input": "glued"
+  },
+  "deberta-image-military-separated": {
+   "model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+   "revision": "b3546ea6b0346eb6f8d5d68b13c7dc6d0376b3d7",
+   "template": "This image shows {}.",
+   "verbalizer": "military",
+   "input": "separated"
+  }
+ },
+ "checks": [
+  "deberta-example-military-separated (the confirmatory C2 configuration) was compared with the transformers zero-shot-classification pipeline on 7 strings (poster, vehicle, carwheel, car tiretruck, boatperson, helmetpersonweapon, human faceman): maximum absolute score difference 8e-4 (batch padding), identical arg-max for all 7."
+ ]
+}

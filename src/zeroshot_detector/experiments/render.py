@@ -134,8 +134,10 @@ def figures(s: dict, fig_dir: Path) -> dict[str, Path]:
             y = len(systems) - 1 - i
             ax.plot([a["ci_low"], a["ci_high"]], [y, y], color=colors[i % len(colors)], linewidth=2)
             ax.scatter([a["estimate"]], [y], color=colors[i % len(colors)], s=30, zorder=3, edgecolor="#ffffff")
-            ax.text(a["estimate"], y + 0.25, f"{a['estimate']:.1%}", ha="center", fontsize=7, color=F.INK)
-        ax.set_title(f"{reading} reading", loc="left", fontsize=9)
+            ax.text(a["estimate"], y + 0.18, f"{a['estimate']:.1%}", ha="center", va="bottom", fontsize=7, color=F.INK)
+        ax.set_ylim(-0.5, len(systems) - 0.2)
+        ax.margins(x=0.08)
+        ax.set_title(f"{reading} reading", loc="left", fontsize=9, pad=8)
         ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
         ax.grid(axis="x", color=F.GRID, linewidth=0.6)
         ax.set_axisbelow(True)
@@ -499,6 +501,20 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
                     for r in grid[:15]
                 ],
             )
+        )
+        best = {}
+        for r in grid:
+            m = r["config"].split("-")[0]
+            if r["agreement"] is not None and (m not in best or r["agreement"] > best[m]["agreement"]):
+                best[m] = r
+        w(
+            "\nBest setting per model (selected on the same sample, so optimistic): "
+            + "; ".join(
+                f"{m}: {r['config']}, keyword rule {'on' if r['keyword'] else 'off'}, threshold {r['threshold']}, "
+                f"{pct(r['agreement'])} ({100 * r['diff_vs_pipeline']:+.1f} pp)"
+                for m, r in best.items()
+            )
+            + "."
         )
         ns = s["rq4_nested_selection"]
         w(
