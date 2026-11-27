@@ -106,3 +106,15 @@ def test_agreement_and_adjudication():
     ia = inter_annotator_agreement(ans, LABELS)
     assert ia["pairwise"]["ann1|ann2"]["n"] == 3
     assert ia["items_with_all_annotators"] == 2
+
+
+def test_stratum_overrides():
+    pop = population()
+    s = stratified_sample(
+        pop, n_per_stratum=20, seed=0, exclude_duplicate_files=False, n_overrides={"nonmilitary|nonmilitary": 100}
+    )
+    sizes = s.groupby("stratum")["n_h"].first()
+    assert sizes["nonmilitary|nonmilitary"] == 100 and sizes["weapons|weapons"] == 20
+    assert s["weight"].sum() == pytest.approx(len(pop))
+    with pytest.raises(ValueError):
+        stratified_sample(pop, n_overrides={"typo|stratum": 5}, exclude_duplicate_files=False)

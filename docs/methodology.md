@@ -151,8 +151,9 @@ The package includes the design the archive lacks.
 
 Sample-size guidance: overall accuracy is dominated by the largest stratum
 (nonmilitary/nonmilitary, 78% of frames). Its precision is driven by
-$n_h$ in that stratum, so allocate more items there, or use Neyman allocation
-if pilot estimates are available. Per-class precision for a military label is
+$n_h$ in that stratum, so allocate more items there
+(`--stratum-size "nonmilitary|nonmilitary=200"`), or use Neyman allocation if
+pilot estimates are available. Per-class precision for a military label is
 driven by the strata with that pipeline label.
 
 ## 7. Threats to validity

@@ -7,8 +7,9 @@ classified by **BART-MNLI** zero-shot classification into *weapons*, *aircraft*,
 
 * the code and archived outputs of an independent study that applied this
   pipeline to 30,958 TikTok videos (paper: <https://hdl.handle.net/20.500.14216/1718>);
-* `zeroshot_detector`, a tested Python package that reproduces the original
-  pipeline exactly (`configs/original_study.yaml`) and provides a corrected
+* `zeroshot_detector`, a tested Python package that reimplements the original
+  pipeline, with its decision logic reproduced exactly and verified against the
+  archived labels (`configs/original_study.yaml`), and provides a corrected
   version (`configs/default.yaml`);
 * a reproducible re-analysis of the archived data, with uncertainty estimates
   ([`results/REPORT.md`](results/REPORT.md));
@@ -126,7 +127,7 @@ git commit). Runs are resumable. MinIO credentials come from the
 ## Measuring accuracy: annotation protocol
 
 ```bash
-zsd annotate sample --n-per-stratum 40 --out annotation/   # stratified sample; blind sheet + private key
+zsd annotate sample --n-per-stratum 40 --stratum-size "nonmilitary|nonmilitary=200" --out annotation/
 zsd review --sheet annotation/sheet.csv --answers annotation/answers.csv --videos /path/to/videos
 zsd annotate agreement --answers annotation/answers.csv    # Cohen's / Fleiss' κ
 zsd annotate estimate --answers annotation/answers.csv --key annotation/sample_key.csv

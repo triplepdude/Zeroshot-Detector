@@ -41,13 +41,18 @@ def stratified_sample(
     strata: Sequence[str] = DEFAULT_STRATA,
     seed: int = 0,
     exclude_duplicate_files: bool = True,
+    n_overrides: dict[str, int] | None = None,
 ) -> pd.DataFrame:
     """Simple random sample of frames within each stratum.
 
     Returns the *key* table: one row per sampled frame with its stratum,
     stratum size ``N_h``, sample size ``n_h`` and design weight ``N_h / n_h``.
     With ``exclude_duplicate_files`` the population keeps one file per post.
+    ``n_overrides`` sets the sample size of individual strata, keyed by the
+    stratum name (``"pipeline_label|llm_label"``), e.g. to allocate more items
+    to the large ``nonmilitary|nonmilitary`` stratum.
     """
+    n_overrides = dict(n_overrides or {})
     pop = frames
     if exclude_duplicate_files and "post_id" in frames:
         first = frames.drop_duplicates("post_id")["video"]
@@ -55,14 +60,17 @@ def stratified_sample(
     rng = np.random.default_rng(seed)
     parts = []
     for key, group in pop.groupby(list(strata), sort=True):
-        n_h = min(n_per_stratum, len(group))
+        name = "|".join(key if isinstance(key, tuple) else (key,))
+        n_h = min(n_overrides.pop(name, n_per_stratum), len(group))
         idx = rng.choice(len(group), size=n_h, replace=False)
         chosen = group.iloc[np.sort(idx)].copy()
-        chosen["stratum"] = "|".join(key if isinstance(key, tuple) else (key,))
+        chosen["stratum"] = name
         chosen["N_h"] = len(group)
         chosen["n_h"] = n_h
         chosen["weight"] = len(group) / n_h
         parts.append(chosen)
+    if n_overrides:
+        raise ValueError(f"unknown strata in n_overrides: {sorted(n_overrides)}")
     sample = pd.concat(parts, ignore_index=True)
     # random (but seeded), non-informative ids: the id reveals nothing about the stratum
     ids: list[str] = []

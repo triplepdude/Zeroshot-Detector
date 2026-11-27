@@ -124,7 +124,11 @@ def _cmd_annotate(args: argparse.Namespace) -> int:
 
     if args.annotate_command == "sample":
         frames = add_post_ids(load_frames(args.data))
-        sample = A.stratified_sample(frames, n_per_stratum=args.n_per_stratum, seed=args.seed)
+        overrides = {}
+        for item in args.stratum_size or []:
+            name, _, n = item.rpartition("=")
+            overrides[name] = int(n)
+        sample = A.stratified_sample(frames, n_per_stratum=args.n_per_stratum, seed=args.seed, n_overrides=overrides)
         out = Path(args.out)
         out.mkdir(parents=True, exist_ok=True)
         sample.to_csv(out / "sample_key.csv", index=False)
@@ -210,6 +214,12 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--n-per-stratum", type=int, default=40)
     s.add_argument("--seed", type=int, default=0)
     s.add_argument("--include-text", action="store_true", help="show the Florence-2 string to annotators")
+    s.add_argument(
+        "--stratum-size",
+        action="append",
+        metavar="PIPELINE|LLM=N",
+        help="sample size for one stratum, e.g. 'nonmilitary|nonmilitary=200' (repeatable)",
+    )
     ag = asub.add_parser("agreement", help="inter-annotator agreement")
     ag.add_argument("--answers", required=True)
     es = asub.add_parser("estimate", help="design-weighted accuracy against adjudicated labels")
