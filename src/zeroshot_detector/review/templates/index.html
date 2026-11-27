@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <h1>Frame annotation</h1>
+  <p>You will see {{ n_items }} still frames from short videos, one at a time. For each frame, choose the category that best
+     describes what is <strong>visible in the image</strong>.</p>
+  <ul>
+    <li><strong>Weapons</strong>: firearms, missiles, artillery or other weapons are visible.</li>
+    <li><strong>Military aircraft / maritime / ground vehicles</strong>: a military aircraft, ship or boat, or ground vehicle (tank, armoured vehicle, military truck) is visible.</li>
+    <li><strong>Non-military</strong>: none of the above, including civilian planes, boats and cars, toys and video-game footage unless it depicts real military equipment.</li>
+    <li>Use <strong>Unsure</strong> if you cannot decide, and <strong>Frame missing</strong> if no image is shown.</li>
+  </ul>
+  <p class="muted">Work independently; do not discuss items with other annotators. Your answers are saved after each item and you can stop and resume at any time.</p>
+  <form method="post" action="/start">
+    <p><label>Annotator id<br><input type="text" name="annotator" required autocomplete="off"></label></p>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <button type="submit">Start</button>
+  </form>
+</div>
+{% endblock %}

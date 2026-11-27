@@ -1,0 +1,56 @@
+# Corrected pipeline: same models, taxonomy and threshold as the original study,
+# with the defects listed in docs/audit.md fixed. See configs/original_study.yaml
+# for an exact reproduction of the original behaviour.
+
+source:
+  kind: local                 # local | minio
+  path: videos/               # directory searched recursively (local)
+  # endpoint: "minio.example.org:9000"   # minio; credentials: MINIO_ACCESS_KEY / MINIO_SECRET_KEY env vars
+  # buckets: [my-bucket]
+  # prefix: ""
+  secure: true
+  extensions: [.mp4, .avi, .mov, .mkv]
+
+sampling:
+  every_n_frames: 30          # original: every 30th decoded frame (~1 s at 30 fps)
+  every_seconds: null         # set e.g. 1.0 to sample by time instead of frame count
+  dedup_l1_threshold: 5000    # original value; only removes (near-)identical consecutive samples
+  max_samples_per_video: null
+
+detector:
+  model: microsoft/Florence-2-large
+  revision: null              # pin a commit hash for exact reproducibility
+  task: "<OD>"
+  num_beams: 3
+  max_new_tokens: 1024
+  batch_size: 8
+  dtype: float32
+  device: null                # auto: cuda if available, else cpu
+
+classifier:
+  model: facebook/bart-large-mnli
+  revision: null
+  labels: [weapons, aircraft, maritime, ground_vehicles, nonmilitary]
+  hypothesis_template: "This example is {}."
+  verbalizers: {}             # e.g. {ground_vehicles: "military ground vehicles"}
+  multi_label: false
+  threshold: 0.8
+  legacy: false               # true = glued labels + substring keyword rule (original behaviour)
+  keyword_category: ground_vehicles
+  keywords: [armored, convoy, military, humvee, APC, tank, infantry, MRAP, Stryker, Bradley,
+             military truck, artillery, howitzer, patrol vehicle, combat vehicle, troop carrier,
+             military convoy, tracked vehicle]
+  always_score: true          # also store zero-shot scores for keyword-matched frames
+  batch_size: 32
+  device: null
+
+aggregation:
+  rule: plurality             # legacy | plurality | military_fraction
+  min_fraction: null          # required for military_fraction, e.g. 0.25
+
+output:
+  dir: runs
+  copy_videos: false          # true = also copy videos into sorted/<category>/ like the original script
+  keep_raw_text: true
+
+seed: 0

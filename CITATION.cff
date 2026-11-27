@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or the derived data, please cite it as below, together with the paper of the original study."
+title: "Zeroshot-Detector: zero-shot detection of military content in short-form video, with a reproducible evaluation of the archived study data"
+type: software
+version: 1.0.0
+license: GPL-3.0-only
+repository-code: "https://github.com/triplepdude/Zeroshot-Detector"
+authors:
+  - alias: triplepdude
+keywords:
+  - zero-shot classification
+  - Florence-2
+  - BART-MNLI
+  - video content analysis
+  - evaluation
+identifiers:
+  - type: url
+    value: "https://hdl.handle.net/20.500.14216/1718"
+    description: "Paper resulting from the independent study that produced the archived data"

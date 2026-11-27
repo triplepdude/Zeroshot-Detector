@@ -1,0 +1,36 @@
+# Exact reproduction of the original study's processing
+# (legacy/pipeline/Recursive Florence 2 + Bart + Confidence.py), including its
+# defects (docs/audit.md): glued Florence-2 labels, case-sensitive substring
+# keyword matching, and the original video-level aggregation.
+
+source:
+  kind: minio
+  endpoint: "CHANGE-ME:9000"
+  buckets: [CHANGE-ME]
+  secure: false               # the original connected without TLS or credentials
+
+sampling:
+  every_n_frames: 30
+  dedup_l1_threshold: 5000
+
+detector:
+  model: microsoft/Florence-2-large
+  task: "<OD>"
+  num_beams: 3
+  max_new_tokens: 1024
+  batch_size: 1               # the original processed one frame at a time
+  dtype: float32
+
+classifier:
+  model: facebook/bart-large-mnli
+  revision: d7645e127eaf1aefc7862fd59a17a5aa8558b8ce   # revision used to re-derive the archived labels
+  threshold: 0.8
+  legacy: true
+  always_score: false
+
+aggregation:
+  rule: legacy
+
+output:
+  dir: runs
+  copy_videos: true

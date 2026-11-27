@@ -1,0 +1,19 @@
+# environments / caches
+.venv*/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# pipeline outputs (large; not part of the archived study data)
+runs/
+videos/
+processing.log
+master_roster.txt
+
+# annotation material: the sample key reveals strata and system labels, answers are personal data
+annotation/
+
+# partial relabelling checkpoints
+results/relabel/*.tmp

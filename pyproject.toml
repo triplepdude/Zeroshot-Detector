@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zeroshot-detector"
+version = "1.0.0"
+description = "Zero-shot detection of military content in short-form video using Florence-2 object detection and NLI zero-shot classification, with a reproducible evaluation of the archived study data."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "triplepdude" }]
+keywords = ["zero-shot classification", "Florence-2", "BART-MNLI", "video analysis", "content analysis", "evaluation"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+# Core: decision logic, aggregation, evaluation and analysis (no deep-learning stack).
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+# Running the video pipeline / re-scoring texts with the NLI model.
+pipeline = [
+  "torch>=2.1",
+  "transformers>=4.44,<5",
+  "einops",
+  "timm",
+  "pillow>=10",
+  "opencv-python-headless>=4.8",
+  "minio>=7.2",
+  "tqdm",
+]
+# Figures in the analysis report.
+analysis = ["matplotlib>=3.7"]
+# Annotation web app.
+review = ["flask>=3.0"]
+dev = [
+  "pytest>=8",
+  "ruff>=0.5",
+  "scikit-learn>=1.3",
+  "matplotlib>=3.7",
+  "flask>=3.0",
+  "opencv-python-headless>=4.8",
+  "pillow>=10",
+]
+
+[project.scripts]
+zsd = "zeroshot_detector.cli:main"
+
+[project.urls]
+Paper = "https://hdl.handle.net/20.500.14216/1718"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+zeroshot_detector = ["review/templates/*.html", "resources/*.txt", "py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+  "data: tests that need the archived study data in data/",
+  "slow: tests that download or run neural models",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["legacy"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "NPY", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+# Markdown table rows in the report renderer are long by nature.
+"src/zeroshot_detector/analysis/report.py" = ["E501"]
