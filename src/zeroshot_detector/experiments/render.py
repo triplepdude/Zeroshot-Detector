@@ -33,6 +33,63 @@ def signed_pp(d: dict | None) -> str:
     return f"{f(d['estimate'])} pp ({f(d.get('ci_low'))} to {f(d.get('ci_high'))})"
 
 
+def _contrast(s: dict, reading: str, key: str) -> dict | None:
+    return s.get("rq2", {}).get(reading, {}).get("total", {}).get("contrasts", {}).get(f"{key} - pipeline: agreement")
+
+
+def _headline_rows(s: dict) -> list[list[str]]:
+    """Confirmatory contrasts C1, C2 and predictions P1, P2 (PLAN v2 §4, §7)."""
+
+    def excludes_zero(d: dict | None) -> str:
+        if not d or d.get("ci_low") is None:
+            return "–"
+        if d["ci_low"] > 0:
+            return "positive; interval excludes 0"
+        if d["ci_high"] < 0:
+            return "negative; interval excludes 0"
+        return "interval includes 0"
+
+    rows = []
+    c1 = _contrast(s, "lenient", "llm")
+    rows.append(
+        ["C1: lenient TLR agreement, LLM − original pipeline", "confirmatory", signed_pp(c1), excludes_zero(c1)]
+    )
+    c2 = _contrast(s, "lenient", "deberta_military_separated")
+    rows.append(
+        [
+            "C2: lenient TLR agreement, DeBERTa-v3 NLI ('military' verbalizers, separated labels, keyword rule, arg-max) − original pipeline",
+            "confirmatory",
+            signed_pp(c2),
+            excludes_zero(c2) if c2 else "not computed (grid scores missing)",
+        ]
+    )
+    pr = s.get("rq1_panel_vs_rule", {}).get("lenient")
+    if pr and pr.get("estimate") is not None:
+        dep = {"estimate": 1 - pr["estimate"], "ci_low": 1 - pr["ci_high"], "ci_high": 1 - pr["ci_low"]}
+        rows.append(
+            [
+                "P1: panel departs from the rule reference on < 5% of frames (lenient)",
+                "prediction",
+                f"{ci(dep, lambda x: pct(x, 2))} of frames",
+                "confirmed"
+                if dep["ci_high"] < 0.05
+                else ("not confirmed" if dep["estimate"] >= 0.05 else "inconclusive"),
+            ]
+        )
+    strict = _contrast(s, "strict", "llm")
+    if c1 and strict:
+        ok = c1["ci_low"] > 0 and strict["ci_high"] < 0
+        rows.append(
+            [
+                "P2: LLM ahead of the pipeline under lenient, behind it under strict",
+                "prediction",
+                f"lenient {signed_pp(c1)}; strict {signed_pp(strict)}",
+                "confirmed" if ok else "not confirmed",
+            ]
+        )
+    return rows
+
+
 def figures(s: dict, fig_dir: Path) -> dict[str, Path]:
     try:
         import matplotlib  # noqa: F401
@@ -145,6 +202,8 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
         "annotators applying the authors' codebook. It is not accuracy against what is in the video. Intervals: 95%, stratified "
         "bootstrap that also resamples annotator passes (annotation-aware), unless marked *sampling only*."
     )
+    w("\n## Pre-registered results\n")
+    w(table(["Item", "Pre-registered as", "Result", "Outcome"], _headline_rows(s)))
 
     d, a = s["design"], s["annotation"]
     w("\n## 1. Design and annotation\n")

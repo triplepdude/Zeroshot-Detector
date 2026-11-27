@@ -235,3 +235,25 @@ def test_decomposition_and_glm_recover_a_within_batch_step():
     assert step is not None and step > 1.0  # log-odds of 0.4 vs 0.1 is about 1.8
     # no straddling batch -> step not identified
     assert glm_step(table[table["batch"] != "b1"], "label", e) is None
+
+
+def test_headline_rows_report_contrasts_and_predictions():
+    from zeroshot_detector.experiments.render import _headline_rows
+
+    def c(est, lo, hi):
+        return {"estimate": est, "ci_low": lo, "ci_high": hi}
+
+    s = {
+        "rq2": {
+            "lenient": {"total": {"contrasts": {"llm - pipeline: agreement": c(0.03, 0.02, 0.04)}}},
+            "strict": {"total": {"contrasts": {"llm - pipeline: agreement": c(-0.04, -0.05, -0.03)}}},
+        },
+        "rq1_panel_vs_rule": {"lenient": c(0.999, 0.998, 1.0)},
+    }
+    rows = {r[0].split(":")[0]: r for r in _headline_rows(s)}
+    assert rows["C1"][3] == "positive; interval excludes 0"
+    assert rows["C2"][3].startswith("not computed")
+    assert rows["P1"][3] == "confirmed"
+    assert rows["P2"][3] == "confirmed"
+    s["rq2"]["strict"]["total"]["contrasts"]["llm - pipeline: agreement"] = c(0.01, -0.01, 0.02)
+    assert {r[0].split(":")[0]: r for r in _headline_rows(s)}["P2"][3] == "not confirmed"
