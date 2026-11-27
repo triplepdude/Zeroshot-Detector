@@ -160,6 +160,61 @@ def _cmd_review(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_experiments(args: argparse.Namespace) -> int:
+    from .data import load_frames, load_videos
+
+    ref_dir = Path(args.reference)
+    if args.experiments_command == "materials":
+        from .experiments.materials import build
+
+        manifest = build(load_frames(args.data), args.codebook, ref_dir)
+        print(json.dumps({k: v for k, v in manifest.items() if k not in ("sha256", "configs")}, indent=2))
+        return 0
+    if args.experiments_command == "score-grid":
+        import pandas as pd
+
+        from .experiments.grid import all_configs, score_config
+
+        rec = pd.read_csv(ref_dir / "design_records.csv", keep_default_na=False)
+        strings = pd.read_csv(ref_dir / "strings.csv.gz", keep_default_na=False)
+        texts = list(dict.fromkeys(rec["text"]))
+        seg = {t: tuple(o.split("; ")) for t, o in zip(strings["text"], strings["objects"], strict=True)}
+        for config in all_configs():
+            score_config(config, texts, seg, args.grid_scores)
+        return 0
+    # report
+    from .experiments.reference import load_workflow_results
+    from .experiments.render import figures, render
+    from .experiments.report import clean, run
+    from .experiments.rule_reference import rq1_summary, string_table
+
+    passes = load_workflow_results(sorted((ref_dir / "raw").glob("workflow_*.json")))
+    frames, videos = load_frames(args.data), load_videos(args.data)
+    grid = Path(args.grid_scores) if args.grid_scores else None
+    summary = run(ref_dir, passes, frames, videos, grid, n_boot=args.n_boot, seed=args.seed)
+    summary["rq1_rule_population"] = rq1_summary(string_table(frames))
+    audit = ref_dir / "raw" / "tool_audit.json"
+    if audit.exists():
+        a = json.loads(audit.read_text())
+        summary["tool_audit"] = a
+        summary["tool_audit_summary"] = (
+            f"{sum(v['other_tools'] for v in a.values())} in {sum(v['transcripts'] for v in a.values())} transcripts"
+        )
+    deviations = Path(args.deviations)
+    if deviations.exists():
+        summary["deviations"] = [
+            line[2:].strip() for line in deviations.read_text().splitlines() if line.startswith("- ")
+        ]
+    out = Path(args.out)
+    out.mkdir(parents=True, exist_ok=True)
+    summary = clean(summary)
+    (out / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+    figs = figures(summary, out / "figures") if not args.no_figures else {}
+    (out / "REPORT.md").write_text(render(summary, figs, out))
+    print(f"wrote {out / 'REPORT.md'}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="zsd", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
@@ -238,6 +293,25 @@ def build_parser() -> argparse.ArgumentParser:
     rv.add_argument("--host", default="127.0.0.1")
     rv.add_argument("--port", type=int, default=5000)
     rv.set_defaults(func=_cmd_review)
+
+    ex = sub.add_parser("experiments", help="text-level reference standard experiments (docs/experiments)")
+    exs = ex.add_subparsers(dest="experiments_command", required=True)
+    for name, helptext in (
+        ("materials", "draw the sample and build annotation materials (run once)"),
+        ("score-grid", "score the zero-shot grid on the reference strings"),
+        ("report", "assemble results/experiments from the annotations"),
+    ):
+        e = exs.add_parser(name, help=helptext)
+        e.add_argument("--data")
+        e.add_argument("--reference", default="data/reference")
+        e.add_argument("--codebook", default="docs/experiments/CODEBOOK.md")
+        e.add_argument("--grid-scores", default="results/experiments/grid_scores")
+        e.add_argument("--out", default="results/experiments")
+        e.add_argument("--deviations", default="docs/experiments/DEVIATIONS.md")
+        e.add_argument("--n-boot", type=int, default=2000)
+        e.add_argument("--seed", type=int, default=20251128)
+        e.add_argument("--no-figures", action="store_true")
+    ex.set_defaults(func=_cmd_experiments)
     return p
 
 
