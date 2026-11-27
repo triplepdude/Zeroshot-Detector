@@ -1,0 +1,62 @@
+{
+  "seed": 20251128,
+  "k_certainty": 500,
+  "n_tail": 30,
+  "tail_overrides": {
+    "NN-vehicle-token": 120,
+    "NN-no-equipment-token": 40
+  },
+  "batch_size": 25,
+  "population_frames": 1027433,
+  "population_strings": 28490,
+  "records": 1269,
+  "sample_strings_annotated": 1107,
+  "heavy_strings": 23,
+  "human_extra": 150,
+  "synthetic": 12,
+  "retest_per_config": 111,
+  "single_item_calls": 100,
+  "batches": {
+    "A": 56,
+    "B": 56,
+    "C": 56,
+    "D": 1,
+    "E": 1,
+    "A1": 100
+  },
+  "configs": {
+    "A": {
+      "tier": "primary",
+      "objects": "archived"
+    },
+    "B": {
+      "tier": "secondary",
+      "objects": "archived"
+    },
+    "C": {
+      "tier": "primary",
+      "objects": "shuffled"
+    },
+    "D": {
+      "tier": "secondary",
+      "objects": "shuffled"
+    },
+    "E": {
+      "tier": "primary",
+      "objects": "reversed"
+    },
+    "A1": {
+      "tier": "primary",
+      "objects": "archived",
+      "single_item": true
+    }
+  },
+  "sha256": {
+    "CODEBOOK.md": "45877fef722d2a9d2320e32acc42267a0349547296448f2bf0d18d084196da00",
+    "instruction.md": "0aabe54f9075507db8f6997cb72127f2106874e9e5cf4a8a828cf0edb0a99d7c",
+    "batches.json": "b1e310022e43bce21c254265f6feb6c6d02c97a7ab5f96bfd615660341f23d8f",
+    "items.csv": "088199ee3be92b5fc500c8d21ccb0eddb4aaa733f80ec0b93d245f791bc689b6",
+    "design_records.csv": "1d5845c9f8720b467e286defdbdefdf797d0c1ae1d39b64198d8c63c34e9b83c",
+    "strings.csv.gz": "147990dcb21f4e0776014029493b7cc1c5898be65e672ef9f6f4b6bcf4a6d2d0"
+  }
+}

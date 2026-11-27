@@ -1,0 +1,1270 @@
+record_id,text,part,stratum,weight,fixed,N_h,n_h,item_id
+r00000,helicopter,C,C,63425.0,True,63425,1,5bf059881b
+r00001,person,C,C,49034.0,True,49034,1,d39a47507b
+r00002,vehicle,C,C,48434.0,True,48434,1,0b0591061c
+r00003,human faceman,C,C,42247.0,True,42247,1,0e35fdc159
+r00004,land vehicle,C,C,38635.0,True,38635,1,af6938f5cb
+r00005,carwheel,C,C,30025.0,True,30025,1,72f56dc42d
+r00006,tank,C,C,27485.0,True,27485,1,b63ae12fe3
+r00007,human faceperson,C,C,24628.0,True,24628,1,a4cee3f732
+r00008,car,C,C,24190.0,True,24190,1,9e32521dd2
+r00009,poster,C,C,23342.0,True,23342,1,b6d4f63bc7
+r00010,land vehiclewheel,C,C,19711.0,True,19711,1,1632448f22
+r00011,airplane,C,C,16505.0,True,16505,1,32e6c5c2ad
+r00012,human facewoman,C,C,12181.0,True,12181,1,b7768e71e9
+r00013,footwearperson,C,C,11318.0,True,11318,1,843c37b6b2
+r00014,television,C,C,10542.0,True,10542,1,60085763fb
+r00015,carcar tire,C,C,10009.0,True,10009,1,61434bd412
+r00016,tankwheel,C,C,8203.0,True,8203,1,26577fce6b
+r00017,No object detected.,C,C,7337.0,True,7337,1,636a1638e1
+r00018,human facemanwoman,C,C,7144.0,True,7144,1,efc7f0bfe6
+r00019,car tiretruck,C,C,7119.0,True,7119,1,089b26a1e0
+r00020,mobile phone,C,C,6278.0,True,6278,1,52e61d421d
+r00021,carvehicle registration platewheel,C,C,6036.0,True,6036,1,80e96ec9ce
+r00022,carcar tirewheel,C,C,5996.0,True,5996,1,4c8fa6ba89
+r00023,helicopterperson,C,C,5193.0,True,5193,1,ad8ff93f3f
+r00024,glasseshuman faceman,C,C,5114.0,True,5114,1,230ecf7997
+r00025,land vehicleperson,C,C,4939.0,True,4939,1,7f0728e72e
+r00026,human hand,C,C,4860.0,True,4860,1,3af80542b4
+r00027,animal,C,C,4827.0,True,4827,1,3199ea0562
+r00028,land vehiclepersonwheel,C,C,4789.0,True,4789,1,150b67ee18
+r00029,helicopterwheel,C,C,4372.0,True,4372,1,eed6ab40d4
+r00030,car tireland vehicle,C,C,4126.0,True,4126,1,e112a8bf9b
+r00031,hathuman faceman,C,C,4033.0,True,4033,1,b14aa63abe
+r00032,truckwheel,C,C,3879.0,True,3879,1,7fbb872166
+r00033,human face,C,C,3819.0,True,3819,1,e4f15f4a02
+r00034,car tireland vehiclewheel,C,C,3780.0,True,3780,1,fa72196830
+r00035,window,C,C,3722.0,True,3722,1,320ad267d8
+r00036,street light,C,C,3615.0,True,3615,1,4e1fa2210e
+r00037,carland vehiclewheel,C,C,3586.0,True,3586,1,eba83c3710
+r00038,motorcyclewheel,C,C,3524.0,True,3524,1,724c99edfc
+r00039,footwearhuman faceman,C,C,3469.0,True,3469,1,0811d22080
+r00040,car tire,C,C,3186.0,True,3186,1,d4a21ff3aa
+r00041,weapon,C,C,3168.0,True,3168,1,395d3b4c7b
+r00042,footwearman,C,C,3082.0,True,3082,1,01eb6cb4ed
+r00043,car tiretruckwheel,C,C,3057.0,True,3057,1,ab4882ab56
+r00044,boatperson,C,C,3050.0,True,3050,1,92280fe450
+r00045,personvehicle,C,C,3036.0,True,3036,1,acba14096a
+r00046,man,C,C,2980.0,True,2980,1,8175e3c875
+r00047,cartruckwheel,C,C,2929.0,True,2929,1,f8e22eda0a
+r00048,human facemanperson,C,C,2919.0,True,2919,1,fe34ae32e4
+r00049,boat,C,C,2832.0,True,2832,1,2a50ddf929
+r00050,bird,C,C,2775.0,True,2775,1,cd92815bf6
+r00051,human facemansunglasses,C,C,2732.0,True,2732,1,e8551f0e58
+r00052,human handperson,C,C,2655.0,True,2655,1,da8a84a50e
+r00053,footwearhuman faceperson,C,C,2630.0,True,2630,1,0e9ef8171f
+r00054,airplanehelicopter,C,C,2604.0,True,2604,1,99c46d2352
+r00055,fish,C,C,2583.0,True,2583,1,64875fccca
+r00056,human beardhuman faceman,C,C,2562.0,True,2562,1,3415b7cce1
+r00057,helmethuman faceperson,C,C,2544.0,True,2544,1,408fa24208
+r00058,human facehuman mouthman,C,C,2505.0,True,2505,1,0083c09fbb
+r00059,wheel,C,C,2435.0,True,2435,1,3a7195d99b
+r00060,human facehuman mouthwoman,C,C,2386.0,True,2386,1,0a35816e20
+r00061,footwear,C,C,2360.0,True,2360,1,8cc6a2544d
+r00062,helmetperson,C,C,2325.0,True,2325,1,25c06a3523
+r00063,carpersonwheel,C,C,2313.0,True,2313,1,9d838c280d
+r00064,human facehuman headman,C,C,2239.0,True,2239,1,60548b800a
+r00065,persontank,C,C,2205.0,True,2205,1,26286e6545
+r00066,building,C,C,2060.0,True,2060,1,b8114546a3
+r00067,rifle,C,C,2042.0,True,2042,1,efade50ee3
+r00068,house,C,C,2018.0,True,2018,1,5be93480bd
+r00069,scoreboard,C,C,2016.0,True,2016,1,92e709e086
+r00070,human facemanmicrophone,C,C,2001.0,True,2001,1,b405a1887f
+r00071,furniture,C,C,1986.0,True,1986,1,7b6e7a2599
+r00072,motorcycle,C,C,1948.0,True,1948,1,438bc3e366
+r00073,motorcyclepersonwheel,C,C,1948.0,True,1948,1,c0f31823ff
+r00074,computer monitor,C,C,1939.0,True,1939,1,30cda631ae
+r00075,human facemanposter,C,C,1936.0,True,1936,1,62f4dd9843
+r00076,swimming pool,C,C,1927.0,True,1927,1,4d0008e59f
+r00077,carcar tiretruck,C,C,1825.0,True,1825,1,398b53e345
+r00078,footwearhuman facemanwoman,C,C,1789.0,True,1789,1,d01e19bb72
+r00079,flower,C,C,1771.0,True,1771,1,5a46b8253d
+r00080,carvehicle registration plate,C,C,1729.0,True,1729,1,81330d20bd
+r00081,boatfootwearperson,C,C,1726.0,True,1726,1,81701ed8e2
+r00082,toy,C,C,1700.0,True,1700,1,cd1933db79
+r00083,palm tree,C,C,1684.0,True,1684,1,18d9705866
+r00084,personweapon,C,C,1642.0,True,1642,1,cd358c26d6
+r00085,carhuman faceman,C,C,1599.0,True,1599,1,c3b971b052
+r00086,carhuman facemanwheel,C,C,1586.0,True,1586,1,075ee048bb
+r00087,human facepersonvehicle,C,C,1565.0,True,1565,1,d95591e221
+r00088,carcar tiretruckwheel,C,C,1555.0,True,1555,1,32c48013c0
+r00089,glasseshuman beardhuman faceman,C,C,1534.0,True,1534,1,3c96085973
+r00090,flag,C,C,1489.0,True,1489,1,112f3a99b2
+r00091,dog,C,C,1485.0,True,1485,1,e49512524f
+r00092,footwearmanperson,C,C,1443.0,True,1443,1,2902ef75d3
+r00093,carperson,C,C,1441.0,True,1441,1,7df0a5c89f
+r00094,fancy dresshuman facewoman,C,C,1441.0,True,1441,1,51d138f30a
+r00095,human facemicrophoneperson,C,C,1436.0,True,1436,1,2918ad1601
+r00096,camera,C,C,1375.0,True,1375,1,251e382f76
+r00097,human facejacketman,C,C,1293.0,True,1293,1,1dcf45af19
+r00098,footwearpersonvehicle,C,C,1287.0,True,1287,1,391e221ded
+r00099,human faceland vehicleman,C,C,1230.0,True,1230,1,c3d7f336ed
+r00100,box,C,C,1226.0,True,1226,1,c7d8a6d722
+r00101,human facemansports uniform,C,C,1207.0,True,1207,1,ac4a006833
+r00102,helicoptervehicle,C,C,1182.0,True,1182,1,4343d56d9a
+r00103,human facepersonposter,C,C,1173.0,True,1173,1,a752d9bf2e
+r00104,personrifle,C,C,1166.0,True,1166,1,17726fe7c2
+r00105,airplaneperson,C,C,1165.0,True,1165,1,2b2c88db32
+r00106,footwearhuman facemantrousers,C,C,1155.0,True,1155,1,6df027cea6
+r00107,footwearmanwoman,C,C,1145.0,True,1145,1,1e7885028c
+r00108,glasseshuman facewoman,C,C,1089.0,True,1089,1,07dc41d6ba
+r00109,helmetpersonvehicle,C,C,1084.0,True,1084,1,d5f8790632
+r00110,footwearmantrousers,C,C,1062.0,True,1062,1,bf476217ce
+r00111,carwheelwindow,C,C,1028.0,True,1028,1,d06ab10a4f
+r00112,human facepersonwoman,C,C,1019.0,True,1019,1,130b813b72
+r00113,carcar tireland vehiclewheel,C,C,1010.0,True,1010,1,2de2c6fd3a
+r00114,fishperson,C,C,1002.0,True,1002,1,66f82e15cb
+r00115,girlhuman face,C,C,999.0,True,999,1,889b7bcc35
+r00116,land vehicletruckwheel,C,C,997.0,True,997,1,4b3e363f96
+r00117,human facemicrophonewoman,C,C,992.0,True,992,1,cefad0b51b
+r00118,footballperson,C,C,967.0,True,967,1,99b632cb5e
+r00119,helmethuman faceman,C,C,954.0,True,954,1,f2b950cc44
+r00120,human faceland vehiclemanwheel,C,C,952.0,True,952,1,6e5ec46cf5
+r00121,human faceland vehicleperson,C,C,932.0,True,932,1,0bda5e79e6
+r00122,hathuman faceperson,C,C,923.0,True,923,1,00e0f4fd77
+r00123,housewindow,C,C,921.0,True,921,1,34b16e0b01
+r00124,personposter,C,C,906.0,True,906,1,6e67a4783b
+r00125,persontankwheel,C,C,905.0,True,905,1,26983b933f
+r00126,carhathuman faceman,C,C,897.0,True,897,1,5517ad0af5
+r00127,human facemansuit,C,C,873.0,True,873,1,ff5dd94853
+r00128,manperson,C,C,866.0,True,866,1,69add89c49
+r00129,land vehiclestreet light,C,C,863.0,True,863,1,8f793cb618
+r00130,footwearhuman facemanperson,C,C,861.0,True,861,1,71030d7980
+r00131,car tiremotorcyclewheel,C,C,853.0,True,853,1,d168bf2d17
+r00132,land vehicletankwheel,C,C,852.0,True,852,1,c660935f07
+r00133,glasseshuman faceperson,C,C,804.0,True,804,1,81e23280aa
+r00134,human facehuman headmanwoman,C,C,804.0,True,804,1,eeff057f8a
+r00135,cat,C,C,801.0,True,801,1,9d989e8d27
+r00136,human faceland vehiclepersonwheel,C,C,799.0,True,799,1,fa4a2f096d
+r00137,table,C,C,788.0,True,788,1,c3ee137d4f
+r00138,book,C,C,783.0,True,783,1,e7e694c58c
+r00139,fountain,C,C,776.0,True,776,1,4620ade690
+r00140,human facemantrousers,C,C,776.0,True,776,1,9e622db109
+r00141,carhuman faceperson,C,C,770.0,True,770,1,8adba388e4
+r00142,vehiclewheel,C,C,766.0,True,766,1,123b97bb66
+r00143,human facemanvehicle,C,C,763.0,True,763,1,9e8a283b3b
+r00144,fishhuman faceperson,C,C,761.0,True,761,1,0fba8a824b
+r00145,helicopterpersonwheel,C,C,760.0,True,760,1,9e699b58c3
+r00146,carmotorcyclewheel,C,C,752.0,True,752,1,f2f8aa3869
+r00147,home appliance,C,C,744.0,True,744,1,dec3eed5b4
+r00148,toywheel,C,C,730.0,True,730,1,6102247b65
+r00149,human facehuman mouthhuman noseman,C,C,728.0,True,728,1,7fa6dab278
+r00150,marine mammal,C,C,727.0,True,727,1,02b25e27e2
+r00151,human facepersontank,C,C,718.0,True,718,1,ed7b7416ae
+r00152,boyhuman face,C,C,713.0,True,713,1,54d28e9a65
+r00153,handgun,C,C,713.0,True,713,1,cf224ac62a
+r00154,headphoneshuman facemicrophoneperson,C,C,712.0,True,712,1,433c30db81
+r00155,human facemanshirt,C,C,712.0,True,712,1,30e31d08ae
+r00156,footwearland vehiclepersonwheel,C,C,708.0,True,708,1,212f8ee58c
+r00157,hathuman beardhuman faceman,C,C,703.0,True,703,1,78b89649c8
+r00158,carhuman facepersonwheel,C,C,701.0,True,701,1,e085f8e482
+r00159,footwearpersontrousers,C,C,699.0,True,699,1,bb97de8282
+r00160,land vehicletank,C,C,693.0,True,693,1,255590adfa
+r00161,parachute,C,C,691.0,True,691,1,d95f32751c
+r00162,airplanewheel,C,C,684.0,True,684,1,085b292c4d
+r00163,carstreet lightwheel,C,C,683.0,True,683,1,35d2cc0ffd
+r00164,human facemannecklace,C,C,681.0,True,681,1,e14004627e
+r00165,car tireland vehiclepersonwheel,C,C,680.0,True,680,1,b6fd1f5175
+r00166,helicopterland vehiclewheel,C,C,677.0,True,677,1,6d91d29009
+r00167,carmotorcyclepersonwheel,C,C,671.0,True,671,1,6807e3149f
+r00168,helicopterhuman faceman,C,C,658.0,True,658,1,0b4c3084d0
+r00169,bottle,C,C,654.0,True,654,1,afcac3549c
+r00170,airplanevehicle,C,C,652.0,True,652,1,2d852d6d73
+r00171,traffic light,C,C,649.0,True,649,1,e49ee11dbb
+r00172,plastic bag,C,C,648.0,True,648,1,8e63930854
+r00173,picture frame,C,C,640.0,True,640,1,2630648ef2
+r00174,missile,C,C,632.0,True,632,1,520b856d8a
+r00175,helmethuman facepersonvehicle,C,C,625.0,True,625,1,62c327a227
+r00176,hathuman facemansunglasses,C,C,624.0,True,624,1,2f028a8b1b
+r00177,human facemanmicrophonewoman,C,C,621.0,True,621,1,bf99b06f27
+r00178,car tireland vehicleperson,C,C,611.0,True,611,1,ecf8f7ecec
+r00179,computer keyboardlaptop,C,C,608.0,True,608,1,60f78d5aae
+r00180,footwearhuman facewoman,C,C,599.0,True,599,1,ddab75be96
+r00181,glasseshuman facemanmicrophone,C,C,599.0,True,599,1,a9bdf42dcc
+r00182,human facescarfwoman,C,C,599.0,True,599,1,ac768c75c8
+r00183,motorcycleperson,C,C,595.0,True,595,1,6a553fafbd
+r00184,human facepersontoy,C,C,587.0,True,587,1,76994e7e17
+r00185,human facenecklacewoman,C,C,581.0,True,581,1,d699203134
+r00186,door,C,C,572.0,True,572,1,2680b6746c
+r00187,penguin,C,C,557.0,True,557,1,73335c2210
+r00188,carhuman facemanseat belt,C,C,551.0,True,551,1,4804947174
+r00189,helmetmotorcyclepersonwheel,C,C,551.0,True,551,1,593eaf628b
+r00190,human facemobile phoneperson,C,C,550.0,True,550,1,8c9e8ebeee
+r00191,carland vehiclepersonwheel,C,C,543.0,True,543,1,a426de52ea
+r00192,carseat belt,C,C,543.0,True,543,1,025592dd32
+r00193,footwearmantrouserswoman,C,C,534.0,True,534,1,9eb1967248
+r00194,persontelevision,C,C,532.0,True,532,1,f807fc9c61
+r00195,skyscraper,C,C,532.0,True,532,1,1212980883
+r00196,human facepersonrifle,C,C,531.0,True,531,1,0ddf758af8
+r00197,footwearland vehicleperson,C,C,526.0,True,526,1,c0a9541bf8
+r00198,human facehuman headperson,C,C,523.0,True,523,1,b19cc22250
+r00199,watch,C,C,521.0,True,521,1,292b090199
+r00200,human handmobile phone,C,C,518.0,True,518,1,728b06700c
+r00201,car tiremotorcycle,C,C,514.0,True,514,1,b32944a7f2
+r00202,ball,C,C,510.0,True,510,1,8bec040649
+r00203,buildingwindow,C,C,506.0,True,506,1,5c4d96791b
+r00204,carland vehicle,C,C,498.0,True,498,1,2cc6043705
+r00205,traffic sign,C,C,496.0,True,496,1,9b1fe083ee
+r00206,guitarhuman faceperson,C,C,492.0,True,492,1,ff14b3b684
+r00207,human facehuman noseman,C,C,489.0,True,489,1,6044e5ad9f
+r00208,helicopterhuman faceperson,C,C,488.0,True,488,1,6409794af3
+r00209,carhuman facemansunglasses,C,C,482.0,True,482,1,b4669418d7
+r00210,tanktruckwheel,C,C,480.0,True,480,1,9f3a1be6f9
+r00211,human facemanwindow,C,C,469.0,True,469,1,e1a04b0d95
+r00212,tower,C,C,461.0,True,461,1,54efaa66b0
+r00213,land vehiclewheelwindow,C,C,459.0,True,459,1,5e5f1b15b6
+r00214,glasseshuman facemanwoman,C,C,456.0,True,456,1,3bba85a155
+r00215,footwearhuman facemantrouserswoman,C,C,451.0,True,451,1,4415ef622b
+r00216,mobile phoneperson,C,C,447.0,True,447,1,dc5e5ba12d
+r00217,fishing rod,C,C,443.0,True,443,1,42b65a5227
+r00218,carfootwearpersonwheel,C,C,442.0,True,442,1,783f9e35ed
+r00219,human facetrouserswoman,C,C,440.0,True,440,1,56a8400650
+r00220,ruler,C,C,440.0,True,440,1,5f55d09a51
+r00221,microphoneperson,C,C,437.0,True,437,1,25274a9a64
+r00222,carmanwheel,C,C,436.0,True,436,1,fb9d79eb19
+r00223,footwearland vehiclemanwheel,C,C,430.0,True,430,1,1bfedf6c09
+r00224,digital clock,C,C,429.0,True,429,1,19cee63f69
+r00225,human facehuman mouthperson,C,C,423.0,True,423,1,0212bce5d8
+r00226,personwheel,C,C,423.0,True,423,1,a35ed7fd3b
+r00227,headphoneshuman facemanmicrophone,C,C,421.0,True,421,1,316e5c8bf1
+r00228,land vehiclewindow,C,C,419.0,True,419,1,a200d402ed
+r00229,guitarperson,C,C,418.0,True,418,1,33faeaec1c
+r00230,human facemantable,C,C,418.0,True,418,1,ac217cc18d
+r00231,glasseshathuman faceman,C,C,414.0,True,414,1,93374ae41e
+r00232,human facepersonweapon,C,C,412.0,True,412,1,a8a6891ab2
+r00233,vanwheel,C,C,412.0,True,412,1,62822fb78f
+r00234,helicopterman,C,C,410.0,True,410,1,ff32b8eaf5
+r00235,human facelionperson,C,C,408.0,True,408,1,00cab26a76
+r00236,human facemanposterwoman,C,C,408.0,True,408,1,826a32a2b6
+r00237,helicopterpersonposter,C,C,406.0,True,406,1,f68bb5dbd7
+r00238,carfootwearmanwheel,C,C,402.0,True,402,1,160cd9e57e
+r00239,human facepersontelevision,C,C,398.0,True,398,1,0caac33d2a
+r00240,carvanwheel,C,C,397.0,True,397,1,deb74eac66
+r00241,carmirror,C,C,396.0,True,396,1,bf348d0226
+r00242,helmet,C,C,396.0,True,396,1,749440ec6a
+r00243,curtain,C,C,395.0,True,395,1,c8158837c0
+r00244,carcar tiremotorcyclewheel,C,C,389.0,True,389,1,9ea2b6c31e
+r00245,postertank,C,C,388.0,True,388,1,bd88811bff
+r00246,human facemanpersonwoman,C,C,385.0,True,385,1,b4fdf96efc
+r00247,land vehicleman,C,C,384.0,True,384,1,dc7ca28107
+r00248,human facemansuittie,C,C,383.0,True,383,1,c78ef5eb82
+r00249,hathuman facejacketman,C,C,382.0,True,382,1,d6deba2c2f
+r00250,human eyehuman facehuman mouthwoman,C,C,382.0,True,382,1,7d4e9fcfeb
+r00251,carmirrorwheel,C,C,381.0,True,381,1,5e1fa3a52d
+r00252,carcar tirepersonwheel,C,C,378.0,True,378,1,e43a7ad044
+r00253,car tirehuman faceland vehiclemanwheel,C,C,374.0,True,374,1,ace5e849b9
+r00254,fancy dressfootwearhuman facewoman,C,C,374.0,True,374,1,3392891bd1
+r00255,footwearmotorcyclepersonwheel,C,C,370.0,True,370,1,6d21af1ab9
+r00256,drinking straw,C,C,369.0,True,369,1,33a62c4333
+r00257,horse,C,C,369.0,True,369,1,091b503588
+r00258,houseplanthuman facewoman,C,C,365.0,True,365,1,66fe7a4926
+r00259,helicopterpropeller,C,C,363.0,True,363,1,bdd66f10cd
+r00260,buildingcarwheel,C,C,361.0,True,361,1,bb158c0a37
+r00261,footwearmanvehicle,C,C,361.0,True,361,1,564e22ea30
+r00262,human handland vehicle,C,C,360.0,True,360,1,4a9c60d671
+r00263,helmetmotorcycleperson,C,C,359.0,True,359,1,a9fcd8d44f
+r00264,human eyehuman facewoman,C,C,358.0,True,358,1,cb2641a812
+r00265,human facepersontable,C,C,354.0,True,354,1,5fb42c5545
+r00266,musical instrumentperson,C,C,354.0,True,354,1,8b7038ceef
+r00267,human beardhuman facehuman mouthman,C,C,347.0,True,347,1,9fbaa9b1b8
+r00268,woman,C,C,347.0,True,347,1,edb1f42a0b
+r00269,helicopterland vehicle,C,C,345.0,True,345,1,e4f65d5b9f
+r00270,insect,C,C,343.0,True,343,1,1a4e4a7cc4
+r00271,land vehiclepersontankwheel,C,C,343.0,True,343,1,f1dc9d1b3b
+r00272,helicopterhelmetperson,C,C,342.0,True,342,1,147f58f163
+r00273,persontable,C,C,341.0,True,341,1,40a8f80699
+r00274,carhuman facewoman,C,C,339.0,True,339,1,f7da24a665
+r00275,helmetpersonweapon,C,C,339.0,True,339,1,abaaf8a099
+r00276,truck,C,C,339.0,True,339,1,7a4d63b1ba
+r00277,footwearmanshorts,C,C,336.0,True,336,1,f5d3fb2362
+r00278,glasseshuman facemanmicrophonewoman,C,C,335.0,True,335,1,3bcc256aba
+r00279,carcar tirevehicle registration platewheel,C,C,331.0,True,331,1,12aad930f4
+r00280,car tirewheel,C,C,329.0,True,329,1,e6303de5ae
+r00281,train,C,C,328.0,True,328,1,94efdd6f62
+r00282,helmetland vehicleperson,C,C,325.0,True,325,1,c630650489
+r00283,human facemantank,C,C,324.0,True,324,1,3fc561c826
+r00284,land vehiclemanwheel,C,C,324.0,True,324,1,7d7302fa14
+r00285,fancy dresshuman facemanwoman,C,C,323.0,True,323,1,e85e9c8b88
+r00286,rocket,C,C,321.0,True,321,1,ef89a3a842
+r00287,footwearhelmetmotorcyclepersonwheel,C,C,316.0,True,316,1,7eeeebbd03
+r00288,human faceposterwoman,C,C,316.0,True,316,1,8301a176bd
+r00289,human facejacketmansunglasses,C,C,314.0,True,314,1,72c0ae796f
+r00290,tablet computer,C,C,313.0,True,313,1,d38667591c
+r00291,carstreet light,C,C,310.0,True,310,1,a858a39ec0
+r00292,helmetpersonrifle,C,C,307.0,True,307,1,b35a822fc1
+r00293,horseperson,C,C,306.0,True,306,1,334acb5087
+r00294,land vehicleweaponwheel,C,C,306.0,True,306,1,b558860642
+r00295,carglasseshuman facemanwheel,C,C,303.0,True,303,1,8727e3253a
+r00296,human facehuman mouthmanwoman,C,C,300.0,True,300,1,5c47c1a587
+r00297,footwearjacketmantrousers,C,C,297.0,True,297,1,763fdeb512
+r00298,eagle,C,C,296.0,True,296,1,c29e4d9c88
+r00299,carhousewheel,C,C,295.0,True,295,1,c8eb9d18f1
+r00300,fishfootwearperson,C,C,293.0,True,293,1,20f45fdfb5
+r00301,human facehuman headwoman,C,C,293.0,True,293,1,18cba45d88
+r00302,houseplant,C,C,291.0,True,291,1,ff69cbeb4c
+r00303,skyscrapertower,C,C,286.0,True,286,1,1b29438d63
+r00304,land vehiclemotorcyclepersonwheel,C,C,285.0,True,285,1,f607c45b92
+r00305,skull,C,C,282.0,True,282,1,15e9abb2e8
+r00306,balloon,C,C,281.0,True,281,1,326de722b3
+r00307,human faceshortswoman,C,C,281.0,True,281,1,e886824ee9
+r00308,carwindow,C,C,279.0,True,279,1,250194d73e
+r00309,fancy dressfootwearhuman facemanwoman,C,C,279.0,True,279,1,2e4c46bdf7
+r00310,carcar tirewindow,C,C,278.0,True,278,1,c324bb5c8b
+r00311,billboard,C,C,277.0,True,277,1,5a6022786c
+r00312,jellyfish,C,C,277.0,True,277,1,bf3acbf92b
+r00313,carhuman facemansunglasseswheel,C,C,274.0,True,274,1,ac858685d9
+r00314,goggleshelmethuman faceperson,C,C,274.0,True,274,1,957bb80653
+r00315,car tireperson,C,C,273.0,True,273,1,f6c0fca2b6
+r00316,human handposter,C,C,273.0,True,273,1,786a9a551a
+r00317,headphoneshuman faceman,C,C,272.0,True,272,1,522e1ad807
+r00318,helmethuman facepersonrifle,C,C,271.0,True,271,1,3cebac4ec0
+r00319,helicoptermanperson,C,C,270.0,True,270,1,713427ceea
+r00320,human facehuman handwoman,C,C,270.0,True,270,1,505de8a6d8
+r00321,marine invertebrates,C,C,269.0,True,269,1,0735a22c07
+r00322,gloveperson,C,C,268.0,True,268,1,a6197ebb13
+r00323,footwearland vehicleman,C,C,267.0,True,267,1,983e2032d7
+r00324,helicopterpersonvehicle,C,C,265.0,True,265,1,4cf6e8bd1d
+r00325,land vehiclepersonweaponwheel,C,C,265.0,True,265,1,e4ec254f42
+r00326,girlhuman facemantoy,C,C,259.0,True,259,1,eed3005e22
+r00327,human facemotorcyclepersonwheel,C,C,259.0,True,259,1,6eff0efc13
+r00328,statue (sculpture),C,C,258.0,True,258,1,32f360259f
+r00329,cartankwheel,C,C,257.0,True,257,1,5a6539f9e6
+r00330,human facehuman mouthhuman nosewoman,C,C,257.0,True,257,1,c4a213061b
+r00331,carhelmetmotorcyclepersonwheel,C,C,255.0,True,255,1,1d1b69dc22
+r00332,flagvehicle,C,C,254.0,True,254,1,562a048477
+r00333,guitarhuman faceman,C,C,253.0,True,253,1,beb2c16893
+r00334,maple,C,C,253.0,True,253,1,a587dd9cd6
+r00335,car tiretruckvehicle registration plate,C,C,252.0,True,252,1,bb2fd39aba
+r00336,dessert,C,C,250.0,True,250,1,f5194be92b
+r00337,human facemanpicture frame,C,C,250.0,True,250,1,39ed6a02e8
+r00338,human facejacketwoman,C,C,249.0,True,249,1,98bb2f1f1f
+r00339,drinking strawhuman faceman,C,C,248.0,True,248,1,82056c32c6
+r00340,manwoman,C,C,248.0,True,248,1,a19fd1804d
+r00341,glasseshuman facemantank,C,C,246.0,True,246,1,2452803384
+r00342,vehiclewindow,C,C,246.0,True,246,1,62250d038c
+r00343,airplaneflaghelicopter,C,C,245.0,True,245,1,252ec4ad19
+r00344,carhuman facewheelwoman,C,C,245.0,True,245,1,85a70ad8bf
+r00345,personwoman,C,C,245.0,True,245,1,09dc16a459
+r00346,airplanehelicopterposter,C,C,244.0,True,244,1,90b9ec2939
+r00347,boyhuman faceman,C,C,242.0,True,242,1,d18e2996c4
+r00348,helicopterposter,C,C,242.0,True,242,1,830e1f1ff6
+r00349,envelope,C,C,241.0,True,241,1,ab14054520
+r00350,tent,C,C,240.0,True,240,1,899343d863
+r00351,buildingperson,C,C,239.0,True,239,1,8e89226091
+r00352,carcar tireperson,C,C,239.0,True,239,1,a8eacf7542
+r00353,flaghelicopter,C,C,239.0,True,239,1,df8d7702fc
+r00354,jacket,C,C,238.0,True,238,1,1cdbba9665
+r00355,glasseshuman beardhuman facemanpicture frame,C,C,237.0,True,237,1,a7ab27cdf9
+r00356,postervehicle,C,C,237.0,True,237,1,e9af68b7ac
+r00357,surfboard,C,C,237.0,True,237,1,c5824d156c
+r00358,footwearhuman facetrouserswoman,C,C,235.0,True,235,1,6eac04e554
+r00359,girlhuman faceman,C,C,235.0,True,235,1,d397948258
+r00360,footwearhuman facemanshorts,C,C,233.0,True,233,1,345a6f00f0
+r00361,human facemanmotorcycle,C,C,232.0,True,232,1,7c668434ef
+r00362,helicopterparachute,C,C,229.0,True,229,1,2890081343
+r00363,human beardhuman facemansunglasses,C,C,229.0,True,229,1,94f1611cc2
+r00364,furniturehuman faceman,C,C,228.0,True,228,1,7617e1c888
+r00365,furniturehouseplanthuman faceman,C,C,227.0,True,227,1,cabdabafc8
+r00366,vehicle registration plate,C,C,227.0,True,227,1,3c65b0b935
+r00367,glasseshuman beardhuman facemanmicrophone,C,C,226.0,True,226,1,aff5c40b5a
+r00368,glove,C,C,226.0,True,226,1,070a6b221e
+r00369,human facemobile phonewoman,C,C,225.0,True,225,1,1476bf5d10
+r00370,human eyehuman facehuman mouthhuman nosewoman,C,C,224.0,True,224,1,76e69a1e60
+r00371,paddle,C,C,224.0,True,224,1,fbc9320f13
+r00372,headphoneshuman facemicrophonewoman,C,C,223.0,True,223,1,e64afc7df4
+r00373,carcar tirehuman faceman,C,C,220.0,True,220,1,449a5deb35
+r00374,human facesunglasseswoman,C,C,220.0,True,220,1,0f753f97e6
+r00375,footwearhelmetperson,C,C,219.0,True,219,1,72fa07021c
+r00376,green vegetables,C,C,219.0,True,219,1,112ff056a8
+r00377,human facemanmicrophonetrousers,C,C,218.0,True,218,1,b83d3472dd
+r00378,airplaneposter,C,C,217.0,True,217,1,c34d5ed208
+r00379,flaghuman faceman,C,C,217.0,True,217,1,52116d208e
+r00380,human facemantelevision,C,C,217.0,True,217,1,3e1dcf19ea
+r00381,carhousewheelwindow,C,C,216.0,True,216,1,f1f0f82374
+r00382,footwearhuman facepersonwoman,C,C,216.0,True,216,1,6e918bb689
+r00383,human eyehuman facehuman mouthman,C,C,216.0,True,216,1,5e8880676d
+r00384,flagperson,C,C,215.0,True,215,1,816759dbd9
+r00385,persontoy,C,C,215.0,True,215,1,20150259c0
+r00386,human beardhuman facehuman mouthhuman noseman,C,C,213.0,True,213,1,c6a6cf87b2
+r00387,cannon,C,C,212.0,True,212,1,8de5f29877
+r00388,human handtoy,C,C,211.0,True,211,1,67a0fb9014
+r00389,boathelicopter,C,C,210.0,True,210,1,9f085009d1
+r00390,carhathuman facemanwheel,C,C,209.0,True,209,1,cd979ea8e0
+r00391,umbrella,C,C,209.0,True,209,1,3ff95ac9e6
+r00392,cartruckvehicle registration platewheel,C,C,208.0,True,208,1,cfb261b7fe
+r00393,carvehicle registration platewheelwindow,C,C,208.0,True,208,1,4cad6244c2
+r00394,mirror,C,C,208.0,True,208,1,ffff80d25a
+r00395,power plugs and sockets,C,C,205.0,True,205,1,c2a7d5176a
+r00396,carglasseshuman faceman,C,C,204.0,True,204,1,7e8643c8c4
+r00397,sports uniform,C,C,204.0,True,204,1,f9e50a4913
+r00398,carfootwearhuman facemanwheel,C,C,202.0,True,202,1,52fcebb936
+r00399,guitar,C,C,202.0,True,202,1,22942b7c5c
+r00400,light bulb,C,C,202.0,True,202,1,34858a787c
+r00401,bus,C,C,201.0,True,201,1,32c70cebf1
+r00402,footwearhuman handperson,C,C,201.0,True,201,1,e71a3a58a1
+r00403,human facejacketmantrousers,C,C,201.0,True,201,1,8833b07de5
+r00404,carhathuman facemanseat belt,C,C,200.0,True,200,1,ee635fc3e5
+r00405,human eyehuman facehuman mouthhuman noseman,C,C,200.0,True,200,1,7d67571c5b
+r00406,footwearpersonweapon,C,C,199.0,True,199,1,b5f76f475b
+r00407,human facemantrouserswoman,C,C,198.0,True,198,1,0c88c83894
+r00408,car tirehuman faceland vehicleperson,C,C,196.0,True,196,1,b01d5be371
+r00409,christmas tree,C,C,196.0,True,196,1,20ccb33f60
+r00410,carman,C,C,195.0,True,195,1,000ca2ab99
+r00411,land vehiclepersontruckwheel,C,C,194.0,True,194,1,ee7d346fdc
+r00412,cartoywheel,C,C,193.0,True,193,1,e3ca8f0841
+r00413,headphones,C,C,193.0,True,193,1,355bf1cb47
+r00414,carhuman facemanseat beltsunglasses,C,C,192.0,True,192,1,b28540e9e1
+r00415,human facemanmobile phone,C,C,192.0,True,192,1,b91a6fbc5b
+r00416,kite,C,C,191.0,True,191,1,34e1c7876d
+r00417,carcar tirevehicle registration plate,C,C,190.0,True,190,1,1ea187e317
+r00418,human facemantablewoman,C,C,190.0,True,190,1,3f82b7b2b3
+r00419,land vehiclemotorcycle,C,C,190.0,True,190,1,d6bf716dc3
+r00420,carcar tiremotorcyclepersonwheel,C,C,189.0,True,189,1,f8ff7b4570
+r00421,earrings,C,C,189.0,True,189,1,6ad5d06a81
+r00422,footwearpersontable,C,C,189.0,True,189,1,727934af8a
+r00423,helmethuman facepersonweapon,C,C,189.0,True,189,1,d5402119b8
+r00424,life jacketperson,C,C,189.0,True,189,1,3d95ad9609
+r00425,luggage and bags,C,C,189.0,True,189,1,b19011b04e
+r00426,tankweapon,C,C,188.0,True,188,1,a45495ccbc
+r00427,human beardhuman facemanmicrophone,C,C,187.0,True,187,1,33576e6920
+r00428,airplanehuman faceperson,C,C,186.0,True,186,1,cba3ed3a7c
+r00429,drumperson,C,C,186.0,True,186,1,0500f3245e
+r00430,footwearvehicle,C,C,186.0,True,186,1,b9aae5f4fd
+r00431,boyhuman faceposter,C,C,185.0,True,185,1,286425780a
+r00432,fishhathuman faceperson,C,C,185.0,True,185,1,0726a5d876
+r00433,human facemanwheel,C,C,185.0,True,185,1,03371a9c85
+r00434,backpackperson,C,C,184.0,True,184,1,c646f0fb49
+r00435,carhuman hand,C,C,184.0,True,184,1,8d520d0d8a
+r00436,land vehiclepersonstreet light,C,C,183.0,True,183,1,e6c0aa3440
+r00437,toilet,C,C,183.0,True,183,1,ea092410a2
+r00438,car tirehuman faceland vehicleman,C,C,182.0,True,182,1,af3d7492b8
+r00439,flagtank,C,C,182.0,True,182,1,b86c64bac6
+r00440,helmethuman faceland vehicleperson,C,C,182.0,True,182,1,b554d409f5
+r00441,animalperson,C,C,181.0,True,181,1,52942ea27d
+r00442,footwearhuman facejacketmantrousers,C,C,181.0,True,181,1,60f7aded29
+r00443,helicoptertank,C,C,181.0,True,181,1,c7331cac8f
+r00444,human facehuman mouthhuman noseperson,C,C,181.0,True,181,1,abfd3661b3
+r00445,land vehiclestreet lightwheel,C,C,181.0,True,181,1,ea11ff91fa
+r00446,microphone,C,C,180.0,True,180,1,17d396020d
+r00447,parachuteperson,C,C,180.0,True,180,1,46b1630b42
+r00448,boathuman faceperson,C,C,179.0,True,179,1,41be1c0c4c
+r00449,chair,C,C,179.0,True,179,1,851e13a653
+r00450,footwearpersonrifle,C,C,179.0,True,179,1,80748bd665
+r00451,carcar tirewheelwindow,C,C,178.0,True,178,1,d7aa859fe6
+r00452,footwearpersonwoman,C,C,178.0,True,178,1,f1a2bb01a2
+r00453,persontrousers,C,C,178.0,True,178,1,5cff76b6a4
+r00454,glasseshuman facehuman mouthman,C,C,177.0,True,177,1,8a7cd79aca
+r00455,carland vehicletraffic lightwheel,C,C,176.0,True,176,1,bde19a5c51
+r00456,footwearhuman facepersonvehicle,C,C,176.0,True,176,1,83497e40f1
+r00457,pay phone,C,C,176.0,True,176,1,7744259758
+r00458,car tiremotorcyclepersonwheel,C,C,175.0,True,175,1,9c6f76e68b
+r00459,footwearmantruckwheel,C,C,175.0,True,175,1,5487a45331
+r00460,curtainhuman faceman,C,C,174.0,True,174,1,706fbc0a69
+r00461,flashlight,C,C,174.0,True,174,1,eb40cd09ff
+r00462,footwearhuman facepersontrousers,C,C,174.0,True,174,1,25ff4fc4c4
+r00463,helmethuman facemanperson,C,C,174.0,True,174,1,a33ca4bd53
+r00464,shelf,C,C,173.0,True,173,1,7347b90808
+r00465,airplaneflag,C,C,172.0,True,172,1,5736c4eae1
+r00466,bicycle,C,C,172.0,True,172,1,a3e3318b0a
+r00467,goggleshelmethuman faceman,C,C,172.0,True,172,1,156a1d7e2c
+r00468,footwearwoman,C,C,171.0,True,171,1,ccdaed5aa9
+r00469,human facemanshorts,C,C,171.0,True,171,1,c7779fe886
+r00470,human facepersontrousers,C,C,171.0,True,171,1,d8b43e160c
+r00471,land vehiclepersonweapon,C,C,171.0,True,171,1,b4f2d9fe46
+r00472,wrench,C,C,169.0,True,169,1,84aafb84de
+r00473,carland vehicletruckwheel,C,C,168.0,True,168,1,c2a1b2fc50
+r00474,flaghuman faceperson,C,C,168.0,True,168,1,4bd439f18e
+r00475,footwearhuman facemotorcyclepersonwheel,C,C,168.0,True,168,1,33234e4f11
+r00476,human facehuman handperson,C,C,168.0,True,168,1,bd265b32aa
+r00477,human facepersonsunglasses,C,C,168.0,True,168,1,91371ad490
+r00478,land vehiclemotorcyclewheel,C,C,168.0,True,168,1,09acf15339
+r00479,buildingland vehicle,C,C,167.0,True,167,1,1943302ca4
+r00480,fancy dressfootwearmanwoman,C,C,167.0,True,167,1,0a94e2f4fd
+r00481,human facemansunglasseswoman,C,C,167.0,True,167,1,3ba4f8acee
+r00482,car tirepersontruckwheel,C,C,166.0,True,166,1,1d25ccb499
+r00483,human facemanmicrophoneperson,C,C,166.0,True,166,1,edabede206
+r00484,human facemanpersonposter,C,C,166.0,True,166,1,b6e84c0f24
+r00485,airplanehuman faceman,C,C,165.0,True,165,1,1f26a0d354
+r00486,carfootwearperson,C,C,163.0,True,163,1,574259a92d
+r00487,carhuman face,C,C,163.0,True,163,1,036b58fd53
+r00488,grapefruit,C,C,163.0,True,163,1,fec881f75b
+r00489,human facemusical instrumentperson,C,C,163.0,True,163,1,a84a4a3ad7
+r00490,airplanetank,C,C,162.0,True,162,1,f25dfd7e0c
+r00491,convenience storehuman faceperson,C,C,162.0,True,162,1,1b63c19d4d
+r00492,footwearland vehicle,C,C,162.0,True,162,1,e5e4fb022c
+r00493,necklace,C,C,162.0,True,162,1,eb46d0d489
+r00494,cartelevision,C,C,161.0,True,161,1,1dc20c74a4
+r00495,girlhuman facewoman,C,C,161.0,True,161,1,d5036ccf10
+r00496,helicoptertruckwheel,C,C,161.0,True,161,1,afa463767e
+r00497,carhuman facewheel,C,C,160.0,True,160,1,9b73e6ddf3
+r00498,glasseshuman faceland vehiclemanwheel,C,C,159.0,True,159,1,e7b0f2e466
+r00499,glasseshuman facemanshirt,C,C,159.0,True,159,1,61a8b2315c
+r00500,land vehicleweapon,S,S,141.0,True,141,1,d59fedc791
+r00501,toyweapon,S,S,130.0,True,130,1,13bc2d735b
+r00502,canoeperson,S,S,115.0,True,115,1,af73b3b6d6
+r00503,toyweaponwheel,S,S,107.0,True,107,1,6dcaa22d93
+r00504,canoepaddleperson,S,S,101.0,True,101,1,13c835360f
+r00505,canoelife jacketpaddleperson,S,S,83.0,True,83,1,5f0a6a1387
+r00506,land vehiclepersonposterweapon,S,S,38.0,True,38,1,3479721d3b
+r00507,canoepaddle,S,S,37.0,True,37,1,5046c2503e
+r00508,flagland vehicleweaponwheel,S,S,36.0,True,36,1,ed04cc85e2
+r00509,canoe,S,S,34.0,True,34,1,8620212351
+r00510,human faceweapon,S,S,32.0,True,32,1,883b36f845
+r00511,car tireland vehiclepersonweapon,S,S,31.0,True,31,1,b73cd50505
+r00512,canoefootwearperson,S,S,23.0,True,23,1,a13db7d1d0
+r00513,canoefootwearpaddleperson,S,S,16.0,True,16,1,d01c7522e6
+r00514,human faceweaponwoman,S,S,15.0,True,15,1,b45f11d57f
+r00515,personrocket,S,S,15.0,True,15,1,dfc5e90a7c
+r00516,car tirefootwearpersonweapon,S,S,14.0,True,14,1,51fcd43172
+r00517,glasseshuman facemanrocket,S,S,14.0,True,14,1,b941f5d1db
+r00518,canoehuman facelife jacketpaddleperson,S,S,12.0,True,12,1,491531fc0e
+r00519,flagland vehicleweapon,S,S,12.0,True,12,1,4af55f74bb
+r00520,car tireland vehicleweaponwheel,S,S,11.0,True,11,1,1e63115fe5
+r00521,footwearpersontoyweapon,S,S,11.0,True,11,1,16c0cdeb36
+r00522,persontoyweapon,S,S,11.0,True,11,1,21580fd4a2
+r00523,watercraft,S,S,11.0,True,11,1,f0ac1641d5
+r00524,postertoyweapon,S,S,10.0,True,10,1,039012193c
+r00525,canoefishpaddleperson,S,S,9.0,True,9,1,e417fb37d9
+r00526,canoehuman facepaddleperson,S,S,9.0,True,9,1,1fa7536950
+r00527,car tireland vehiclepersonweaponwheel,S,S,9.0,True,9,1,6a059a8522
+r00528,land vehiclepersontoyweaponwheel,S,S,9.0,True,9,1,96d19be422
+r00529,persontoyweaponwheel,S,S,8.0,True,8,1,b2fec8e3e6
+r00530,canoefishfootwearpersontrousers,S,S,7.0,True,7,1,e17d922a19
+r00531,canoelife jacketperson,S,S,7.0,True,7,1,a4793a7f77
+r00532,canoehuman faceman,S,S,6.0,True,6,1,058b427a90
+r00533,girlhuman faceweapon,S,S,6.0,True,6,1,137bd158e2
+r00534,land vehiclemansuitweapon,S,S,6.0,True,6,1,46c12abc6f
+r00535,posterrocket,S,S,6.0,True,6,1,a06abe82e6
+r00536,canoefootwearhuman facepaddleperson,S,S,5.0,True,5,1,665d5fe729
+r00537,footwearmanweapon,S,S,5.0,True,5,1,8b19d84863
+r00538,human handknife,S,S,5.0,True,5,1,e7ad096497
+r00539,land vehiclemanweaponwheel,S,S,5.0,True,5,1,960e0f8121
+r00540,land vehicletoyweaponwheel,S,S,5.0,True,5,1,1aca0ee127
+r00541,canoefootwearman,S,S,4.0,True,4,1,525ead1358
+r00542,carhelmethuman faceland vehiclemanweaponwheel,S,S,4.0,True,4,1,48fa083587
+r00543,footwearhuman faceweaponwoman,S,S,4.0,True,4,1,900aa64b7e
+r00544,footwearland vehiclepersonweapon,S,S,4.0,True,4,1,5d1399dffd
+r00545,footwearland vehiclepersonweaponwheel,S,S,4.0,True,4,1,d070b13cd6
+r00546,land vehiclemanpersonweaponwheel,S,S,4.0,True,4,1,2203b8ca4e
+r00547,birdrocket,S,S,3.0,True,3,1,45a52496ba
+r00548,canoemanpaddlewoman,S,S,3.0,True,3,1,cc0ca05592
+r00549,car tirehelmetland vehiclepersonweapon,S,S,3.0,True,3,1,2019fc8763
+r00550,car tirehuman faceland vehiclepersonweaponwheel,S,S,3.0,True,3,1,b3a5742848
+r00551,flagfootwearland vehiclepersontrousersweaponwheel,S,S,3.0,True,3,1,267df96339
+r00552,footwearhuman facemanweapontrousers,S,S,3.0,True,3,1,d031ecac3c
+r00553,footwearknifeperson,S,S,3.0,True,3,1,a30c432b3d
+r00554,land vehiclemanpersonweapon,S,S,3.0,True,3,1,9c6b1eaa48
+r00555,land vehiclepersonposterweaponwheel,S,S,3.0,True,3,1,d6e504eaab
+r00556,adhesive tapeweapon,S,S,2.0,True,2,1,b0ad9150c4
+r00557,backpackflagluggage and bagsweapon,S,S,2.0,True,2,1,1f32a91b33
+r00558,bow and arrowdoorfurniturepersontable,S,S,2.0,True,2,1,1067029627
+r00559,canoefish,S,S,2.0,True,2,1,97a1a6a5b2
+r00560,canoefishhuman facepaddleperson,S,S,2.0,True,2,1,49143b49c2
+r00561,canoefishperson,S,S,2.0,True,2,1,c4d9a0f651
+r00562,canoefootwear,S,S,2.0,True,2,1,00da5211ef
+r00563,canoefootwearhuman facemanpaddle,S,S,2.0,True,2,1,ff860836db
+r00564,canoefootwearlife jacketpaddleperson,S,S,2.0,True,2,1,f27e694200
+r00565,canoefootwearlife jacketperson,S,S,2.0,True,2,1,59f5c47d34
+r00566,canoehuman facelife jacketperson,S,S,2.0,True,2,1,6a6208b4ce
+r00567,canoehuman faceperson,S,S,2.0,True,2,1,656fd84b33
+r00568,canoeman,S,S,2.0,True,2,1,52aa6c80af
+r00569,car tirecannonperson,S,S,2.0,True,2,1,dc68d88545
+r00570,car tireland vehiclemanpersonweapon,S,S,2.0,True,2,1,e5d590e7ed
+r00571,carcar tireland vehiclepersonweaponwheel,S,S,2.0,True,2,1,46b6dcff95
+r00572,drinking strawland vehicleweaponwheel,S,S,2.0,True,2,1,fed774ee73
+r00573,flaghuman facemanpersonrocket,S,S,2.0,True,2,1,42ad7f3ce1
+r00574,flagrocket,S,S,2.0,True,2,1,960c5f136a
+r00575,furniturehelmetpersonweapon,S,S,2.0,True,2,1,b657c2242b
+r00576,human facepersonrocket,S,S,2.0,True,2,1,8735e4a2e3
+r00577,land vehicleknifewheel,S,S,2.0,True,2,1,5c2d231e6b
+r00578,land vehiclerocketwheel,S,S,2.0,True,2,1,8f7fcc4fd8
+r00579,land vehicleweaponwindow,S,S,2.0,True,2,1,b930da7c83
+r00580,mobile phoneweapon,S,S,2.0,True,2,1,8bdeb9144b
+r00581,personsword,S,S,2.0,True,2,1,8555537f84
+r00582,backpackfishfootwearpersonweapon,S,S,1.0,True,1,1,bfd5425f6a
+r00583,balloonrocket,S,S,1.0,True,1,1,e799fad5f5
+r00584,bottleknifescrewdriver,S,S,1.0,True,1,1,a4047277a3
+r00585,bowlchairfireplacekitchen & dining room tableknifeperson,S,S,1.0,True,1,1,b9806f9bd2
+r00586,bowlcoffee cupforkkitchen & dining room tableknifepersonplatewine glass,S,S,1.0,True,1,1,cb0f2419d7
+r00587,bowlcomputer keyboardforkkitchen & dining room tableknifelight bulblaptopoven,S,S,1.0,True,1,1,db5d09c6c2
+r00588,boxcameraknife,S,S,1.0,True,1,1,c3a1a0a6a3
+r00589,boxknife,S,S,1.0,True,1,1,3a1c15a6c9
+r00590,buttonforkkitchen & dining room tableknifelemonpersonring,S,S,1.0,True,1,1,80eb0691d0
+r00591,cannonfootwearhuman facepersonwheel,S,S,1.0,True,1,1,910afa56e0
+r00592,cannonfootwearmanperson,S,S,1.0,True,1,1,1f35f51a26
+r00593,cannonfootwearmanpersontrousers,S,S,1.0,True,1,1,0a3eecc317
+r00594,canoefishfootwearjacketpersontrousers,S,S,1.0,True,1,1,fd1fb4f6a8
+r00595,canoefishfootwearperson,S,S,1.0,True,1,1,647c6f7bbf
+r00596,canoefishhuman facepersonpaddle,S,S,1.0,True,1,1,fb06582b62
+r00597,canoefishlife jacketperson,S,S,1.0,True,1,1,d3b81185ff
+r00598,canoefootwearhuman facelife jacketpaddleperson,S,S,1.0,True,1,1,3692ad246a
+r00599,canoefootwearhuman facemanpaddlesun hat,S,S,1.0,True,1,1,d128cae13a
+r00600,canoefootwearhuman facemanperson,S,S,1.0,True,1,1,bb3f772e5f
+r00601,canoefootwearpaddle,S,S,1.0,True,1,1,6988ef507a
+r00602,canoehuman facelife jacketmanperson,S,S,1.0,True,1,1,426e9fe99a
+r00603,canoehuman facemanperson,S,S,1.0,True,1,1,b6ab3cf9f2
+r00604,canoehuman facepaddlepersonsunglasses,S,S,1.0,True,1,1,51cf75ab1a
+r00605,canoehuman facewoman,S,S,1.0,True,1,1,5993dd9402
+r00606,canoelife jacketmanpaddle,S,S,1.0,True,1,1,504f3afe34
+r00607,canoemanperson,S,S,1.0,True,1,1,a3db817a7d
+r00608,car tireflaghelmethuman faceland vehiclepersonweapon,S,S,1.0,True,1,1,e7b56d783a
+r00609,car tireflagland vehiclepersonweaponwheel,S,S,1.0,True,1,1,a7a9b6a6b9
+r00610,car tireflagland vehicleweaponwheel,S,S,1.0,True,1,1,c66b87a11e
+r00611,car tirefootwearpersonposterweapon,S,S,1.0,True,1,1,24a5298a40
+r00612,car tirehelmetland vehiclemanpersonweapon,S,S,1.0,True,1,1,2c77e6735e
+r00613,car tirehelmetland vehiclepersonweaponwheel,S,S,1.0,True,1,1,a47c2d2596
+r00614,car tirehuman faceland vehiclemanweapon,S,S,1.0,True,1,1,2abacff084
+r00615,carfootwearpersonweaponwheel,S,S,1.0,True,1,1,da44d1a30d
+r00616,coinland vehicletoyweaponwheel,S,S,1.0,True,1,1,3e571ea836
+r00617,drinking strawland vehicleweapontoywheel,S,S,1.0,True,1,1,d25cf17111
+r00618,fancy dressland vehiclemanparachuteweaponwheelwoman,S,S,1.0,True,1,1,d8f0272589
+r00619,fireplacehuman faceknifeperson,S,S,1.0,True,1,1,2f8eb32b87
+r00620,flaghelmetland vehiclepersonweaponwheel,S,S,1.0,True,1,1,e9feac5054
+r00621,footwearcanoe,S,S,1.0,True,1,1,de8c6bb2de
+r00622,footwearhelmetpersontripodweapon,S,S,1.0,True,1,1,98989de28c
+r00623,footwearhuman faceland vehiclemanweapon,S,S,1.0,True,1,1,65b06d50a4
+r00624,footwearhuman faceland vehiclepersonweapon,S,S,1.0,True,1,1,4284423640
+r00625,footwearhuman faceland vehiclepersonweaponwheel,S,S,1.0,True,1,1,9715be76d3
+r00626,footwearhuman facemansword,S,S,1.0,True,1,1,7e8ea59b88
+r00627,footwearhuman facepersonsword,S,S,1.0,True,1,1,2ddba32f76
+r00628,footwearhuman facetrousersweaponwoman,S,S,1.0,True,1,1,b30696d8fa
+r00629,footwearland vehiclemansuitweapon,S,S,1.0,True,1,1,60b3c8db49
+r00630,footwearland vehicleweapon,S,S,1.0,True,1,1,d46bf8d822
+r00631,footwearmanpersontrousersweapon,S,S,1.0,True,1,1,8434a577d2
+r00632,footwearmanpersonweapon,S,S,1.0,True,1,1,a2aa527b11
+r00633,footwearpersonweapontable,S,S,1.0,True,1,1,6843fb4f08
+r00634,footwearrocket,S,S,1.0,True,1,1,fc2b0bda0a
+r00635,footwearrocketvehicle,S,S,1.0,True,1,1,15aa2d9949
+r00636,hatland vehiclepersonweapon,S,S,1.0,True,1,1,a0c867766b
+r00637,headphoneshuman faceland vehiclemanweaponwheel,S,S,1.0,True,1,1,662571c3a4
+r00638,helmetland vehiclepersonposterweapon,S,S,1.0,True,1,1,da27b845aa
+r00639,houseplantweapon,S,S,1.0,True,1,1,4a6dc284d3
+r00640,human eyehuman faceweaponwoman,S,S,1.0,True,1,1,4ab8fa73d7
+r00641,human facehuman headrocket,S,S,1.0,True,1,1,d98fd194d2
+r00642,human faceland vehiclemanparachuteweaponwoman,S,S,1.0,True,1,1,65fedf0bf5
+r00643,human faceland vehicleparachutemanpersonweaponwoman,S,S,1.0,True,1,1,e8f8167aa0
+r00644,human faceparachuteland vehiclemanpersonweaponwoman,S,S,1.0,True,1,1,8a9f03ddfd
+r00645,human facerocketvehicle,S,S,1.0,True,1,1,73f6e85ac9
+r00646,human handpersontoyweapon,S,S,1.0,True,1,1,d91417dc5b
+r00647,human handrocket,S,S,1.0,True,1,1,556e64c8c9
+r00648,human handtoyweapon,S,S,1.0,True,1,1,9062fb42f3
+r00649,human headpersonrocket,S,S,1.0,True,1,1,905e768283
+r00650,land vehiclepersonweaponwheelwindow,S,S,1.0,True,1,1,1838bc068e
+r00651,land vehiclepersonweaponwindow,S,S,1.0,True,1,1,732025e96d
+r00652,land vehicleposterrocket,S,S,1.0,True,1,1,1b0307c968
+r00653,land vehicleposterrocketwheel,S,S,1.0,True,1,1,d622e5a308
+r00654,land vehiclerocket,S,S,1.0,True,1,1,0b28daccf9
+r00655,land vehiclerocketposter,S,S,1.0,True,1,1,6093d4d1d1
+r00656,land vehiclestreet lightweapon,S,S,1.0,True,1,1,a3de396edc
+r00657,land vehicletowerweaponwheel,S,S,1.0,True,1,1,23c64d5b04
+r00658,land vehicleweaponwindowwheel,S,S,1.0,True,1,1,d2024eeee4
+r00659,manpersonrocket,S,S,1.0,True,1,1,8b2585013a
+r00660,penguinrocket,S,S,1.0,True,1,1,65cbf44636
+r00661,personpicture frameweapon,S,S,1.0,True,1,1,3cd9e312e1
+r00662,personweapontrousers,S,S,1.0,True,1,1,4ab3e70161
+r00663,picture frameweapon,S,S,1.0,True,1,1,4003ceda03
+r00664,postersword,S,S,1.0,True,1,1,f9d7bbfffa
+r00665,rockettraffic light,S,S,1.0,True,1,1,2ee42124b7
+r00666,rockettrain,S,S,1.0,True,1,1,b69d68fa29
+r00667,footwearpersonsun hat,T,NN-no-equipment-token,2386.85,False,95474,40,b23fd99805
+r00668,footwearhuman facepersonwheel,T,NN-no-equipment-token,2386.85,False,95474,40,8b94641a66
+r00669,human facesports uniformwoman,T,NN-no-equipment-token,2386.85,False,95474,40,d14685c7a7
+r00670,bottleglasseshuman facemanmicrophone,T,NN-no-equipment-token,2386.85,False,95474,40,801cbfd2d5
+r00671,mobile phonewatch,T,NN-no-equipment-token,2386.85,False,95474,40,e8edf1adb6
+r00672,coat,T,NN-no-equipment-token,2386.85,False,95474,40,09d5f62038
+r00673,footballfootwearhuman facemanperson,T,NN-no-equipment-token,2386.85,False,95474,40,b880ff96d5
+r00674,flagfootwearman,T,NN-no-equipment-token,2386.85,False,95474,40,876ca4d8c1
+r00675,stretcher,T,NN-no-equipment-token,2386.85,False,95474,40,a3542ac6b7
+r00676,footwearpersonwheel,T,NN-no-equipment-token,2386.85,False,95474,40,647c018618
+r00677,footweargirlhuman faceman,T,NN-no-equipment-token,2386.85,False,95474,40,4f186bb65c
+r00678,cattle,T,NN-no-equipment-token,2386.85,False,95474,40,7ba71faedb
+r00679,birdperson,T,NN-no-equipment-token,2386.85,False,95474,40,822cfdd475
+r00680,posterstreet light,T,NN-no-equipment-token,2386.85,False,95474,40,e0da58244e
+r00681,footwearglasseshuman faceperson,T,NN-no-equipment-token,2386.85,False,95474,40,c777e6df8e
+r00682,buildingfootwearperson,T,NN-no-equipment-token,2386.85,False,95474,40,a16cc85fee
+r00683,fancy dressfootwearhuman faceshelfwoman,T,NN-no-equipment-token,2386.85,False,95474,40,1b8e29f6b3
+r00684,footwearmanshortswoman,T,NN-no-equipment-token,2386.85,False,95474,40,8ef4c9d6c2
+r00685,drinking strawhuman facepersontabletableware,T,NN-no-equipment-token,2386.85,False,95474,40,fb64da9375
+r00686,human facelaptopman,T,NN-no-equipment-token,2386.85,False,95474,40,80f96e6dd9
+r00687,glasseshuman facemanwatch,T,NN-no-equipment-token,2386.85,False,95474,40,070e50da7a
+r00688,human facemicrophonepersonsunglasses,T,NN-no-equipment-token,2386.85,False,95474,40,812106f06f
+r00689,posterwoman,T,NN-no-equipment-token,2386.85,False,95474,40,2603a17da1
+r00690,footweargirlhuman face,T,NN-no-equipment-token,2386.85,False,95474,40,e2619521b3
+r00691,human facehuman headhuman mouthhuman noseman,T,NN-no-equipment-token,2386.85,False,95474,40,8929bdb331
+r00692,bedhuman facemannightstand,T,NN-no-equipment-token,2386.85,False,95474,40,7d41479eaa
+r00693,plastic bagtable,T,NN-no-equipment-token,2386.85,False,95474,40,94f5a21c19
+r00694,bottlebucketchaircoffee cupcorded phonedeskfootwearhousehuman facemanporchtable,T,NN-no-equipment-token,2386.85,False,95474,40,76dd3475d3
+r00695,computer monitorperson,T,NN-no-equipment-token,2386.85,False,95474,40,c394cd048f
+r00696,bottlewatch,T,NN-no-equipment-token,2386.85,False,95474,40,b9e8a2ed19
+r00697,fancy dresswoman,T,NN-no-equipment-token,2386.85,False,95474,40,4371e844e1
+r00698,drinking strawglasseshuman faceman,T,NN-no-equipment-token,2386.85,False,95474,40,f0263f79bc
+r00699,glasseshathuman faceperson,T,NN-no-equipment-token,2386.85,False,95474,40,acbde5f106
+r00700,personwindow,T,NN-no-equipment-token,2386.85,False,95474,40,99c54be3d7
+r00701,fishfootwearhuman faceperson,T,NN-no-equipment-token,2386.85,False,95474,40,83bbd116d0
+r00702,human facehuman mouthhuman nosemanwoman,T,NN-no-equipment-token,2386.85,False,95474,40,c011ae0bcd
+r00703,fireplace,T,NN-no-equipment-token,2386.85,False,95474,40,7b363470c9
+r00704,flagrose,T,NN-no-equipment-token,2386.85,False,95474,40,5ebd9d9a39
+r00705,human facepersontabletoy,T,NN-no-equipment-token,2386.85,False,95474,40,630d6f3274
+r00706,dumbbell,T,NN-no-equipment-token,2386.85,False,95474,40,9315c13a81
+r00707,carcar tirefootwearmanpersontablewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,63043a06ee
+r00708,car tirefootwearmotorcyclepersonwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,84297a6800
+r00709,human faceland vehiclepersonwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,de2747674f
+r00710,postervehiclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,8c2afc965b
+r00711,footwearhelmetland vehiclepersonwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,9b51c904e9
+r00712,carhuman facemanperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,1f44b00271
+r00713,goatland vehiclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,c9e18e6024
+r00714,bicyclebicycle wheelwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,d18ce0f889
+r00715,dogland vehiclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,a5c7c4d39c
+r00716,car tireland vehiclepersontrousers,T,NN-vehicle-token,359.09166666666664,False,43091,120,69b7c7e2c9
+r00717,bicyclebicycle wheelfootwearhuman facepersonwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,c2e1428902
+r00718,carhuman facesunglasseswheelwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,50663079f3
+r00719,carfootwearjacketmantrousersvan,T,NN-vehicle-token,359.09166666666664,False,43091,120,962fc16e72
+r00720,glasseshuman facemanvehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,af53c3c338
+r00721,carhuman facejacketman,T,NN-vehicle-token,359.09166666666664,False,43091,120,a99a1920b0
+r00722,carglasseshuman facejacketman,T,NN-vehicle-token,359.09166666666664,False,43091,120,a8694ad61c
+r00723,helmethuman facemotorcycleperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,5f0909bf9a
+r00724,chairland vehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,a9980d1d83
+r00725,carhorsepersontablewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,f612b474de
+r00726,boydogfootwearpersonvehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,af801998ff
+r00727,carhuman facejacketmanwindow,T,NN-vehicle-token,359.09166666666664,False,43091,120,f8b6eafc15
+r00728,human facemansunglassesvanwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,20b8cf6556
+r00729,flagland vehiclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,7ca5c5dfad
+r00730,carhuman facejacketmanwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,663838bc9b
+r00731,bicyclebicycle wheelwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,d18ce0f889
+r00732,car tireland vehiclewheelwindow,T,NN-vehicle-token,359.09166666666664,False,43091,120,10910f0099
+r00733,carhuman facemanperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,1f44b00271
+r00734,footwearhelmethuman facemotorcyclepersontrouserswheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,48a92175a9
+r00735,footwearhelmethuman facemotorcyclepersontrouserswheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,48a92175a9
+r00736,carhuman facemanwheelwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,1651adb830
+r00737,goggleshelmethuman faceland vehicleperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,b498243ec7
+r00738,headphoneshuman facemanvehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,cc85ad4747
+r00739,human faceland vehiclewheelwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,5a11295893
+r00740,flagland vehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,ac371b01b2
+r00741,footwearland vehiclepersonvehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,346461f34f
+r00742,bicyclebicycle wheelperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,f475b1e7a0
+r00743,carland vehiclemotorcyclepersonwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,ec96290bad
+r00744,motorcyclepersontraffic lightwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,0e751997c2
+r00745,cart,T,NN-vehicle-token,359.09166666666664,False,43091,120,8bfb4e1aa5
+r00746,land vehiclemirror,T,NN-vehicle-token,359.09166666666664,False,43091,120,3b8ac9ecfe
+r00747,carmobile phoneperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,4c189f4109
+r00748,carland vehiclevehicle registration platewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,0893c63484
+r00749,motorcycletoywheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,09847afd0d
+r00750,land vehiclevehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,9ccc993382
+r00751,footwearhuman faceland vehicleperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,ec671e5b9b
+r00752,flagland vehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,ac371b01b2
+r00753,buildingcarvanwheelwindow,T,NN-vehicle-token,359.09166666666664,False,43091,120,35aa1db33e
+r00754,carcar tireland vehiclepersonwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,ea59740b99
+r00755,jacketmanmotorcyclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,07edcd0a0a
+r00756,carfootwearpersonshortswheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,ea51454752
+r00757,carhuman faceseat beltwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,3430f8e47b
+r00758,footwearjacketland vehicleman,T,NN-vehicle-token,359.09166666666664,False,43091,120,4647d49bf6
+r00759,houseland vehiclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,e45cdffd3a
+r00760,carhouse,T,NN-vehicle-token,359.09166666666664,False,43091,120,2f4e0e22a1
+r00761,car tirefootwearhuman facemanmotorcycletrouserswheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,a8eec7dfca
+r00762,carmotorcyclemirrorwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,fb6db866a4
+r00763,footwearhathuman faceland vehicletrouserswoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,5b453e5f9c
+r00764,catland vehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,6946cf4ee9
+r00765,land vehiclepersonvehicle registration plate,T,NN-vehicle-token,359.09166666666664,False,43091,120,f7e26198a3
+r00766,carcar tirefancy dressfootwearwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,be2830d8c4
+r00767,bedfootwearhuman faceland vehiclewoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,fa1dccf3e6
+r00768,cartwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,a86fbeef94
+r00769,human faceland vehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,3e793f8641
+r00770,dogland vehiclepersonwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,966489ce7d
+r00771,carfootwearpersonvehicle registration platewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,a078b28f5b
+r00772,car tireglovehuman faceland vehicleperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,12a5611080
+r00773,hatland vehiclemantrouserswheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,161911ba60
+r00774,land vehicletower,T,NN-vehicle-token,359.09166666666664,False,43091,120,dc479bc71a
+r00775,backpackhelmetmotorcyclepersonstreet light,T,NN-vehicle-token,359.09166666666664,False,43091,120,238510a20d
+r00776,carpersontoywheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,bfbc673338
+r00777,hathuman facemanpersonvehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,454d6f5655
+r00778,footwearland vehiclemantrouserswheelchairwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,07be800fad
+r00779,carhuman facemansunglassesvehicle registration platewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,ecfc10c28d
+r00780,carfootwearhuman facewheelwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,6a8b259c14
+r00781,footwearhuman faceland vehiclepersontrousers,T,NN-vehicle-token,359.09166666666664,False,43091,120,8f6969b6e6
+r00782,glovevehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,6aff0b1da3
+r00783,cartraffic lightvehicle registration platewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,34a6bb348a
+r00784,glasseshuman faceland vehicleman,T,NN-vehicle-token,359.09166666666664,False,43091,120,13b3b5cd3b
+r00785,carfootwearhathuman facemansunglassestrouserswheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,80e4e3c7f3
+r00786,carhuman facehuman mouthperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,3739dfc99d
+r00787,carfootwearmanvehicle registration plate,T,NN-vehicle-token,359.09166666666664,False,43091,120,09e6e61484
+r00788,carpersonvanvehicle registration plate,T,NN-vehicle-token,359.09166666666664,False,43091,120,ae9d4cf242
+r00789,cartaillightvehicle registration plate,T,NN-vehicle-token,359.09166666666664,False,43091,120,a4d6eaa970
+r00790,buildingvehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,20147bb7bd
+r00791,houseland vehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,e644314efd
+r00792,carhuman facemanwheelwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,1651adb830
+r00793,car tiremanmotorcyclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,e19194a23b
+r00794,footwearhuman faceland vehiclemanwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,63459017ba
+r00795,carfootwearhuman faceperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,da78aa4058
+r00796,footwearhuman faceland vehiclepersontoywheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,cb023514a7
+r00797,carcar tiredoorwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,c2b19c5097
+r00798,carcatland vehiclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,16dda54928
+r00799,car tireland vehiclewindow,T,NN-vehicle-token,359.09166666666664,False,43091,120,968aa5702c
+r00800,car tireland vehiclepersonshortswheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,71803deb5f
+r00801,car tirehathuman faceland vehicleman,T,NN-vehicle-token,359.09166666666664,False,43091,120,96093a03db
+r00802,carcar tirehuman facemanwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,e99615b787
+r00803,braceletcar tirefootwearmotorcyclepersonringtrousers,T,NN-vehicle-token,359.09166666666664,False,43091,120,45f81d8d60
+r00804,buildingvehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,20147bb7bd
+r00805,footwearmanvanwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,4c819e7bdc
+r00806,car tirehelmetmotorcycle,T,NN-vehicle-token,359.09166666666664,False,43091,120,6094c9cf2b
+r00807,van,T,NN-vehicle-token,359.09166666666664,False,43091,120,efa44987b6
+r00808,dogfishpersonvehicle,T,NN-vehicle-token,359.09166666666664,False,43091,120,59a1943823
+r00809,land vehiclepersontoy,T,NN-vehicle-token,359.09166666666664,False,43091,120,7c6e99507d
+r00810,land vehiclemotorcyclepersonstreet lightwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,e4bac19ca4
+r00811,footwearhuman faceland vehiclemotorcyclepersonwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,91a606089e
+r00812,car tiredoorhelmetmotorcycle,T,NN-vehicle-token,359.09166666666664,False,43091,120,0b66bee851
+r00813,car tirehuman faceland vehiclepersonwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,19f22e149a
+r00814,carhousevehicle registration platewheelwindow,T,NN-vehicle-token,359.09166666666664,False,43091,120,21c38eccf9
+r00815,carfootwearshortstraffic lightwheelwoman,T,NN-vehicle-token,359.09166666666664,False,43091,120,a139be3c7f
+r00816,car tirehathuman faceland vehicleperson,T,NN-vehicle-token,359.09166666666664,False,43091,120,b6a8432ab9
+r00817,land vehiclepersonwindow,T,NN-vehicle-token,359.09166666666664,False,43091,120,0f375218a7
+r00818,footwearhuman facemanmotorcyclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,25579d5b44
+r00819,carstreet lighttraffic lightwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,d3489645e2
+r00820,land vehiclestreet lightvehiclewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,245f37a735
+r00821,carhuman facemansunglassesvehicle registration platewheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,ecfc10c28d
+r00822,carcar tirehuman facemotorcyclepersonwheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,7ecadc8462
+r00823,carcar tirepersontrouserswheel,T,NN-vehicle-token,359.09166666666664,False,43091,120,166530f95f
+r00824,human facemanpersontrain,T,NN-vehicle-token,359.09166666666664,False,43091,120,3df9b8b20a
+r00825,car tirefootwearland vehicleman,T,NN-vehicle-token,359.09166666666664,False,43091,120,05b4106f99
+r00826,land vehicleposter,T,NN-vehicle-token,359.09166666666664,False,43091,120,1f32634bd8
+r00827,helicoptermechanical fan,T,aircraft|aircraft,206.8,False,6204,30,bb7d847e8d
+r00828,helicopterwindow,T,aircraft|aircraft,206.8,False,6204,30,5defca3c1c
+r00829,helicopterland vehicleperson,T,aircraft|aircraft,206.8,False,6204,30,411ae7cc51
+r00830,carhelicoptervanwheel,T,aircraft|aircraft,206.8,False,6204,30,0dbb928d14
+r00831,helicopterland vehicleperson,T,aircraft|aircraft,206.8,False,6204,30,411ae7cc51
+r00832,helicoptersunglasses,T,aircraft|aircraft,206.8,False,6204,30,b951ffe848
+r00833,helicopterhuman facemansunglasses,T,aircraft|aircraft,206.8,False,6204,30,0ee6db10a7
+r00834,dollhelicopterhuman face,T,aircraft|aircraft,206.8,False,6204,30,6598146bc0
+r00835,dollfancy dresshelicopterhuman face,T,aircraft|aircraft,206.8,False,6204,30,5478c5684b
+r00836,doghelicopterhuman faceperson,T,aircraft|aircraft,206.8,False,6204,30,2d1b442c2d
+r00837,airplanescoreboard,T,aircraft|aircraft,206.8,False,6204,30,2a267a30c2
+r00838,carhelicopterwheel,T,aircraft|aircraft,206.8,False,6204,30,0971587ffe
+r00839,airplanehelmethuman faceperson,T,aircraft|aircraft,206.8,False,6204,30,f1907f738b
+r00840,eagleflaghelicopter,T,aircraft|aircraft,206.8,False,6204,30,481bfbb055
+r00841,carhelicopterwheel,T,aircraft|aircraft,206.8,False,6204,30,0971587ffe
+r00842,helicopterhuman facemansuit,T,aircraft|aircraft,206.8,False,6204,30,db1fe8c7f0
+r00843,helicopterhuman facepersonvehicle,T,aircraft|aircraft,206.8,False,6204,30,32df546d69
+r00844,helicopterpersontelevision,T,aircraft|aircraft,206.8,False,6204,30,1d07cb9ecc
+r00845,airplanepersonwheel,T,aircraft|aircraft,206.8,False,6204,30,5db34b9f73
+r00846,helicopterhelmet,T,aircraft|aircraft,206.8,False,6204,30,06040eda4b
+r00847,helicoptertoywheel,T,aircraft|aircraft,206.8,False,6204,30,fd1c43b87a
+r00848,airplanecar tire,T,aircraft|aircraft,206.8,False,6204,30,735022b8db
+r00849,airplaneglasseshuman faceman,T,aircraft|aircraft,206.8,False,6204,30,c5b5a4f107
+r00850,airplanefootwearpersonwheel,T,aircraft|aircraft,206.8,False,6204,30,db9bb6e6c8
+r00851,helicopterhelmethuman faceperson,T,aircraft|aircraft,206.8,False,6204,30,aab7992520
+r00852,billboardhelicopter,T,aircraft|aircraft,206.8,False,6204,30,15a518e7c7
+r00853,airplanebus,T,aircraft|aircraft,206.8,False,6204,30,557a0671be
+r00854,airplanecamerahelicopter,T,aircraft|aircraft,206.8,False,6204,30,fc67ae064e
+r00855,helicopterpersonpropellervestment,T,aircraft|aircraft,206.8,False,6204,30,d4f8a10db4
+r00856,helicopterpumpkin,T,aircraft|aircraft,206.8,False,6204,30,e201e7f0f6
+r00857,helicoptertruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,77a2926afc
+r00858,carhelicoptertruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,ff801079d6
+r00859,helicopterland vehicletruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,974d6edae6
+r00860,helicopterhuman facemantruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,65c9ae69a4
+r00861,helicopterpersontruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,febe74f75d
+r00862,air conditionercarhelicopterpickup trucksuvwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,672159b36c
+r00863,airplanecarhelicopterpickup trucksuvwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,4f724e056a
+r00864,helicopterpersontruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,febe74f75d
+r00865,helicopterpersontruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,febe74f75d
+r00866,helicopterpersontruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c3fa4d3e51
+r00867,airplanecarfootwearhelicopterpersontruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,572837a0db
+r00868,carchairhathelicopterpersonpickup trucksuvwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,e4775d92da
+r00869,airplaneboxcarchairhelicopterpersonpickup trucksuvwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,b31f75405e
+r00870,helicopterpersontruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c3fa4d3e51
+r00871,helicopterpersontruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,febe74f75d
+r00872,helicopterpersontruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c3fa4d3e51
+r00873,helicopterpersonpropellertruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c64cf09325
+r00874,helicopterpersontruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c3fa4d3e51
+r00875,helicopterpersontruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c3fa4d3e51
+r00876,helicopterpersontruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c3fa4d3e51
+r00877,helicopterpersontruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c3fa4d3e51
+r00878,helicoptertruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,77a2926afc
+r00879,helicopterpersontruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c3fa4d3e51
+r00880,helicopterpersontruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,febe74f75d
+r00881,helicopterpersontruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,febe74f75d
+r00882,helicopterpersontruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,febe74f75d
+r00883,helicoptertruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,77a2926afc
+r00884,helicopterland vehicletruckwheel,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,974d6edae6
+r00885,helicopterpersonpropellertruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,c64cf09325
+r00886,helicoptertruck,T,aircraft|ground_vehicles,9.233333333333333,False,277,30,77a2926afc
+r00887,boatchair,T,aircraft|maritime,1.0,True,30,30,ef5e8ec0f9
+r00888,boatchair,T,aircraft|maritime,1.0,True,30,30,ef5e8ec0f9
+r00889,airplaneboathelicopter,T,aircraft|maritime,1.0,True,30,30,89e3a62e3f
+r00890,boathelicoptervehicle,T,aircraft|maritime,1.0,True,30,30,b25d5974f7
+r00891,boatchair,T,aircraft|maritime,1.0,True,30,30,ef5e8ec0f9
+r00892,airplaneboathouse,T,aircraft|maritime,1.0,True,30,30,a313ba8cd8
+r00893,boatflaghelicoptervehicle,T,aircraft|maritime,1.0,True,30,30,357f7c58ae
+r00894,boathelicoptervehicle,T,aircraft|maritime,1.0,True,30,30,b25d5974f7
+r00895,airplaneboathelicopterland vehiclepersonsunglasseswheel,T,aircraft|maritime,1.0,True,30,30,4861d37887
+r00896,airplaneboathelicopterland vehiclewheel,T,aircraft|maritime,1.0,True,30,30,943d5c2d6f
+r00897,airplaneboathelicopterland vehiclewheel,T,aircraft|maritime,1.0,True,30,30,943d5c2d6f
+r00898,airplaneboathelicopterland vehiclewheel,T,aircraft|maritime,1.0,True,30,30,943d5c2d6f
+r00899,airplaneboathelicopterland vehiclesunglasseswheel,T,aircraft|maritime,1.0,True,30,30,c9e77295b0
+r00900,airplaneboathelicopterland vehiclepersonwheel,T,aircraft|maritime,1.0,True,30,30,2a5b1626fa
+r00901,airplaneboathelicopterland vehiclesunglasseswheel,T,aircraft|maritime,1.0,True,30,30,c9e77295b0
+r00902,airplaneboathelicopterland vehiclewheel,T,aircraft|maritime,1.0,True,30,30,943d5c2d6f
+r00903,airplaneboathelicopterland vehiclewheel,T,aircraft|maritime,1.0,True,30,30,943d5c2d6f
+r00904,airplaneboathelicopterland vehiclepersonsunglasseswheel,T,aircraft|maritime,1.0,True,30,30,4861d37887
+r00905,airplaneboathelicopterland vehiclewheel,T,aircraft|maritime,1.0,True,30,30,943d5c2d6f
+r00906,airplaneboathelicopterland vehiclewheel,T,aircraft|maritime,1.0,True,30,30,943d5c2d6f
+r00907,airplaneboathelicopterland vehiclewheel,T,aircraft|maritime,1.0,True,30,30,943d5c2d6f
+r00908,boatflaghelicoptervehicle,T,aircraft|maritime,1.0,True,30,30,357f7c58ae
+r00909,boathelicoptertentvehicle,T,aircraft|maritime,1.0,True,30,30,c595b91e5b
+r00910,boatcarhelicoptertentvehicle,T,aircraft|maritime,1.0,True,30,30,7f20eaf0fe
+r00911,boathelicoptertentvehicle,T,aircraft|maritime,1.0,True,30,30,c595b91e5b
+r00912,boathelicoptervehicle,T,aircraft|maritime,1.0,True,30,30,b25d5974f7
+r00913,boathelicoptervehicle,T,aircraft|maritime,1.0,True,30,30,b25d5974f7
+r00914,boathelicoptertentvehicle,T,aircraft|maritime,1.0,True,30,30,c595b91e5b
+r00915,boathelicoptervehicle,T,aircraft|maritime,1.0,True,30,30,b25d5974f7
+r00916,airplaneboatflaghelicopter,T,aircraft|maritime,1.0,True,30,30,1099654cf2
+r00917,bottlecarchairloudspeakerperson,T,aircraft|nonmilitary,1.0,True,7,7,a265aff086
+r00918,carchairwheelwindow,T,aircraft|nonmilitary,1.0,True,7,7,94bd9b031b
+r00919,ceiling fanchairguitarperson,T,aircraft|nonmilitary,1.0,True,7,7,d220d73ae5
+r00920,ceiling fanchairguitarperson,T,aircraft|nonmilitary,1.0,True,7,7,d220d73ae5
+r00921,carchairwheelwindow,T,aircraft|nonmilitary,1.0,True,7,7,94bd9b031b
+r00922,carchairwheelwindow,T,aircraft|nonmilitary,1.0,True,7,7,94bd9b031b
+r00923,carchairwheelwindow,T,aircraft|nonmilitary,1.0,True,7,7,94bd9b031b
+r00924,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00925,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00926,helicopterrifletripod,T,aircraft|weapons,1.0,True,13,13,5d4707a1fa
+r00927,helicopterrifletripod,T,aircraft|weapons,1.0,True,13,13,5d4707a1fa
+r00928,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00929,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00930,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00931,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00932,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00933,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00934,airplanemissilerocket,T,aircraft|weapons,1.0,True,13,13,c3a2e8393b
+r00935,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00936,airplanemissile,T,aircraft|weapons,1.0,True,13,13,55d0df680d
+r00937,car tiretank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,141a7185b7
+r00938,persontankweaponwheel,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,e1d3daac06
+r00939,human faceland vehiclepersontank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,2a49e68780
+r00940,human facepersontankwheel,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,b5ec87c96e
+r00941,helicopterpersontank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,07c15658ac
+r00942,land vehicletankweapon,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,07a175a85e
+r00943,flagpersontank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,75e408e736
+r00944,tanktoy,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,e5d9d1ad17
+r00945,shelftanktoy,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,92818c0ea6
+r00946,persontanktoy,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,c123f255fd
+r00947,persontanktoytrain,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,353bb1192a
+r00948,flagfootweartank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,63660b714b
+r00949,land vehicletanktraffic lightvanwheel,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,9ece777886
+r00950,glasseshuman facepersonpostertank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,953a147e80
+r00951,human facepersontankweapon,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,8c0c6b8b18
+r00952,flagland vehiclepersontankwheel,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,8f7cb8a28e
+r00953,mantank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,a2e456186c
+r00954,human handtank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,6465dd815b
+r00955,helmethuman facepersontank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,b3db60e7c9
+r00956,buildingtank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,6265bba59f
+r00957,helmethuman facepersontank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,b3db60e7c9
+r00958,car tireland vehicletank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,12b4be6977
+r00959,car tireland vehicletank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,12b4be6977
+r00960,flowerpersontank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,4ec3aab854
+r00961,human facemantankwheel,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,15272be5df
+r00962,helmetpersontankweapon,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,12219d165e
+r00963,tankwindow,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,7dda30088c
+r00964,helmethuman facepersontank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,b3db60e7c9
+r00965,chest of drawersdoordrawertank,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,2608555dc5
+r00966,car tireland vehicletankwheel,T,ground_vehicles|ground_vehicles,167.46666666666667,False,5024,30,8767c417a3
+r00967,helicoptermanshortsswimwear,T,maritime|aircraft,1.0,True,12,12,48242544c0
+r00968,helicoptermanshortsswimwear,T,maritime|aircraft,1.0,True,12,12,48242544c0
+r00969,helicoptermanshortsswimwear,T,maritime|aircraft,1.0,True,12,12,48242544c0
+r00970,helicoptermanshortsswimwear,T,maritime|aircraft,1.0,True,12,12,48242544c0
+r00971,helicoptermanshortsswimwear,T,maritime|aircraft,1.0,True,12,12,48242544c0
+r00972,helicoptermanshortsswimwear,T,maritime|aircraft,1.0,True,12,12,48242544c0
+r00973,helicoptermanshortsswimwear,T,maritime|aircraft,1.0,True,12,12,48242544c0
+r00974,helicoptermanshortsswimwear,T,maritime|aircraft,1.0,True,12,12,48242544c0
+r00975,helicoptermanshortsswimwear,T,maritime|aircraft,1.0,True,12,12,48242544c0
+r00976,helicoptermanswimwear,T,maritime|aircraft,1.0,True,12,12,f40f2ae8d1
+r00977,helicoptermicrophone,T,maritime|aircraft,1.0,True,12,12,34c91bb73e
+r00978,helicoptermanswimwearwoman,T,maritime|aircraft,1.0,True,12,12,e165b11730
+r00979,boatcartruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,a6a247e2cb
+r00980,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00981,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00982,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00983,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00984,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00985,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00986,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00987,limousinetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,d01e470a8c
+r00988,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00989,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00990,boatcartruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,a6a247e2cb
+r00991,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00992,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00993,ambulancetruckwheel,T,maritime|ground_vehicles,1.0,True,15,15,c7938396d3
+r00994,boatwheel,T,maritime|maritime,59.4,False,1782,30,4caffe401f
+r00995,boatlife jacketperson,T,maritime|maritime,59.4,False,1782,30,5aba28bed5
+r00996,boatfishperson,T,maritime|maritime,59.4,False,1782,30,f313b1a027
+r00997,boathatperson,T,maritime|maritime,59.4,False,1782,30,0008d0eaa3
+r00998,boatfishing rodperson,T,maritime|maritime,59.4,False,1782,30,8b73a3716e
+r00999,boatdolphinwhale,T,maritime|maritime,59.4,False,1782,30,261276dc8d
+r01000,boathuman faceman,T,maritime|maritime,59.4,False,1782,30,ef81e5a4ed
+r01001,boathathuman faceperson,T,maritime|maritime,59.4,False,1782,30,c9042bbf91
+r01002,boatfootwearhathuman faceman,T,maritime|maritime,59.4,False,1782,30,02a6a4f7b9
+r01003,boatpaddleperson,T,maritime|maritime,59.4,False,1782,30,1542cb11a5
+r01004,boathatperson,T,maritime|maritime,59.4,False,1782,30,0008d0eaa3
+r01005,boathatperson,T,maritime|maritime,59.4,False,1782,30,0008d0eaa3
+r01006,boatlighthouse,T,maritime|maritime,59.4,False,1782,30,31123b751e
+r01007,boatfish,T,maritime|maritime,59.4,False,1782,30,10c2059a73
+r01008,boatfishperson,T,maritime|maritime,59.4,False,1782,30,f313b1a027
+r01009,boatpaddleperson,T,maritime|maritime,59.4,False,1782,30,1542cb11a5
+r01010,boatlife jacketperson,T,maritime|maritime,59.4,False,1782,30,5aba28bed5
+r01011,boatfootwearpaddleperson,T,maritime|maritime,59.4,False,1782,30,532479fd08
+r01012,boatfootwearvehicle,T,maritime|maritime,59.4,False,1782,30,9308a4a273
+r01013,boatpaddle,T,maritime|maritime,59.4,False,1782,30,7a66a7b071
+r01014,boatsail,T,maritime|maritime,59.4,False,1782,30,de74ec9404
+r01015,boatpaddleperson,T,maritime|maritime,59.4,False,1782,30,1542cb11a5
+r01016,boathuman facepersonwheel,T,maritime|maritime,59.4,False,1782,30,deb4e7ea99
+r01017,boatfootwearpaddleperson,T,maritime|maritime,59.4,False,1782,30,532479fd08
+r01018,boatpaddleperson,T,maritime|maritime,59.4,False,1782,30,1542cb11a5
+r01019,boatfishhuman faceperson,T,maritime|maritime,59.4,False,1782,30,cb3d3bb16f
+r01020,boathathuman faceperson,T,maritime|maritime,59.4,False,1782,30,c9042bbf91
+r01021,boatfootwearpaddleperson,T,maritime|maritime,59.4,False,1782,30,532479fd08
+r01022,boatpaddle,T,maritime|maritime,59.4,False,1782,30,7a66a7b071
+r01023,boatlife jacketperson,T,maritime|maritime,59.4,False,1782,30,5aba28bed5
+r01024,water,T,maritime|nonmilitary,14.633333333333333,False,439,30,6d5a45920a
+r01025,mansports uniform,T,maritime|nonmilitary,14.633333333333333,False,439,30,5341b41be7
+r01026,harbor seal,T,maritime|nonmilitary,14.633333333333333,False,439,30,3b6b9ffc6a
+r01027,harbor seal,T,maritime|nonmilitary,14.633333333333333,False,439,30,3b6b9ffc6a
+r01028,mansports uniform,T,maritime|nonmilitary,14.633333333333333,False,439,30,5341b41be7
+r01029,harbor sealperson,T,maritime|nonmilitary,14.633333333333333,False,439,30,1b3cfe3767
+r01030,marine mammalvehicle,T,maritime|nonmilitary,14.633333333333333,False,439,30,e54d6c23f1
+r01031,marine mammalperson,T,maritime|nonmilitary,14.633333333333333,False,439,30,f57ea34f96
+r01032,harbor seal,T,maritime|nonmilitary,14.633333333333333,False,439,30,3b6b9ffc6a
+r01033,harbor seal,T,maritime|nonmilitary,14.633333333333333,False,439,30,3b6b9ffc6a
+r01034,harbor seal,T,maritime|nonmilitary,14.633333333333333,False,439,30,3b6b9ffc6a
+r01035,harbor sealswimming pool,T,maritime|nonmilitary,14.633333333333333,False,439,30,f3b1fd3367
+r01036,fishpersonseafood,T,maritime|nonmilitary,14.633333333333333,False,439,30,c1c78a9247
+r01037,helmethuman facemansports uniform,T,maritime|nonmilitary,14.633333333333333,False,439,30,ece5e7e4eb
+r01038,mansports uniform,T,maritime|nonmilitary,14.633333333333333,False,439,30,5341b41be7
+r01039,marine mammalswimming pool,T,maritime|nonmilitary,14.633333333333333,False,439,30,1d92d78702
+r01040,life jacket,T,maritime|nonmilitary,14.633333333333333,False,439,30,de8e437f49
+r01041,cameraluggage and bags,T,maritime|nonmilitary,14.633333333333333,False,439,30,757a0ccc35
+r01042,flagland vehicleposterwheel,T,maritime|nonmilitary,14.633333333333333,False,439,30,24bef73b2a
+r01043,crabpersonseafood,T,maritime|nonmilitary,14.633333333333333,False,439,30,cf94f78bc0
+r01044,sea turtle,T,maritime|nonmilitary,14.633333333333333,False,439,30,b48f7fca14
+r01045,personsurfboardwet suit,T,maritime|nonmilitary,14.633333333333333,False,439,30,423d69cd67
+r01046,harbor seal,T,maritime|nonmilitary,14.633333333333333,False,439,30,3b6b9ffc6a
+r01047,carflagland vehiclepersonwheel,T,maritime|nonmilitary,14.633333333333333,False,439,30,068da951d8
+r01048,marine mammalswimming pool,T,maritime|nonmilitary,14.633333333333333,False,439,30,1d92d78702
+r01049,buoy,T,maritime|nonmilitary,14.633333333333333,False,439,30,19974a282b
+r01050,limousinewheel,T,maritime|nonmilitary,14.633333333333333,False,439,30,219d913377
+r01051,harbor seal,T,maritime|nonmilitary,14.633333333333333,False,439,30,3b6b9ffc6a
+r01052,fishseafood,T,maritime|nonmilitary,14.633333333333333,False,439,30,7f1c493341
+r01053,flagmanrosesuit,T,maritime|nonmilitary,14.633333333333333,False,439,30,791dc80736
+r01054,flagmissilerosewheel,T,maritime|weapons,1.0,True,1,1,22eb83d531
+r01055,airplanefootwearperson,T,nonmilitary|aircraft,64.1,False,1923,30,f42c519acb
+r01056,airplanemanperson,T,nonmilitary|aircraft,64.1,False,1923,30,e016ea8a51
+r01057,airplanetelevision,T,nonmilitary|aircraft,64.1,False,1923,30,3d370f83ca
+r01058,airplanecar tireland vehiclewheel,T,nonmilitary|aircraft,64.1,False,1923,30,8a5852ebd0
+r01059,airplanehuman facemansunglasses,T,nonmilitary|aircraft,64.1,False,1923,30,79a9ca580b
+r01060,airplanebird,T,nonmilitary|aircraft,64.1,False,1923,30,22319b44e9
+r01061,airplaneland vehicle,T,nonmilitary|aircraft,64.1,False,1923,30,758561c2de
+r01062,helicoptermobile phoneperson,T,nonmilitary|aircraft,64.1,False,1923,30,bf3b6947a3
+r01063,footwearhelicopterpersonweaponwheel,T,nonmilitary|aircraft,64.1,False,1923,30,b41895f9c2
+r01064,helicopterpersonweaponwheel,T,nonmilitary|aircraft,64.1,False,1923,30,735028f3e8
+r01065,airplanefootwearperson,T,nonmilitary|aircraft,64.1,False,1923,30,f42c519acb
+r01066,airplaneland vehiclemanwheel,T,nonmilitary|aircraft,64.1,False,1923,30,f61b5ed349
+r01067,helicopterjacketmantrousers,T,nonmilitary|aircraft,64.1,False,1923,30,cf50665fda
+r01068,footwearhelicoptermanshortswoman,T,nonmilitary|aircraft,64.1,False,1923,30,20dc059371
+r01069,airplanetoywheel,T,nonmilitary|aircraft,64.1,False,1923,30,eec3c01b33
+r01070,airplaneland vehiclepersonwheel,T,nonmilitary|aircraft,64.1,False,1923,30,347ceb00fb
+r01071,airplanetelevision,T,nonmilitary|aircraft,64.1,False,1923,30,3d370f83ca
+r01072,airplaneland vehiclewheel,T,nonmilitary|aircraft,64.1,False,1923,30,abd6569a61
+r01073,airplaneland vehiclepersonwheel,T,nonmilitary|aircraft,64.1,False,1923,30,347ceb00fb
+r01074,helicoptertoy,T,nonmilitary|aircraft,64.1,False,1923,30,7a2a6148fe
+r01075,helicopterpersonswimwear,T,nonmilitary|aircraft,64.1,False,1923,30,1e5a0c63a7
+r01076,airplanehuman hand,T,nonmilitary|aircraft,64.1,False,1923,30,064eeabf7f
+r01077,airplaneland vehiclewheel,T,nonmilitary|aircraft,64.1,False,1923,30,abd6569a61
+r01078,footwearhelicopterpersontrousers,T,nonmilitary|aircraft,64.1,False,1923,30,5b2075509e
+r01079,helicopterfootwearhuman facemanpersontrousers,T,nonmilitary|aircraft,64.1,False,1923,30,dc43347353
+r01080,helicopterpersonweapon,T,nonmilitary|aircraft,64.1,False,1923,30,4c128ec6f4
+r01081,helicoptertoy,T,nonmilitary|aircraft,64.1,False,1923,30,7a2a6148fe
+r01082,helicoptertoy,T,nonmilitary|aircraft,64.1,False,1923,30,7a2a6148fe
+r01083,helicoptertoy,T,nonmilitary|aircraft,64.1,False,1923,30,7a2a6148fe
+r01084,airplaneboyhuman facemanteddy bear,T,nonmilitary|aircraft,64.1,False,1923,30,f41b68db55
+r01085,footwearmantruck,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,1edcb9386f
+r01086,car tirefootwearmantrouserstruck,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,3693bf6c39
+r01087,carcar tiretruckvehicle registration plate,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,575e9f4752
+r01088,human facemantrouserstruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,c8e8e87f99
+r01089,carcar tiremotorcycletruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,fc386e9793
+r01090,carstreet lighttruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,1ca9a30740
+r01091,car tirehuman facemantruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,80c4a8ef7e
+r01092,airplanetruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,368d365880
+r01093,carhuman facemantruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,7504d27752
+r01094,car tirehuman facetruck,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,2a6b59d87a
+r01095,footwearhuman faceland vehiclepersontruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,71a44020ce
+r01096,persontruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,0f87b6f87a
+r01097,carpickup truckstreet lighttruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,b5a6a601ce
+r01098,car tiretruckwindow,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,dbf2e5b099
+r01099,cargirlhuman facetruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,fa7587b3f5
+r01100,car tirefootwearhuman facepersontrucktrouserswheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,39f9ac6ad7
+r01101,car tirefootwearpersontruck,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,bf80b6a488
+r01102,car tireland vehiclepersontruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,440face224
+r01103,carpersontaillightvestmenttruck,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,39ea6522c8
+r01104,car tiremotorcycletruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,fb37cbe9e7
+r01105,airplanetruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,368d365880
+r01106,carcar tireland vehicletruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,e6120d648f
+r01107,car tirehousetruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,cbda14a007
+r01108,carrearview mirrortaillighttruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,5ee809234c
+r01109,cartaillighttruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,fd329be530
+r01110,buildingtruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,1559734124
+r01111,carpersontruck,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,75d2580a62
+r01112,car tirefootwearpersontruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,ff42c1cdb6
+r01113,car tireland vehicletruck,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,bdd52f1dd3
+r01114,human facemantruckwheel,T,nonmilitary|ground_vehicles,241.66666666666666,False,7250,30,8229d03efc
+r01115,boatmobile phonepersonvehicle,T,nonmilitary|maritime,40.6,False,1218,30,144e0b163e
+r01116,airplaneboat,T,nonmilitary|maritime,40.6,False,1218,30,c0d5cf16cd
+r01117,boatfootwearmanperson,T,nonmilitary|maritime,40.6,False,1218,30,bdd5c96c4b
+r01118,boatfootwearhuman facemanperson,T,nonmilitary|maritime,40.6,False,1218,30,fc7d3c4490
+r01119,boatdogperson,T,nonmilitary|maritime,40.6,False,1218,30,80a2250191
+r01120,birdboat,T,nonmilitary|maritime,40.6,False,1218,30,76066193d2
+r01121,boatglassespersontelevision,T,nonmilitary|maritime,40.6,False,1218,30,7330e39548
+r01122,boatdogfootwearperson,T,nonmilitary|maritime,40.6,False,1218,30,006c277494
+r01123,boatfootwearhuman faceperson,T,nonmilitary|maritime,40.6,False,1218,30,9217cc48f7
+r01124,airplaneboat,T,nonmilitary|maritime,40.6,False,1218,30,c0d5cf16cd
+r01125,boatmanperson,T,nonmilitary|maritime,40.6,False,1218,30,156e0cacb3
+r01126,boatdolphinfootwearperson,T,nonmilitary|maritime,40.6,False,1218,30,9a37fd4c3e
+r01127,boatman,T,nonmilitary|maritime,40.6,False,1218,30,769dafccce
+r01128,boatfootwearhuman faceman,T,nonmilitary|maritime,40.6,False,1218,30,c93e101792
+r01129,boatflower,T,nonmilitary|maritime,40.6,False,1218,30,fa050f1885
+r01130,boatfootwearhuman facepaddleperson,T,nonmilitary|maritime,40.6,False,1218,30,96f2d37ae5
+r01131,boatman,T,nonmilitary|maritime,40.6,False,1218,30,769dafccce
+r01132,airplaneboat,T,nonmilitary|maritime,40.6,False,1218,30,c0d5cf16cd
+r01133,boatland vehiclepersonwheel,T,nonmilitary|maritime,40.6,False,1218,30,726c405ee2
+r01134,boatpersonsun hat,T,nonmilitary|maritime,40.6,False,1218,30,93d794ab6a
+r01135,boatfishfootwearperson,T,nonmilitary|maritime,40.6,False,1218,30,1c50a154b4
+r01136,boatmanperson,T,nonmilitary|maritime,40.6,False,1218,30,156e0cacb3
+r01137,boatfootwearlife jacketperson,T,nonmilitary|maritime,40.6,False,1218,30,acae1f8b5f
+r01138,boatman,T,nonmilitary|maritime,40.6,False,1218,30,769dafccce
+r01139,boathelicopterpersonpropeller,T,nonmilitary|maritime,40.6,False,1218,30,37cfb3bacf
+r01140,boatman,T,nonmilitary|maritime,40.6,False,1218,30,769dafccce
+r01141,boatman,T,nonmilitary|maritime,40.6,False,1218,30,769dafccce
+r01142,boatdogfishperson,T,nonmilitary|maritime,40.6,False,1218,30,3b3613262b
+r01143,boatdogfootwearpersonwheel,T,nonmilitary|maritime,40.6,False,1218,30,b9e53bb131
+r01144,boathelicoptertent,T,nonmilitary|maritime,40.6,False,1218,30,48d74e2273
+r01145,rifletripod,T,nonmilitary|weapons,24.966666666666665,False,749,30,2b4f1d4387
+r01146,personrifletripod,T,nonmilitary|weapons,24.966666666666665,False,749,30,8b4175da1b
+r01147,handgunperson,T,nonmilitary|weapons,24.966666666666665,False,749,30,1a678759f3
+r01148,helmetrifletoy,T,nonmilitary|weapons,24.966666666666665,False,749,30,0cc3170eaf
+r01149,land vehiclepersonrifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,3ff73b09be
+r01150,land vehiclerifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,495e1c31b0
+r01151,footwearhuman facemanrifletrousers,T,nonmilitary|weapons,24.966666666666665,False,749,30,2777125fb1
+r01152,land vehiclerifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,495e1c31b0
+r01153,handgunperson,T,nonmilitary|weapons,24.966666666666665,False,749,30,1a678759f3
+r01154,car tirepersonrifletable,T,nonmilitary|weapons,24.966666666666665,False,749,30,74e8584848
+r01155,rifletripod,T,nonmilitary|weapons,24.966666666666665,False,749,30,2b4f1d4387
+r01156,land vehiclepersonriflewheel,T,nonmilitary|weapons,24.966666666666665,False,749,30,6316cbff2a
+r01157,personrifletablewaste container,T,nonmilitary|weapons,24.966666666666665,False,749,30,2415e29ab7
+r01158,handgunpersontoy,T,nonmilitary|weapons,24.966666666666665,False,749,30,ecae35cf71
+r01159,handgunhuman handtoy,T,nonmilitary|weapons,24.966666666666665,False,749,30,f1efb01816
+r01160,handgunpersontoy,T,nonmilitary|weapons,24.966666666666665,False,749,30,ecae35cf71
+r01161,car tirefootwearpersonrifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,fa2a53f591
+r01162,handgunperson,T,nonmilitary|weapons,24.966666666666665,False,749,30,1a678759f3
+r01163,girlhuman facerifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,95671b1a7b
+r01164,car tirehelmethuman faceland vehiclepersonrifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,7a9e7db8e7
+r01165,missilerocketvehiclewheel,T,nonmilitary|weapons,24.966666666666665,False,749,30,0ec61da8fa
+r01166,drawerhandgun,T,nonmilitary|weapons,24.966666666666665,False,749,30,c247acea64
+r01167,footwearhuman facemanpersonrifletrousers,T,nonmilitary|weapons,24.966666666666665,False,749,30,35686ab475
+r01168,land vehiclerifleweapon,T,nonmilitary|weapons,24.966666666666665,False,749,30,ea8a15dfc7
+r01169,land vehiclerifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,495e1c31b0
+r01170,human faceland vehiclepersonrifletrousers,T,nonmilitary|weapons,24.966666666666665,False,749,30,a1e077e107
+r01171,car tirefootwearpersonrifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,fa2a53f591
+r01172,car tirefootwearpersonrifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,fa2a53f591
+r01173,car tirefootwearpersonrifle,T,nonmilitary|weapons,24.966666666666665,False,749,30,fa2a53f591
+r01174,handgunperson,T,nonmilitary|weapons,24.966666666666665,False,749,30,1a678759f3
+r01175,airplaneflagweapon,T,weapons|aircraft,1.0,True,6,6,71adfc96d2
+r01176,airplaneflagweapon,T,weapons|aircraft,1.0,True,6,6,71adfc96d2
+r01177,airplaneflagweapon,T,weapons|aircraft,1.0,True,6,6,71adfc96d2
+r01178,airplaneflagfootwearmantrousers,T,weapons|aircraft,1.0,True,6,6,c7139a4b9f
+r01179,airplaneflagfootwearmantrousers,T,weapons|aircraft,1.0,True,6,6,c7139a4b9f
+r01180,airplaneland vehicleweapon,T,weapons|aircraft,1.0,True,6,6,8db5df72f7
+r01181,footwearmantenttruckwheel,T,weapons|ground_vehicles,1.0,True,25,25,78cabccc58
+r01182,human facejackettruckwheeltrouserswoman,T,weapons|ground_vehicles,1.0,True,25,25,1ed516a07f
+r01183,human facejackettruckwheeltrouserswoman,T,weapons|ground_vehicles,1.0,True,25,25,1ed516a07f
+r01184,cannonland vehicletruckwheel,T,weapons|ground_vehicles,1.0,True,25,25,6b47ef5324
+r01185,carhelmetmantruckwheel,T,weapons|ground_vehicles,1.0,True,25,25,532a184b2a
+r01186,carhelmetmantruckwheel,T,weapons|ground_vehicles,1.0,True,25,25,532a184b2a
+r01187,carhelmetmantruckwheel,T,weapons|ground_vehicles,1.0,True,25,25,532a184b2a
+r01188,carhuman facemantruckwheelwoman,T,weapons|ground_vehicles,1.0,True,25,25,5b7de87269
+r01189,carhuman facemantruckwheelwoman,T,weapons|ground_vehicles,1.0,True,25,25,5b7de87269
+r01190,carhuman facemantruckwheelwoman,T,weapons|ground_vehicles,1.0,True,25,25,5b7de87269
+r01191,truckweaponwheel,T,weapons|ground_vehicles,1.0,True,25,25,4b1b6463c5
+r01192,missilepostertruckwheel,T,weapons|ground_vehicles,1.0,True,25,25,e345e67acb
+r01193,buscarmirrorsteering wheeltruck,T,weapons|ground_vehicles,1.0,True,25,25,1d1e2289a7
+r01194,buscarmirrorsteering wheeltruck,T,weapons|ground_vehicles,1.0,True,25,25,1d1e2289a7
+r01195,baseball gloveglasseshathuman facepersonplatetruckweapon,T,weapons|ground_vehicles,1.0,True,25,25,eff1841476
+r01196,flagtruckweaponwheel,T,weapons|ground_vehicles,1.0,True,25,25,87adf2b10b
+r01197,car tiretruckweaponwheel,T,weapons|ground_vehicles,1.0,True,25,25,c757671082
+r01198,carhelmetmantruckwheel,T,weapons|ground_vehicles,1.0,True,25,25,532a184b2a
+r01199,carhelmetmantruckwheel,T,weapons|ground_vehicles,1.0,True,25,25,532a184b2a
+r01200,persontruckweaponwheel,T,weapons|ground_vehicles,1.0,True,25,25,555edbd6d8
+r01201,truckweaponwheel,T,weapons|ground_vehicles,1.0,True,25,25,4b1b6463c5
+r01202,truckweaponwheel,T,weapons|ground_vehicles,1.0,True,25,25,4b1b6463c5
+r01203,truckweapon,T,weapons|ground_vehicles,1.0,True,25,25,3acca086aa
+r01204,truckweapon,T,weapons|ground_vehicles,1.0,True,25,25,3acca086aa
+r01205,human facepersontruckweaponwheel,T,weapons|ground_vehicles,1.0,True,25,25,edf6eccd80
+r01206,boattower,T,weapons|maritime,1.0,True,3,3,68ff6ddc9a
+r01207,boattower,T,weapons|maritime,1.0,True,3,3,68ff6ddc9a
+r01208,boattower,T,weapons|maritime,1.0,True,3,3,68ff6ddc9a
+r01209,glasseshuman facemanweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,20acc069fe
+r01210,human facemanweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,dae3c4090a
+r01211,tableweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,5657947651
+r01212,carglasseshuman facemantablevanwheel,T,weapons|nonmilitary,117.73333333333333,False,3532,30,50bcd5feb5
+r01213,crownsword,T,weapons|nonmilitary,117.73333333333333,False,3532,30,c53fa186e3
+r01214,footwearhelmethuman faceperson,T,weapons|nonmilitary,117.73333333333333,False,3532,30,fadf08be97
+r01215,footwearhuman facemantrousersweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,f53999c54d
+r01216,glasseshuman facemantrouserswoman,T,weapons|nonmilitary,117.73333333333333,False,3532,30,55a8accbe2
+r01217,glasseshuman facemantrouserswoman,T,weapons|nonmilitary,117.73333333333333,False,3532,30,55a8accbe2
+r01218,carhuman facejacketmantrouserswheel,T,weapons|nonmilitary,117.73333333333333,False,3532,30,5d0128ad1b
+r01219,birdweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,10390c46a9
+r01220,carhuman facemantrousers,T,weapons|nonmilitary,117.73333333333333,False,3532,30,de4a3bbbd1
+r01221,mantrouserswoman,T,weapons|nonmilitary,117.73333333333333,False,3532,30,ca8bfd0ded
+r01222,mantrousers,T,weapons|nonmilitary,117.73333333333333,False,3532,30,8b3031063d
+r01223,vehicleweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,a6fa8315bf
+r01224,cannonpersonwheel,T,weapons|nonmilitary,117.73333333333333,False,3532,30,c03b509f3e
+r01225,mantrousers,T,weapons|nonmilitary,117.73333333333333,False,3532,30,8b3031063d
+r01226,bottlechopsticksfrying panhuman facepersontable,T,weapons|nonmilitary,117.73333333333333,False,3532,30,d38740f2cf
+r01227,footwearhelmethuman facepersontable,T,weapons|nonmilitary,117.73333333333333,False,3532,30,d28a772709
+r01228,flagweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,04d9d78149
+r01229,mantrousers,T,weapons|nonmilitary,117.73333333333333,False,3532,30,8b3031063d
+r01230,posterweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,e4f0be501b
+r01231,bottleboxcarhathuman facemansunglassestrousers,T,weapons|nonmilitary,117.73333333333333,False,3532,30,e58dc2d264
+r01232,car tireweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,9b073244b7
+r01233,vehicleweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,a6fa8315bf
+r01234,flagweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,04d9d78149
+r01235,footwearhuman facepersonweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,8520951c06
+r01236,vehicleweapon,T,weapons|nonmilitary,117.73333333333333,False,3532,30,a6fa8315bf
+r01237,barrel,T,weapons|nonmilitary,117.73333333333333,False,3532,30,943e18cc8c
+r01238,fedoraglasseshuman facemanmicrophone,T,weapons|nonmilitary,117.73333333333333,False,3532,30,18f6e9aebe
+r01239,kniferifle,T,weapons|weapons,50.3,False,1509,30,ddc16d7890
+r01240,human facemanrifle,T,weapons|weapons,50.3,False,1509,30,b4171da20a
+r01241,human facemanrifle,T,weapons|weapons,50.3,False,1509,30,b4171da20a
+r01242,hatpersonrifleweapon,T,weapons|weapons,50.3,False,1509,30,34ae5eb39b
+r01243,helmethuman facepersonrifleweapon,T,weapons|weapons,50.3,False,1509,30,692e0b908c
+r01244,posterrifle,T,weapons|weapons,50.3,False,1509,30,4ed404ed37
+r01245,human facemanpersonrifle,T,weapons|weapons,50.3,False,1509,30,9f60f08a09
+r01246,rifleweapon,T,weapons|weapons,50.3,False,1509,30,17252bfe5c
+r01247,missilevehicle,T,weapons|weapons,50.3,False,1509,30,03eeb33e8d
+r01248,footwearrifle,T,weapons|weapons,50.3,False,1509,30,b07f47fa64
+r01249,footwearhuman facepersonrifle,T,weapons|weapons,50.3,False,1509,30,7bdb9c0fd9
+r01250,personriflevehicle,T,weapons|weapons,50.3,False,1509,30,7d2b465b44
+r01251,human facemanrifle,T,weapons|weapons,50.3,False,1509,30,b4171da20a
+r01252,car tirerifle,T,weapons|weapons,50.3,False,1509,30,b75a045396
+r01253,human facemanrifle,T,weapons|weapons,50.3,False,1509,30,b4171da20a
+r01254,footwearhuman facepersonposterrifle,T,weapons|weapons,50.3,False,1509,30,182568d181
+r01255,footwearpersonrifleweapon,T,weapons|weapons,50.3,False,1509,30,39558a4281
+r01256,human facemanrifle,T,weapons|weapons,50.3,False,1509,30,b4171da20a
+r01257,missilewheel,T,weapons|weapons,50.3,False,1509,30,c29b568f58
+r01258,footwearhuman facepersonrifle,T,weapons|weapons,50.3,False,1509,30,7bdb9c0fd9
+r01259,rifleweapon,T,weapons|weapons,50.3,False,1509,30,17252bfe5c
+r01260,tablerifle,T,weapons|weapons,50.3,False,1509,30,60a3d5ee38
+r01261,footwearhuman facepersonrifle,T,weapons|weapons,50.3,False,1509,30,7bdb9c0fd9
+r01262,footwearhuman facepersonrifle,T,weapons|weapons,50.3,False,1509,30,7bdb9c0fd9
+r01263,footwearhuman facemanpersonrifle,T,weapons|weapons,50.3,False,1509,30,223709556c
+r01264,footwearhuman facepersonrifle,T,weapons|weapons,50.3,False,1509,30,7bdb9c0fd9
+r01265,car tirerifle,T,weapons|weapons,50.3,False,1509,30,b75a045396
+r01266,buildingrifle,T,weapons|weapons,50.3,False,1509,30,1364730ad7
+r01267,palm treerifle,T,weapons|weapons,50.3,False,1509,30,494bdf345d
+r01268,personriflevehicle,T,weapons|weapons,50.3,False,1509,30,7d2b465b44
