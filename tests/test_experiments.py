@@ -111,3 +111,60 @@ def test_metrics_binary_and_prevalence():
     assert m["prevalence_weapons"] == pytest.approx(0.2)
     assert m["recall_weapons"] == pytest.approx(0.5)
     assert m["military_share_system"] == pytest.approx(0.1)
+
+
+# -- v2 adjudication -------------------------------------------------------------
+from zeroshot_detector.experiments.reference import UNRESOLVED, adjudicate, pass_readings, resampler  # noqa: E402
+
+
+def test_pass_readings_thresholds_and_primary():
+    r = pass_readings(["aircraft"], "aircraft", {"aircraft": 2})
+    assert r == {"equipment": "aircraft", "type": "aircraft", "lenient": "aircraft", "strict": "nonmilitary"}
+    r = pass_readings(["weapons", "ground_vehicles"], "ground_vehicles", {"ground_vehicles": 1})
+    # primary does not qualify under lenient -> weapons (always qualifies)
+    assert r["equipment"] == "ground_vehicles" and r["lenient"] == "weapons"
+    assert pass_readings([], "none", {})["strict"] == "nonmilitary"
+
+
+def _passes(rows):
+    out = []
+    for iid, cfg, cats, prim, sc in rows:
+        out.append(
+            {
+                "item_id": iid,
+                "raw": iid,
+                "config": cfg,
+                "categories": cats,
+                "primary": prim,
+                "scores": sc,
+                "depiction": "real_or_unclear",
+                **{f"pass_{k}": v for k, v in pass_readings(cats, prim, sc).items()},
+            }
+        )
+    return pd.DataFrame(out)
+
+
+def test_adjudicate_majority_ties_and_categories():
+    p = _passes(
+        [
+            ("x", "A", ["aircraft"], "aircraft", {"aircraft": 2}),
+            ("x", "B", ["aircraft"], "aircraft", {"aircraft": 3}),
+            ("x", "C", ["aircraft"], "aircraft", {"aircraft": 1}),
+            ("y", "A", ["weapons"], "weapons", {}),
+            ("y", "B", [], "none", {}),
+            ("y", "A1", ["weapons"], "weapons", {}),  # not a vote
+        ]
+    )
+    ref = adjudicate(p).set_index("item_id")
+    assert ref.loc["x", "lenient"] == "aircraft" and ref.loc["x", "strict"] == "nonmilitary"
+    assert ref.loc["x", "median_scores"] == {"aircraft": 2.0}
+    assert ref.loc["y", "lenient"] == UNRESOLVED  # 1-1 tie, A1 ignored
+    assert ref.loc["x", "categories_2plus"] == ["aircraft"]
+
+
+def test_resampler_is_seeded():
+    p = _passes([("x", c, ["aircraft"], "aircraft", {"aircraft": s}) for c, s in (("A", 2), ("B", 1), ("C", 3))])
+    draw = resampler(p, "lenient", {"x": "x"})
+    a = [draw(np.random.default_rng(i))["x"] for i in range(20)]
+    b = [draw(np.random.default_rng(i))["x"] for i in range(20)]
+    assert a == b and set(a) <= {"aircraft", "nonmilitary"}
