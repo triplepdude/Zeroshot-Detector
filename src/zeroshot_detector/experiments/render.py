@@ -171,14 +171,22 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
     w("\nSelf-consistency across configurations A, B, C (Fleiss' κ on per-pass reading labels, distinct strings):\n")
     w(
         table(
-            ["Reading", "κ (all)", "unanimous (all)", "κ (excl. decision-table strings)", "unanimous (excl.)"],
+            [
+                "Reading",
+                "κ (strings)",
+                "κ (frame-weighted)",
+                "unanimous",
+                "κ (excl. decision-table strings)",
+                "unanimous (excl.)",
+            ],
             [
                 [
                     r,
-                    num(sc[r]["fleiss_kappa"]),
-                    pct(sc[r]["unanimous_share"]),
-                    num(sx[r]["fleiss_kappa"]),
-                    pct(sx[r]["unanimous_share"]),
+                    num(sc[r]["fleiss_kappa"], 4),
+                    num(sc[r].get("fleiss_kappa_weighted"), 4),
+                    pct(sc[r]["unanimous_share"], 2),
+                    num(sx[r]["fleiss_kappa"], 4),
+                    pct(sx[r]["unanimous_share"], 2),
                 ]
                 for r in READING_ORDER
                 if r in sc
@@ -234,7 +242,11 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
     w(
         table(
             ["Reading", "Panel = rule reference"],
-            [[r, ci(s["rq1_panel_vs_rule"][r])] for r in READING_ORDER if r in s["rq1_panel_vs_rule"]],
+            [
+                [r, ci(s["rq1_panel_vs_rule"][r], lambda x: pct(x, 2))]
+                for r in READING_ORDER
+                if r in s["rq1_panel_vs_rule"]
+            ],
         )
     )
 
@@ -304,8 +316,12 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
     w(table(["Analysis", "Pipeline", "LLM"], rows))
     w("\n### Influence of the heaviest strings (lenient)\n")
     w(
+        "Each string's lenient label is flipped (military ↔ non-military) and the outcomes recomputed. Both systems agree "
+        "with the reference on most heavy strings, so a flip moves both agreements but rarely the LLM − pipeline contrast.\n"
+    )
+    w(
         table(
-            ["String", "Frame share", "Reference", "Vote share", "Δ pipeline if flipped", "Δ LLM if flipped"],
+            ["String", "Frame share", "Reference", "Vote share", "Δ pipeline", "Δ LLM", "Δ (LLM − pipeline)"],
             [
                 [
                     f"`{r['text']}`",
@@ -314,6 +330,7 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
                     pct(r["vote_share"]),
                     f"{100 * r['delta_pipeline']:+.1f} pp",
                     f"{100 * r['delta_llm']:+.1f} pp",
+                    f"{100 * (r['delta_llm'] - r['delta_pipeline']):+.1f} pp",
                 ]
                 for r in s["influence_lenient"][:15]
             ],
@@ -381,7 +398,7 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
                 "Labels",
                 "Date",
                 "GLM step (log-odds)",
-                "Placebo percentile of |step|",
+                "Placebo percentile of abs(step)",
                 "Within straddling batches",
                 "Between batches",
                 "Straddling batches",
