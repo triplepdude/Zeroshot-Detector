@@ -1,0 +1,40 @@
+{
+  "kind": "relabel_legacy",
+  "started_at": "2026-11-27T18:03:30+00:00",
+  "zeroshot_detector": "1.0.0",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.44-fc-v880-x86_64-with-glibc2.39",
+  "git": {
+    "commit": "984ae78",
+    "dirty": false
+  },
+  "packages": {
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "torch": "2.15.0+cpu",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "opencv-python-headless": "5.1.0.95",
+    "pillow": "13.0.0",
+    "minio": "7.2.20",
+    "timm": "1.0.31"
+  },
+  "hardware": {
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "cuda_available": false,
+    "torch_threads": 4
+  },
+  "model": "facebook/bart-large-mnli",
+  "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+  "threshold": 0.8,
+  "mode": "legacy",
+  "coverage": 1.0,
+  "include_reviewed": false,
+  "n_texts": 28490,
+  "transformers": "4.57.6",
+  "torch": "2.15.0+cpu",
+  "output": "results/relabel/legacy_bart-large-mnli.csv.gz",
+  "note": "Run with a script equivalent to wrote results/relabel/legacy_bart-large-mnli.csv.gz (interrupted once and resumed from its checkpoint).",
+  "finished_at": "2026-11-27T20:23:07+00:00"
+}
