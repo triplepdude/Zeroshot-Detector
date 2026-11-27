@@ -186,13 +186,15 @@ def _cmd_experiments(args: argparse.Namespace) -> int:
     from .experiments.reference import load_workflow_results
     from .experiments.render import figures, render
     from .experiments.report import clean, run
-    from .experiments.rule_reference import rq1_summary, string_table
+    from .experiments.rule_reference import contrast_by_group, rq1_summary, string_table
 
     passes = load_workflow_results(sorted((ref_dir / "raw").glob("workflow_*.json")))
     frames, videos = load_frames(args.data), load_videos(args.data)
     grid = Path(args.grid_scores) if args.grid_scores else None
     summary = run(ref_dir, passes, frames, videos, grid, n_boot=args.n_boot, seed=args.seed)
-    summary["rq1_rule_population"] = rq1_summary(string_table(frames))
+    table = string_table(frames)
+    summary["rq1_rule_population"] = rq1_summary(table)
+    summary["rq1_contrast_by_group"] = contrast_by_group(table)
     audit = ref_dir / "raw" / "tool_audit.json"
     if audit.exists():
         a = json.loads(audit.read_text())

@@ -297,6 +297,30 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
             )
         )
         w(fig("rq1", "Military share by reading"))
+    cg = s.get("rq1_contrast_by_group")
+    if cg:
+        rd = [r for r in ("lenient", "strict") if r in cg["readings"]]
+        w(
+            "**Where the LLM − pipeline difference comes from** (*post hoc*, added after seeing the results; exact, rule "
+            "reference over the population). Strings are grouped by their equipment-reading category; contributions add up "
+            "to the total difference in agreement.\n"
+        )
+        groups = sorted(cg["frame_share"], key=lambda g: -abs(cg["readings"][rd[0]]["by_group"][g]))
+        w(
+            table(
+                ["Object group", "Frame share", *[f"{r} (pp)" for r in rd]],
+                [
+                    [
+                        "no vehicle or weapon" if g == "nonmilitary" else g,
+                        pct(cg["frame_share"][g]),
+                        *[f"{100 * cg['readings'][r]['by_group'][g]:+.2f}" for r in rd],
+                    ]
+                    for g in groups
+                ]
+                + [["**total**", "100.0%", *[f"**{100 * cg['readings'][r]['total']:+.2f}**" for r in rd]]],
+            )
+        )
+        w("")
     w("Panel reference vs. rule reference (design-weighted agreement; prediction P1: departure < 5% under lenient):\n")
     w(
         table(

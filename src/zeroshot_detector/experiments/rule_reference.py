@@ -84,3 +84,32 @@ def rq1_summary(table: pd.DataFrame) -> dict:
     }
     out["armament_rule_frames"] = float(w[table["rule_armament"].to_numpy()].sum() / total)
     return out
+
+
+def object_group(row: pd.Series) -> str:
+    """Equipment-reading category of a string, with ground vehicles split into tank / truck / other."""
+    cat = row["rule_equipment"]
+    if cat != "ground_vehicles":
+        return cat
+    objects = set(row["objects"].split("; "))
+    return (
+        "ground_vehicles: tank"
+        if "tank" in objects
+        else ("ground_vehicles: truck" if objects & {"truck", "pickup truck"} else "ground_vehicles: other")
+    )
+
+
+def contrast_by_group(table: pd.DataFrame, readings=("lenient", "strict"), a="llm_label", b="pipeline_label") -> dict:
+    """Exact decomposition of the agreement difference a − b by object group (post hoc; adds up to the total)."""
+    w = table["frames"].to_numpy(dtype=float)
+    total = w.sum()
+    group = table.apply(object_group, axis=1).to_numpy()
+    out: dict = {"frame_share": {g: float(w[group == g].sum() / total) for g in sorted(set(group))}, "readings": {}}
+    for reading in readings:
+        ref = table[f"rule_{reading}"].to_numpy()
+        gain = w * ((table[a].to_numpy() == ref).astype(float) - (table[b].to_numpy() == ref).astype(float))
+        out["readings"][reading] = {
+            "total": float(gain.sum() / total),
+            "by_group": {g: float(gain[group == g].sum() / total) for g in sorted(set(group))},
+        }
+    return out

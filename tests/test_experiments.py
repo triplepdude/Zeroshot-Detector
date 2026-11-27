@@ -4,7 +4,7 @@ import pytest
 
 from zeroshot_detector.experiments.design import draw_string_design, estimate_design, metrics
 from zeroshot_detector.experiments.labels import rule_reference
-from zeroshot_detector.taxonomy import LABELS
+from zeroshot_detector.taxonomy import LABELS, NONMILITARY
 
 # Worked examples of docs/experiments/CODEBOOK.md (strings absent from the archive)
 CODEBOOK_EXAMPLES = [
@@ -257,3 +257,26 @@ def test_headline_rows_report_contrasts_and_predictions():
     assert rows["P2"][3] == "confirmed"
     s["rq2"]["strict"]["total"]["contrasts"]["llm - pipeline: agreement"] = c(0.01, -0.01, 0.02)
     assert {r[0].split(":")[0]: r for r in _headline_rows(s)}["P2"][3] == "not confirmed"
+
+
+def test_contrast_by_group_adds_up():
+    import pandas as pd
+
+    from zeroshot_detector.experiments.rule_reference import contrast_by_group
+
+    t = pd.DataFrame(
+        {
+            "frames": [10, 5, 3, 2],
+            "objects": ["truck; wheel", "tank", "boat; person", "person"],
+            "rule_equipment": ["ground_vehicles", "ground_vehicles", "maritime", NONMILITARY],
+            "rule_lenient": ["ground_vehicles", "ground_vehicles", "maritime", NONMILITARY],
+            "rule_strict": [NONMILITARY, "ground_vehicles", NONMILITARY, NONMILITARY],
+            "llm_label": ["ground_vehicles", "ground_vehicles", "maritime", NONMILITARY],
+            "pipeline_label": [NONMILITARY, "ground_vehicles", NONMILITARY, NONMILITARY],
+        }
+    )
+    out = contrast_by_group(t)
+    assert out["readings"]["lenient"]["by_group"]["ground_vehicles: truck"] == 0.5
+    assert out["readings"]["strict"]["by_group"]["ground_vehicles: truck"] == -0.5
+    for r in ("lenient", "strict"):
+        assert abs(sum(out["readings"][r]["by_group"].values()) - out["readings"][r]["total"]) < 1e-12
