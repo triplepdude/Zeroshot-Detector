@@ -144,8 +144,29 @@ def resampler(passes: pd.DataFrame, reading: str, text_of: Mapping[str, str]):
     return draw
 
 
-def agreement_stats(passes: pd.DataFrame, items: Iterable[str], configs: Sequence[str] = ("A", "B", "C")) -> dict:
-    """Fleiss' κ across configurations for each reading (items with one answer per configuration)."""
+def _weighted_fleiss(arr: np.ndarray, w: np.ndarray) -> float:
+    """Fleiss' κ with item weights (here: frame weights of the sampled strings)."""
+    m = arr.sum(axis=1)
+    if not len(arr) or not np.allclose(m, m[0]) or m[0] < 2:
+        return float("nan")
+    m = m[0]
+    p_i = ((arr**2).sum(axis=1) - m) / (m * (m - 1))
+    p_bar = float((w * p_i).sum() / w.sum())
+    p_j = (w[:, None] * arr).sum(axis=0) / (w.sum() * m)
+    p_e = float((p_j**2).sum())
+    return (p_bar - p_e) / (1 - p_e) if p_e < 1 else float("nan")
+
+
+def agreement_stats(
+    passes: pd.DataFrame,
+    items: Iterable[str],
+    configs: Sequence[str] = ("A", "B", "C"),
+    weights: Mapping[str, float] | None = None,
+) -> dict:
+    """Fleiss' κ across configurations for each reading (items with one answer per configuration).
+
+    With ``weights`` (item id -> frame weight) the design-weighted κ is reported too.
+    """
     p = passes[passes["config"].isin(configs) & passes["item_id"].isin(set(items))]
     complete = p.groupby("item_id")["config"].nunique()
     complete = complete[complete == len(configs)].index
@@ -159,4 +180,8 @@ def agreement_stats(passes: pd.DataFrame, items: Iterable[str], configs: Sequenc
             "fleiss_kappa": fleiss_kappa(arr) if len(arr) else float("nan"),
             "unanimous_share": float((arr.max(axis=1) == len(configs)).mean()) if len(arr) else float("nan"),
         }
+        if weights is not None and len(arr):
+            w = np.array([float(weights.get(i, 0.0)) for i in table.index])
+            out[r]["fleiss_kappa_weighted"] = _weighted_fleiss(arr, w)
+            out[r]["unanimous_share_weighted"] = float((w * (arr.max(axis=1) == len(configs))).sum() / w.sum())
     return out

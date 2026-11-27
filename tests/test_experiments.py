@@ -168,3 +168,45 @@ def test_resampler_is_seeded():
     a = [draw(np.random.default_rng(i))["x"] for i in range(20)]
     b = [draw(np.random.default_rng(i))["x"] for i in range(20)]
     assert a == b and set(a) <= {"aircraft", "nonmilitary"}
+
+
+# -- regressions from the adversarial code review --------------------------------
+def test_annotation_bootstrap_keeps_unvoted_strings():
+    strings, pop, truth = toy_population(2)
+    systems = {"pipeline": dict(zip(strings["text"], strings["pipeline_label"], strict=True))}
+    rec = draw_string_design(strings, pop, k_certainty=30, n_tail=15, n_tail_overrides={}, seed=0)
+    voted = {t: v for t, v in truth.items() if t != rec["text"].iloc[0]}  # one fixed string never voted on
+
+    total = estimate_design(rec, lambda _: truth, systems, 200, 0, resample_passes=lambda rng: voted)
+    sampling = estimate_design(rec, lambda _: truth, systems, 200, 0)
+    a, b = total["systems"]["pipeline"]["agreement"], sampling["systems"]["pipeline"]["agreement"]
+    # unanimous votes: annotation-aware and sampling-only intervals coincide and contain the estimate
+    assert (a["ci_low"], a["ci_high"]) == (b["ci_low"], b["ci_high"])
+    assert a["ci_low"] <= a["estimate"] <= a["ci_high"]
+
+
+def test_weapon_first_sensitivity_removes_only_the_armament_rule():
+    from zeroshot_detector.experiments.report import weapon_first_passes
+
+    p = _passes(
+        [
+            ("arm", "A", ["weapons", "ground_vehicles"], "ground_vehicles", {"ground_vehicles": 3}),  # armament
+            ("tnk", "A", ["weapons", "ground_vehicles"], "ground_vehicles", {"ground_vehicles": 3}),  # tank + weapon
+            ("per", "A", ["weapons", "ground_vehicles"], "weapons", {"ground_vehicles": 2}),  # person present
+        ]
+    )
+    objects = {"arm": ["van", "weapon"], "tnk": ["tank", "weapon"], "per": ["person", "rifle", "truck"]}
+    wf = weapon_first_passes(p, objects).set_index("item_id")
+    assert wf.loc["arm", "pass_lenient"] == "weapons"
+    assert wf.loc["tnk", "pass_lenient"] == "ground_vehicles"
+    assert wf.loc["per", "pass_lenient"] == "weapons"
+    assert rule_reference(["tank", "weapon"]).primary_weapon_rule == "ground_vehicles"
+    assert rule_reference(["van", "weapon"]).primary_weapon_rule == "weapons"
+
+
+def test_weighted_fleiss_equals_unweighted_with_equal_weights():
+    from zeroshot_detector.annotation import fleiss_kappa
+    from zeroshot_detector.experiments.reference import _weighted_fleiss
+
+    arr = np.array([[3, 0], [2, 1], [0, 3], [1, 2], [3, 0]])
+    assert _weighted_fleiss(arr, np.ones(5)) == pytest.approx(fleiss_kappa(arr))

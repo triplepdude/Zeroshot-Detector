@@ -4,14 +4,14 @@ from __future__ import annotations
 
 import json
 import math
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
 from ..taxonomy import NONMILITARY
-from .design import estimate_design
+from .design import NO_OBJECT, estimate_design
 from .grid import ZeroShotConfig, all_configs
 from .reference import (
     READINGS,
@@ -49,6 +49,24 @@ DECISION_TABLE = (
 CONFIRMATORY_ZS = ZeroShotConfig("deberta", "example", "military", "separated")
 CORRECTED_PIPELINE = ZeroShotConfig("bart", "example", "ids", "separated")
 HEAVY_N = 25
+
+
+def with_deterministic(ref: pd.DataFrame) -> pd.DataFrame:
+    """Add the never-annotated 'No object detected.' item (nonmilitary under every reading)."""
+    noobj = item_id(NO_OBJECT)
+    if noobj in set(ref["item_id"]):
+        return ref
+    row = {
+        "item_id": noobj,
+        "raw": NO_OBJECT,
+        **{r: NONMILITARY for r in READINGS},
+        **{f"{r}_agreement": 1.0 for r in READINGS},
+        "n_votes": 0,
+        "categories_2plus": [],
+        "median_scores": {},
+        "depiction": "real_or_unclear",
+    }
+    return pd.concat([ref, pd.DataFrame([row])], ignore_index=True)
 
 
 def _ref_map(reference: pd.DataFrame, reading: str, text_of: Mapping[str, str]) -> dict[str, str]:
@@ -144,9 +162,21 @@ def human_consistency(items: pd.DataFrame, reference: pd.DataFrame, frames: pd.D
 
 
 # -- sensitivity ---------------------------------------------------------------------
-def weapon_first_passes(passes: pd.DataFrame) -> pd.DataFrame:
+def weapon_first_passes(passes: pd.DataFrame, objects_of: Mapping[str, Sequence[str]]) -> pd.DataFrame:
+    """Pre-registered sensitivity (a): the primary chosen without the armament rule.
+
+    Only passes where the armament rule can have applied change: a weapon and a
+    vehicle category are present, no person is listed and no T3 object (tank)
+    is listed (rule 2 keeps the tank primary). Their primary becomes ``weapons``.
+    """
+    from .labels import PERSONS
+
     p = passes.copy()
-    prim = [("weapons" if "weapons" in c else pr) for c, pr in zip(p["categories"], p["primary"], strict=True)]
+    prim = []
+    for iid, cats, pr in zip(p["item_id"], p["categories"], p["primary"], strict=True):
+        objs = set(objects_of.get(iid, ()))
+        armament = "weapons" in cats and pr in ("aircraft", "maritime", "ground_vehicles") and not (objs & PERSONS)
+        prim.append("weapons" if armament and "tank" not in objs else pr)
     for x in READINGS:
         p[f"pass_{x}"] = [
             pass_readings(c, pr, s)[x] for c, pr, s in zip(p["categories"], prim, p["scores"], strict=True)
@@ -218,29 +248,8 @@ def run(
     text_of.update({item_id(t): t for t in strings["text"]})
     sample_ids = set(items.loc[items["kind"] == "sample", "item_id"])
     sample_passes = passes[passes["item_id"].isin(sample_ids)]
-    reference = adjudicate(sample_passes)
-    # "No object detected." is assigned deterministically
-    noobj = item_id("No object detected.")
-    if noobj not in set(reference["item_id"]):
-        reference = pd.concat(
-            [
-                reference,
-                pd.DataFrame(
-                    [
-                        {
-                            "item_id": noobj,
-                            "raw": "No object detected.",
-                            **{r: NONMILITARY for r in READINGS},
-                            **{f"{r}_agreement": 1.0 for r in READINGS},
-                            "n_votes": 0,
-                            "categories_2plus": [],
-                            "median_scores": {},
-                            "depiction": "real_or_unclear",
-                        }
-                    ]
-                ),
-            ]
-        )
+    reference = with_deterministic(adjudicate(sample_passes))
+    item_weights = records.assign(iid=records["text"].map(item_id)).groupby("iid")["weight"].sum().to_dict()
     out: dict = {
         "design": {
             "records": len(records),
@@ -253,16 +262,16 @@ def run(
         "by_config": passes.groupby("config").size().to_dict(),
         "fallback_answers": int(passes["fallback"].sum()),
         "unresolved": {r: int((reference[r] == UNRESOLVED).sum()) for r in READINGS},
-        "self_consistency_ABC": agreement_stats(sample_passes, sample_ids),
+        "self_consistency_ABC": agreement_stats(sample_passes, sample_ids, weights=item_weights),
         "self_consistency_ABC_excluding_decision_table": agreement_stats(
-            sample_passes, sample_ids - {item_id(t) for t in DECISION_TABLE}
+            sample_passes, sample_ids - {item_id(t) for t in DECISION_TABLE}, weights=item_weights
         ),
     }
     out["checks"] = embedded_checks(passes, items)
     out["checks"]["position_effect_lenient_disagreement"] = position_effect(sample_passes, reference)
     hc_ids = sample_ids | set(items.loc[items["kind"] == "human_consistency", "item_id"])
     out["checks"]["human_consistency"] = human_consistency(
-        items, adjudicate(passes[passes["item_id"].isin(hc_ids)]), frames
+        items, with_deterministic(adjudicate(passes[passes["item_id"].isin(hc_ids)])), frames
     )
 
     # systems
@@ -316,17 +325,22 @@ def run(
             bounds = {}
             for s, lab in systems.items():
                 best = {t: (lab[t] if t in unresolved else v) for t, v in ref.items()}
-                worst = {t: ("__none__" if t in unresolved else v) for t, v in ref.items()}
+                # all wrong: a valid label that differs from the system's label
+                worst = {
+                    t: ((NONMILITARY if lab[t] != NONMILITARY else "weapons") if t in unresolved else v)
+                    for t, v in ref.items()
+                }
                 bounds[s] = {
                     "all_correct": record_metrics(records, best, lab)["agreement"],
-                    "all_wrong": record_metrics(records, {**worst}, lab)["agreement"],
+                    "all_wrong": record_metrics(records, worst, lab)["agreement"],
                 }
             out["rq2"][reading]["unresolved_bounds"] = bounds
 
     lenient = _ref_map(reference, "lenient", text_of)
     # sensitivity analyses (lenient, point estimates + sampling-only CIs)
     sens = {}
-    wf = adjudicate(weapon_first_passes(sample_passes))
+    objects_of = {item_id(t): o.split("; ") for t, o in zip(strings["text"], strings["objects"], strict=True)}
+    wf = with_deterministic(adjudicate(weapon_first_passes(sample_passes, objects_of)))
     sens["weapon_first_primary"] = estimate_design(
         records, lambda _r: _ref_map(wf, "lenient", text_of), {k: sys_labels[k] for k in ("pipeline", "llm")}, 500, seed
     )
@@ -341,7 +355,7 @@ def run(
         real, lambda _r: lenient, {k: sys_labels[k] for k in ("pipeline", "llm")}, 500, seed
     )
     for left_out in ("A", "B", "C"):
-        lo = adjudicate(sample_passes[sample_passes["config"] != left_out])
+        lo = with_deterministic(adjudicate(sample_passes[sample_passes["config"] != left_out]))
         sens[f"without_config_{left_out}"] = estimate_design(
             records,
             lambda _r, lo=lo: _ref_map(lo, "lenient", text_of),

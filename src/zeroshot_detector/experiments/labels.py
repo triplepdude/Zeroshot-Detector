@@ -174,7 +174,7 @@ class RuleLabel:
     depiction: str = "real_or_unclear"
     armament: bool = False
     readings: dict[str, str] = field(default_factory=dict)
-    primary_weapon_rule: str = "none"  # sensitivity: weapon stays primary even when it is armament
+    primary_weapon_rule: str = "none"  # sensitivity: primary without the armament rule
 
 
 def _weapons_present(objs: set[str]) -> bool:
@@ -253,7 +253,8 @@ def rule_reference(objects: Sequence[str]) -> RuleLabel:
         "lenient": _pick(tiers, [c for c in categories if c == "weapons" or scores[c] >= 2], armament, weapons),
         "strict": _pick(tiers, [c for c in categories if c == "weapons" or scores[c] == 3], armament, weapons),
     }
-    weapon_first = "weapons" if weapons else primary
+    # sensitivity: the ordered rules without rule 1 (armament); a tank stays primary
+    weapon_first = _pick(tiers, categories, False, weapons)
     return RuleLabel(
         categories=categories,
         scores=scores,

@@ -204,7 +204,8 @@ def estimate_design(
     reps: dict[str, list[dict]] = {name: [] for name in preds}
     for _ in range(n_boot):
         idx = np.concatenate([fixed_idx, *[rng.choice(g, size=len(g), replace=True) for g in groups]])
-        ref = resample_passes(rng) if resample_passes is not None else ref0
+        # strings that are never voted on (e.g. "No object detected.") keep their point label
+        ref = {**ref0, **resample_passes(rng)} if resample_passes is not None else ref0
         gold = np.array([ref.get(t, "unresolved") for t in texts[idx]], dtype=object)
         for name, p in preds.items():
             reps[name].append(metrics(_weighted_cm(gold, p[idx], w[idx])))

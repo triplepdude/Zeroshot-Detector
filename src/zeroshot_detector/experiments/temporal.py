@@ -48,12 +48,15 @@ def video_table(frames: pd.DataFrame, videos: pd.DataFrame, label_columns: Seque
     """One row per post (first file): batch, month, plurality label per labelling."""
     if "post_id" not in frames:
         frames = add_post_ids(frames)
-    keep_files = set(frames.drop_duplicates("post_id")["video"])
+    # one file per post, deterministically preferring the copy in a dated batch
+    files = frames.drop_duplicates("video")[["video", "batch", "post_id"]]
+    files = files.assign(_unprefixed=files["batch"].isna()).sort_values(["_unprefixed", "video"], kind="stable")
+    keep_files = set(files.drop_duplicates("post_id")["video"])
     out = pd.DataFrame({"video": videos["video"]})
     split = out["video"].map(split_video_id)
     out["batch"] = split.map(lambda s: s[0] or "none")
     ts = split.map(lambda s: post_timestamp(s[1]))
-    out["month"] = ts.map(lambda t: t.strftime("%Y-%m") if t is not None else None)
+    out["month"] = ts.map(lambda t: t.strftime("%Y-%m") if t is not None and pd.notna(t) else None)
     for col in label_columns:
         out[col] = plurality_labels(video_counts(frames, videos, col))
     out = out[out["video"].isin(keep_files) & out["month"].notna()]
@@ -94,11 +97,22 @@ def decomposition(table: pd.DataFrame, column: str, event: str, window: int = WI
     def share(df: pd.DataFrame) -> float:
         return float(df["mil"].mean()) if len(df) else float("nan")
 
-    within = share(s[s["post"]]) - share(s[~s["post"]])
+    # within-batch change: after - before inside each straddling batch, weights n0*n1/(n0+n1) (CMH-style)
+    per_batch = {}
+    num = den = 0.0
+    for b, g in s.groupby("batch"):
+        n0, n1 = int((~g["post"]).sum()), int(g["post"].sum())
+        diff = float(g.loc[g["post"], "mil"].mean() - g.loc[~g["post"], "mil"].mean())
+        wt = n0 * n1 / (n0 + n1)
+        per_batch[str(b)] = {"n_before": n0, "n_after": n1, "change": diff}
+        num += wt * diff
+        den += wt
+    within = num / den if den else float("nan")
     between = share(w[w["batch"].isin(after_only)]) - share(w[w["batch"].isin(before_only)])
     return {
         "straddling_batches": sorted(map(str, straddle)),
         "videos_straddling": len(s),
+        "within_by_batch": per_batch,
         "within_batch_change": within,
         "between_batch_change": between,
         "batches_before_only": sorted(map(str, before_only)),
@@ -143,14 +157,15 @@ def temporal_analysis(frames: pd.DataFrame, videos: pd.DataFrame, label_columns:
     out: dict = {"videos": len(table), "events": EVENTS, "window_months": WINDOW, "by_labelling": {}}
     for col in label_columns:
         placebo = {month_name(m): glm_step(table, col, m) for m in range(lo, hi + 1)}
-        valid = np.array([v for v in placebo.values() if v is not None])
+        event_months = {ev[:7] for ev in EVENTS}
+        valid = np.array([v for k, v in placebo.items() if v is not None and k not in event_months])
         q95 = float(np.quantile(np.abs(valid), 0.95)) if len(valid) else float("nan")
         events = {}
         for ev in EVENTS:
             em = month_index(ev[:7])
             step = glm_step(table, col, em)
             dec = decomposition(table, col, ev)
-            others = np.array([v for k, v in placebo.items() if v is not None and k != ev[:7]])
+            others = valid
             rank = float((np.abs(others) < abs(step)).mean()) if step is not None and len(others) else float("nan")
             same_sign = (
                 step is not None
