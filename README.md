@@ -27,7 +27,7 @@ classified by **BART-MNLI** zero-shot classification into *weapons*, *aircraft*,
 All numbers are from [`results/REPORT.md`](results/REPORT.md). Intervals are 95%
 cluster-bootstrap intervals that resample posts.
 
-1. **The stored labels are reproducible.** RESULT_REPRODUCTION
+1. **The stored labels are reproducible.** Re-running the original decision rule (keyword rule, then BART-MNLI at threshold 0.8) on all 28,490 distinct Florence-2 strings reproduces the archived pipeline label for every one of them: 100% of 1,099,951 frames, including 111 strings whose score lies within 0.001 of the threshold.
 2. **Agreement with the LLM labels is high per frame but moderate per distinct description.**
    Cohen's κ is 0.84 (0.83–0.85) over 1.1 M frames but 0.56 (0.55–0.58) over the
    28,490 distinct Florence-2 strings. The frame-level figure is carried by a few
@@ -55,7 +55,7 @@ cluster-bootstrap intervals that resample posts.
    4% (2019) to 17% (2022), then falls to 14% (2024). Post dates are decoded
    from post ids. The video sampling is undocumented, so this describes the
    archive, not the platform.
-9. **Separator bug.** RESULT_ABLATION
+9. **The separator bug matters, but fixing it is not enough.** Splitting the glued object labels and correcting the keyword rule changes the label of 10,227 frames (568 strings, among the 95% of frames re-scored). κ with the LLM rises from 0.847 to 0.864, and agreement with the adjudicated human labels from 61.8% to 78.1%. Some changes go the wrong way: `helmet + person + weapon` moves from weapons to non-military. Without the keyword rule, BART-MNLI would call 98% of the `tank` frames non-military. The study threshold (0.8) is close to, but not at, the agreement-maximising one (0.75; REPORT §9).
 
 [`docs/audit.md`](docs/audit.md) lists every defect found in the original code,
 with its evidence and measured effect.
