@@ -1,9 +1,11 @@
-"""Text-level reference standard: sampling, annotation batches, adjudication, readings.
+"""Text-level reference: ingest annotator passes, derive readings, adjudicate (PLAN v2 §7).
 
-See ``docs/experiments/PLAN.md``. The sampled unit is a frame (stratified by
-pipeline × LLM label); the labelled unit is the frame's Florence-2 string.
-Every string is labelled in several independent annotator passes; the
-adjudicated label is mapped back to all sampled frames carrying that string.
+Each annotator answer gives, for one string, the equipment ``categories``, the
+``primary`` category and a 0–3 military ``score`` per vehicle category. From
+every single pass the four reading labels are derived; the reference label of a
+reading is the **majority of the per-pass labels**. Ties are broken by a
+further blind vote (configuration D) if available, otherwise the item is
+*unresolved* (never imputed).
 """
 
 from __future__ import annotations
@@ -11,18 +13,22 @@ from __future__ import annotations
 import hashlib
 import json
 from collections import Counter
-from collections.abc import Iterable, Sequence
+from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-from ..annotation import fleiss_kappa, stratified_sample
-from ..taxonomy import MILITARY_LABELS, NONMILITARY
+from ..annotation import fleiss_kappa
+from ..taxonomy import NONMILITARY
 
-PRIMARY_VALUES = (*MILITARY_LABELS, "none")
-MILITARY_VALUES = ("yes", "ambiguous", "no")
-READINGS = ("equipment", "lenient", "strict")
+VEHICLES = ("aircraft", "maritime", "ground_vehicles")
+ORDER = ("weapons", "aircraft", "maritime", "ground_vehicles")
+READINGS = ("equipment", "type", "lenient", "strict")
+THRESHOLDS = {"equipment": 0, "type": 1, "lenient": 2, "strict": 3}
+#: Configurations whose passes form the reference (A1 = single-item check, not a vote).
+VOTING_CONFIGS = ("A", "B", "C", "D", "E", "TB")
+UNRESOLVED = "unresolved"
 
 
 def item_id(text: str) -> str:
@@ -30,135 +36,127 @@ def item_id(text: str) -> str:
     return hashlib.sha1(text.encode("utf-8")).hexdigest()[:10]
 
 
-# -- sampling ------------------------------------------------------------------
-def draw_frame_sample(frames: pd.DataFrame, n_per_stratum: int, n_overrides: dict[str, int], seed: int) -> pd.DataFrame:
-    """Stratified frame sample (pipeline × LLM label) with design weights; adds ``item_id``."""
-    sample = stratified_sample(frames, n_per_stratum=n_per_stratum, seed=seed, n_overrides=n_overrides)
-    sample["item_id"] = sample["florence_text"].map(item_id)
-    return sample
+# -- per-pass readings ---------------------------------------------------------------
+def pass_readings(categories: Sequence[str], primary: str, scores: Mapping[str, int]) -> dict[str, str]:
+    """Reading labels implied by one pass.
 
-
-def annotation_items(texts: Iterable[str], segmentation: dict[str, tuple[str, ...]]) -> pd.DataFrame:
-    """One row per distinct string: ``item_id, raw, objects`` (objects joined with ``"; "``)."""
-    rows = []
-    for text in dict.fromkeys(texts):
-        parts = segmentation.get(text, (text,))
-        rows.append({"item_id": item_id(text), "raw": text, "objects": "; ".join(parts)})
-    items = pd.DataFrame(rows)
-    if items["item_id"].duplicated().any():  # pragma: no cover - 40-bit collision
-        raise ValueError("item id collision")
-    return items
-
-
-def make_batches(item_ids: Sequence[str], n_passes: int, batch_size: int, seed: int) -> list[dict]:
-    """Independent random order per pass, cut into batches of ``batch_size``."""
-    batches = []
-    for p in range(1, n_passes + 1):
-        rng = np.random.default_rng(seed + 1000 * p)
-        order = list(np.asarray(item_ids, dtype=object)[rng.permutation(len(item_ids))])
-        for b, start in enumerate(range(0, len(order), batch_size)):
-            batches.append({"pass": p, "batch": b, "item_ids": order[start : start + batch_size]})
-    return batches
-
-
-# -- annotation results ----------------------------------------------------------
-def normalise_answer(answer: dict) -> dict:
-    """Validate and canonicalise one annotator answer."""
-    primary = str(answer["primary"]).strip().lower()
-    military = str(answer["military"]).strip().lower()
-    cats = sorted({str(c).strip().lower() for c in answer.get("categories", [])})
-    if primary not in PRIMARY_VALUES:
-        raise ValueError(f"invalid primary {primary!r}")
-    if military not in MILITARY_VALUES:
-        raise ValueError(f"invalid military {military!r}")
-    bad = set(cats) - set(MILITARY_LABELS)
-    if bad:
-        raise ValueError(f"invalid categories {sorted(bad)}")
-    if primary != "none" and primary not in cats:
-        cats = sorted({*cats, primary})
-    confidence = int(answer.get("confidence", 0) or 0)
-    return {
-        "item_id": str(answer["item_id"]),
-        "categories": cats,
-        "primary": primary,
-        "military": military,
-        "confidence": confidence,
-    }
-
-
-def load_passes(path: str | Path) -> pd.DataFrame:
-    """Read the JSONL of raw annotator answers (one object per item and pass)."""
-    rows = [json.loads(line) for line in Path(path).read_text().splitlines() if line.strip()]
-    return pd.DataFrame(rows)
-
-
-def _majority(values: Sequence[str]) -> tuple[str | None, int]:
-    counts = Counter(values).most_common()
-    if not counts:
-        return None, 0
-    if len(counts) > 1 and counts[0][1] == counts[1][1]:
-        return None, counts[0][1]
-    return counts[0][0], counts[0][1]
-
-
-def adjudicate(passes: pd.DataFrame, adjudications: pd.DataFrame | None = None) -> pd.DataFrame:
-    """Majority per item for ``primary`` and ``military``; ties resolved by ``adjudications``.
-
-    ``passes``: columns ``item_id, pass, primary, military, categories``.
-    ``adjudications``: optional ``item_id, primary, military`` used only where
-    the majority is tied. Returns one row per item with the final labels and
-    the vote shares.
+    A category qualifies for a reading when it is ``weapons`` or a vehicle
+    category whose score reaches the reading's threshold (equipment: any). The
+    label is the pass's ``primary`` if it qualifies; otherwise the qualifying
+    category ranked first by (weapons, highest score, label order).
     """
-    adj = adjudications.set_index("item_id") if adjudications is not None and len(adjudications) else None
-    rows = []
-    for iid, g in passes.groupby("item_id"):
-        prim, n_prim = _majority(list(g["primary"]))
-        mil, n_mil = _majority(list(g["military"]))
-        tie_prim, tie_mil = prim is None, mil is None
-        if adj is not None and iid in adj.index:
-            if tie_prim:
-                prim = adj.loc[iid, "primary"]
-            if tie_mil:
-                mil = adj.loc[iid, "military"]
-        cats = sorted({c for cs in g["categories"] for c in cs})
-        rows.append(
-            {
-                "item_id": iid,
-                "primary": prim,
-                "military": mil,
-                "primary_agreement": n_prim / len(g),
-                "military_agreement": n_mil / len(g),
-                "primary_tied": tie_prim,
-                "military_tied": tie_mil,
-                "categories_any": cats,
-                "n_passes": len(g),
-            }
-        )
-    return pd.DataFrame(rows)
-
-
-def agreement(passes: pd.DataFrame) -> dict:
-    """Fleiss' κ across passes for ``primary`` and ``military`` (items with all passes)."""
     out = {}
-    n_passes = passes.groupby("item_id")["pass"].nunique()
-    complete = n_passes[n_passes == n_passes.max()].index
-    p = passes[passes["item_id"].isin(complete)]
-    for field, values in (("primary", PRIMARY_VALUES), ("military", MILITARY_VALUES)):
-        table = p.groupby("item_id")[field].apply(lambda s, v=values: [int((s == x).sum()) for x in v])
-        arr = np.array(table.tolist())
-        out[field] = {
-            "fleiss_kappa": fleiss_kappa(arr),
-            "items": len(arr),
-            "unanimous_share": float((arr.max(axis=1) == arr.sum(axis=1)).mean()) if len(arr) else float("nan"),
-        }
+    cats = [c for c in ORDER if c in set(categories)]
+    for reading, threshold in THRESHOLDS.items():
+        q = [c for c in cats if c == "weapons" or int(scores.get(c, 0)) >= threshold]
+        if not q:
+            out[reading] = NONMILITARY
+        elif primary in q:
+            out[reading] = primary
+        else:
+            out[reading] = sorted(q, key=lambda c: (c != "weapons", -int(scores.get(c, 0)), ORDER.index(c)))[0]
     return out
 
 
-def readings(reference: pd.DataFrame) -> pd.DataFrame:
-    """The three pre-registered reference readings per item."""
-    prim = reference["primary"].fillna("none")
-    mil = reference["military"].fillna("no")
-    equipment = prim.where(prim != "none", NONMILITARY)
-    lenient = equipment.where(mil.isin(["yes", "ambiguous"]), NONMILITARY)
-    strict = equipment.where(mil == "yes", NONMILITARY)
-    return pd.DataFrame({"item_id": reference["item_id"], "equipment": equipment, "lenient": lenient, "strict": strict})
+# -- ingestion ---------------------------------------------------------------------
+def load_workflow_results(paths: Iterable[str | Path]) -> pd.DataFrame:
+    """Flatten annotation-workflow outputs into one row per (item, configuration answer)."""
+    rows = []
+    for path in paths:
+        payload = json.loads(Path(path).read_text())
+        results = payload.get("result", payload)
+        for batch in results:
+            if not batch:
+                continue
+            for pos, a in enumerate(batch.get("answers", [])):
+                scores = {k: int(v) for k, v in (a.get("scores") or {}).items() if k in VEHICLES}
+                rows.append(
+                    {
+                        "item_id": a["item_id"],
+                        "raw": a["raw"],
+                        "config": batch["config"] if not batch["batch_id"].startswith("TB") else "TB",
+                        "batch_id": batch["batch_id"],
+                        "position": pos,
+                        "fallback": bool(batch.get("fallback")),
+                        "categories": sorted(set(a["categories"])),
+                        "primary": a["primary"],
+                        "scores": scores,
+                        "depiction": a["depiction"],
+                        "confidence": int(a["confidence"]),
+                        **{f"pass_{r}": lab for r, lab in pass_readings(a["categories"], a["primary"], scores).items()},
+                    }
+                )
+    return pd.DataFrame(rows)
+
+
+# -- adjudication --------------------------------------------------------------------
+def _majority(values: Sequence[str]) -> str:
+    counts = Counter(values).most_common()
+    if not counts:
+        return UNRESOLVED
+    if len(counts) > 1 and counts[0][1] == counts[1][1]:
+        return UNRESOLVED
+    return counts[0][0]
+
+
+def adjudicate(passes: pd.DataFrame) -> pd.DataFrame:
+    """One row per item: reference label per reading, vote shares, median scores, ≥2-pass categories."""
+    voting = passes[passes["config"].isin(VOTING_CONFIGS)]
+    rows = []
+    for iid, g in voting.groupby("item_id"):
+        row = {"item_id": iid, "raw": g["raw"].iloc[0], "n_votes": len(g)}
+        for r in READINGS:
+            labels = list(g[f"pass_{r}"])
+            row[r] = _majority(labels)
+            row[f"{r}_agreement"] = Counter(labels).most_common(1)[0][1] / len(labels)
+        cat_votes = Counter(c for cs in g["categories"] for c in cs)
+        row["categories_2plus"] = sorted(c for c, n in cat_votes.items() if n >= 2)
+        med = {}
+        for v in VEHICLES:
+            vals = [s[v] for s in g["scores"] if v in s]
+            if vals:
+                med[v] = float(np.median(vals))
+        row["median_scores"] = med
+        row["depiction"] = _majority(list(g["depiction"]))
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def tied_items(reference: pd.DataFrame, readings: Sequence[str] = READINGS) -> list[str]:
+    mask = np.zeros(len(reference), dtype=bool)
+    for r in readings:
+        mask |= (reference[r] == UNRESOLVED).to_numpy()
+    return reference.loc[mask, "item_id"].tolist()
+
+
+def resampler(passes: pd.DataFrame, reading: str, text_of: Mapping[str, str]):
+    """Annotation-aware bootstrap: resample each item's votes with replacement and re-adjudicate."""
+    voting = passes[passes["config"].isin(VOTING_CONFIGS)]
+    votes = {iid: list(g[f"pass_{reading}"]) for iid, g in voting.groupby("item_id")}
+
+    def draw(rng: np.random.Generator) -> dict[str, str]:
+        out = {}
+        for iid, v in votes.items():
+            pick = [v[i] for i in rng.integers(0, len(v), size=len(v))]
+            out[text_of[iid]] = _majority(pick)
+        return out
+
+    return draw
+
+
+def agreement_stats(passes: pd.DataFrame, items: Iterable[str], configs: Sequence[str] = ("A", "B", "C")) -> dict:
+    """Fleiss' κ across configurations for each reading (items with one answer per configuration)."""
+    p = passes[passes["config"].isin(configs) & passes["item_id"].isin(set(items))]
+    complete = p.groupby("item_id")["config"].nunique()
+    complete = complete[complete == len(configs)].index
+    p = p[p["item_id"].isin(complete)]
+    out = {"items": len(complete)}
+    cats = (*ORDER, NONMILITARY)
+    for r in READINGS:
+        table = p.groupby("item_id")[f"pass_{r}"].apply(lambda s: [int((s == c).sum()) for c in cats])
+        arr = np.array(table.tolist()) if len(table) else np.zeros((0, len(cats)))
+        out[r] = {
+            "fleiss_kappa": fleiss_kappa(arr) if len(arr) else float("nan"),
+            "unanimous_share": float((arr.max(axis=1) == len(configs)).mean()) if len(arr) else float("nan"),
+        }
+    return out

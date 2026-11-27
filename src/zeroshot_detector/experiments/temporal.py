@@ -1,24 +1,24 @@
-"""RQ5: share of military videos over time, around two events (descriptive).
+"""RQ5 (exploratory): composition of the archive by batch around two dates.
 
-Unit: one video file per post (first occurrence), with at least one frame; its
+Unit: one video file per post (first occurrence) with at least one frame; its
 label is the plurality vote of its frame labels. Time: post creation month,
-decoded from the post id (see ``analysis.stats.post_timestamp``).
+decoded from the post id. Batches (file-name prefixes) are chronological
+collection batches, so a change "around" a date can reflect the collection
+rather than the content. Therefore:
 
-Two summaries per event date:
-
-* the difference between the military share in the ``window`` months before
-  and after the date (videos as independent units; Newcombe hybrid-score
-  interval);
-* a weighted segmented regression on monthly shares (level and slope change
-  at the event; weights = videos per month; Newey–West standard errors).
-
-Both are descriptive: how videos were selected is undocumented and batches
-are chronological, so changes may reflect collection rather than content.
+* the change is decomposed into a **within-batch** part (videos of batches
+  that straddle the date: after vs before) and a **between-batch** part
+  (batches entirely before vs entirely after);
+* a binomial GLM with batch fixed effects, a linear month trend and a
+  post-event step is fitted; the step is identified only from straddling
+  batches;
+* the event estimate is ranked among **placebo** estimates for every month from
+  2020-06 to 2024-04. A change is reported only if it exceeds the 95th
+  percentile of placebo |steps| and has the same sign within and between batches.
 """
 
 from __future__ import annotations
 
-import math
 from collections.abc import Sequence
 
 import numpy as np
@@ -27,26 +27,39 @@ import pandas as pd
 from ..aggregate import plurality_labels
 from ..analysis.stats import add_post_ids, post_timestamp, video_counts
 from ..data import split_video_id
-from ..evaluation.metrics import _z, wilson_interval
+from ..evaluation.metrics import wilson_interval
 from ..taxonomy import NONMILITARY
 
 EVENTS = {"2022-02-24": "Full-scale invasion of Ukraine", "2023-10-07": "7 October attack / Gaza war"}
+WINDOW = 18
+PLACEBO_RANGE = ("2020-06", "2024-04")
+
+
+def month_index(month: str) -> int:
+    y, m = month.split("-")
+    return int(y) * 12 + int(m) - 1
+
+
+def month_name(index: int) -> str:
+    return f"{index // 12:04d}-{index % 12 + 1:02d}"
 
 
 def video_table(frames: pd.DataFrame, videos: pd.DataFrame, label_columns: Sequence[str]) -> pd.DataFrame:
-    """One row per post (first file), with post month and plurality label per labelling."""
+    """One row per post (first file): batch, month, plurality label per labelling."""
     if "post_id" not in frames:
         frames = add_post_ids(frames)
     keep_files = set(frames.drop_duplicates("post_id")["video"])
     out = pd.DataFrame({"video": videos["video"]})
-    out["post_id"] = out["video"].map(lambda v: split_video_id(v)[1])
-    ts = out["post_id"].map(post_timestamp)
+    split = out["video"].map(split_video_id)
+    out["batch"] = split.map(lambda s: s[0] or "none")
+    ts = split.map(lambda s: post_timestamp(s[1]))
     out["month"] = ts.map(lambda t: t.strftime("%Y-%m") if t is not None else None)
     for col in label_columns:
-        counts = video_counts(frames, videos, col)
-        out[col] = plurality_labels(counts)
+        out[col] = plurality_labels(video_counts(frames, videos, col))
     out = out[out["video"].isin(keep_files) & out["month"].notna()]
-    return out[out[label_columns[0]].notna()].reset_index(drop=True)
+    out = out[out[label_columns[0]].notna()].reset_index(drop=True)
+    out["t"] = out["month"].map(month_index)
+    return out
 
 
 def monthly_shares(table: pd.DataFrame, column: str) -> pd.DataFrame:
@@ -67,85 +80,95 @@ def monthly_shares(table: pd.DataFrame, column: str) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def _month_index(month: str) -> int:
-    y, m = month.split("-")
-    return int(y) * 12 + int(m) - 1
+def decomposition(table: pd.DataFrame, column: str, event: str, window: int = WINDOW) -> dict:
+    e = month_index(event[:7])
+    w = table[(table["t"] >= e - window) & (table["t"] <= e + window) & (table["t"] != e)].copy()
+    w["post"] = w["t"] > e
+    w["mil"] = w[column] != NONMILITARY
+    spans = w.groupby("batch")["post"].agg(["min", "max"])
+    straddle = spans[(spans["min"] == False) & (spans["max"] == True)].index  # noqa: E712
+    s = w[w["batch"].isin(straddle)]
+    before_only = spans[spans["max"] == False].index  # noqa: E712
+    after_only = spans[spans["min"] == True].index  # noqa: E712
 
+    def share(df: pd.DataFrame) -> float:
+        return float(df["mil"].mean()) if len(df) else float("nan")
 
-def newcombe_difference(k1: int, n1: int, k2: int, n2: int, confidence: float = 0.95) -> dict:
-    """Difference of proportions p2 - p1 with Newcombe's hybrid score interval (method 10)."""
-    p1, p2 = k1 / n1, k2 / n2
-    l1, u1 = wilson_interval(k1, n1, confidence)
-    l2, u2 = wilson_interval(k2, n2, confidence)
-    d = p2 - p1
-    low = d - math.sqrt((p2 - l2) ** 2 + (u1 - p1) ** 2)
-    high = d + math.sqrt((u2 - p2) ** 2 + (p1 - l1) ** 2)
-    return {"before": p1, "after": p2, "difference": d, "ci_low": low, "ci_high": high, "n_before": n1, "n_after": n2}
-
-
-def window_comparison(table: pd.DataFrame, column: str, event: str, months: int = 6) -> dict:
-    e = _month_index(event[:7])
-    idx = table["month"].map(_month_index)
-    is_mil = table[column] != NONMILITARY
-    before = (idx >= e - months) & (idx < e)
-    after = (idx > e) & (idx <= e + months)  # the event month itself is excluded
-    return newcombe_difference(int(is_mil[before].sum()), int(before.sum()), int(is_mil[after].sum()), int(after.sum()))
-
-
-def newey_west(x: np.ndarray, resid: np.ndarray, lags: int) -> np.ndarray:
-    """HAC covariance of OLS coefficients (Bartlett kernel)."""
-    xtx_inv = np.linalg.inv(x.T @ x)
-    u = x * resid[:, None]
-    s = u.T @ u
-    for lag in range(1, lags + 1):
-        w = 1 - lag / (lags + 1)
-        g = u[lag:].T @ u[:-lag]
-        s += w * (g + g.T)
-    return xtx_inv @ s @ xtx_inv
-
-
-def segmented_regression(monthly: pd.DataFrame, event: str, window: int = 18, lags: int = 3) -> dict:
-    """WLS of monthly share on time, post-event level and post-event slope (±``window`` months)."""
-    e = _month_index(event[:7])
-    m = monthly.assign(t=monthly["month"].map(_month_index) - e)
-    m = m[(m["t"] >= -window) & (m["t"] <= window) & (m["t"] != 0)]
-    if len(m) < 8 or (m["t"] > 0).sum() < 3 or (m["t"] < 0).sum() < 3:
-        return {"months": len(m), "note": "too few months on one side"}
-    post = (m["t"] > 0).astype(float).to_numpy()
-    t = m["t"].to_numpy(dtype=float)
-    x = np.column_stack([np.ones(len(m)), t, post, post * t])
-    w = np.sqrt(m["videos"].to_numpy(dtype=float))
-    xw, yw = x * w[:, None], m["share"].to_numpy() * w
-    beta, *_ = np.linalg.lstsq(xw, yw, rcond=None)
-    resid = yw - xw @ beta
-    cov = newey_west(xw, resid, lags)
-    se = np.sqrt(np.diag(cov))
-    z = _z(0.95)
-    names = ["intercept", "pre_slope", "level_change", "slope_change"]
+    within = share(s[s["post"]]) - share(s[~s["post"]])
+    between = share(w[w["batch"].isin(after_only)]) - share(w[w["batch"].isin(before_only)])
     return {
-        "months": len(m),
-        "window": window,
-        "lags": lags,
-        **{
-            n: {"estimate": float(b), "ci_low": float(b - z * s), "ci_high": float(b + z * s)}
-            for n, b, s in zip(names, beta, se, strict=True)
-        },
+        "straddling_batches": sorted(map(str, straddle)),
+        "videos_straddling": len(s),
+        "within_batch_change": within,
+        "between_batch_change": between,
+        "batches_before_only": sorted(map(str, before_only)),
+        "batches_after_only": sorted(map(str, after_only)),
     }
+
+
+def _logit_irls(x: np.ndarray, y: np.ndarray, iters: int = 50) -> np.ndarray:
+    beta = np.zeros(x.shape[1])
+    for _ in range(iters):
+        eta = np.clip(x @ beta, -30, 30)
+        p = 1 / (1 + np.exp(-eta))
+        wgt = np.maximum(p * (1 - p), 1e-9)
+        z = eta + (y - p) / wgt
+        xtw = x.T * wgt
+        new = np.linalg.lstsq(xtw @ x + 1e-8 * np.eye(x.shape[1]), xtw @ z, rcond=None)[0]
+        if np.max(np.abs(new - beta)) < 1e-8:
+            return new
+        beta = new
+    return beta
+
+
+def glm_step(table: pd.DataFrame, column: str, event_month: int, window: int = WINDOW) -> float | None:
+    """Post-event step (log-odds) from a binomial GLM with batch fixed effects and a month trend."""
+    w = table[(table["t"] >= event_month - window) & (table["t"] <= event_month + window) & (table["t"] != event_month)]
+    if w.empty:
+        return None
+    post = (w["t"] > event_month).to_numpy(dtype=float)
+    spans = w.assign(post=post).groupby("batch")["post"].agg(["min", "max"])
+    if not ((spans["min"] == 0) & (spans["max"] == 1)).any():
+        return None  # step not identified without a straddling batch
+    batches = pd.get_dummies(w["batch"]).to_numpy(dtype=float)
+    t = (w["t"].to_numpy(dtype=float) - event_month) / 12.0
+    x = np.column_stack([batches, t, post])
+    y = (w[column] != NONMILITARY).to_numpy(dtype=float)
+    return float(_logit_irls(x, y)[-1])
 
 
 def temporal_analysis(frames: pd.DataFrame, videos: pd.DataFrame, label_columns: Sequence[str]) -> dict:
     table = video_table(frames, videos, label_columns)
-    out = {"videos": len(table), "events": EVENTS, "by_labelling": {}}
+    lo, hi = (month_index(m) for m in PLACEBO_RANGE)
+    out: dict = {"videos": len(table), "events": EVENTS, "window_months": WINDOW, "by_labelling": {}}
     for col in label_columns:
-        monthly = monthly_shares(table, col)
+        placebo = {month_name(m): glm_step(table, col, m) for m in range(lo, hi + 1)}
+        valid = np.array([v for v in placebo.values() if v is not None])
+        q95 = float(np.quantile(np.abs(valid), 0.95)) if len(valid) else float("nan")
+        events = {}
+        for ev in EVENTS:
+            em = month_index(ev[:7])
+            step = glm_step(table, col, em)
+            dec = decomposition(table, col, ev)
+            others = np.array([v for k, v in placebo.items() if v is not None and k != ev[:7]])
+            rank = float((np.abs(others) < abs(step)).mean()) if step is not None and len(others) else float("nan")
+            same_sign = (
+                step is not None
+                and np.sign(dec["within_batch_change"]) == np.sign(step)
+                and np.sign(dec["between_batch_change"]) == np.sign(step)
+            )
+            events[ev] = {
+                "glm_step_logodds": step,
+                "placebo_percentile_of_abs_step": rank,
+                "exceeds_placebo_95th": bool(step is not None and abs(step) > q95),
+                "same_sign_within_and_between": bool(same_sign),
+                "reported_as_change": bool(step is not None and abs(step) > q95 and same_sign),
+                **dec,
+            }
         out["by_labelling"][col] = {
-            "monthly": monthly.to_dict("records"),
-            "events": {
-                ev: {
-                    "window_6m": window_comparison(table, col, ev, 6),
-                    "segmented_regression": segmented_regression(monthly, ev),
-                }
-                for ev in EVENTS
-            },
+            "monthly": monthly_shares(table, col).to_dict("records"),
+            "placebo_steps": placebo,
+            "placebo_abs_step_95th": q95,
+            "events": events,
         }
     return out
