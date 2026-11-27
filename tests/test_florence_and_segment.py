@@ -75,3 +75,12 @@ class TestSegment:
         vocab = build_vocabulary(texts, base=base, min_support=3)
         assert "tank top" in vocab
         assert segment_all(texts, vocab)["persontank top"] == ("person", "tank top")
+
+    def test_mined_compound_is_expanded(self):
+        # "airplanecar tire" recurs as a unit before "airplane" and "car tire" are known
+        base = {"wheel", "person", "window", "tire", "wheelchair", "chair"}
+        texts = ["airplane", "car tire"] + [f"airplanecar tire{x}" for x in ("wheel", "person", "window")]
+        vocab = build_vocabulary(texts, base=base, min_support=3)
+        seg = segment_all(texts, vocab, protected=base)
+        assert seg["airplanecar tirewheel"] == ("airplane", "car tire", "wheel")
+        assert segment_all(["wheelchair"], vocab | {"wheelchair"}, protected=base)["wheelchair"] == ("wheelchair",)
