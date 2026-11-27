@@ -1,82 +1,98 @@
-# Codebook: labelling Florence-2 object strings
+# Codebook v2: labelling Florence-2 object strings
 
-You will see descriptions of single video frames from short social-media videos.
-A description is the list of objects that an object detector (Florence-2)
-found in the frame. You do **not** see the image. Judge only what the listed
-objects most plausibly depict.
+*Version 2 (frozen before any annotation). Its SHA-256 is recorded in
+`data/reference/raw/MANIFEST.json`.*
 
-## The input
+You will see descriptions of single frames from short social-media videos. A
+description is the list of objects an object detector found in the frame. You do
+**not** see the image. Judge only what the listed objects most plausibly show.
+
+## 1. The input
 
 The detector's output was stored with the object names **glued together without
-separators**. For example, `human facemantrousers` means the objects
-*human face*, *man* and *trousers*. Each item shows:
+separators**. For example, `human facemantrousers` means *human face*, *man*
+and *trousers*. Each item shows:
 
-* `raw`: the stored string, exactly as archived;
+* `raw`: the stored string;
 * `objects`: a suggested split into object names. It is automatic and can be
-  wrong; trust `raw` if they disagree.
+  wrong; read `raw` when they disagree.
 
-The object names come from a fixed detector vocabulary similar to Open Images.
-Some names have a specific meaning in that vocabulary:
+## 2. Label table (researcher decisions)
 
-* **`tank`** is an *armoured military tank*, not a container. (`tank top` is a
-  garment.)
-* **`weapon`** is a generic weapon class (often a firearm). `rifle`, `handgun`,
-  `shotgun`, `missile`, `rocket`, `cannon`, `bomb`, `sword` and `dagger` are
-  more specific weapons.
-* **`airplane`, `helicopter`, `jet ski`, `boat`, `ship`, `submarine`, `truck`,
-  `car`, `land vehicle`, `vehicle`** say nothing on their own about military
-  or civilian use.
-* `No object detected.` means the detector found nothing.
+Use this table. For a label not in the table, decide by analogy with the
+definitions below (e.g. a *sailboat* is watercraft, tier T1).
 
-## What to record for each item
+| Role | Labels |
+|---|---|
+| **weapons** (any weapon; never needs a military score) | `weapon` (generic), `rifle`, `handgun`, `shotgun`, `missile`, `cannon`, `sword`, `dagger`, `bow and arrow` |
+| conditional weapons | `rocket` is a weapon only together with `missile`, `weapon` or `tank`; otherwise it is not equipment. `knife` is a weapon only together with another weapon or a `tank`/`missile`/`cannon`. `kitchen knife` is never a weapon. |
+| **aircraft**, tier T2 (military-typical, dual-use) | `helicopter`, `airplane`, `aircraft` (generic) |
+| **maritime**, tier T2 | `boat`, `watercraft` (generic) |
+| **maritime**, tier T1 (everyday civilian) | `canoe`, `kayak`, `jet ski` |
+| **ground_vehicles**, tier T3 (inherently military) | `tank` (an armoured military tank; *not* a container) |
+| **ground_vehicles**, tier T2 | `truck`, `pickup truck` |
+| **ground_vehicles**, tier T1 | `car`, `van`, `suv`, `taxi`, `limousine`, `bus`, `train`, `motorcycle`, `bicycle`, `ambulance`, `golf cart`, `snowplow`, `cart`, `wheelchair`, `segway`, `snowmobile`, `land vehicle` (generic) |
+| generic `vehicle` | alone it creates **no** category |
+| parent rule | `weapon`, `vehicle`, `land vehicle`, `aircraft`, `watercraft` are generic names. When a more specific label of the same family is also listed, the generic one names the same object and adds nothing (`helicopter` + `vehicle` = one aircraft). |
+| parts (never create a category) | `wheel`, `car tire`, `tire`, `vehicle registration plate`, `seat belt`, `steering wheel`, `propeller`, `taillight`, `headlight`, `windshield wiper`, `rearview mirror`, `bicycle wheel` |
+| not equipment | `parachute`, `balloon`, `kite`, `life jacket`, `paddle`, `surfboard`, `swimming pool`, `tank top` (a garment), marine animals (`marine mammal`, `harbor seal`, `dolphin`, `whale`, `shark`) |
+| civilian cues | `luggage and bags`, `suitcase`, `swimming pool`, `fish`, fishing rods (may appear as `ing rod`), `surfboard`, `life jacket`, `swimwear` |
+| military cues | a `tank`, `missile` or `cannon` anywhere in the list; a `helmet` together with a weapon |
+| depiction | `poster`, `television`, `computer monitor`, `laptop`, `mobile phone`, `tablet computer`, `picture frame`, `billboard`: equipment listed with them may be shown on a screen or print. It still counts. |
+| toys | `toy` listed with **exactly one** equipment item: that item is the toy and does **not** count. With two or more equipment items, count them. |
+| persons | `person`, `man`, `woman`, `boy`, `girl`, `human face` |
+| `No object detected.` | never shown to you |
 
-1. **`categories`**: every equipment type present among the objects (zero or more):
-   * `weapons`: any weapon (firearms, artillery, missiles, rockets used as weapons, bladed weapons, generic `weapon`);
-   * `aircraft`: any aircraft (airplane, helicopter, drone, …);
-   * `maritime`: any watercraft (boat, ship, submarine, jet ski, …). *Marine animals, paddles and swimming pools are not watercraft*;
-   * `ground_vehicles`: any land vehicle (tank, truck, car, motorcycle, bus, train, generic vehicle, …).
+## 3. What to record for each item
 
-   A **toy** version of an object (the object list includes `toy` and the
-   object is plausibly the toy) does not count. Equipment shown on a `poster`,
-   `television` or `computer monitor` **does** count, because the frame shows it.
+1. **`categories`**: every equipment category present (`weapons`, `aircraft`,
+   `maritime`, `ground_vehicles`), possibly none, after applying the
+   parent, part, toy and conditional rules.
+2. **`primary`**: the single most salient category, or `none`. Apply these
+   rules **in order**:
+   1. *Armament.* If a weapon is listed with a vehicle (aircraft, maritime or
+      ground) and **no person** label is listed, the weapon is the vehicle's
+      armament: `primary` = the vehicle's category.
+   2. *Inherently military.* If a T3 object (`tank`) is listed, its category
+      is primary.
+   3. Otherwise, if a weapon is listed, `primary` = `weapons`.
+   4. Otherwise choose the vehicle category with the highest tier; break ties
+      by the order `aircraft`, `maritime`, `ground_vehicles`.
+3. **`scores`**: for **each vehicle category** in `categories`, a military
+   score from 0 to 3:
+   * **3**: a T3 object of that category; or the armament rule applies; or a T2
+     object together with a military cue.
+   * **2**: a T2 object with no cue either way; or a T1 object together with a
+     military cue.
+   * **1**: a T2 object together with a civilian cue.
+   * **0**: only T1 or generic objects, and no military cue.
+   Do not use base rates about social media; use only the listed objects.
+4. **`depiction`**: `screen_or_print` if equipment is listed with a depiction
+   label, `toy_or_model` if the toy rule removed the only equipment item, otherwise
+   `real_or_unclear`.
+5. **`confidence`**: 1 = guess, 2 = fairly sure, 3 = certain.
 
-2. **`primary`**: the single most salient equipment type among `categories`,
-   or `none` if `categories` is empty. If several are present, choose the one
-   that is most likely the subject of the frame. When unsure, use the study's
-   label order: `weapons`, then `aircraft`, then `maritime`, then
-   `ground_vehicles`. For example, a helicopter plus generic wheels is
-   `aircraft`; a rifle carried by a person in front of a car is `weapons`.
+Echo each item's `item_id` and `raw` exactly.
 
-3. **`military`**: do the objects indicate **military** equipment or a
-   military setting?
-   * `yes`: at least one object is inherently military (`tank`, `missile`,
-     `cannon`, an armoured vehicle, a warship or submarine), or the
-     combination strongly implies a military setting.
-   * `no`: the objects indicate civilian use (e.g. `truck` + `vehicle
-     registration plate`, `boat` + `swimming pool`, `airplane` + `luggage and
-     bags`, a `car` among street objects), or there is no equipment at all.
-   * `ambiguous`: equipment is present but could be military or civilian
-     (e.g. `helicopter` alone, `weapon` alone, `rifle` + `person`).
+## 4. Worked examples
 
-   Judge `military` from the objects listed, not from what is common on social media.
+None of these strings occurs in the data.
 
-4. **`confidence`**: 1 = guess, 2 = fairly sure, 3 = certain.
-
-## Examples
-
-| raw | objects | categories | primary | military | confidence |
+| raw | objects | categories | primary | scores | depiction |
 |---|---|---|---|---|---|
-| `tank` | tank | ground_vehicles | ground_vehicles | yes | 3 |
-| `persontank top` | person, tank top | — | none | no | 3 |
-| `car tiretruckwheel` | car tire, truck, wheel | ground_vehicles | ground_vehicles | ambiguous | 2 |
-| `helicopter` | helicopter | aircraft | aircraft | ambiguous | 3 |
-| `helicoptertoy` | helicopter, toy | — | none | no | 2 |
-| `personweapon` | person, weapon | weapons | weapons | ambiguous | 3 |
-| `missilerocket` | missile, rocket | weapons | weapons | yes | 3 |
-| `boatperson` | boat, person | maritime | maritime | ambiguous | 2 |
-| `marine mammal` | marine mammal | — | none | no | 3 |
-| `human facemantrousers` | human face, man, trousers | — | none | no | 3 |
-| `airplaneposter` | airplane, poster | aircraft | aircraft | ambiguous | 2 |
+| `tankposter` | tank, poster | ground_vehicles | ground_vehicles | ground_vehicles=3 | screen_or_print |
+| `truckvehicle` | truck, vehicle | ground_vehicles | ground_vehicles | ground_vehicles=2 | real_or_unclear |
+| `truckluggage and bags` | truck, luggage and bags | ground_vehicles | ground_vehicles | ground_vehicles=1 | real_or_unclear |
+| `helicopterswimming pool` | helicopter, swimming pool | aircraft | aircraft | aircraft=1 | real_or_unclear |
+| `vanweapon` | van, weapon | weapons, ground_vehicles | ground_vehicles (armament) | ground_vehicles=3 | real_or_unclear |
+| `swordperson` | sword, person | weapons | weapons | — | real_or_unclear |
+| `helmetpersonrifletruck` | helmet, person, rifle, truck | weapons, ground_vehicles | weapons | ground_vehicles=3 | real_or_unclear |
+| `kayakperson` | kayak, person | maritime | maritime | maritime=0 | real_or_unclear |
+| `jet skiperson` | jet ski, person | maritime | maritime | maritime=0 | real_or_unclear |
+| `boattoy` | boat, toy | — | none | — | toy_or_model |
+| `tankpersonflag` | tank, person, flag | ground_vehicles | ground_vehicles | ground_vehicles=3 | real_or_unclear |
+| `persontank topwoman` | person, tank top, woman | — | none | — | real_or_unclear |
 
-Do not use outside knowledge about the video, and do not try to guess what any
-other system decided. Work through every item independently.
+Work through every item independently. Do not try to guess what any other
+system decided, and do not use tools or files: everything you need is in this
+message.
