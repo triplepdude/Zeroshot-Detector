@@ -1,0 +1,50 @@
+{
+  "A": {
+    "transcripts": 56,
+    "tool_calls": {
+      "StructuredOutput": 56
+    },
+    "other_tools": 0,
+    "answers_mentioning_system_labels": 0,
+    "batches": 56,
+    "answers": 1380,
+    "retried_batches": 0,
+    "fallback_batches": 0
+  },
+  "B": {
+    "transcripts": 56,
+    "tool_calls": {
+      "StructuredOutput": 56
+    },
+    "other_tools": 0,
+    "answers_mentioning_system_labels": 0,
+    "batches": 56,
+    "answers": 1380,
+    "retried_batches": 0,
+    "fallback_batches": 0
+  },
+  "C": {
+    "transcripts": 56,
+    "tool_calls": {
+      "StructuredOutput": 56
+    },
+    "other_tools": 0,
+    "answers_mentioning_system_labels": 0,
+    "batches": 56,
+    "answers": 1380,
+    "retried_batches": 0,
+    "fallback_batches": 0
+  },
+  "extra": {
+    "transcripts": 102,
+    "tool_calls": {
+      "StructuredOutput": 102
+    },
+    "other_tools": 0,
+    "answers_mentioning_system_labels": 0,
+    "batches": 102,
+    "answers": 146,
+    "retried_batches": 0,
+    "fallback_batches": 0
+  }
+}
