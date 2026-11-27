@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterator, Mapping
+from contextlib import contextmanager
+
 import numpy as np
 import pandas as pd
 
@@ -9,7 +12,7 @@ from ..analysis.stats import add_post_ids
 from ..evaluation.metrics import cohen_kappa, confusion_matrix, metrics_from_confusion
 from ..segment import build_vocabulary, segment_all
 from ..taxonomy import LABELS, NONMILITARY
-from .labels import rule_reference
+from .labels import TABLE, rule_reference
 
 READINGS_ALL = ("equipment", "type", "lenient", "strict")
 
@@ -112,4 +115,64 @@ def contrast_by_group(table: pd.DataFrame, readings=("lenient", "strict"), a="ll
             "total": float(gain.sum() / total),
             "by_group": {g: float(gain[group == g].sum() / total) for g in sorted(set(group))},
         }
+    return out
+
+
+#: Post-hoc codebook variants: dual-use (tier T2) label groups moved to tier T1.
+TIER_VARIANTS: dict[str, dict[str, int]] = {
+    "trucks as T1": {"truck": 1, "pickup truck": 1},
+    "boats as T1": {"boat": 1, "watercraft": 1},
+    "aircraft as T1": {"helicopter": 1, "airplane": 1, "aircraft": 1},
+    "all dual-use as T1": {
+        "truck": 1,
+        "pickup truck": 1,
+        "boat": 1,
+        "watercraft": 1,
+        "helicopter": 1,
+        "airplane": 1,
+        "aircraft": 1,
+    },
+}
+
+
+@contextmanager
+def overridden_tiers(overrides: Mapping[str, int]) -> Iterator[None]:
+    """Temporarily change the tier of label-table entries (restored on exit)."""
+    old = {k: TABLE[k] for k in overrides}
+    try:
+        for k, tier in overrides.items():
+            cat, _, role = TABLE[k]
+            TABLE[k] = (cat, tier, role)
+        yield
+    finally:
+        TABLE.update(old)
+
+
+def codebook_sensitivity(
+    table: pd.DataFrame, variants: Mapping[str, Mapping[str, int]] = TIER_VARIANTS, reading: str = "lenient"
+) -> dict:
+    """Exact population outcomes when dual-use label groups are moved to another tier (post hoc)."""
+    w = table["frames"].to_numpy(dtype=float)
+    total = w.sum()
+    objects = [tuple(o.split("; ")) for o in table["objects"]]
+
+    def outcomes(labels: np.ndarray) -> dict:
+        pipe = float(w[table["pipeline_label"].to_numpy() == labels].sum() / total)
+        llm = float(w[table["llm_label"].to_numpy() == labels].sum() / total)
+        return {
+            "military_share": float(w[labels != NONMILITARY].sum() / total),
+            "pipeline": pipe,
+            "llm": llm,
+            "llm_minus_pipeline": llm - pipe,
+        }
+
+    base = table[f"rule_{reading}"].to_numpy()
+    out = {"codebook v2": {**outcomes(base), "frames_changed": 0.0}}
+    for name, ov in variants.items():
+        labels = base.copy()
+        hit = [i for i, o in enumerate(objects) if set(o) & set(ov)]
+        with overridden_tiers(ov):
+            for i in hit:
+                labels[i] = rule_reference(objects[i]).readings[reading]
+        out[name] = {**outcomes(labels), "frames_changed": float(w[labels != base].sum() / total)}
     return out

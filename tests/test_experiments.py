@@ -316,3 +316,26 @@ def test_refresh_rule_labels_records_changes():
     ch = refresh_rule_labels(s)
     assert ch["lenient"] == {"strings": 1, "frames": 4}
     assert list(s["rule_lenient"]) == [NONMILITARY, "aircraft"]
+
+
+def test_codebook_sensitivity_moves_trucks_and_restores_the_table():
+    import pandas as pd
+
+    from zeroshot_detector.experiments.labels import TABLE
+    from zeroshot_detector.experiments.rule_reference import codebook_sensitivity
+
+    before = dict(TABLE)
+    t = pd.DataFrame(
+        {
+            "frames": [10, 5],
+            "objects": ["car tire; truck", "tank"],
+            "rule_lenient": ["ground_vehicles", "ground_vehicles"],
+            "pipeline_label": [NONMILITARY, "ground_vehicles"],
+            "llm_label": ["ground_vehicles", "ground_vehicles"],
+        }
+    )
+    out = codebook_sensitivity(t, {"trucks as T1": {"truck": 1}})
+    assert TABLE == before
+    assert abs(out["codebook v2"]["llm_minus_pipeline"] - 10 / 15) < 1e-12
+    assert abs(out["trucks as T1"]["llm_minus_pipeline"] + 10 / 15) < 1e-12
+    assert abs(out["trucks as T1"]["frames_changed"] - 10 / 15) < 1e-12

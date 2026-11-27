@@ -186,7 +186,7 @@ def _cmd_experiments(args: argparse.Namespace) -> int:
     from .experiments.reference import load_workflow_results
     from .experiments.render import figures, render
     from .experiments.report import clean, run
-    from .experiments.rule_reference import contrast_by_group, rq1_summary, string_table
+    from .experiments.rule_reference import codebook_sensitivity, contrast_by_group, rq1_summary, string_table
 
     passes = load_workflow_results(sorted((ref_dir / "raw").glob("workflow_*.json")))
     frames, videos = load_frames(args.data), load_videos(args.data)
@@ -195,6 +195,7 @@ def _cmd_experiments(args: argparse.Namespace) -> int:
     table = string_table(frames)
     summary["rq1_rule_population"] = rq1_summary(table)
     summary["rq1_contrast_by_group"] = contrast_by_group(table)
+    summary["rq1_codebook_sensitivity"] = codebook_sensitivity(table)
     audit = ref_dir / "raw" / "tool_audit.json"
     if audit.exists():
         a = json.loads(audit.read_text())

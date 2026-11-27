@@ -330,6 +330,30 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
             )
         )
         w("")
+    cs = s.get("rq1_codebook_sensitivity")
+    if cs:
+        w(
+            "**Codebook sensitivity** (*post hoc*; exact, lenient reading over the population). Each row moves a group of "
+            "dual-use labels from tier T2 (score 2 alone: plausibly military) to tier T1 (score 0 alone, 2 with a military "
+            "cue) and recomputes the rule reference.\n"
+        )
+        w(
+            table(
+                ["Codebook", "Frames relabelled", "Military share", "Pipeline", "LLM", "LLM − pipeline"],
+                [
+                    [
+                        k,
+                        pct(v["frames_changed"]),
+                        pct(v["military_share"]),
+                        pct(v["pipeline"]),
+                        pct(v["llm"]),
+                        f"{100 * v['llm_minus_pipeline']:+.1f} pp",
+                    ]
+                    for k, v in cs.items()
+                ],
+            )
+        )
+        w("")
     w("Panel reference vs. rule reference (design-weighted agreement; prediction P1: departure < 5% under lenient):\n")
     w(
         table(
