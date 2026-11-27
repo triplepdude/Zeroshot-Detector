@@ -210,3 +210,28 @@ def test_weighted_fleiss_equals_unweighted_with_equal_weights():
 
     arr = np.array([[3, 0], [2, 1], [0, 3], [1, 2], [3, 0]])
     assert _weighted_fleiss(arr, np.ones(5)) == pytest.approx(fleiss_kappa(arr))
+
+
+# -- RQ5 (exploratory temporal analysis) -----------------------------------------
+def test_decomposition_and_glm_recover_a_within_batch_step():
+    from zeroshot_detector.experiments.temporal import decomposition, glm_step, month_index
+
+    rng = np.random.default_rng(0)
+    e = month_index("2022-02")
+    rows = []
+    # batch "b1" straddles the event (step +0.3), "b0" before only, "b2" after only (no step)
+    for batch, months in (("b0", range(e - 18, e - 6)), ("b1", range(e - 6, e + 7)), ("b2", range(e + 7, e + 19))):
+        for t in months:
+            if t == e:
+                continue
+            for _ in range(200):
+                p = 0.1 + (0.3 if (batch == "b1" and t > e) else 0.0)
+                rows.append({"batch": batch, "t": t, "label": "weapons" if rng.random() < p else "nonmilitary"})
+    table = pd.DataFrame(rows)
+    dec = decomposition(table, "label", "2022-02-24")
+    assert dec["straddling_batches"] == ["b1"]
+    assert dec["within_batch_change"] == pytest.approx(0.3, abs=0.03)
+    step = glm_step(table, "label", e)
+    assert step is not None and step > 1.0  # log-odds of 0.4 vs 0.1 is about 1.8
+    # no straddling batch -> step not identified
+    assert glm_step(table[table["batch"] != "b1"], "label", e) is None
