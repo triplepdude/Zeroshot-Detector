@@ -48,8 +48,8 @@ SYNTHETIC = [
     ("boatfishsurfboard", ["boat", "fish", "surfboard"]),
     ("carlimousine", ["car", "limousine"]),
     ("truckwheelweapon", ["truck", "wheel", "weapon"]),
-    ("airplanerocket", ["airplane", "rocket"]),
-    ("helmetmotorcycleperson", ["helmet", "motorcycle", "person"]),
+    ("jet skirifle", ["jet ski", "rifle"]),
+    ("helmetpersonsuv", ["helmet", "person", "suv"]),
     ("helicopterpersonsword", ["helicopter", "person", "sword"]),
 ]
 
@@ -97,6 +97,10 @@ def build(frames: pd.DataFrame, codebook_path: str | Path, out_dir: str | Path) 
     out.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(SEED)
     pop = population(frames)
+    archived = set(frames["florence_text"])
+    present = [raw for raw, _ in SYNTHETIC if raw in archived]
+    if present:
+        raise ValueError(f"synthetic strings must be absent from the archive: {present}")
     strings = string_table(frames)
     records = draw_string_design(strings, pop, K_CERTAINTY, N_TAIL, TAIL_OVERRIDES, SEED)
     records["item_id"] = records["text"].map(item_id)
