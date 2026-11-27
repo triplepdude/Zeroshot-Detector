@@ -280,3 +280,39 @@ def test_contrast_by_group_adds_up():
     assert out["readings"]["strict"]["by_group"]["ground_vehicles: truck"] == -0.5
     for r in ("lenient", "strict"):
         assert abs(sum(out["readings"][r]["by_group"].values()) - out["readings"][r]["total"]) < 1e-12
+
+
+def test_toy_rule_counts_items_after_parent_and_conditional_rules():
+    from zeroshot_detector.experiments.labels import rule_reference
+
+    # regression: a generic parent and a non-qualifying rocket are not separate items
+    for objs in (
+        ("land vehicle", "tank", "toy", "wheel"),
+        ("airplane", "rocket", "toy"),
+        ("land vehicle", "toy", "truck"),
+    ):
+        r = rule_reference(objs)
+        assert r.depiction == "toy_or_model"
+        assert set(r.readings.values()) == {NONMILITARY}
+    # two real equipment items: the toy rule does not fire
+    r = rule_reference(("tank", "toy", "truck"))
+    assert r.depiction == "real_or_unclear" and r.readings["strict"] == "ground_vehicles"
+    # a qualifying rocket is an item of its own
+    assert rule_reference(("rocket", "tank", "toy")).readings["lenient"] == "ground_vehicles"
+
+
+def test_refresh_rule_labels_records_changes():
+    import pandas as pd
+
+    from zeroshot_detector.experiments.report import refresh_rule_labels
+
+    s = pd.DataFrame(
+        {
+            "objects": ["land vehicle; tank; toy; wheel", "helicopter"],
+            "frames": [4, 10],
+            **{f"rule_{r}": ["ground_vehicles", "aircraft"] for r in ("equipment", "type", "lenient", "strict")},
+        }
+    )
+    ch = refresh_rule_labels(s)
+    assert ch["lenient"] == {"strings": 1, "frames": 4}
+    assert list(s["rule_lenient"]) == [NONMILITARY, "aircraft"]

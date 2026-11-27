@@ -180,11 +180,48 @@ class RuleLabel:
 def _weapons_present(objs: set[str]) -> bool:
     if objs & SPECIFIC_WEAPONS or "weapon" in objs:
         return True
-    if "rocket" in objs and objs & {"missile", "weapon", "tank"}:
-        return True
-    if "knife" in objs and (objs & (SPECIFIC_WEAPONS | {"weapon"}) or objs & INHERENT_MILITARY):
-        return True
+    return any(_conditional_weapon_qualifies(o, objs) for o in objs & {"rocket", "knife"})
+
+
+def _conditional_weapon_qualifies(o: str, objs: set[str]) -> bool:
+    if o == "rocket":
+        return bool(objs & {"missile", "weapon", "tank"})
+    if o == "knife":
+        return bool(objs & (SPECIFIC_WEAPONS | {"weapon"}) or objs & INHERENT_MILITARY)
     return False
+
+
+def _equipment_items(objs: set[str]) -> list[str]:
+    """Distinct equipment items after the parent, part and conditional rules (input to the toy rule).
+
+    A generic parent (``weapon``, ``land vehicle``, ``aircraft``, ``watercraft``)
+    names the same object as a specific label of its family and is not a separate
+    item; a conditional weapon (``rocket``, ``knife``) is an item only when its
+    condition holds; parts, cues and ``vehicle`` never are.
+    """
+    specific = {
+        o
+        for o in objs
+        if o in TABLE
+        and TABLE[o][0] is not None
+        and (
+            TABLE[o][2] == "equipment"
+            or (TABLE[o][2] == "conditional_weapon" and _conditional_weapon_qualifies(o, objs))
+        )
+    }
+    items = []
+    for o in sorted(objs):
+        if o not in TABLE:
+            continue
+        cat, _, role = TABLE[o]
+        if cat is None:
+            continue
+        if role == "parent" and any(TABLE[s][0] == cat for s in specific):
+            continue
+        if role == "conditional_weapon" and o not in specific:
+            continue
+        items.append(o)
+    return items
 
 
 def _vehicle_tiers(objs: set[str]) -> dict[str, int]:
@@ -225,10 +262,9 @@ def rule_reference(objects: Sequence[str]) -> RuleLabel:
         return RuleLabel(readings={r: NONMILITARY for r in ("equipment", "type", "lenient", "strict")})
     weapons = _weapons_present(objs)
     tiers = _vehicle_tiers(objs)
-    equipment_items = [o for o in objs if o in TABLE and TABLE[o][0] is not None and TABLE[o][2] != "not_equipment"]
-    # toys: "toy" with exactly one equipment item -> that item is the toy
+    # toys: "toy" with exactly one equipment item (counted after the parent and conditional rules) -> it is the toy
     depiction = "real_or_unclear"
-    if "toy" in objs and len(equipment_items) == 1:
+    if "toy" in objs and len(_equipment_items(objs)) == 1:
         depiction = "toy_or_model"
         weapons, tiers = False, {}
     elif objs & DEPICTIONS and (weapons or tiers):

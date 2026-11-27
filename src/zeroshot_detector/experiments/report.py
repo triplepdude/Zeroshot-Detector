@@ -32,6 +32,26 @@ from .rq4 import (
     weak_supervision,
 )
 
+
+def refresh_rule_labels(strings: pd.DataFrame) -> dict:
+    """Recompute the rule-reference columns with the current ``labels.rule_reference`` (in place).
+
+    ``strings.csv.gz`` keeps the labels committed before annotation; the report uses
+    the current implementation and records which strings changed (DEVIATIONS).
+    """
+    from .labels import rule_reference
+
+    new = [rule_reference(tuple(o.split("; "))) for o in strings["objects"]]
+    changes: dict = {}
+    for r in ("equipment", "type", "lenient", "strict"):
+        fresh = pd.Series([x.readings[r] for x in new], index=strings.index)
+        changed = fresh != strings[f"rule_{r}"]
+        changes[r] = {"strings": int(changed.sum()), "frames": int(strings.loc[changed, "frames"].sum())}
+        strings[f"rule_{r}"] = fresh
+    strings["rule_depiction"] = [x.depiction for x in new]
+    return changes
+
+
 DECISION_TABLE = (
     "helicopter",
     "airplane",
@@ -243,6 +263,7 @@ def run(
     records = pd.read_csv(data_dir / "design_records.csv", keep_default_na=False)
     records["fixed"] = records["fixed"].astype(str).str.lower().eq("true")
     strings = pd.read_csv(data_dir / "strings.csv.gz", keep_default_na=False)
+    rule_changes = refresh_rule_labels(strings)
     items = pd.read_csv(data_dir / "items.csv", keep_default_na=False)
     text_of = dict(zip(items["item_id"], items["raw"], strict=False))
     text_of.update({item_id(t): t for t in strings["text"]})
@@ -255,7 +276,8 @@ def run(
             "records": len(records),
             "strings": int(records["text"].nunique()),
             "parts": records.groupby("part")["text"].nunique().to_dict(),
-        }
+        },
+        "rule_label_changes_since_commit": rule_changes,
     }
     out["annotation"] = {
         "answers": len(passes),

@@ -281,7 +281,16 @@ def render(s: dict, figs: dict[str, Path], out_dir: Path) -> str:
     w("\n## 2. RQ1: what 'military' means\n")
     rq1 = s.get("rq1_rule_population")
     if rq1:
-        w("Rule reference over the **whole population** (exact, computed and committed before annotation):\n")
+        rc = s.get("rule_label_changes_since_commit")
+        note = (
+            f" Recomputed after the toy-rule fix (see Deviations): {rc['lenient']['strings']} strings "
+            f"({rc['lenient']['frames']} frames) differ from the committed lenient labels."
+            if rc and rc.get("lenient", {}).get("strings")
+            else ""
+        )
+        w(
+            f"Rule reference over the **whole population** (exact; first computed and committed before annotation).{note}\n"
+        )
         w(
             table(
                 ["Reading", "Military share", "Pipeline agreement (κ)", "LLM agreement (κ)"],
