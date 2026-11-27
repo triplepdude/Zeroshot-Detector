@@ -260,7 +260,10 @@ def run(
     }
     out["checks"] = embedded_checks(passes, items)
     out["checks"]["position_effect_lenient_disagreement"] = position_effect(sample_passes, reference)
-    out["checks"]["human_consistency"] = human_consistency(items, reference, frames)
+    hc_ids = sample_ids | set(items.loc[items["kind"] == "human_consistency", "item_id"])
+    out["checks"]["human_consistency"] = human_consistency(
+        items, adjudicate(passes[passes["item_id"].isin(hc_ids)]), frames
+    )
 
     # systems
     sys_labels: dict[str, dict[str, str]] = {
