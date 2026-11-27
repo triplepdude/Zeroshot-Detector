@@ -7,7 +7,7 @@ seed 20251128.
 
 | File | Content |
 |---|---|
-| `strings.csv.gz` | All 28,490 strings of the population (one file per post, 1,027,433 frames): frame count, segmented `objects`, the original `pipeline_label` and `llm_label`, and the deterministic **rule reference** (categories, scores, primary, depiction, and the label under each reading). |
+| `strings.csv.gz` | All 28,490 strings of the population (one file per post, 1,027,433 frames): frame count, segmented `objects`, the original `pipeline_label` and `llm_label`, and the deterministic **rule reference** (categories, scores, primary, depiction, and the label under each reading), as committed before annotation. The toy rule was later corrected (DEVIATIONS); `zsd experiments report` recomputes the rule labels, and 14 strings (30 frames) differ from this file. |
 | `design_records.csv` | The sample. One record per certainty (`C`) or screened-census (`S`) string, with weight = its frame count; one record per sampled tail (`T`) frame, with weight `N_h / n_h`. `fixed` = not resampled in the bootstrap (C, S, census strata). |
 | `items.csv` | Everything shown to annotators. `kind`: `sample`; `human_consistency` (human-labelled strings outside the sample); `synthetic` (strings absent from the archive, with `expected` rule answers); `retest` (sample strings re-presented under a fresh id; `source_item_id` points to the original). |
 | `batches.json` | Per configuration (`A`, `B`, `C`; `D`/`E` = extra passes for the 23 heaviest strings; `A1` = single-item calls): batches of up to 25 items, in the order and with the object order that were shown. |
