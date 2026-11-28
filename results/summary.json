@@ -1,0 +1,3026 @@
+{
+  "provenance": {
+    "package_version": "1.0.0",
+    "git_commit": "a1d832398252760860c609124bd5d3eba48d5d56",
+    "python": "3.12.3",
+    "pandas": "3.1.1",
+    "numpy": "2.5.5",
+    "n_boot": 2000,
+    "seed": 2025,
+    "confidence": 0.95,
+    "cluster_unit": "post id (files with the same post id form one cluster)",
+    "data_sha256": {
+      "frames.csv.gz": "8c30af8d266a964c511639c5fcee449f417c018cb3f911ff06a2850d36da0906",
+      "videos.csv.gz": "a1c5159d1e50a2a0cab3682b131257ebc8bcb6c7da4c7c558d9f2fad86c7f4e0",
+      "reviewed_mismatches.csv": "e77cbe505eb1ff1103d06d847e21e25657de6d6cb6df94af5ff0b371c6e85fbe"
+    }
+  },
+  "dataset": {
+    "n_frames": 1099951,
+    "n_files": 30958,
+    "n_files_with_frames": 30942,
+    "n_files_without_frames": 16,
+    "files_without_frames": [
+      "10_6926193385640316166.mp4",
+      "10_6807070069965835526.mp4",
+      "10_6957015652016213254.mp4",
+      "11_7009836528264350982.mp4",
+      "10_6913635812949232902.mp4",
+      "14_7185548267860577578.mp4",
+      "15_7194906657183288619.mp4",
+      "15_7191673636527279406.mp4",
+      "14_7183890396873821486.mp4",
+      "17_7250112362370420010.mp4",
+      "10_6827487781137157382.mp4",
+      "14_7187035803141393710.mp4",
+      "15_7195282690285899051.mp4",
+      "17_7256866567521176874.mp4",
+      "15_7199579513808833834.mp4",
+      "16_7240608125638790443.mp4"
+    ],
+    "n_posts": 28676,
+    "n_batches": 19,
+    "n_unique_texts": 28490,
+    "frames_no_object_detected": 7853,
+    "frames_per_file": {
+      "mean": 35.54880098248336,
+      "median": 20.0,
+      "p25": 13.0,
+      "p75": 39.0,
+      "p95": 111.0,
+      "max": 3185
+    },
+    "all_frame_numbers_multiple_of_30": true,
+    "sampling_gaps": {
+      "n_gaps": 1069009,
+      "n_gaps_longer_than_30": 1416,
+      "skipped_samples": 3023.0,
+      "skipped_share": 0.002740771767965519
+    },
+    "texts_with_one_pipeline_label": true,
+    "texts_with_one_llm_label": true,
+    "post_dates": {
+      "decodable_share": 1.0,
+      "min": "2018-07-01T01:50:36+00:00",
+      "median": "2023-07-23T10:00:01+00:00",
+      "max": "2024-10-30T23:44:17+00:00",
+      "files_per_year": {
+        "2018": 50,
+        "2019": 329,
+        "2020": 1365,
+        "2021": 3383,
+        "2022": 5607,
+        "2023": 9541,
+        "2024": 10667
+      },
+      "by_batch": {
+        "10": {
+          "min": "2018-07-01",
+          "max": "2021-05-19",
+          "files": 1862
+        },
+        "11": {
+          "min": "2021-03-04",
+          "max": "2022-02-15",
+          "files": 1901
+        },
+        "12": {
+          "min": "2021-09-30",
+          "max": "2022-07-03",
+          "files": 1808
+        },
+        "13": {
+          "min": "2022-03-09",
+          "max": "2022-10-14",
+          "files": 1738
+        },
+        "14": {
+          "min": "2022-07-06",
+          "max": "2023-01-22",
+          "files": 1796
+        },
+        "15": {
+          "min": "2022-09-29",
+          "max": "2023-04-07",
+          "files": 1776
+        },
+        "16": {
+          "min": "2023-01-03",
+          "max": "2023-06-07",
+          "files": 1710
+        },
+        "17": {
+          "min": "2023-04-07",
+          "max": "2023-08-06",
+          "files": 1724
+        },
+        "18": {
+          "min": "2023-06-28",
+          "max": "2023-09-28",
+          "files": 1745
+        },
+        "19": {
+          "min": "2023-09-05",
+          "max": "2023-11-14",
+          "files": 1687
+        },
+        "20": {
+          "min": "2023-11-09",
+          "max": "2024-02-07",
+          "files": 1724
+        },
+        "21": {
+          "min": "2023-12-30",
+          "max": "2024-04-06",
+          "files": 1773
+        },
+        "22": {
+          "min": "2024-02-05",
+          "max": "2024-06-11",
+          "files": 1697
+        },
+        "23": {
+          "min": "2024-03-22",
+          "max": "2024-08-11",
+          "files": 1690
+        },
+        "24": {
+          "min": "2024-05-05",
+          "max": "2024-09-22",
+          "files": 714
+        },
+        "25": {
+          "min": "2024-06-22",
+          "max": "2024-09-30",
+          "files": 1080
+        },
+        "26": {
+          "min": "2024-08-20",
+          "max": "2024-10-01",
+          "files": 1054
+        },
+        "27": {
+          "min": "2024-10-01",
+          "max": "2024-10-27",
+          "files": 1024
+        },
+        "<none>": {
+          "min": "2018-07-17",
+          "max": "2024-10-30",
+          "files": 2439
+        }
+      }
+    },
+    "pipeline_distribution": {
+      "weapons": {
+        "n": 18584,
+        "share": 0.016895298063277366
+      },
+      "aircraft": {
+        "n": 114075,
+        "share": 0.103709165226451
+      },
+      "maritime": {
+        "n": 6857,
+        "share": 0.006233914056171593
+      },
+      "ground_vehicles": {
+        "n": 52060,
+        "share": 0.047329381036064336
+      },
+      "nonmilitary": {
+        "n": 908375,
+        "share": 0.8258322416180357
+      }
+    },
+    "llm_distribution": {
+      "weapons": {
+        "n": 8471,
+        "share": 0.007701252146686534
+      },
+      "aircraft": {
+        "n": 115827,
+        "share": 0.10530196345109918
+      },
+      "maritime": {
+        "n": 11592,
+        "share": 0.01053865126719281
+      },
+      "ground_vehicles": {
+        "n": 85100,
+        "share": 0.07736708271550279
+      },
+      "nonmilitary": {
+        "n": 878961,
+        "share": 0.7990910504195187
+      }
+    },
+    "human_distribution": {
+      "weapons": {
+        "n": 8284,
+        "share": 0.6163690476190476
+      },
+      "aircraft": {
+        "n": 260,
+        "share": 0.019345238095238096
+      },
+      "maritime": {
+        "n": 28,
+        "share": 0.0020833333333333333
+      },
+      "ground_vehicles": {
+        "n": 406,
+        "share": 0.030208333333333334
+      },
+      "nonmilitary": {
+        "n": 4462,
+        "share": 0.3319940476190476
+      }
+    },
+    "n_human_labelled_frames": 13440,
+    "n_human_labelled_texts": 738
+  },
+  "duplicates": {
+    "n_posts_in_multiple_files": 2266,
+    "n_files_involved": 4532,
+    "max_files_per_post": 2,
+    "frames_in_duplicate_files": 145036,
+    "redundant_frames": 72518,
+    "posts_with_identical_texts_across_files": 2266,
+    "posts_with_identical_labels_across_files": 2266,
+    "duplicate_batch_pairs": {
+      "10+<none>": 813,
+      "11+<none>": 324,
+      "27+<none>": 226,
+      "26+<none>": 216,
+      "21+<none>": 199,
+      "22+<none>": 147,
+      "25+<none>": 131,
+      "23+<none>": 88,
+      "24+<none>": 67,
+      "20+<none>": 32
+    }
+  },
+  "segmentation": {
+    "texts": 28490,
+    "texts_split": 27884,
+    "frames_all_parts_known": 1097767,
+    "frames_all_parts_known_share": 0.9980144570076304,
+    "distinct_object_labels": 670
+  },
+  "keyword_rule": {
+    "keywords": {
+      "armored": {
+        "texts": 0,
+        "frames": 0
+      },
+      "convoy": {
+        "texts": 0,
+        "frames": 0
+      },
+      "military": {
+        "texts": 0,
+        "frames": 0
+      },
+      "humvee": {
+        "texts": 0,
+        "frames": 0
+      },
+      "APC": {
+        "texts": 0,
+        "frames": 0
+      },
+      "tank": {
+        "texts": 734,
+        "frames": 52060
+      },
+      "infantry": {
+        "texts": 0,
+        "frames": 0
+      },
+      "MRAP": {
+        "texts": 0,
+        "frames": 0
+      },
+      "Stryker": {
+        "texts": 0,
+        "frames": 0
+      },
+      "Bradley": {
+        "texts": 0,
+        "frames": 0
+      },
+      "military truck": {
+        "texts": 0,
+        "frames": 0
+      },
+      "artillery": {
+        "texts": 0,
+        "frames": 0
+      },
+      "howitzer": {
+        "texts": 0,
+        "frames": 0
+      },
+      "patrol vehicle": {
+        "texts": 0,
+        "frames": 0
+      },
+      "combat vehicle": {
+        "texts": 0,
+        "frames": 0
+      },
+      "troop carrier": {
+        "texts": 0,
+        "frames": 0
+      },
+      "military convoy": {
+        "texts": 0,
+        "frames": 0
+      },
+      "tracked vehicle": {
+        "texts": 0,
+        "frames": 0
+      }
+    },
+    "keywords_that_can_never_match": [
+      "APC",
+      "MRAP",
+      "Stryker",
+      "Bradley"
+    ],
+    "frames_keyword_fired": 52060,
+    "frames_pipeline_ground_vehicles": 52060,
+    "ground_vehicles_frames_from_keyword": 52060,
+    "keyword_frames_not_ground_vehicles": 0,
+    "tank_top": {
+      "texts": 15,
+      "frames": 28
+    },
+    "corrected_rule": {
+      "frames_fired": 52031,
+      "frames_no_longer_fired": 29,
+      "texts_no_longer_fired": [
+        "catheartpersontank top",
+        "headphonespersontank top",
+        "beltchaircoffee cupcomputer mouseglasseslaptoppersontank topumbrella",
+        "fancy dresspersontank toptelevision",
+        "ambulancefootwearpersontank top",
+        "baseball caphatland vehiclepersontank",
+        "baseball cappersontank top",
+        "busfootwearhuman facepersontank topwheel",
+        "busfootwearpersontank toptruckwheel",
+        "fancy dresshandbaghuman facepersontank toptelevisionwoman",
+        "fancy dresshandbagpersontank top",
+        "human facepersontank top",
+        "microphonepersontank top",
+        "persontank top",
+        "persontank toptelevisiontrousers",
+        "persontank toptraffic light"
+      ],
+      "frames_newly_fired": 0
+    }
+  },
+  "agreement": {
+    "frame_level": {
+      "labels": [
+        "weapons",
+        "aircraft",
+        "maritime",
+        "ground_vehicles",
+        "nonmilitary"
+      ],
+      "confusion_matrix": [
+        [
+          6914,
+          13,
+          1,
+          0,
+          1543
+        ],
+        [
+          6,
+          113569,
+          12,
+          0,
+          2240
+        ],
+        [
+          3,
+          34,
+          5029,
+          0,
+          6526
+        ],
+        [
+          26,
+          451,
+          18,
+          52060,
+          32545
+        ],
+        [
+          11635,
+          8,
+          1797,
+          0,
+          865521
+        ]
+      ],
+      "metrics": {
+        "n": 1099951.0,
+        "accuracy": 0.9483086064742884,
+        "kappa": 0.8410994234881953,
+        "macro_f1": 0.7543760996738808,
+        "weighted_f1": 0.9463708222952502,
+        "per_class": {
+          "weapons": {
+            "precision": 0.3720404649160568,
+            "recall": 0.816196434895526,
+            "f1": 0.5111070042506005,
+            "support": 8471.0,
+            "predicted": 18584.0
+          },
+          "aircraft": {
+            "precision": 0.9955643217181679,
+            "recall": 0.9805054089288335,
+            "f1": 0.9879774860592775,
+            "support": 115827.0,
+            "predicted": 114075.0
+          },
+          "maritime": {
+            "precision": 0.7334111127315153,
+            "recall": 0.4338336783988958,
+            "f1": 0.54517860046615,
+            "support": 11592.0,
+            "predicted": 6857.0
+          },
+          "ground_vehicles": {
+            "precision": 1.0,
+            "recall": 0.6117508813160987,
+            "f1": 0.7591134441528142,
+            "support": 85100.0,
+            "predicted": 52060.0
+          },
+          "nonmilitary": {
+            "precision": 0.9528234484656667,
+            "recall": 0.9847092191803732,
+            "f1": 0.9685039634405619,
+            "support": 878961.0,
+            "predicted": 908375.0
+          }
+        }
+      },
+      "ci": {
+        "agreement": {
+          "estimate": 0.9483086064742884,
+          "ci_low": 0.9458102614448106,
+          "ci_high": 0.9506137194386322,
+          "std_error": 0.0012237471080487306,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "kappa": {
+          "estimate": 0.8410994234881953,
+          "ci_low": 0.8332286019688654,
+          "ci_high": 0.8482807623075563,
+          "std_error": 0.0038557870955339846,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "macro_f1": {
+          "estimate": 0.7543760996738808,
+          "ci_low": 0.7428553624113613,
+          "ci_high": 0.7667386476071574,
+          "std_error": 0.0060061819208217255,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        }
+      }
+    },
+    "frame_level_binary": {
+      "labels": [
+        "military",
+        "nonmilitary"
+      ],
+      "confusion_matrix": [
+        [
+          178136,
+          42854
+        ],
+        [
+          13440,
+          865521
+        ]
+      ],
+      "metrics": {
+        "n": 1099951.0,
+        "accuracy": 0.9488213565877025,
+        "kappa": 0.8322523102889784,
+        "macro_f1": 0.9160277460828314,
+        "weighted_f1": 0.9474180800259647,
+        "per_class": {
+          "military": {
+            "precision": 0.9298450745396083,
+            "recall": 0.8060817231548939,
+            "f1": 0.863551528725101,
+            "support": 220990.0,
+            "predicted": 191576.0
+          },
+          "nonmilitary": {
+            "precision": 0.9528234484656667,
+            "recall": 0.9847092191803732,
+            "f1": 0.9685039634405619,
+            "support": 878961.0,
+            "predicted": 908375.0
+          }
+        }
+      },
+      "ci": {
+        "agreement": {
+          "estimate": 0.9488213565877025,
+          "ci_low": 0.9463666455173272,
+          "ci_high": 0.9511167456538534,
+          "std_error": 0.0012199170875738306,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "kappa": {
+          "estimate": 0.8322523102889784,
+          "ci_low": 0.8238682334784375,
+          "ci_high": 0.8399246677676215,
+          "std_error": 0.004090666079757827,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "macro_f1": {
+          "estimate": 0.9160277460828314,
+          "ci_low": 0.9118157459761891,
+          "ci_high": 0.9198755007265463,
+          "std_error": 0.002053947602332114,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        }
+      }
+    },
+    "text_level": {
+      "labels": [
+        "weapons",
+        "aircraft",
+        "maritime",
+        "ground_vehicles",
+        "nonmilitary"
+      ],
+      "confusion_matrix": [
+        [
+          237,
+          3,
+          1,
+          0,
+          148
+        ],
+        [
+          3,
+          972,
+          4,
+          0,
+          369
+        ],
+        [
+          1,
+          12,
+          207,
+          0,
+          190
+        ],
+        [
+          14,
+          41,
+          3,
+          734,
+          1432
+        ],
+        [
+          667,
+          3,
+          68,
+          0,
+          23381
+        ]
+      ],
+      "metrics": {
+        "n": 28490.0,
+        "accuracy": 0.8961389961389962,
+        "kappa": 0.5624460647840862,
+        "macro_f1": 0.6428863071149753,
+        "weighted_f1": 0.8884495650098896,
+        "per_class": {
+          "weapons": {
+            "precision": 0.25704989154013014,
+            "recall": 0.609254498714653,
+            "f1": 0.36155606407322655,
+            "support": 389.0,
+            "predicted": 922.0
+          },
+          "aircraft": {
+            "precision": 0.9427740058195926,
+            "recall": 0.7210682492581603,
+            "f1": 0.8171500630517022,
+            "support": 1348.0,
+            "predicted": 1031.0
+          },
+          "maritime": {
+            "precision": 0.7314487632508834,
+            "recall": 0.5048780487804878,
+            "f1": 0.5974025974025975,
+            "support": 410.0,
+            "predicted": 283.0
+          },
+          "ground_vehicles": {
+            "precision": 1.0,
+            "recall": 0.3300359712230216,
+            "f1": 0.4962812711291413,
+            "support": 2224.0,
+            "predicted": 734.0
+          },
+          "nonmilitary": {
+            "precision": 0.9161833855799373,
+            "recall": 0.969401716489075,
+            "f1": 0.9420415399182095,
+            "support": 24119.0,
+            "predicted": 25520.0
+          }
+        }
+      },
+      "ci": {
+        "agreement": {
+          "estimate": 0.8961389961389962,
+          "ci_low": 0.8923464373464373,
+          "ci_high": 0.8996840996840997,
+          "std_error": 0.001862803700577511,
+          "n_boot": 2000,
+          "n_clusters": 28490,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "kappa": {
+          "estimate": 0.5624460647840862,
+          "ci_low": 0.5480901141564652,
+          "ci_high": 0.5752886630185415,
+          "std_error": 0.006915839752246713,
+          "n_boot": 2000,
+          "n_clusters": 28490,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "macro_f1": {
+          "estimate": 0.6428863071149753,
+          "ci_low": 0.6298741576158533,
+          "ci_high": 0.6545986701275558,
+          "std_error": 0.006319184788419645,
+          "n_boot": 2000,
+          "n_clusters": 28490,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        }
+      }
+    },
+    "disagreement_cells": [
+      {
+        "pipeline_label": "nonmilitary",
+        "llm_label": "ground_vehicles",
+        "frames": 32545,
+        "texts": 1432,
+        "posts": 3565,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "car tiretruck",
+            "frames": 7700,
+            "videos": 1338
+          },
+          {
+            "florence_text": "truckwheel",
+            "frames": 4133,
+            "videos": 926
+          },
+          {
+            "florence_text": "car tiretruckwheel",
+            "frames": 3297,
+            "videos": 945
+          },
+          {
+            "florence_text": "cartruckwheel",
+            "frames": 3172,
+            "videos": 875
+          },
+          {
+            "florence_text": "carcar tiretruck",
+            "frames": 1977,
+            "videos": 555
+          },
+          {
+            "florence_text": "carcar tiretruckwheel",
+            "frames": 1722,
+            "videos": 541
+          },
+          {
+            "florence_text": "land vehicletruckwheel",
+            "frames": 1087,
+            "videos": 330
+          },
+          {
+            "florence_text": "truck",
+            "frames": 356,
+            "videos": 172
+          }
+        ]
+      },
+      {
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "frames": 11635,
+        "texts": 667,
+        "posts": 2536,
+        "human_reviewed_frames": 11635,
+        "top_texts": [
+          {
+            "florence_text": "weapon",
+            "frames": 3436,
+            "videos": 861
+          },
+          {
+            "florence_text": "personweapon",
+            "frames": 1747,
+            "videos": 512
+          },
+          {
+            "florence_text": "human facemantrousers",
+            "frames": 834,
+            "videos": 266
+          },
+          {
+            "florence_text": "human facepersonweapon",
+            "frames": 452,
+            "videos": 144
+          },
+          {
+            "florence_text": "helmetpersonweapon",
+            "frames": 352,
+            "videos": 118
+          },
+          {
+            "florence_text": "cannon",
+            "frames": 217,
+            "videos": 97
+          },
+          {
+            "florence_text": "helmethuman facepersonweapon",
+            "frames": 208,
+            "videos": 93
+          },
+          {
+            "florence_text": "human facejacketmantrousers",
+            "frames": 207,
+            "videos": 79
+          }
+        ]
+      },
+      {
+        "pipeline_label": "nonmilitary",
+        "llm_label": "maritime",
+        "frames": 6526,
+        "texts": 190,
+        "posts": 382,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "boatperson",
+            "frames": 3270,
+            "videos": 243
+          },
+          {
+            "florence_text": "boatfootwearperson",
+            "frames": 1762,
+            "videos": 90
+          },
+          {
+            "florence_text": "boathelicopter",
+            "frames": 213,
+            "videos": 53
+          },
+          {
+            "florence_text": "boatman",
+            "frames": 140,
+            "videos": 32
+          },
+          {
+            "florence_text": "boatfootwearhuman faceperson",
+            "frames": 107,
+            "videos": 29
+          },
+          {
+            "florence_text": "boatfishfootwearperson",
+            "frames": 72,
+            "videos": 23
+          },
+          {
+            "florence_text": "airplaneboat",
+            "frames": 71,
+            "videos": 14
+          },
+          {
+            "florence_text": "boatfootwearmanperson",
+            "frames": 62,
+            "videos": 9
+          }
+        ]
+      },
+      {
+        "pipeline_label": "nonmilitary",
+        "llm_label": "aircraft",
+        "frames": 2240,
+        "texts": 369,
+        "posts": 622,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "airplaneposter",
+            "frames": 221,
+            "videos": 59
+          },
+          {
+            "florence_text": "airplaneland vehiclewheel",
+            "frames": 162,
+            "videos": 51
+          },
+          {
+            "florence_text": "helicopterpersonweapon",
+            "frames": 145,
+            "videos": 51
+          },
+          {
+            "florence_text": "helicoptertoy",
+            "frames": 124,
+            "videos": 9
+          },
+          {
+            "florence_text": "airplanefootwearperson",
+            "frames": 119,
+            "videos": 63
+          },
+          {
+            "florence_text": "airplanetelevision",
+            "frames": 99,
+            "videos": 25
+          },
+          {
+            "florence_text": "helicopterweapon",
+            "frames": 81,
+            "videos": 26
+          },
+          {
+            "florence_text": "airplanefootwearman",
+            "frames": 51,
+            "videos": 28
+          }
+        ]
+      },
+      {
+        "pipeline_label": "maritime",
+        "llm_label": "nonmilitary",
+        "frames": 1797,
+        "texts": 68,
+        "posts": 435,
+        "human_reviewed_frames": 1797,
+        "top_texts": [
+          {
+            "florence_text": "marine mammal",
+            "frames": 790,
+            "videos": 186
+          },
+          {
+            "florence_text": "marine invertebrates",
+            "frames": 285,
+            "videos": 111
+          },
+          {
+            "florence_text": "paddle",
+            "frames": 260,
+            "videos": 65
+          },
+          {
+            "florence_text": "harbor seal",
+            "frames": 116,
+            "videos": 11
+          },
+          {
+            "florence_text": "marine mammalswimming pool",
+            "frames": 35,
+            "videos": 10
+          },
+          {
+            "florence_text": "fishseafood",
+            "frames": 27,
+            "videos": 9
+          },
+          {
+            "florence_text": "mansports uniform",
+            "frames": 26,
+            "videos": 12
+          },
+          {
+            "florence_text": "human facepersonseafood",
+            "frames": 24,
+            "videos": 3
+          }
+        ]
+      },
+      {
+        "pipeline_label": "nonmilitary",
+        "llm_label": "weapons",
+        "frames": 1543,
+        "texts": 148,
+        "posts": 281,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "handgun",
+            "frames": 713,
+            "videos": 79
+          },
+          {
+            "florence_text": "handgunperson",
+            "frames": 96,
+            "videos": 27
+          },
+          {
+            "florence_text": "rifletripod",
+            "frames": 68,
+            "videos": 6
+          },
+          {
+            "florence_text": "land vehiclerifle",
+            "frames": 53,
+            "videos": 20
+          },
+          {
+            "florence_text": "car tirefootwearpersonrifle",
+            "frames": 39,
+            "videos": 4
+          },
+          {
+            "florence_text": "land vehicleriflewheel",
+            "frames": 33,
+            "videos": 18
+          },
+          {
+            "florence_text": "missilerocket",
+            "frames": 32,
+            "videos": 26
+          },
+          {
+            "florence_text": "personrifletable",
+            "frames": 28,
+            "videos": 5
+          }
+        ]
+      },
+      {
+        "pipeline_label": "aircraft",
+        "llm_label": "ground_vehicles",
+        "frames": 451,
+        "texts": 41,
+        "posts": 117,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "helicoptertruckwheel",
+            "frames": 170,
+            "videos": 56
+          },
+          {
+            "florence_text": "helicopterpersontruck",
+            "frames": 73,
+            "videos": 15
+          },
+          {
+            "florence_text": "helicoptertruck",
+            "frames": 66,
+            "videos": 33
+          },
+          {
+            "florence_text": "helicopterpersontruckwheel",
+            "frames": 39,
+            "videos": 9
+          },
+          {
+            "florence_text": "helicopterpersonpropellertruck",
+            "frames": 14,
+            "videos": 4
+          },
+          {
+            "florence_text": "helicopterland vehicletruckwheel",
+            "frames": 13,
+            "videos": 8
+          },
+          {
+            "florence_text": "helicopterpickup truckwheel",
+            "frames": 11,
+            "videos": 2
+          },
+          {
+            "florence_text": "helicopterland vehiclepersontruckwheel",
+            "frames": 9,
+            "videos": 5
+          }
+        ]
+      },
+      {
+        "pipeline_label": "aircraft",
+        "llm_label": "maritime",
+        "frames": 34,
+        "texts": 12,
+        "posts": 11,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "airplaneboathelicopterland vehiclewheel",
+            "frames": 8,
+            "videos": 1
+          },
+          {
+            "florence_text": "boatchair",
+            "frames": 6,
+            "videos": 2
+          },
+          {
+            "florence_text": "boathelicoptervehicle",
+            "frames": 6,
+            "videos": 3
+          },
+          {
+            "florence_text": "boathelicoptertentvehicle",
+            "frames": 3,
+            "videos": 1
+          },
+          {
+            "florence_text": "airplaneboathelicopterland vehiclesunglasseswheel",
+            "frames": 2,
+            "videos": 1
+          },
+          {
+            "florence_text": "boatflaghelicoptervehicle",
+            "frames": 2,
+            "videos": 2
+          },
+          {
+            "florence_text": "airplaneboathelicopterland vehiclepersonsunglasseswheel",
+            "frames": 2,
+            "videos": 1
+          },
+          {
+            "florence_text": "airplaneboatflaghelicopter",
+            "frames": 1,
+            "videos": 1
+          }
+        ]
+      },
+      {
+        "pipeline_label": "weapons",
+        "llm_label": "ground_vehicles",
+        "frames": 26,
+        "texts": 14,
+        "posts": 17,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "carhelmetmantruckwheel",
+            "frames": 5,
+            "videos": 2
+          },
+          {
+            "florence_text": "carhuman facemantruckwheelwoman",
+            "frames": 3,
+            "videos": 2
+          },
+          {
+            "florence_text": "truckweaponwheel",
+            "frames": 3,
+            "videos": 2
+          },
+          {
+            "florence_text": "car tiretruckweaponwheel",
+            "frames": 2,
+            "videos": 1
+          },
+          {
+            "florence_text": "human facejackettruckwheeltrouserswoman",
+            "frames": 2,
+            "videos": 1
+          },
+          {
+            "florence_text": "buscarmirrorsteering wheeltruck",
+            "frames": 2,
+            "videos": 1
+          },
+          {
+            "florence_text": "truckweapon",
+            "frames": 2,
+            "videos": 1
+          },
+          {
+            "florence_text": "baseball gloveglasseshathuman facepersonplatetruckweapon",
+            "frames": 1,
+            "videos": 1
+          }
+        ]
+      },
+      {
+        "pipeline_label": "maritime",
+        "llm_label": "ground_vehicles",
+        "frames": 18,
+        "texts": 3,
+        "posts": 7,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "ambulancetruckwheel",
+            "frames": 15,
+            "videos": 4
+          },
+          {
+            "florence_text": "boatcartruckwheel",
+            "frames": 2,
+            "videos": 2
+          },
+          {
+            "florence_text": "limousinetruckwheel",
+            "frames": 1,
+            "videos": 1
+          }
+        ]
+      },
+      {
+        "pipeline_label": "aircraft",
+        "llm_label": "weapons",
+        "frames": 13,
+        "texts": 3,
+        "posts": 10,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "airplanemissile",
+            "frames": 10,
+            "videos": 9
+          },
+          {
+            "florence_text": "helicopterrifletripod",
+            "frames": 2,
+            "videos": 1
+          },
+          {
+            "florence_text": "airplanemissilerocket",
+            "frames": 1,
+            "videos": 1
+          }
+        ]
+      },
+      {
+        "pipeline_label": "maritime",
+        "llm_label": "aircraft",
+        "frames": 12,
+        "texts": 4,
+        "posts": 3,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "helicoptermanshortsswimwear",
+            "frames": 9,
+            "videos": 1
+          },
+          {
+            "florence_text": "helicoptermanswimwear",
+            "frames": 1,
+            "videos": 1
+          },
+          {
+            "florence_text": "helicoptermanswimwearwoman",
+            "frames": 1,
+            "videos": 1
+          },
+          {
+            "florence_text": "helicoptermicrophone",
+            "frames": 1,
+            "videos": 1
+          }
+        ]
+      },
+      {
+        "pipeline_label": "aircraft",
+        "llm_label": "nonmilitary",
+        "frames": 8,
+        "texts": 3,
+        "posts": 4,
+        "human_reviewed_frames": 8,
+        "top_texts": [
+          {
+            "florence_text": "carchairwheelwindow",
+            "frames": 4,
+            "videos": 2
+          },
+          {
+            "florence_text": "bottlecarchairloudspeakerperson",
+            "frames": 2,
+            "videos": 1
+          },
+          {
+            "florence_text": "ceiling fanchairguitarperson",
+            "frames": 2,
+            "videos": 1
+          }
+        ]
+      },
+      {
+        "pipeline_label": "weapons",
+        "llm_label": "aircraft",
+        "frames": 6,
+        "texts": 3,
+        "posts": 4,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "airplaneflagweapon",
+            "frames": 3,
+            "videos": 1
+          },
+          {
+            "florence_text": "airplaneflagfootwearmantrousers",
+            "frames": 2,
+            "videos": 2
+          },
+          {
+            "florence_text": "airplaneland vehicleweapon",
+            "frames": 1,
+            "videos": 1
+          }
+        ]
+      },
+      {
+        "pipeline_label": "weapons",
+        "llm_label": "maritime",
+        "frames": 3,
+        "texts": 1,
+        "posts": 2,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "boattower",
+            "frames": 3,
+            "videos": 2
+          }
+        ]
+      },
+      {
+        "pipeline_label": "maritime",
+        "llm_label": "weapons",
+        "frames": 1,
+        "texts": 1,
+        "posts": 1,
+        "human_reviewed_frames": 0,
+        "top_texts": [
+          {
+            "florence_text": "flagmissilerosewheel",
+            "frames": 1,
+            "videos": 1
+          }
+        ]
+      }
+    ],
+    "n_disagreement_frames": 56858,
+    "n_disagreement_frames_unreviewed": 43418
+  },
+  "auto_correction": {
+    "disagreement_frames": 56858,
+    "auto_resolved_frames": 43418,
+    "sent_to_humans_frames": 13440,
+    "human_reviewed_equals_unmatched": true,
+    "auto_label_equals_llm": 43418,
+    "auto_label_equals_pipeline": 0,
+    "auto_label_distribution": {
+      "ground_vehicles": 33040,
+      "maritime": 6563,
+      "aircraft": 2258,
+      "weapons": 1557
+    },
+    "keyword_hits": {
+      "truck": {
+        "category": "ground_vehicles",
+        "frames": 33040,
+        "examples": [
+          "car tiretruck",
+          "truckwheel",
+          "car tiretruckwheel"
+        ]
+      },
+      "boat": {
+        "category": "maritime",
+        "frames": 6605,
+        "examples": [
+          "boatperson",
+          "boatfootwearperson",
+          "boathelicopter"
+        ]
+      },
+      "gun": {
+        "category": "weapons",
+        "frames": 880,
+        "examples": [
+          "handgun",
+          "handgunperson",
+          "handgunhuman faceman"
+        ]
+      },
+      "rifle": {
+        "category": "weapons",
+        "frames": 631,
+        "examples": [
+          "rifletripod",
+          "land vehiclerifle",
+          "car tirefootwearpersonrifle"
+        ]
+      },
+      "missile": {
+        "category": "weapons",
+        "frames": 126,
+        "examples": [
+          "missiletruckwheel",
+          "missilerocket",
+          "human facemanmissiletruckwheel"
+        ]
+      },
+      "plane": {
+        "category": "aircraft",
+        "frames": 1799,
+        "examples": [
+          "airplaneposter",
+          "airplaneland vehiclewheel",
+          "airplanefootwearperson"
+        ]
+      },
+      "helicopter": {
+        "category": "aircraft",
+        "frames": 1541,
+        "examples": [
+          "boathelicopter",
+          "helicoptertruckwheel",
+          "helicopterpersonweapon"
+        ]
+      },
+      "jet": {
+        "category": "aircraft",
+        "frames": 2,
+        "examples": [
+          "jet skilife jacketperson"
+        ]
+      }
+    }
+  },
+  "human_review": {
+    "n_frames": 13440,
+    "n_texts": 738,
+    "cells_reviewed": [
+      {
+        "pipeline_label": "aircraft",
+        "llm_label": "nonmilitary",
+        "frames_in_cell": 8,
+        "frames_reviewed": 8
+      },
+      {
+        "pipeline_label": "maritime",
+        "llm_label": "nonmilitary",
+        "frames_in_cell": 1797,
+        "frames_reviewed": 1797
+      },
+      {
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "frames_in_cell": 11635,
+        "frames_reviewed": 11635
+      }
+    ],
+    "only_disagreements_reviewed": true,
+    "pooled": {
+      "frames": 13440,
+      "texts": 738,
+      "posts": 2926,
+      "human_distribution_frames": {
+        "weapons": {
+          "n": 8284,
+          "share": 0.6163690476190476
+        },
+        "aircraft": {
+          "n": 260,
+          "share": 0.019345238095238096
+        },
+        "maritime": {
+          "n": 28,
+          "share": 0.0020833333333333333
+        },
+        "ground_vehicles": {
+          "n": 406,
+          "share": 0.030208333333333334
+        },
+        "nonmilitary": {
+          "n": 4462,
+          "share": 0.3319940476190476
+        }
+      },
+      "human_distribution_texts": {
+        "weapons": {
+          "n": 313,
+          "share": 0.4241192411924119
+        },
+        "aircraft": {
+          "n": 1,
+          "share": 0.0013550135501355014
+        },
+        "maritime": {
+          "n": 5,
+          "share": 0.006775067750677507
+        },
+        "ground_vehicles": {
+          "n": 15,
+          "share": 0.02032520325203252
+        },
+        "nonmilitary": {
+          "n": 404,
+          "share": 0.5474254742547425
+        }
+      },
+      "frame_level": {
+        "sides_with_pipeline": {
+          "successes": 8311,
+          "n": 13440,
+          "estimate": 0.6183779761904762,
+          "ci_low": 0.5860443498839267,
+          "ci_high": 0.6482741354654284,
+          "std_error": 0.01594062000112969,
+          "n_boot": 2000,
+          "n_clusters": 2926,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "sides_with_llm": {
+          "successes": 4462,
+          "n": 13440,
+          "estimate": 0.3319940476190476,
+          "ci_low": 0.30231280031560576,
+          "ci_high": 0.3650685948790419,
+          "std_error": 0.015581245644249784,
+          "n_boot": 2000,
+          "n_clusters": 2926,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "neither": {
+          "successes": 667,
+          "n": 13440,
+          "estimate": 0.04962797619047619,
+          "ci_low": 0.037199508179628034,
+          "ci_high": 0.06481533419299376,
+          "std_error": 0.007192755609022148,
+          "n_boot": 2000,
+          "n_clusters": 2926,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        }
+      },
+      "text_level": {
+        "sides_with_pipeline": {
+          "successes": 317,
+          "n": 738,
+          "estimate": 0.42953929539295393,
+          "ci_low": 0.3942812301248911,
+          "ci_high": 0.4655270904220235
+        },
+        "sides_with_llm": {
+          "successes": 404,
+          "n": 738,
+          "estimate": 0.5474254742547425,
+          "ci_low": 0.5113611522783794,
+          "ci_high": 0.5829986319688896
+        },
+        "neither": {
+          "successes": 17,
+          "n": 738,
+          "estimate": 0.023035230352303523,
+          "ci_low": 0.014431005940981552,
+          "ci_high": 0.036579163915055765
+        }
+      }
+    },
+    "by_cell": {
+      "aircraft->nonmilitary": {
+        "frames": 8,
+        "texts": 3,
+        "posts": 4,
+        "human_distribution_frames": {
+          "weapons": {
+            "n": 0,
+            "share": 0.0
+          },
+          "aircraft": {
+            "n": 0,
+            "share": 0.0
+          },
+          "maritime": {
+            "n": 0,
+            "share": 0.0
+          },
+          "ground_vehicles": {
+            "n": 0,
+            "share": 0.0
+          },
+          "nonmilitary": {
+            "n": 8,
+            "share": 1.0
+          }
+        },
+        "human_distribution_texts": {
+          "weapons": {
+            "n": 0,
+            "share": 0.0
+          },
+          "aircraft": {
+            "n": 0,
+            "share": 0.0
+          },
+          "maritime": {
+            "n": 0,
+            "share": 0.0
+          },
+          "ground_vehicles": {
+            "n": 0,
+            "share": 0.0
+          },
+          "nonmilitary": {
+            "n": 3,
+            "share": 1.0
+          }
+        },
+        "frame_level": {
+          "sides_with_pipeline": {
+            "successes": 0,
+            "n": 8,
+            "estimate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "std_error": 0.0,
+            "n_boot": 2000,
+            "n_clusters": 4,
+            "confidence": 0.95,
+            "method": "cluster percentile bootstrap"
+          },
+          "sides_with_llm": {
+            "successes": 8,
+            "n": 8,
+            "estimate": 1.0,
+            "ci_low": 1.0,
+            "ci_high": 1.0,
+            "std_error": 0.0,
+            "n_boot": 2000,
+            "n_clusters": 4,
+            "confidence": 0.95,
+            "method": "cluster percentile bootstrap"
+          },
+          "neither": {
+            "successes": 0,
+            "n": 8,
+            "estimate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "std_error": 0.0,
+            "n_boot": 2000,
+            "n_clusters": 4,
+            "confidence": 0.95,
+            "method": "cluster percentile bootstrap"
+          }
+        },
+        "text_level": {
+          "sides_with_pipeline": {
+            "successes": 0,
+            "n": 3,
+            "estimate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.5614970317550454
+          },
+          "sides_with_llm": {
+            "successes": 3,
+            "n": 3,
+            "estimate": 1.0,
+            "ci_low": 0.4385029682449546,
+            "ci_high": 1.0
+          },
+          "neither": {
+            "successes": 0,
+            "n": 3,
+            "estimate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.5614970317550454
+          }
+        }
+      },
+      "maritime->nonmilitary": {
+        "frames": 1797,
+        "texts": 68,
+        "posts": 435,
+        "human_distribution_frames": {
+          "weapons": {
+            "n": 0,
+            "share": 0.0
+          },
+          "aircraft": {
+            "n": 260,
+            "share": 0.14468558708959378
+          },
+          "maritime": {
+            "n": 27,
+            "share": 0.015025041736227046
+          },
+          "ground_vehicles": {
+            "n": 0,
+            "share": 0.0
+          },
+          "nonmilitary": {
+            "n": 1510,
+            "share": 0.8402893711741792
+          }
+        },
+        "human_distribution_texts": {
+          "weapons": {
+            "n": 0,
+            "share": 0.0
+          },
+          "aircraft": {
+            "n": 1,
+            "share": 0.014705882352941176
+          },
+          "maritime": {
+            "n": 4,
+            "share": 0.058823529411764705
+          },
+          "ground_vehicles": {
+            "n": 0,
+            "share": 0.0
+          },
+          "nonmilitary": {
+            "n": 63,
+            "share": 0.9264705882352942
+          }
+        },
+        "frame_level": {
+          "sides_with_pipeline": {
+            "successes": 27,
+            "n": 1797,
+            "estimate": 0.015025041736227046,
+            "ci_low": 0.006571382399942542,
+            "ci_high": 0.026037286135370877,
+            "std_error": 0.005047295374213886,
+            "n_boot": 2000,
+            "n_clusters": 435,
+            "confidence": 0.95,
+            "method": "cluster percentile bootstrap"
+          },
+          "sides_with_llm": {
+            "successes": 1510,
+            "n": 1797,
+            "estimate": 0.8402893711741792,
+            "ci_low": 0.7672107628765793,
+            "ci_high": 0.9018743737405991,
+            "std_error": 0.034752643272595675,
+            "n_boot": 2000,
+            "n_clusters": 435,
+            "confidence": 0.95,
+            "method": "cluster percentile bootstrap"
+          },
+          "neither": {
+            "successes": 260,
+            "n": 1797,
+            "estimate": 0.14468558708959378,
+            "ci_low": 0.08492888258782263,
+            "ci_high": 0.21912501552698585,
+            "std_error": 0.0351555363784289,
+            "n_boot": 2000,
+            "n_clusters": 435,
+            "confidence": 0.95,
+            "method": "cluster percentile bootstrap"
+          }
+        },
+        "text_level": {
+          "sides_with_pipeline": {
+            "successes": 4,
+            "n": 68,
+            "estimate": 0.058823529411764705,
+            "ci_low": 0.023110765539635758,
+            "ci_high": 0.1417168843310147
+          },
+          "sides_with_llm": {
+            "successes": 63,
+            "n": 68,
+            "estimate": 0.9264705882352942,
+            "ci_low": 0.8391481160428227,
+            "ci_high": 0.9681851557488821
+          },
+          "neither": {
+            "successes": 1,
+            "n": 68,
+            "estimate": 0.014705882352941176,
+            "ci_low": 0.0026006835761068145,
+            "ci_high": 0.07870973128160871
+          }
+        }
+      },
+      "weapons->nonmilitary": {
+        "frames": 11635,
+        "texts": 667,
+        "posts": 2536,
+        "human_distribution_frames": {
+          "weapons": {
+            "n": 8284,
+            "share": 0.7119896862913623
+          },
+          "aircraft": {
+            "n": 0,
+            "share": 0.0
+          },
+          "maritime": {
+            "n": 1,
+            "share": 8.594757198109153e-05
+          },
+          "ground_vehicles": {
+            "n": 406,
+            "share": 0.034894714224323164
+          },
+          "nonmilitary": {
+            "n": 2944,
+            "share": 0.25302965191233345
+          }
+        },
+        "human_distribution_texts": {
+          "weapons": {
+            "n": 313,
+            "share": 0.46926536731634183
+          },
+          "aircraft": {
+            "n": 0,
+            "share": 0.0
+          },
+          "maritime": {
+            "n": 1,
+            "share": 0.0014992503748125937
+          },
+          "ground_vehicles": {
+            "n": 15,
+            "share": 0.022488755622188907
+          },
+          "nonmilitary": {
+            "n": 338,
+            "share": 0.5067466266866567
+          }
+        },
+        "frame_level": {
+          "sides_with_pipeline": {
+            "successes": 8284,
+            "n": 11635,
+            "estimate": 0.7119896862913623,
+            "ci_low": 0.680903332741077,
+            "ci_high": 0.7399821916767566,
+            "std_error": 0.014735303973162866,
+            "n_boot": 2000,
+            "n_clusters": 2536,
+            "confidence": 0.95,
+            "method": "cluster percentile bootstrap"
+          },
+          "sides_with_llm": {
+            "successes": 2944,
+            "n": 11635,
+            "estimate": 0.25302965191233345,
+            "ci_low": 0.22576773473737216,
+            "ci_high": 0.28199447693790486,
+            "std_error": 0.014293947959541994,
+            "n_boot": 2000,
+            "n_clusters": 2536,
+            "confidence": 0.95,
+            "method": "cluster percentile bootstrap"
+          },
+          "neither": {
+            "successes": 407,
+            "n": 11635,
+            "estimate": 0.034980661796304255,
+            "ci_low": 0.0247453271023735,
+            "ci_high": 0.04876325403604646,
+            "std_error": 0.006209666188386005,
+            "n_boot": 2000,
+            "n_clusters": 2536,
+            "confidence": 0.95,
+            "method": "cluster percentile bootstrap"
+          }
+        },
+        "text_level": {
+          "sides_with_pipeline": {
+            "successes": 313,
+            "n": 667,
+            "estimate": 0.46926536731634183,
+            "ci_low": 0.4316762477003371,
+            "ci_high": 0.5072064801619569
+          },
+          "sides_with_llm": {
+            "successes": 338,
+            "n": 667,
+            "estimate": 0.5067466266866567,
+            "ci_low": 0.4688751627282097,
+            "ci_high": 0.5445408238386038
+          },
+          "neither": {
+            "successes": 16,
+            "n": 667,
+            "estimate": 0.0239880059970015,
+            "ci_low": 0.014818508392124142,
+            "ci_high": 0.03860910606047934
+          }
+        }
+      }
+    },
+    "neither_examples": [
+      {
+        "florence_text": "paddle",
+        "pipeline_label": "maritime",
+        "llm_label": "nonmilitary",
+        "human_label": "aircraft",
+        "frames": 260,
+        "videos": 65
+      },
+      {
+        "florence_text": "footwearpersonweapon",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 203,
+        "videos": 92
+      },
+      {
+        "florence_text": "vehicleweapon",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 94,
+        "videos": 21
+      },
+      {
+        "florence_text": "helmetland vehiclepersonweaponwheel",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 26,
+        "videos": 7
+      },
+      {
+        "florence_text": "car tireland vehiclemantrousers",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 21,
+        "videos": 10
+      },
+      {
+        "florence_text": "land vehiclemantrousers",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 20,
+        "videos": 12
+      },
+      {
+        "florence_text": "personvehicleweapon",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 14,
+        "videos": 8
+      },
+      {
+        "florence_text": "barrelvehicle",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 7,
+        "videos": 3
+      },
+      {
+        "florence_text": "helmetpersonweaponvehicle",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 5,
+        "videos": 5
+      },
+      {
+        "florence_text": "footwearmantrousersvehicle",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 4,
+        "videos": 3
+      },
+      {
+        "florence_text": "rocketvehicle",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 4,
+        "videos": 3
+      },
+      {
+        "florence_text": "human facepersonweaponwheel",
+        "pipeline_label": "weapons",
+        "llm_label": "nonmilitary",
+        "human_label": "ground_vehicles",
+        "frames": 3,
+        "videos": 2
+      }
+    ],
+    "session_file": {
+      "rows": 9850,
+      "texts": 51,
+      "texts_also_in_merged_labels": 51,
+      "texts_consistent_with_merged_labels": 50,
+      "texts_with_conflicting_labels_within_session": {
+        "paddle": [
+          "aircraft",
+          "maritime"
+        ]
+      }
+    }
+  },
+  "precision_estimates": {
+    "weapons": {
+      "frames": 18584,
+      "llm_agrees": 6914,
+      "adjudicated": 11635,
+      "adjudicated_correct": 8284,
+      "unadjudicated_disagreements": 35,
+      "point": {
+        "estimate": 0.819343360828077,
+        "ci_low": 0.7972764364064956,
+        "ci_high": 0.8389930489310542,
+        "std_error": 0.010544553683002255,
+        "n_boot": 2000,
+        "n_clusters": 2957,
+        "confidence": 0.95,
+        "method": "cluster percentile bootstrap"
+      },
+      "lower_bound": 0.8178002582866982,
+      "upper_bound": 0.8196835987946621
+    },
+    "aircraft": {
+      "frames": 114075,
+      "llm_agrees": 113569,
+      "adjudicated": 8,
+      "adjudicated_correct": 0,
+      "unadjudicated_disagreements": 498,
+      "point": {
+        "estimate": 0.9999295632038177,
+        "ci_low": 0.9998422801840583,
+        "ci_high": 0.9999912619642889,
+        "std_error": 3.7981685067059024e-05,
+        "n_boot": 2000,
+        "n_clusters": 5465,
+        "confidence": 0.95,
+        "method": "cluster percentile bootstrap"
+      },
+      "lower_bound": 0.9955643217181679,
+      "upper_bound": 0.9999298706991014
+    },
+    "maritime": {
+      "frames": 6857,
+      "llm_agrees": 5029,
+      "adjudicated": 1797,
+      "adjudicated_correct": 27,
+      "unadjudicated_disagreements": 31,
+      "point": {
+        "estimate": 0.7406973337239965,
+        "ci_low": 0.6954014371242575,
+        "ci_high": 0.7816051890949957,
+        "std_error": 0.02213653472374311,
+        "n_boot": 2000,
+        "n_clusters": 967,
+        "confidence": 0.95,
+        "method": "cluster percentile bootstrap"
+      },
+      "lower_bound": 0.7373486947644743,
+      "upper_bound": 0.7418696222837976
+    },
+    "ground_vehicles": {
+      "frames": 52060,
+      "llm_agrees": 52060,
+      "adjudicated": 0,
+      "adjudicated_correct": 0,
+      "unadjudicated_disagreements": 0,
+      "point": {
+        "estimate": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "std_error": 0.0,
+        "n_boot": 2000,
+        "n_clusters": 2937,
+        "confidence": 0.95,
+        "method": "cluster percentile bootstrap"
+      },
+      "lower_bound": 1.0,
+      "upper_bound": 1.0
+    }
+  },
+  "video_level": {
+    "military_share_by_post_year": {
+      "2018": {
+        "videos": 29,
+        "pipeline_military": {
+          "successes": 1,
+          "n": 29,
+          "estimate": 0.034482758620689655,
+          "ci_low": 0.006113214292762667,
+          "ci_high": 0.17175521879320282
+        },
+        "llm_military": {
+          "successes": 1,
+          "n": 29,
+          "estimate": 0.034482758620689655,
+          "ci_low": 0.006113214292762667,
+          "ci_high": 0.17175521879320282
+        }
+      },
+      "2019": {
+        "videos": 189,
+        "pipeline_military": {
+          "successes": 8,
+          "n": 189,
+          "estimate": 0.042328042328042326,
+          "ci_low": 0.021601819155109163,
+          "ci_high": 0.08128818666642379
+        },
+        "llm_military": {
+          "successes": 9,
+          "n": 189,
+          "estimate": 0.047619047619047616,
+          "ci_low": 0.025251906693033913,
+          "ci_high": 0.08800931293403046
+        }
+      },
+      "2020": {
+        "videos": 884,
+        "pipeline_military": {
+          "successes": 108,
+          "n": 884,
+          "estimate": 0.12217194570135746,
+          "ci_low": 0.10220351967053513,
+          "ci_high": 0.14540989896020334
+        },
+        "llm_military": {
+          "successes": 133,
+          "n": 884,
+          "estimate": 0.1504524886877828,
+          "ci_low": 0.1283997410437204,
+          "ci_high": 0.17553003846795087
+        }
+      },
+      "2021": {
+        "videos": 2888,
+        "pipeline_military": {
+          "successes": 431,
+          "n": 2888,
+          "estimate": 0.1492382271468144,
+          "ci_low": 0.13670893406230228,
+          "ci_high": 0.16269940873591882
+        },
+        "llm_military": {
+          "successes": 500,
+          "n": 2888,
+          "estimate": 0.1731301939058172,
+          "ci_low": 0.15976751684467141,
+          "ci_high": 0.18736128434143004
+        }
+      },
+      "2022": {
+        "videos": 5595,
+        "pipeline_military": {
+          "successes": 958,
+          "n": 5595,
+          "estimate": 0.1712243074173369,
+          "ci_low": 0.16157996493639196,
+          "ci_high": 0.1813198069076705
+        },
+        "llm_military": {
+          "successes": 1194,
+          "n": 5595,
+          "estimate": 0.2134048257372654,
+          "ci_low": 0.2028677585644395,
+          "ci_high": 0.22433516840047169
+        }
+      },
+      "2023": {
+        "videos": 9528,
+        "pipeline_military": {
+          "successes": 1459,
+          "n": 9528,
+          "estimate": 0.153127623845508,
+          "ci_low": 0.14603677995749495,
+          "ci_high": 0.16049805609108878
+        },
+        "llm_military": {
+          "successes": 1929,
+          "n": 9528,
+          "estimate": 0.202455919395466,
+          "ci_low": 0.1945081241195645,
+          "ci_high": 0.2106435431112176
+        }
+      },
+      "2024": {
+        "videos": 9563,
+        "pipeline_military": {
+          "successes": 1302,
+          "n": 9563,
+          "estimate": 0.13614974380424552,
+          "ci_low": 0.1294221596553277,
+          "ci_high": 0.14316952800311536
+        },
+        "llm_military": {
+          "successes": 1732,
+          "n": 9563,
+          "estimate": 0.1811147129561853,
+          "ci_low": 0.17352462979588054,
+          "ci_high": 0.18896088579958495
+        }
+      }
+    },
+    "counts_match_stored_summary": true,
+    "n_files": 30958,
+    "n_files_with_frames": 30942,
+    "legacy_label_of_files_without_frames": [
+      "weapons"
+    ],
+    "n_files_without_frames": 16,
+    "override_possible_files": 67,
+    "ties_military_vs_nonmilitary": 193,
+    "legacy_vs_plurality_changed": 193,
+    "distributions": {
+      "legacy (as implemented)": {
+        "weapons": {
+          "n": 203,
+          "share": 0.006557271141546611
+        },
+        "aircraft": {
+          "n": 2971,
+          "share": 0.09596873183022159
+        },
+        "maritime": {
+          "n": 89,
+          "share": 0.0028748627172297953
+        },
+        "ground_vehicles": {
+          "n": 1422,
+          "share": 0.04593319981910976
+        },
+        "nonmilitary": {
+          "n": 26273,
+          "share": 0.8486659344918922
+        }
+      },
+      "plurality": {
+        "weapons": {
+          "n": 172,
+          "share": 0.005558787408700148
+        },
+        "aircraft": {
+          "n": 2878,
+          "share": 0.0930127335013897
+        },
+        "maritime": {
+          "n": 79,
+          "share": 0.0025531639842285565
+        },
+        "ground_vehicles": {
+          "n": 1347,
+          "share": 0.04353306185766919
+        },
+        "nonmilitary": {
+          "n": 26466,
+          "share": 0.8553422532480124
+        }
+      },
+      "any military frame": {
+        "weapons": {
+          "n": 2157,
+          "share": 0.06971107232887337
+        },
+        "aircraft": {
+          "n": 5265,
+          "share": 0.17015706806282724
+        },
+        "maritime": {
+          "n": 739,
+          "share": 0.02388339473854308
+        },
+        "ground_vehicles": {
+          "n": 2700,
+          "share": 0.08726003490401396
+        },
+        "nonmilitary": {
+          "n": 20081,
+          "share": 0.6489884299657424
+        }
+      },
+      "military >= 10% of frames": {
+        "weapons": {
+          "n": 1175,
+          "share": 0.03797427444896904
+        },
+        "aircraft": {
+          "n": 4852,
+          "share": 0.15680951457565767
+        },
+        "maritime": {
+          "n": 418,
+          "share": 0.013509146144399199
+        },
+        "ground_vehicles": {
+          "n": 2505,
+          "share": 0.08095792127205739
+        },
+        "nonmilitary": {
+          "n": 21992,
+          "share": 0.7107491435589167
+        }
+      },
+      "military >= 25% of frames": {
+        "weapons": {
+          "n": 621,
+          "share": 0.02006980802792321
+        },
+        "aircraft": {
+          "n": 4201,
+          "share": 0.13577015060435654
+        },
+        "maritime": {
+          "n": 206,
+          "share": 0.006657617477861806
+        },
+        "ground_vehicles": {
+          "n": 2152,
+          "share": 0.06954947967164372
+        },
+        "nonmilitary": {
+          "n": 23762,
+          "share": 0.7679529442182147
+        }
+      },
+      "military >= 50% of frames": {
+        "weapons": {
+          "n": 204,
+          "share": 0.006592980414969944
+        },
+        "aircraft": {
+          "n": 3058,
+          "share": 0.09883006916165729
+        },
+        "maritime": {
+          "n": 91,
+          "share": 0.0029409863615797297
+        },
+        "ground_vehicles": {
+          "n": 1471,
+          "share": 0.04754055975696465
+        },
+        "nonmilitary": {
+          "n": 26118,
+          "share": 0.8440954043048284
+        }
+      }
+    },
+    "plurality_one_file_per_post": {
+      "weapons": {
+        "n": 166,
+        "share": 0.005788812944622681
+      },
+      "aircraft": {
+        "n": 2772,
+        "share": 0.09666620170177152
+      },
+      "maritime": {
+        "n": 72,
+        "share": 0.002510810433812247
+      },
+      "ground_vehicles": {
+        "n": 1257,
+        "share": 0.04383456549030548
+      },
+      "nonmilitary": {
+        "n": 24409,
+        "share": 0.851199609429488
+      }
+    },
+    "pipeline_vs_llm_plurality": {
+      "labels": [
+        "weapons",
+        "aircraft",
+        "maritime",
+        "ground_vehicles",
+        "nonmilitary"
+      ],
+      "confusion_matrix": [
+        [
+          75,
+          0,
+          0,
+          0,
+          39
+        ],
+        [
+          0,
+          2861,
+          1,
+          0,
+          85
+        ],
+        [
+          0,
+          2,
+          59,
+          0,
+          131
+        ],
+        [
+          0,
+          8,
+          0,
+          1318,
+          1234
+        ],
+        [
+          97,
+          7,
+          19,
+          29,
+          24977
+        ]
+      ],
+      "metrics": {
+        "n": 30942.0,
+        "accuracy": 0.9466097860513218,
+        "kappa": 0.8176887681277687,
+        "macro_f1": 0.7170197055969012,
+        "weighted_f1": 0.9403154578214671,
+        "per_class": {
+          "weapons": {
+            "precision": 0.436046511627907,
+            "recall": 0.6578947368421053,
+            "f1": 0.5244755244755246,
+            "support": 114.0,
+            "predicted": 172.0
+          },
+          "aircraft": {
+            "precision": 0.9940931202223766,
+            "recall": 0.9708177807940278,
+            "f1": 0.9823175965665236,
+            "support": 2947.0,
+            "predicted": 2878.0
+          },
+          "maritime": {
+            "precision": 0.7468354430379747,
+            "recall": 0.3072916666666667,
+            "f1": 0.4354243542435424,
+            "support": 192.0,
+            "predicted": 79.0
+          },
+          "ground_vehicles": {
+            "precision": 0.9784706755753526,
+            "recall": 0.51484375,
+            "f1": 0.6746864601996417,
+            "support": 2560.0,
+            "predicted": 1347.0
+          },
+          "nonmilitary": {
+            "precision": 0.9437391370059699,
+            "recall": 0.9939512117473835,
+            "f1": 0.9681945924992732,
+            "support": 25129.0,
+            "predicted": 26466.0
+          }
+        }
+      },
+      "ci": {
+        "agreement": {
+          "estimate": 0.9466097860513218,
+          "ci_low": 0.9439682525564103,
+          "ci_high": 0.9492114476012662,
+          "std_error": 0.0013469464947789766,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "kappa": {
+          "estimate": 0.8176887681277687,
+          "ci_low": 0.8084925016487,
+          "ci_high": 0.8263839310928661,
+          "std_error": 0.004477729799410577,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "macro_f1": {
+          "estimate": 0.7170197055969012,
+          "ci_low": 0.6937434835334562,
+          "ci_high": 0.7387203175902606,
+          "std_error": 0.011444300226066705,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        }
+      }
+    },
+    "pipeline_vs_llm_plurality_binary": {
+      "labels": [
+        "military",
+        "nonmilitary"
+      ],
+      "confusion_matrix": [
+        [
+          4324,
+          1489
+        ],
+        [
+          152,
+          24977
+        ]
+      ],
+      "metrics": {
+        "n": 30942.0,
+        "accuracy": 0.9469652898972271,
+        "kappa": 0.8093458642532538,
+        "macro_f1": 0.9043519371282449,
+        "weighted_f1": 0.9442066566404543,
+        "per_class": {
+          "military": {
+            "precision": 0.966041108132261,
+            "recall": 0.7438499913985893,
+            "f1": 0.8405092817572165,
+            "support": 5813.0,
+            "predicted": 4476.0
+          },
+          "nonmilitary": {
+            "precision": 0.9437391370059699,
+            "recall": 0.9939512117473835,
+            "f1": 0.9681945924992732,
+            "support": 25129.0,
+            "predicted": 26466.0
+          }
+        }
+      },
+      "ci": {
+        "agreement": {
+          "estimate": 0.9469652898972271,
+          "ci_low": 0.9443510394869831,
+          "ci_high": 0.9495135299712939,
+          "std_error": 0.0013412787027384885,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "kappa": {
+          "estimate": 0.8093458642532538,
+          "ci_low": 0.7998563223355422,
+          "ci_high": 0.8183995260553079,
+          "std_error": 0.004697315796692099,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        },
+        "macro_f1": {
+          "estimate": 0.9043519371282449,
+          "ci_low": 0.8995472858878815,
+          "ci_high": 0.9089264061713018,
+          "std_error": 0.0023719097621283025,
+          "n_boot": 2000,
+          "n_clusters": 28676,
+          "confidence": 0.95,
+          "method": "cluster percentile bootstrap"
+        }
+      }
+    }
+  },
+  "reproduction": {
+    "texts_scored": 28490,
+    "texts_total": 28490,
+    "frames_covered": 1099951,
+    "frames_total": 1099951,
+    "texts_matching": 28490,
+    "frames_matching": 1099951,
+    "text_match_rate": 1.0,
+    "frame_match_rate": 1.0,
+    "mismatches": [],
+    "texts_within_0.001_of_threshold": 111,
+    "run": {
+      "kind": "relabel_legacy",
+      "started_at": "2026-11-27T18:03:30+00:00",
+      "zeroshot_detector": "1.0.0",
+      "python": "3.12.3",
+      "platform": "Linux-6.18.44-fc-v880-x86_64-with-glibc2.39",
+      "git": {
+        "commit": "984ae78",
+        "dirty": false
+      },
+      "packages": {
+        "numpy": "2.5.5",
+        "pandas": "3.1.1",
+        "torch": "2.15.0+cpu",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "opencv-python-headless": "5.1.0.95",
+        "pillow": "13.0.0",
+        "minio": "7.2.20",
+        "timm": "1.0.31"
+      },
+      "hardware": {
+        "machine": "x86_64",
+        "processor": "x86_64",
+        "cuda_available": false,
+        "torch_threads": 4
+      },
+      "model": "facebook/bart-large-mnli",
+      "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+      "threshold": 0.8,
+      "mode": "legacy",
+      "coverage": 1.0,
+      "include_reviewed": false,
+      "n_texts": 28490,
+      "transformers": "4.57.6",
+      "torch": "2.15.0+cpu",
+      "output": "results/relabel/legacy_bart-large-mnli.csv.gz",
+      "note": "Run with a script equivalent to wrote results/relabel/legacy_bart-large-mnli.csv.gz (interrupted once and resumed from its checkpoint).",
+      "finished_at": "2026-11-27T20:23:07+00:00"
+    }
+  },
+  "threshold_sensitivity": {
+    "frames_covered": 1099951,
+    "human_reviewed_frames_covered": 13440,
+    "note": "accuracy_on_human_reviewed is computed only on the non-random adjudicated subset",
+    "rows": [
+      {
+        "threshold": 0.3,
+        "military_share": 0.24281808916942663,
+        "agreement_with_llm": 0.9067003893809815,
+        "kappa_with_llm": 0.7536204033889293,
+        "binary_kappa_with_llm": 0.737328712390797,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.03277509634520083,
+          "aircraft": 0.10691385343528939,
+          "maritime": 0.04831942513802888,
+          "ground_vehicles": 0.05480971425090754,
+          "nonmilitary": 0.7571819108305734
+        }
+      },
+      {
+        "threshold": 0.35,
+        "military_share": 0.2369841929322306,
+        "agreement_with_llm": 0.912352459336825,
+        "kappa_with_llm": 0.7657116971170416,
+        "binary_kappa_with_llm": 0.7507446740697344,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.03234871371542914,
+          "aircraft": 0.1068820338360527,
+          "maritime": 0.043203742712175364,
+          "ground_vehicles": 0.05454970266857342,
+          "nonmilitary": 0.7630158070677694
+        }
+      },
+      {
+        "threshold": 0.4,
+        "military_share": 0.22732103520975025,
+        "agreement_with_llm": 0.9142707266050942,
+        "kappa_with_llm": 0.7662527429535947,
+        "binary_kappa_with_llm": 0.7517329476739576,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.03085410168271132,
+          "aircraft": 0.10675839196473297,
+          "maritime": 0.03922538367618194,
+          "ground_vehicles": 0.050483157886124015,
+          "nonmilitary": 0.7726789647902498
+        }
+      },
+      {
+        "threshold": 0.45,
+        "military_share": 0.21841609308050994,
+        "agreement_with_llm": 0.9227001930085976,
+        "kappa_with_llm": 0.7851556163202162,
+        "binary_kappa_with_llm": 0.7725674004810338,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.02947949499568617,
+          "aircraft": 0.10641110376734964,
+          "maritime": 0.03244417251313922,
+          "ground_vehicles": 0.05008132180433492,
+          "nonmilitary": 0.7815839069194901
+        }
+      },
+      {
+        "threshold": 0.5,
+        "military_share": 0.20992935139838048,
+        "agreement_with_llm": 0.9307769164262771,
+        "kappa_with_llm": 0.8039884498922863,
+        "binary_kappa_with_llm": 0.7932821000139313,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.027492133740502987,
+          "aircraft": 0.1062438235885053,
+          "maritime": 0.02679755734573631,
+          "ground_vehicles": 0.04939583672363587,
+          "nonmilitary": 0.7900706486016196
+        }
+      },
+      {
+        "threshold": 0.55,
+        "military_share": 0.2042154605068771,
+        "agreement_with_llm": 0.9353634843733948,
+        "kappa_with_llm": 0.8146615150318333,
+        "binary_kappa_with_llm": 0.8046729519256672,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.02606752482610589,
+          "aircraft": 0.10587926189439348,
+          "maritime": 0.02385288071923204,
+          "ground_vehicles": 0.04841579306714572,
+          "nonmilitary": 0.7957845394931229
+        }
+      },
+      {
+        "threshold": 0.6,
+        "military_share": 0.19845429478222212,
+        "agreement_with_llm": 0.939220019800882,
+        "kappa_with_llm": 0.823431227683792,
+        "binary_kappa_with_llm": 0.8142261126007908,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.023121939068194857,
+          "aircraft": 0.1057228912924303,
+          "maritime": 0.021439136834277162,
+          "ground_vehicles": 0.048170327587319796,
+          "nonmilitary": 0.8015457052177779
+        }
+      },
+      {
+        "threshold": 0.65,
+        "military_share": 0.19325406313553967,
+        "agreement_with_llm": 0.9430601908630475,
+        "kappa_with_llm": 0.8326397832245378,
+        "binary_kappa_with_llm": 0.8235335864089199,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.020593644625987884,
+          "aircraft": 0.1051555932946104,
+          "maritime": 0.020064530147252013,
+          "ground_vehicles": 0.04744029506768938,
+          "nonmilitary": 0.8067459368644603
+        }
+      },
+      {
+        "threshold": 0.7,
+        "military_share": 0.18690378025930246,
+        "agreement_with_llm": 0.9482522403270691,
+        "kappa_with_llm": 0.8456468998986963,
+        "binary_kappa_with_llm": 0.836958323225478,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.019379045066552966,
+          "aircraft": 0.10476012113266864,
+          "maritime": 0.015416141264474508,
+          "ground_vehicles": 0.04734847279560635,
+          "nonmilitary": 0.8130962197406976
+        }
+      },
+      {
+        "threshold": 0.75,
+        "military_share": 0.18015347956408967,
+        "agreement_with_llm": 0.9506368920070076,
+        "kappa_with_llm": 0.8503961122669539,
+        "binary_kappa_with_llm": 0.8419854823570141,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.01769624283263527,
+          "aircraft": 0.104444652534522,
+          "maritime": 0.010676839241020737,
+          "ground_vehicles": 0.047335744955911675,
+          "nonmilitary": 0.8198465204359103
+        }
+      },
+      {
+        "threshold": 0.8,
+        "military_share": 0.1741677583819643,
+        "agreement_with_llm": 0.9483086064742884,
+        "kappa_with_llm": 0.8410994234881953,
+        "binary_kappa_with_llm": 0.8322523102889784,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.016895298063277366,
+          "aircraft": 0.103709165226451,
+          "maritime": 0.006233914056171593,
+          "ground_vehicles": 0.047329381036064336,
+          "nonmilitary": 0.8258322416180357
+        }
+      },
+      {
+        "threshold": 0.85,
+        "military_share": 0.17074487863550286,
+        "agreement_with_llm": 0.9477440358706888,
+        "kappa_with_llm": 0.8380772795994795,
+        "binary_kappa_with_llm": 0.8288119476323559,
+        "accuracy_on_human_reviewed": 0.7109375,
+        "distribution": {
+          "weapons": 0.01576888425029842,
+          "aircraft": 0.10247001911903349,
+          "maritime": 0.005176594230106614,
+          "ground_vehicles": 0.047329381036064336,
+          "nonmilitary": 0.8292551213644972
+        }
+      },
+      {
+        "threshold": 0.9,
+        "military_share": 0.16647832494356568,
+        "agreement_with_llm": 0.9469794563576014,
+        "kappa_with_llm": 0.8340486090325718,
+        "binary_kappa_with_llm": 0.8244868337736515,
+        "accuracy_on_human_reviewed": 0.786235119047619,
+        "distribution": {
+          "weapons": 0.014173358631429945,
+          "aircraft": 0.1009744979549089,
+          "maritime": 0.0040010873211624885,
+          "ground_vehicles": 0.047329381036064336,
+          "nonmilitary": 0.8335216750564344
+        }
+      },
+      {
+        "threshold": 0.95,
+        "military_share": 0.14838206429195483,
+        "agreement_with_llm": 0.9314996758946534,
+        "kappa_with_llm": 0.7765079532230096,
+        "binary_kappa_with_llm": 0.7635843918401395,
+        "accuracy_on_human_reviewed": 0.7705357142857143,
+        "distribution": {
+          "weapons": 0.0126842013871527,
+          "aircraft": 0.08747026003885627,
+          "maritime": 0.000898221829881513,
+          "ground_vehicles": 0.047329381036064336,
+          "nonmilitary": 0.8516179357080452
+        }
+      },
+      {
+        "threshold": null,
+        "military_share": 0.24638097515252952,
+        "agreement_with_llm": 0.9031747777855559,
+        "kappa_with_llm": 0.7461896579521062,
+        "binary_kappa_with_llm": 0.728863003470828,
+        "accuracy_on_human_reviewed": 0.6183779761904762,
+        "distribution": {
+          "weapons": 0.032888737771046166,
+          "aircraft": 0.10692021735513672,
+          "maritime": 0.05168593873727102,
+          "ground_vehicles": 0.05488608128907561,
+          "nonmilitary": 0.7536190248474705
+        }
+      }
+    ]
+  },
+  "keyword_counterfactual": {
+    "frames": 52060,
+    "bart_only_distribution": {
+      "weapons": 697,
+      "aircraft": 320,
+      "maritime": 161,
+      "ground_vehicles": 0,
+      "nonmilitary": 50882
+    }
+  },
+  "separator_ablation": {
+    "frames_covered": 1046450,
+    "texts_covered": 4602,
+    "frames_changed": 10227,
+    "texts_changed": 568,
+    "legacy_vs_segmented_confusion": [
+      [
+        14471,
+        0,
+        0,
+        0,
+        3570
+      ],
+      [
+        0,
+        111167,
+        0,
+        0,
+        1009
+      ],
+      [
+        0,
+        0,
+        5585,
+        0,
+        830
+      ],
+      [
+        0,
+        0,
+        0,
+        50593,
+        0
+      ],
+      [
+        473,
+        667,
+        3678,
+        0,
+        854407
+      ]
+    ],
+    "kappa_with_llm_legacy": 0.8471095447141309,
+    "kappa_with_llm_segmented": 0.8640649711769898,
+    "agreement_with_llm_legacy": 0.9494949591475943,
+    "agreement_with_llm_segmented": 0.9551531367958336,
+    "accuracy_on_human_reviewed_legacy": 0.6183779761904762,
+    "accuracy_on_human_reviewed_segmented": 0.7810267857142857,
+    "distribution_legacy": {
+      "weapons": 0.017240193033589757,
+      "aircraft": 0.10719671269530316,
+      "maritime": 0.006130249892493669,
+      "ground_vehicles": 0.04834726933919442,
+      "nonmilitary": 0.821085575039419
+    },
+    "distribution_segmented": {
+      "weapons": 0.01428066319461035,
+      "aircraft": 0.1068698934492809,
+      "maritime": 0.008851832385684934,
+      "ground_vehicles": 0.04834726933919442,
+      "nonmilitary": 0.8216503416312294
+    },
+    "largest_changes": [
+      {
+        "florence_text": "boatperson",
+        "legacy": "nonmilitary",
+        "segmented": "maritime",
+        "frames": 3270
+      },
+      {
+        "florence_text": "human facemantrousers",
+        "legacy": "weapons",
+        "segmented": "nonmilitary",
+        "frames": 834
+      },
+      {
+        "florence_text": "airplaneposter",
+        "legacy": "nonmilitary",
+        "segmented": "aircraft",
+        "frames": 221
+      },
+      {
+        "florence_text": "helmethuman facepersonweapon",
+        "legacy": "weapons",
+        "segmented": "nonmilitary",
+        "frames": 208
+      },
+      {
+        "florence_text": "human facejacketmantrousers",
+        "legacy": "weapons",
+        "segmented": "nonmilitary",
+        "frames": 207
+      },
+      {
+        "florence_text": "boathuman faceperson",
+        "legacy": "maritime",
+        "segmented": "nonmilitary",
+        "frames": 185
+      },
+      {
+        "florence_text": "airplaneland vehiclewheel",
+        "legacy": "nonmilitary",
+        "segmented": "aircraft",
+        "frames": 162
+      },
+      {
+        "florence_text": "carhelicopterwheel",
+        "legacy": "aircraft",
+        "segmented": "nonmilitary",
+        "frames": 151
+      },
+      {
+        "florence_text": "mantrousers",
+        "legacy": "weapons",
+        "segmented": "nonmilitary",
+        "frames": 151
+      },
+      {
+        "florence_text": "footwearhuman facepersonrifle",
+        "legacy": "weapons",
+        "segmented": "nonmilitary",
+        "frames": 150
+      },
+      {
+        "florence_text": "boatman",
+        "legacy": "nonmilitary",
+        "segmented": "maritime",
+        "frames": 140
+      },
+      {
+        "florence_text": "toyweapon",
+        "legacy": "nonmilitary",
+        "segmented": "weapons",
+        "frames": 136
+      },
+      {
+        "florence_text": "footwearhelmethuman faceperson",
+        "legacy": "weapons",
+        "segmented": "nonmilitary",
+        "frames": 89
+      },
+      {
+        "florence_text": "canoelife jacketpaddleperson",
+        "legacy": "nonmilitary",
+        "segmented": "maritime",
+        "frames": 83
+      },
+      {
+        "florence_text": "boatfishing rodperson",
+        "legacy": "maritime",
+        "segmented": "nonmilitary",
+        "frames": 79
+      }
+    ],
+    "run": {
+      "kind": "relabel_segmented",
+      "started_at": "2026-11-27T20:22:47+00:00",
+      "zeroshot_detector": "1.0.0",
+      "python": "3.12.3",
+      "platform": "Linux-6.18.44-fc-v880-x86_64-with-glibc2.39",
+      "git": {
+        "commit": "504f91f69ac3a65cbc27b19ae04dbf6c4c9047bd",
+        "dirty": false
+      },
+      "packages": {
+        "numpy": "2.5.5",
+        "pandas": "3.1.1",
+        "torch": "2.15.0+cpu",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2",
+        "opencv-python-headless": "5.1.0.95",
+        "pillow": "13.0.0",
+        "minio": "7.2.20",
+        "timm": "1.0.31"
+      },
+      "hardware": {
+        "machine": "x86_64",
+        "processor": "x86_64",
+        "cuda_available": false,
+        "torch_threads": 4
+      },
+      "model": "facebook/bart-large-mnli",
+      "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+      "threshold": 0.8,
+      "mode": "segmented",
+      "coverage": 0.95,
+      "include_reviewed": true,
+      "n_texts": 4602,
+      "transformers": "4.57.6",
+      "torch": "2.15.0+cpu",
+      "output": "/tmp/claude-0/-home-user-Zeroshot-Detector/0b679f85-4a22-563c-b02d-06f9c816620c/scratchpad/relabel/segmented_bart-large-mnli.csv.gz",
+      "finished_at": "2026-11-27T20:41:47+00:00"
+    }
+  }
+}

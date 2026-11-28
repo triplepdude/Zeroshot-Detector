@@ -1,0 +1,39 @@
+{
+  "kind": "relabel_segmented",
+  "started_at": "2026-11-27T20:22:47+00:00",
+  "zeroshot_detector": "1.0.0",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.44-fc-v880-x86_64-with-glibc2.39",
+  "git": {
+    "commit": "504f91f69ac3a65cbc27b19ae04dbf6c4c9047bd",
+    "dirty": false
+  },
+  "packages": {
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "torch": "2.15.0+cpu",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "opencv-python-headless": "5.1.0.95",
+    "pillow": "13.0.0",
+    "minio": "7.2.20",
+    "timm": "1.0.31"
+  },
+  "hardware": {
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "cuda_available": false,
+    "torch_threads": 4
+  },
+  "model": "facebook/bart-large-mnli",
+  "revision": "d7645e127eaf1aefc7862fd59a17a5aa8558b8ce",
+  "threshold": 0.8,
+  "mode": "segmented",
+  "coverage": 0.95,
+  "include_reviewed": true,
+  "n_texts": 4602,
+  "transformers": "4.57.6",
+  "torch": "2.15.0+cpu",
+  "output": "/tmp/claude-0/-home-user-Zeroshot-Detector/0b679f85-4a22-563c-b02d-06f9c816620c/scratchpad/relabel/segmented_bart-large-mnli.csv.gz",
+  "finished_at": "2026-11-27T20:41:47+00:00"
+}

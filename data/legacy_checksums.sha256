@@ -1,0 +1,11 @@
+# SHA-256 of the CSV files committed in the original repository (commit c5e2900, directory post_processing/).
+# `zsd data verify` regenerates each file from data/frames.csv.gz and data/videos.csv.gz and checks it is byte-identical.
+# counts_summary_*.csv were stored as post_processing/.ipynb_checkpoints/counts_summary_*-checkpoint.csv.
+48f84a3b62b645dd3df060719dfa4594adc7b5a640ff3937a9a7f67af8153e7c  text_and_labels.csv
+f9c8e32152cec1a399d5296b2043d1a19ee52a8e7a90b380de90e8561c772590  text_with_openAI_Validation.csv
+0f9646fc5acc9d725faacf7b3374078472bc7cf934af107cf9e123cc1f21cd86  text_with_openAI_Validation_updated.csv
+db5055eec818b991b8e436e13ce350112a9171ed4f4948a8f0ec4533086d82c4  mismatches.csv
+941829ca772aa5af8692565d14414ad2759a16dd794cde7a69f34673a51a2c02  auto_corrected_mismatches.csv
+d3147a6fc4e14bcbcb30fd7ebbf43d700189b62d2b2dac0bc221a035639c79c2  frequent_mismatches.csv
+37b89b5620558fe398fe65384a3eec7c8badba9a9c26ca1fab573d55ec9fdd2c  counts_summary_frames.csv
+20375386bbf4ea10121d92c81be6aa61cbfbae01f260c593606a6aa702730c6a  counts_summary_summary.csv
